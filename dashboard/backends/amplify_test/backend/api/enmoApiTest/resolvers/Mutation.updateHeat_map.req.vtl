@@ -1,0 +1,28 @@
+#set ( $tableName = "data.heat_map")
+#set ( $columnList = ['id', 'measurement_run_id', 'type_id', 'metadata'] )
+#set ( $columnTimeList = [] )
+#set ( $input = $ctx.args.updateHeat_mapInput )
+
+## Build columns to be selected.
+#foreach( $columnTime in $columnTimeList )
+	#set ( $convertedTime = "cast(extract(epoch from $columnTime) as integer) as $columnTime" )
+	#set ( $discard = $columnList.add($convertedTime) )
+#end
+#set ( $columns = $columnList.toString().replace("[", "").replace("]", "") )
+
+#set( $updateList = {} )
+#foreach( $entry in $input.keySet() )
+  #set( $value = $input[$entry] )
+  #if($columnTimeList.contains($entry))
+    #set( $value = "to_timestamp($value)" )
+  #else
+    #set( $value = "'$value'" )
+  #end
+  #set( $discard = $updateList.put($entry, $value) )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE $tableName SET $update WHERE id=$input.id", "SELECT $columns FROM $tableName WHERE id=$input.id"]
+}

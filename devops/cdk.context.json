@@ -1,0 +1,52 @@
+{
+  "availability-zones:account=344560633387:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ],
+  "availability-zones:account=681713994780:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ],
+  "availability-zones:account=967137364025:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ],
+  "availability-zones:account=246217007781:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ],
+  "hosted-zone:account=344560633387:domainName=dev.neatleaf.com:region=us-west-2": {
+    "Id": "/hostedzone/Z0449423YBIRL3D39GXT",
+    "Name": "dev.neatleaf.com."
+  },
+  "hosted-zone:account=681713994780:domainName=sqa.neatleaf.com:region=us-west-2": {
+    "Id": "/hostedzone/Z00886081Y0VDBA7KKZCV",
+    "Name": "sqa.neatleaf.com."
+  },
+  "hosted-zone:account=967137364025:domainName=staging.neatleaf.com:region=us-west-2": {
+    "Id": "/hostedzone/Z1002671185MVEROTOCQX",
+    "Name": "staging.neatleaf.com."
+  },
+  "hosted-zone:account=246217007781:domainName=neatleaf.com:region=us-west-2": {
+    "Id": "/hostedzone/Z02061071PGSFQIXOMVAV",
+    "Name": "neatleaf.com."
+  },
+  "availability-zones:account=192790213875:region=us-west-2": [
+    "us-west-2a",
+    "us-west-2b",
+    "us-west-2c",
+    "us-west-2d"
+  ],
+  "hosted-zone:account=192790213875:domainName=devstable.neatleaf.com:region=us-west-2": {
+    "Id": "/hostedzone/Z03587302SKOMWC6DL0M2",
+    "Name": "devstable.neatleaf.com."
+  }
+}

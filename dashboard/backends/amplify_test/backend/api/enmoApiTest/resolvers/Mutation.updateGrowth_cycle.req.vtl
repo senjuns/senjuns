@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateGrowth_cycleInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateGrowth_cycleInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE growth_cycle SET $update WHERE id=$ctx.args.updateGrowth_cycleInput.id", "SELECT * FROM Growth_cycle WHERE id=$ctx.args.updateGrowth_cycleInput.id"]
+}

@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateSpatial_ref_sysInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateSpatial_ref_sysInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE spatial_ref_sys SET $update WHERE srid=$ctx.args.updateSpatial_ref_sysInput.srid}", "SELECT * FROM Spatial_ref_sys WHERE srid=$ctx.args.updateSpatial_ref_sysInput.srid"]
+}

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhotoMain /> renders PhotoMain 1`] = `
+<ForwardRef
+  draggable={true}
+  height={1000}
+  onDragMove={[Function]}
+  onWheel={[Function]}
+  style={
+    Object {
+      "borderRadius": 50,
+      "cursor": "pointer",
+      "overflow": "hidden",
+      "width": 1000,
+    }
+  }
+  width={1000}
+>
+  <Layer
+    id="sections-layer"
+  >
+    <SectionsLayer
+      historyInformation={
+        HistoryInformation {
+          "gridSize": Object {
+            "height": 0,
+            "width": 0,
+          },
+          "historiesGrid": Array [
+            Array [],
+          ],
+          "isReady": false,
+          "largeImageSize": Object {
+            "height": 3024,
+            "width": 4032,
+          },
+          "smallImageSize": Object {
+            "height": 130,
+            "width": 130,
+          },
+          "systemId": 2,
+        }
+      }
+      onClick={[MockFunction]}
+      sectionSize={
+        Object {
+          "height": 130,
+          "width": 130,
+        }
+      }
+    />
+  </Layer>
+</ForwardRef>
+`;

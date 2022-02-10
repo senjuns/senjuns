@@ -1,0 +1,32 @@
+query getEnumerationByCodeAndType($code: String = "", $type: String = "") {
+  enumeration(where: {code: {_eq: $code}, type: {_eq: $type}}) {
+    code
+    description
+    id
+  }
+}
+
+query getZonesByOrganizationId($organization_id: Int_comparison_exp = {}) {
+  zone(where: {location: {organization_id: $organization_id}}) {
+    id
+  }
+}
+
+query getZonesByOrganizationCode($code: String_comparison_exp = {}) {
+  zone(where: {location: {organization: {enumeration: {code: $code}}}}) {
+    id
+    enumeration {
+      description
+    }
+    location_id
+    metadata
+    name_id
+    size_x
+    size_y
+    size_z
+  }
+}
+
+
+
+

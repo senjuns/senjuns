@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotificationButton /> renders correctly. 1`] = `
+<styled.div>
+  <img
+    src="notification-button.svg"
+  />
+  <styled.div>
+    12
+  </styled.div>
+</styled.div>
+`;

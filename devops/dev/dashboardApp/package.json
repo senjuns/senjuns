@@ -1,0 +1,16 @@
+{
+  "stage": "dev",
+  "cdk_app_dir": "$npm_package_stage/dashboard",
+  "cdk_app": "DashboardAppStack",
+  "cdk_dir": "../../",
+  "scripts": {
+    "dependencies": "cd $npm_package_cdk_dir; yarn install",
+    "build-dashboard": "cd ../../../dashboard && yarn install && STAGE=$npm_package_stage yarn build",
+    "build": "yarn dependencies && tsc",
+    "deploy": "yarn build && yarn deploy-cdk",
+    "deploy-cdk": "cd $npm_package_cdk_dir && yarn cdk deploy $npm_package_stage-$npm_package_cdk_app --outputs-file cdk.outputs.json --require-approval never",
+    "deploy-cdk-stage": "yarn build && cd $npm_package_cdk_dir && yarn cdk deploy -a 'site.cdk.out/' $npm_package_stage-$npm_package_cdk_app --require-approval never",
+    "diff": "yarn build && cd $npm_package_cdk_dir && yarn cdk diff $npm_package_stage-$npm_package_cdk_app",
+    "destroy": "yarn build && cd $npm_package_cdk_dir && yarn cdk destroy $npm_package_stage-$npm_package_cdk_app"
+  }
+}

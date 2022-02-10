@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateInfrared_matrixInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateInfrared_matrixInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE infrared_matrix SET $update WHERE id=$ctx.args.updateInfrared_matrixInput.id", "SELECT * FROM Infrared_matrix WHERE id=$ctx.args.updateInfrared_matrixInput.id"]
+}

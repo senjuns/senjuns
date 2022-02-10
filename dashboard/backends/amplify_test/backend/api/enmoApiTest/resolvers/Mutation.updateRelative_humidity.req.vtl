@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateRelative_humidityInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateRelative_humidityInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE relative_humidity SET $update WHERE id=$ctx.args.updateRelative_humidityInput.id", "SELECT * FROM Relative_humidity WHERE id=$ctx.args.updateRelative_humidityInput.id"]
+}

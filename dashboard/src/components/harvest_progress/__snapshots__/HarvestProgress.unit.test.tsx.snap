@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HarvestProgress /> renders correctly. 1`] = `
+<styled.div>
+  <styled.div>
+    <styled.div
+      style={
+        Object {
+          "right": "46.42857142857143%",
+        }
+      }
+    >
+      Today
+    </styled.div>
+    <Styled(Typography)
+      color="gray"
+      variant="body1"
+    >
+      Dec 27
+    </Styled(Typography)>
+  </styled.div>
+  <styled.div>
+    <styled.div
+      style={
+        Object {
+          "width": "53.57142857142857%",
+        }
+      }
+    >
+      <Styled(Typography)
+        variant="h6"
+      >
+        Day
+      </Styled(Typography)>
+      <Styled(Typography)
+        variant="h6"
+      >
+        30
+      </Styled(Typography)>
+    </styled.div>
+  </styled.div>
+  <Styled(Typography)
+    color="gray"
+    variant="body2"
+  >
+    Harvest in 
+    26
+     days
+  </Styled(Typography)>
+</styled.div>
+`;

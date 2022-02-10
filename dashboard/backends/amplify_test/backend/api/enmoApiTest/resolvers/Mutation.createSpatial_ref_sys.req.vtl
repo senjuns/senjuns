@@ -1,0 +1,12 @@
+#set( $cols = [] )
+#set( $vals = [] )
+#foreach( $entry in $ctx.args.createSpatial_ref_sysInput.keySet() )
+  #set( $discard = $cols.add($entry) )
+  #set( $discard = $vals.add("'$ctx.args.createSpatial_ref_sysInput[$entry]'") )
+#end
+#set( $valStr = $vals.toString().replace("[","(").replace("]",")") )
+#set( $colStr = $cols.toString().replace("[","(").replace("]",")") )
+{
+  "version": "2018-05-29",
+  "statements":   ["INSERT INTO Spatial_ref_sys $colStr VALUES $valStr", "SELECT * FROM Spatial_ref_sys WHERE srid=$ctx.args.createSpatial_ref_sysInput.srid"]
+}

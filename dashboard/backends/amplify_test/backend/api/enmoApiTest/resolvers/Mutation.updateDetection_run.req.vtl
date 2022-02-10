@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateDetection_runInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateDetection_runInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE detection_run SET $update WHERE id=$ctx.args.updateDetection_runInput.id", "SELECT * FROM Detection_run WHERE id=$ctx.args.updateDetection_runInput.id"]
+}

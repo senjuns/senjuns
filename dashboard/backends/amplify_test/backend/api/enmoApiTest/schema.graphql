@@ -1,0 +1,1195 @@
+input CreateClassificationInput {
+  id: Int!
+  metadata: AWSJSON
+  name_id: Int
+}
+
+type classification {
+  id: Int!
+  metadata: AWSJSON
+  name_id: Int
+}
+
+input UpdateClassificationInput {
+  id: Int!
+  metadata: AWSJSON
+  name_id: Int
+}
+
+input CreateDetectionInput {
+  id: Int!
+  detection_run_id: Int!
+  roi: String!
+  detection_confidence: Float
+  classification_id: Int!
+  classification_confidence: Float
+  classification_distribution: AWSJSON
+  crop_resource_path: String!
+  metadata: AWSJSON
+  region_of_interest: String!
+}
+
+type detection {
+  id: Int!
+  detection_run_id: Int!
+  roi: String!
+  detection_confidence: Float
+  classification_id: Int!
+  classification_confidence: Float
+  classification_distribution: AWSJSON
+  crop_resource_path: String!
+  metadata: AWSJSON
+  region_of_interest: String!
+}
+
+input UpdateDetectionInput {
+  id: Int!
+  detection_run_id: Int
+  roi: String
+  detection_confidence: Float
+  classification_id: Int
+  classification_confidence: Float
+  classification_distribution: AWSJSON
+  crop_resource_path: String
+  metadata: AWSJSON
+  region_of_interest: String
+}
+
+input CreateDetection_runInput {
+  id: Int!
+  create_timestamp: AWSTimestamp!
+  state: Int!
+  start_timestamp: AWSTimestamp
+  end_timestamp: AWSTimestamp
+  metadata: AWSJSON
+  detector_id: Int
+  image_id: Int
+  measurement_id: Int
+  state_id: Int
+}
+
+type detection_run {
+  id: Int!
+  create_timestamp: AWSTimestamp!
+  state: Int!
+  start_timestamp: AWSTimestamp
+  end_timestamp: AWSTimestamp
+  metadata: AWSJSON
+  detector_id: Int
+  image_id: Int
+  measurement_id: Int
+  state_id: Int
+}
+
+input UpdateDetection_runInput {
+  id: Int!
+  create_timestamp: AWSTimestamp
+  state: Int
+  start_timestamp: AWSTimestamp
+  end_timestamp: AWSTimestamp
+  metadata: AWSJSON
+  detector_id: Int
+  image_id: Int
+  measurement_id: Int
+  state_id: Int
+}
+
+input CreateDetectorInput {
+  id: Int!
+  name: String!
+  version: String!
+  metadata: AWSJSON
+  version_id: Int!
+}
+
+type detector {
+  id: Int!
+  name: String!
+  version: String!
+  metadata: AWSJSON
+  version_id: Int!
+}
+
+input UpdateDetectorInput {
+  id: Int!
+  name: String
+  version: String
+  metadata: AWSJSON
+  version_id: Int
+}
+
+input CreateEnumerationInput {
+  id: Int!
+  type: String!
+  code: String!
+  metadata: AWSJSON
+  description: String!
+}
+
+type enumeration {
+  id: Int!
+  type: String!
+  code: String!
+  metadata: AWSJSON
+  description: String!
+}
+
+input UpdateEnumerationInput {
+  id: Int!
+  type: String
+  code: String
+  metadata: AWSJSON
+  description: String
+}
+
+input CreateGrowth_cycleInput {
+  id: Int!
+  description: String
+  title: String
+  plant_count: Int
+  metadata: AWSJSON
+  estimated_harvest_date_time: AWSTimestamp
+  actual_harvest_date_time: AWSTimestamp
+  start_date_time: AWSTimestamp
+  zoneId: Int
+  strain_id: Int
+  start_time: AWSTimestamp!
+  end_time: AWSTimestamp!
+  zone_id: Int
+}
+
+type growth_cycle {
+  id: Int!
+  description: String
+  title: String
+  plant_count: Int
+  metadata: AWSJSON
+  estimated_harvest_date_time: AWSTimestamp
+  actual_harvest_date_time: AWSTimestamp
+  start_date_time: AWSTimestamp
+  zoneId: Int
+  strain_id: Int
+  start_time: AWSTimestamp!
+  end_time: AWSTimestamp!
+  zone_id: Int
+}
+
+input UpdateGrowth_cycleInput {
+  id: Int!
+  description: String
+  title: String
+  plant_count: Int
+  metadata: AWSJSON
+  estimated_harvest_date_time: AWSTimestamp
+  actual_harvest_date_time: AWSTimestamp
+  start_date_time: AWSTimestamp
+  zoneId: Int
+  strain_id: Int
+  start_time: AWSTimestamp
+  end_time: AWSTimestamp
+  zone_id: Int
+}
+
+input CreateLabel_taskInput {
+  id: Int!
+  create_timestamp: AWSTimestamp!
+  modified_timestamp: AWSTimestamp
+  metadata: AWSJSON
+  detection_id: Int
+  minimum_expertise: Int
+  priority: Int
+  status: Int
+  create_time: AWSTimestamp!
+  modified_time: AWSTimestamp
+  minimum_expertise_id: Int
+  priority_id: Int
+  status_id: Int
+}
+
+type label_task {
+  id: Int!
+  create_timestamp: AWSTimestamp!
+  modified_timestamp: AWSTimestamp
+  metadata: AWSJSON
+  detection_id: Int
+  minimum_expertise: Int
+  priority: Int
+  status: Int
+  create_time: AWSTimestamp!
+  modified_time: AWSTimestamp
+  minimum_expertise_id: Int
+  priority_id: Int
+  status_id: Int
+}
+
+input UpdateLabel_taskInput {
+  id: Int!
+  create_timestamp: AWSTimestamp
+  modified_timestamp: AWSTimestamp
+  metadata: AWSJSON
+  detection_id: Int
+  minimum_expertise: Int
+  priority: Int
+  status: Int
+  create_time: AWSTimestamp
+  modified_time: AWSTimestamp
+  minimum_expertise_id: Int
+  priority_id: Int
+  status_id: Int
+}
+
+input CreateLocationInput {
+  id: Int!
+  timezone: Int!
+  coordinates: String
+  metadata: AWSJSON
+  name_id: Int
+  timezone_offset_15min_increments: Int!
+  address_id: Int
+  organization_id: Int
+}
+
+type location {
+  id: Int!
+  timezone: Int!
+  coordinates: String
+  metadata: AWSJSON
+  name_id: Int
+  timezone_offset_15min_increments: Int!
+  address_id: Int
+  organization_id: Int
+}
+
+input UpdateLocationInput {
+  id: Int!
+  timezone: Int
+  coordinates: String
+  metadata: AWSJSON
+  name_id: Int
+  timezone_offset_15min_increments: Int
+  address_id: Int
+  organization_id: Int
+}
+
+input CreateSpatial_ref_sysInput {
+  srid: Int!
+  auth_name: String
+  auth_srid: Int
+  srtext: String
+  proj4text: String
+}
+
+type spatial_ref_sys {
+  srid: Int!
+  auth_name: String
+  auth_srid: Int
+  srtext: String
+  proj4text: String
+}
+
+input UpdateSpatial_ref_sysInput {
+  srid: Int!
+  auth_name: String
+  auth_srid: Int
+  srtext: String
+  proj4text: String
+}
+
+input CreateTrackInput {
+  id: Int!
+  system_id: Int
+  classification_id: Int
+  first_image_time: AWSTimestamp!
+  last_image_time: AWSTimestamp!
+  metadata: AWSJSON
+}
+
+type track {
+  id: Int!
+  system_id: Int
+  classification_id: Int
+  first_image_time: AWSTimestamp!
+  last_image_time: AWSTimestamp!
+  metadata: AWSJSON
+}
+
+input UpdateTrackInput {
+  id: Int!
+  system_id: Int
+  classification_id: Int
+  first_image_time: AWSTimestamp!
+  last_image_time: AWSTimestamp!
+  metadata: AWSJSON
+}
+
+input CreateZoneInput {
+  id: Int!
+  description: String
+  metadata: AWSJSON
+  name_id: Int
+  location_id: Int
+  size_x: Float
+  size_y: Float
+  size_z: Float
+}
+
+type zone {
+  id: Int!
+  description: String
+  metadata: AWSJSON
+  name_id: Int
+  location_id: Int
+  size_x: Float
+  size_y: Float
+  size_z: Float
+}
+
+input UpdateZoneInput {
+  id: Int!
+  description: String
+  metadata: AWSJSON
+  name_id: Int
+  location_id: Int
+  size_x: Float
+  size_y: Float
+  size_z: Float
+}
+
+type Mutation {
+  deleteClassification(id: Int!): classification
+  createClassification(
+    createClassificationInput: CreateClassificationInput!
+  ): classification
+  updateClassification(
+    updateClassificationInput: UpdateClassificationInput!
+  ): classification
+  deleteDetection(id: Int!): detection
+  createDetection(createDetectionInput: CreateDetectionInput!): detection
+  updateDetection(updateDetectionInput: UpdateDetectionInput!): detection
+  deleteDetection_run(id: Int!): detection_run
+  createDetection_run(
+    createDetection_runInput: CreateDetection_runInput!
+  ): detection_run
+  updateDetection_run(
+    updateDetection_runInput: UpdateDetection_runInput!
+  ): detection_run
+  deleteDetector(id: Int!): detector
+  createDetector(createDetectorInput: CreateDetectorInput!): detector
+  updateDetector(updateDetectorInput: UpdateDetectorInput!): detector
+  deleteEnumeration(id: Int!): enumeration
+  createEnumeration(
+    createEnumerationInput: CreateEnumerationInput!
+  ): enumeration
+  updateEnumeration(
+    updateEnumerationInput: UpdateEnumerationInput!
+  ): enumeration
+  deleteGrowth_cycle(id: Int!): growth_cycle
+  createGrowth_cycle(
+    createGrowth_cycleInput: CreateGrowth_cycleInput!
+  ): growth_cycle
+  updateGrowth_cycle(
+    updateGrowth_cycleInput: UpdateGrowth_cycleInput!
+  ): growth_cycle
+  deleteLabel_task(id: Int!): label_task
+  createLabel_task(createLabel_taskInput: CreateLabel_taskInput!): label_task
+  updateLabel_task(updateLabel_taskInput: UpdateLabel_taskInput!): label_task
+  deleteLocation(id: Int!): location
+  createLocation(createLocationInput: CreateLocationInput!): location
+  updateLocation(updateLocationInput: UpdateLocationInput!): location
+  deleteSpatial_ref_sys(srid: Int!): spatial_ref_sys
+  createSpatial_ref_sys(
+    createSpatial_ref_sysInput: CreateSpatial_ref_sysInput!
+  ): spatial_ref_sys
+  updateSpatial_ref_sys(
+    updateSpatial_ref_sysInput: UpdateSpatial_ref_sysInput!
+  ): spatial_ref_sys
+  deleteTrack(id: Int!): track
+  createTrack(createTrackInput: CreateTrackInput!): track
+  updateTrack(updateTrackInput: UpdateTrackInput!): track
+  deleteZone(id: Int!): zone
+  createZone(createZoneInput: CreateZoneInput!): zone
+  updateZone(updateZoneInput: UpdateZoneInput!): zone
+  deleteAddress(id: Int!): address
+  createAddress(createAddressInput: CreateAddressInput!): address
+  updateAddress(updateAddressInput: UpdateAddressInput!): address
+  deleteCo2(id: Int!): co2
+  createCo2(createCo2Input: CreateCo2Input!): co2
+  updateCo2(updateCo2Input: UpdateCo2Input!): co2
+  deleteCompute(id: Int!): compute
+  createCompute(createComputeInput: CreateComputeInput!): compute
+  updateCompute(updateComputeInput: UpdateComputeInput!): compute
+  deleteConfig(id: Int!): config
+  createConfig(createConfigInput: CreateConfigInput!): config
+  updateConfig(updateConfigInput: UpdateConfigInput!): config
+  deleteInfrared_matrix(id: Int!): infrared_matrix
+  createInfrared_matrix(
+    createInfrared_matrixInput: CreateInfrared_matrixInput!
+  ): infrared_matrix
+  updateInfrared_matrix(
+    updateInfrared_matrixInput: UpdateInfrared_matrixInput!
+  ): infrared_matrix
+  deleteMeasurement(id: Int!): measurement
+  createMeasurement(
+    createMeasurementInput: CreateMeasurementInput!
+  ): measurement
+  updateMeasurement(
+    updateMeasurementInput: UpdateMeasurementInput!
+  ): measurement
+  deleteMeasurement_run(id: Int!): measurement_run
+  createMeasurement_run(
+    createMeasurement_runInput: CreateMeasurement_runInput!
+  ): measurement_run
+  updateMeasurement_run(
+    updateMeasurement_runInput: UpdateMeasurement_runInput!
+  ): measurement_run
+  deleteOrganization(id: Int!): organization
+  createOrganization(
+    createOrganizationInput: CreateOrganizationInput!
+  ): organization
+  updateOrganization(
+    updateOrganizationInput: UpdateOrganizationInput!
+  ): organization
+  deleteParameters(id: Int!): parameters
+  createParameters(createParametersInput: CreateParametersInput!): parameters
+  updateParameters(updateParametersInput: UpdateParametersInput!): parameters
+  deletePose(id: Int!): pose
+  createPose(createPoseInput: CreatePoseInput!): pose
+  updatePose(updatePoseInput: UpdatePoseInput!): pose
+  deleteRelative_humidity(id: Int!): relative_humidity
+  createRelative_humidity(
+    createRelative_humidityInput: CreateRelative_humidityInput!
+  ): relative_humidity
+  updateRelative_humidity(
+    updateRelative_humidityInput: UpdateRelative_humidityInput!
+  ): relative_humidity
+  deleteRgb_image(id: Int!): rgb_image
+  createRgb_image(createRgb_imageInput: CreateRgb_imageInput!): rgb_image
+  updateRgb_image(updateRgb_imageInput: UpdateRgb_imageInput!): rgb_image
+  deleteSystem(id: Int!): system
+  createSystem(createSystemInput: CreateSystemInput!): system
+  updateSystem(updateSystemInput: UpdateSystemInput!): system
+  deleteTemperature(id: Int!): temperature
+  createTemperature(
+    createTemperatureInput: CreateTemperatureInput!
+  ): temperature
+  updateTemperature(
+    updateTemperatureInput: UpdateTemperatureInput!
+  ): temperature
+  deleteTrack_detections(detection_id: Int!): track_detections
+  createTrack_detections(
+    createTrack_detectionsInput: CreateTrack_detectionsInput!
+  ): track_detections
+  updateTrack_detections(
+    updateTrack_detectionsInput: UpdateTrack_detectionsInput!
+  ): track_detections
+  deleteUser(id: Int!): user
+  createUser(createUserInput: CreateUserInput!): user
+  updateUser(updateUserInput: UpdateUserInput!): user
+  deleteUser_label(id: Int!): user_label
+  createUser_label(createUser_labelInput: CreateUser_labelInput!): user_label
+  updateUser_label(updateUser_labelInput: UpdateUser_labelInput!): user_label
+  deleteVersion(id: Int!): version
+  createVersion(createVersionInput: CreateVersionInput!): version
+  updateVersion(updateVersionInput: UpdateVersionInput!): version
+  deleteHeat_map(id: Int!): heat_map
+  createHeat_map(createHeat_mapInput: CreateHeat_mapInput!): heat_map
+  updateHeat_map(updateHeat_mapInput: UpdateHeat_mapInput!): heat_map
+}
+
+type Query {
+  getClassification(id: Int!): classification
+  listClassifications: [classification]
+  getDetection(id: Int!): detection
+  listDetections: [detection]
+  getDetection_run(id: Int!): detection_run
+  listDetection_runs: [detection_run]
+  getDetector(id: Int!): detector
+  listDetectors: [detector]
+  getEnumeration(id: Int!): enumeration
+  listEnumerations: [enumeration]
+  getGrowth_cycle(id: Int!): growth_cycle
+  listGrowth_cycles: [growth_cycle]
+  getLabel_task(id: Int!): label_task
+  listLabel_tasks: [label_task]
+  getLocation(id: Int!): location
+  listLocations: [location]
+  getSpatial_ref_sys(srid: Int!): spatial_ref_sys
+  listSpatial_ref_syss: [spatial_ref_sys]
+  getTrack(id: Int!): track
+  listTracks: [track]
+  getZone(id: Int!): zone
+  listZones: [zone]
+  getAddress(id: Int!): address
+  listAddresss: [address]
+  getCo2(id: Int!): co2
+  listCo2s: [co2]
+  getCompute(id: Int!): compute
+  listComputes: [compute]
+  getConfig(id: Int!): config
+  listConfigs: [config]
+  getInfrared_matrix(id: Int!): infrared_matrix
+  listInfrared_matrixs: [infrared_matrix]
+  getMeasurement(id: Int!): measurement
+  listMeasurements: [measurement]
+  filterMeasurements(
+    filterMeasurementInput: FilterMeasurementInput!
+  ): [measurement]
+  getMeasurement_run(id: Int!): measurement_run
+  getLatestMeasurement_run: measurement_run
+  listMeasurement_runs: [measurement_run]
+  filterMeasurement_runs(
+    filterMeasurement_runInput: FilterMeasurement_runInput!
+  ): [measurement_run]
+  getOrganization(id: Int!): organization
+  listOrganizations: [organization]
+  getParameters(id: Int!): parameters
+  listParameterss: [parameters]
+  getPose(id: Int!): pose
+  listPoses: [pose]
+  getRelative_humidity(id: Int!): relative_humidity
+  listRelative_humiditys: [relative_humidity]
+  filterRelative_humiditys(
+    filterRelative_humidityInput: FilterRelative_humidityInput!
+  ): [relative_humidity]
+  getRgb_image(id: Int!): rgb_image
+  listRgb_images: [rgb_image]
+  getSystem(id: Int!): system
+  listSystems: [system]
+  getTemperature(id: Int!): temperature
+  listTemperatures: [temperature]
+  filterTemperatures(
+    filterTemperatureInput: FilterTemperatureInput!
+  ): [temperature]
+  getTrack_detections(detection_id: Int!): track_detections
+  listTrack_detectionss: [track_detections]
+  getUser(id: Int!): user
+  listUsers: [user]
+  getUser_label(id: Int!): user_label
+  listUser_labels: [user_label]
+  getVersion(id: Int!): version
+  listVersions: [version]
+  getHeat_map(id: Int!): heat_map
+  listHeat_maps: [heat_map]
+  filterHeat_maps(filterHeat_mapInput: FilterHeat_mapInput!): [heat_map]
+}
+
+type Subscription {
+  onCreateClassification: classification
+    @aws_subscribe(mutations: ["createClassification"])
+  onCreateDetection: detection @aws_subscribe(mutations: ["createDetection"])
+  onCreateDetection_run: detection_run
+    @aws_subscribe(mutations: ["createDetection_run"])
+  onCreateDetector: detector @aws_subscribe(mutations: ["createDetector"])
+  onCreateEnumeration: enumeration
+    @aws_subscribe(mutations: ["createEnumeration"])
+  onCreateGrowth_cycle: growth_cycle
+    @aws_subscribe(mutations: ["createGrowth_cycle"])
+  onCreateLabel_task: label_task @aws_subscribe(mutations: ["createLabel_task"])
+  onCreateLocation: location @aws_subscribe(mutations: ["createLocation"])
+  onCreateSpatial_ref_sys: spatial_ref_sys
+    @aws_subscribe(mutations: ["createSpatial_ref_sys"])
+  onCreateTrack: track @aws_subscribe(mutations: ["createTrack"])
+  onCreateZone: zone @aws_subscribe(mutations: ["createZone"])
+  onCreateAddress: address @aws_subscribe(mutations: ["createAddress"])
+  onCreateCo2: co2 @aws_subscribe(mutations: ["createCo2"])
+  onCreateCompute: compute @aws_subscribe(mutations: ["createCompute"])
+  onCreateConfig: config @aws_subscribe(mutations: ["createConfig"])
+  onCreateInfrared_matrix: infrared_matrix
+    @aws_subscribe(mutations: ["createInfrared_matrix"])
+  onCreateMeasurement: measurement
+    @aws_subscribe(mutations: ["createMeasurement"])
+  onCreateMeasurement_run: measurement_run
+    @aws_subscribe(mutations: ["createMeasurement_run"])
+  onCreateOrganization: organization
+    @aws_subscribe(mutations: ["createOrganization"])
+  onCreateParameters: parameters @aws_subscribe(mutations: ["createParameters"])
+  onCreatePose: pose @aws_subscribe(mutations: ["createPose"])
+  onCreateRelative_humidity: relative_humidity
+    @aws_subscribe(mutations: ["createRelative_humidity"])
+  onCreateRgb_image: rgb_image @aws_subscribe(mutations: ["createRgb_image"])
+  onCreateSystem: system @aws_subscribe(mutations: ["createSystem"])
+  onCreateTemperature: temperature
+    @aws_subscribe(mutations: ["createTemperature"])
+  onCreateTrack_detections: track_detections
+    @aws_subscribe(mutations: ["createTrack_detections"])
+  onCreateUser: user @aws_subscribe(mutations: ["createUser"])
+  onCreateUser_label: user_label @aws_subscribe(mutations: ["createUser_label"])
+  onCreateVersion: version @aws_subscribe(mutations: ["createVersion"])
+  onCreateHeat_map: heat_map @aws_subscribe(mutations: ["createHeat_map"])
+}
+
+input CreateAddressInput {
+  id: Int!
+  street: String
+  postal_code: String
+  metadata: AWSJSON
+  country_code_id: Int
+  region_id: Int
+}
+
+type address {
+  id: Int!
+  street: String
+  postal_code: String
+  metadata: AWSJSON
+  country_code_id: Int
+  region_id: Int
+}
+
+input UpdateAddressInput {
+  id: Int!
+  street: String
+  postal_code: String
+  metadata: AWSJSON
+  country_code_id: Int
+  region_id: Int
+}
+
+input CreateCo2Input {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  value_ppm: Int!
+}
+
+type co2 {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  value_ppm: Int!
+}
+
+input UpdateCo2Input {
+  id: Int!
+  measurement_run_id: Int
+  sensor_type_id: Int
+  time: AWSTimestamp
+  pose_id: Int
+  metadata: AWSJSON
+  value_ppm: Int
+}
+
+input CreateComputeInput {
+  id: Int!
+  mac_address: Int!
+  metadata: AWSJSON
+  organization_id: Int
+  system_id: Int
+  type_id: Int
+}
+
+type compute {
+  id: Int!
+  mac_address: Int!
+  metadata: AWSJSON
+  organization_id: Int
+  system_id: Int
+  type_id: Int
+}
+
+input UpdateComputeInput {
+  id: Int!
+  mac_address: Int
+  metadata: AWSJSON
+  organization_id: Int
+  system_id: Int
+  type_id: Int
+}
+
+input CreateConfigInput {
+  id: Int!
+  config: AWSJSON
+  version_id: Int
+  system_id: Int
+}
+
+type config {
+  id: Int!
+  config: AWSJSON
+  version_id: Int
+  system_id: Int
+}
+
+input UpdateConfigInput {
+  id: Int!
+  config: AWSJSON
+  version_id: Int
+  system_id: Int
+}
+
+input CreateInfrared_matrixInput {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  values_celsius: Float!
+  mean_celsius: Float!
+  median_celsius: Float!
+}
+
+type infrared_matrix {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  values_celsius: Float!
+  mean_celsius: Float!
+  median_celsius: Float!
+}
+
+input UpdateInfrared_matrixInput {
+  id: Int!
+  measurement_run_id: Int
+  sensor_type_id: Int
+  time: AWSTimestamp
+  pose_id: Int
+  metadata: AWSJSON
+  values_celsius: Float
+  mean_celsius: Float
+  median_celsius: Float
+}
+
+input CreateMeasurementInput {
+  id: Int!
+  time: AWSTimestamp!
+  metadata: AWSJSON
+  measurement_run_id: Int
+  pose_id: Int
+  sensor_type_id: Int
+}
+
+type measurement {
+  id: Int!
+  time: AWSTimestamp!
+  metadata: AWSJSON
+  measurement_run_id: Int
+  pose_id: Int
+  sensor_type_id: Int
+}
+
+input UpdateMeasurementInput {
+  id: Int!
+  time: AWSTimestamp
+  metadata: AWSJSON
+  measurement_run_id: Int
+  pose_id: Int
+  sensor_type_id: Int
+}
+
+input FilterMeasurementInput {
+  id: IntFilterInput
+  time: IntFilterInput
+  metadata: StringFilterInput
+  measurement_run_id: IntFilterInput
+  pose_id: IntFilterInput
+  sensor_type_id: IntFilterInput
+}
+
+input CreateMeasurement_runInput {
+  id: Int!
+  start_time: AWSTimestamp!
+  end_time: AWSTimestamp
+  metadata: AWSJSON
+  config_id: Int
+  status_code_id: Int
+  system_id: Int
+}
+
+type measurement_run {
+  id: Int!
+  start_time: AWSTimestamp!
+  end_time: AWSTimestamp
+  metadata: AWSJSON
+  config_id: Int
+  status_code_id: Int
+  system_id: Int
+}
+
+input UpdateMeasurement_runInput {
+  id: Int!
+  start_time: AWSTimestamp
+  end_time: AWSTimestamp
+  metadata: AWSJSON
+  config_id: Int
+  status_code_id: Int
+  system_id: Int
+}
+
+input FilterMeasurement_runInput {
+  id: IntFilterInput
+  start_time: IntFilterInput
+  end_time: IntFilterInput
+  metadata: StringFilterInput
+  config_id: IntFilterInput
+  status_code_id: IntFilterInput
+  system_id: IntFilterInput
+}
+
+input CreateOrganizationInput {
+  id: Int!
+  metadata: AWSJSON
+  billing_address_id: Int
+  name_id: Int
+}
+
+type organization {
+  id: Int!
+  metadata: AWSJSON
+  billing_address_id: Int
+  name_id: Int
+}
+
+input UpdateOrganizationInput {
+  id: Int!
+  metadata: AWSJSON
+  billing_address_id: Int
+  name_id: Int
+}
+
+input CreateParametersInput {
+  id: Int!
+  metadata: AWSJSON
+  type_id: Int
+}
+
+type parameters {
+  id: Int!
+  metadata: AWSJSON
+  type_id: Int
+}
+
+input UpdateParametersInput {
+  id: Int!
+  metadata: AWSJSON
+  type_id: Int
+}
+
+input CreatePoseInput {
+  id: Int!
+  coordinates: String!
+  rotation_vector_x: Float
+  rotation_vector_y: Float
+  rotation_vector_z: Float
+}
+
+type pose {
+  id: Int!
+  coordinates: String!
+  rotation_vector_x: Float
+  rotation_vector_y: Float
+  rotation_vector_z: Float
+}
+
+input UpdatePoseInput {
+  id: Int!
+  coordinates: String
+  rotation_vector_x: Float
+  rotation_vector_y: Float
+  rotation_vector_z: Float
+}
+
+input CreateRelative_humidityInput {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  value: Float!
+}
+
+type relative_humidity {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  value: Float!
+}
+
+input UpdateRelative_humidityInput {
+  id: Int!
+  measurement_run_id: Int
+  sensor_type_id: Int
+  time: AWSTimestamp
+  pose_id: Int
+  metadata: AWSJSON
+  value: Float
+}
+
+input FilterRelative_humidityInput {
+  id: IntFilterInput
+  measurement_run_id: IntFilterInput
+  sensor_type_id: IntFilterInput
+  time: IntFilterInput
+  pose_id: IntFilterInput
+  metadata: StringFilterInput
+  value: IntFilterInput
+}
+
+input CreateRgb_imageInput {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  resource_path: String!
+}
+
+type rgb_image {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  resource_path: String!
+}
+
+input UpdateRgb_imageInput {
+  id: Int!
+  measurement_run_id: Int
+  sensor_type_id: Int
+  time: AWSTimestamp
+  pose_id: Int
+  metadata: AWSJSON
+  resource_path: String
+}
+
+input CreateSystemInput {
+  id: Int!
+  metadata: AWSJSON
+  hardware_version_id: Int
+  organization_id: Int
+  software_version_id: Int
+  zone_id: Int
+}
+
+type system {
+  id: Int!
+  metadata: AWSJSON
+  hardware_version_id: Int
+  organization_id: Int
+  software_version_id: Int
+  zone_id: Int
+}
+
+input UpdateSystemInput {
+  id: Int!
+  metadata: AWSJSON
+  hardware_version_id: Int
+  organization_id: Int
+  software_version_id: Int
+  zone_id: Int
+}
+
+input CreateTemperatureInput {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  value_celsius: Float!
+}
+
+type temperature {
+  id: Int!
+  measurement_run_id: Int!
+  sensor_type_id: Int!
+  time: AWSTimestamp!
+  pose_id: Int!
+  metadata: AWSJSON
+  value_celsius: Float!
+}
+
+input UpdateTemperatureInput {
+  id: Int!
+  measurement_run_id: Int
+  sensor_type_id: Int
+  time: AWSTimestamp
+  pose_id: Int
+  metadata: AWSJSON
+  value_celsius: Float
+}
+
+input FilterTemperatureInput {
+  id: IntFilterInput
+  measurement_run_id: IntFilterInput
+  sensor_type_id: IntFilterInput
+  time: IntFilterInput
+  pose_id: IntFilterInput
+  metadata: StringFilterInput
+  value_celsius: IntFilterInput
+}
+
+input CreateTrack_detectionsInput {
+  id: Int!
+  track_id: Int!
+  detection_id: Int!
+}
+
+type track_detections {
+  id: Int!
+  track_id: Int!
+  detection_id: Int!
+}
+
+input UpdateTrack_detectionsInput {
+  id: Int!
+  track_id: Int!
+  detection_id: Int!
+}
+
+input CreateUserInput {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  metadata: AWSJSON
+}
+
+type user {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  metadata: AWSJSON
+}
+
+input UpdateUserInput {
+  id: Int!
+  name: String
+  email: String
+  password: String
+  metadata: AWSJSON
+}
+
+input CreateUser_labelInput {
+  id: Int!
+  create_time: AWSTimestamp!
+  modified_time: AWSTimestamp
+  metadata: AWSJSON
+  classification_id: Int
+  confidence_id: Int
+  detection_id: Int
+  user_id: Int
+}
+
+type user_label {
+  id: Int!
+  create_time: AWSTimestamp!
+  modified_time: AWSTimestamp
+  metadata: AWSJSON
+  classification_id: Int
+  confidence_id: Int
+  detection_id: Int
+  user_id: Int
+}
+
+input UpdateUser_labelInput {
+  id: Int!
+  create_time: AWSTimestamp
+  modified_time: AWSTimestamp
+  metadata: AWSJSON
+  classification_id: Int
+  confidence_id: Int
+  detection_id: Int
+  user_id: Int
+}
+
+input CreateVersionInput {
+  id: Int!
+  type: String!
+  major: Int!
+  minor: Int!
+  patch: Int!
+}
+
+type version {
+  id: Int!
+  type: String!
+  major: Int!
+  minor: Int!
+  patch: Int!
+}
+
+input UpdateVersionInput {
+  id: Int!
+  type: String
+  major: Int
+  minor: Int
+  patch: Int
+}
+
+input CreateHeat_mapInput {
+  id: Int!
+  measurement_run_id: Int!
+  type_id: Int!
+  metadata: AWSJSON
+}
+
+type heat_map {
+  id: Int!
+  measurement_run_id: Int!
+  type_id: Int!
+  metadata: AWSJSON
+}
+
+input UpdateHeat_mapInput {
+  id: Int!
+  measurement_run_id: Int
+  type_id: Int
+  metadata: AWSJSON
+}
+
+input FilterHeat_mapInput {
+  id: IntFilterInput
+  measurement_run_id: IntFilterInput
+  type_id: IntFilterInput
+  metadata: StringFilterInput
+}
+
+input StringFilterInput {
+  ne: String
+  eq: String
+  le: String
+  lt: String
+  ge: String
+  gt: String
+  contains: String
+  notContains: String
+  between: [String]
+  beginsWith: String
+}
+
+input IntFilterInput {
+  ne: Int
+  eq: Int
+  le: Int
+  lt: Int
+  ge: Int
+  gt: Int
+  contains: Int
+  notContains: Int
+  between: [Int]
+  in: [Int]
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}

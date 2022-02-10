@@ -1,0 +1,40 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-enmotest-dev-141153-authRole",
+      "UnauthRoleArn": "arn:aws:iam::064918241448:role/amplify-enmotest-dev-141153-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::064918241448:role/amplify-enmotest-dev-141153-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-enmotest-dev-141153-deployment",
+      "UnauthRoleName": "amplify-enmotest-dev-141153-unauthRole",
+      "StackName": "amplify-enmotest-dev-141153",
+      "StackId": "arn:aws:cloudformation:us-west-2:064918241448:stack/amplify-enmotest-dev-141153/f8d0d260-d5f9-11eb-a7ee-06c148117299",
+      "AmplifyAppId": "d2chzwe3k1hki6"
+    },
+    "categories": {
+      "auth": {
+        "enmotestab546f70": {
+          "userPoolId": "us-west-2_BaewQ0CVF",
+          "userPoolName": "EnmoUserPoolTest",
+          "webClientId": "11prihvmp1pe5nk95kbm3eu5s0",
+          "nativeClientId": "11prihvmp1pe5nk95kbm3eu5s0",
+          "identityPoolId": "us-west-2:b8f08944-c74d-4279-9ba5-aa15bc0f4392",
+          "identityPoolName": "EnmoIdentityPoolTest",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::064918241448:role/Cognito_EnmoIdentityPoolAuth_Role",
+          "authRoleName": "Cognito_EnmoIdentityPoolAuth_Role",
+          "unauthRoleArn": "arn:aws:iam::064918241448:role/Cognito_EnmoIdentityPoolUnauth_Role",
+          "unauthRoleName": "Cognito_EnmoIdentityPoolUnauth_Role"
+        }
+      },
+      "api": {
+        "enmoapitest": {
+          "rdsRegion": "us-west-2",
+          "rdsClusterIdentifier": "arn:aws:rds:us-west-2:064918241448:cluster:neatleaf-enmo-postgres-serverless-test",
+          "rdsSecretStoreArn": "arn:aws:secretsmanager:us-west-2:064918241448:secret:neatleaf-enmo-postgres-serverless-test-creds-C1TSVM",
+          "rdsDatabaseName": "enmo"
+        }
+      }
+    }
+  }
+}

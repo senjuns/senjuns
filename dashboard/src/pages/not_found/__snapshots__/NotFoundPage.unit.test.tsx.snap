@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<NotFoundPage /> renders correctly. 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "isLoggedIn": false,
+      "logIn": [Function],
+      "signOut": [Function],
+      "userInfo": undefined,
+    }
+  }
+>
+  <NotFoundPage />
+</Context.Provider>
+`;

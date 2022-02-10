@@ -1,0 +1,13 @@
+
+# SAM builds
+*/.aws-sam/*
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+.fuse_hidden*
+
+venv/

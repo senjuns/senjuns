@@ -1,0 +1,72 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "google",
+    "plugin:sonarjs/recommended",
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "sonarjs", "jest", "prettier"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "jest": {
+      "version": "26"
+    }
+  },
+  "rules": {
+    "max-len": [
+      "warn",
+      {
+        "code": 120
+      }
+    ],
+    "require-jsdoc": "error",
+    "react/prop-types": "off",
+    "object-curly-spacing": ["error", "always"],
+    "linebreak-style": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "no-unused-vars": "warn",
+    "camelcase": ["error"],
+    "valid-jsdoc": [
+      "error",
+      {
+        "prefer": {
+          "return": "returns"
+        },
+        "requireReturn": false
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "prettier/prettier": "error",
+    "sonarjs/no-nested-template-literals": "off",
+    "sonarjs/no-duplicate-string": "off"
+  },
+  "globals": {
+    "JSX": true,
+    "NodeJS": true
+  },
+  "ignorePatterns": ["coverage/**"]
+}

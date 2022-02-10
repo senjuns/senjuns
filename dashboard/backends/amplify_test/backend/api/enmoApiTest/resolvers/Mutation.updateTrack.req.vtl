@@ -1,0 +1,9 @@
+#set( $updateList = {} )
+#foreach( $entry in $ctx.args.updateTrackInput.keySet() )
+  #set( $discard = $updateList.put($entry, "'$ctx.args.updateTrackInput[$entry]'") )
+#end
+#set( $update = $updateList.toString().replace("{","").replace("}","") )
+{
+  "version": "2018-05-29",
+  "statements":   ["UPDATE track SET $update WHERE id=$ctx.args.updateTrackInput.id", "SELECT * FROM Track WHERE id=$ctx.args.updateTrackInput.id"]
+}

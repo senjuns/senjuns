@@ -1,0 +1,4 @@
+{
+  "version": "2018-05-29",
+  "statements":   ["SELECT id, measurement_run_id, sensor_type_id, cast(extract(epoch from time) as integer) as time, pose_id, metadata, values_celsius, mean_celsius, median_celsius FROM data.Infrared_matrix WHERE id=$ctx.args.id"]
+}

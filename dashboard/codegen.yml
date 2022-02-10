@@ -1,0 +1,31 @@
+overwrite: true
+schema:
+  - ${REACT_APP_HASURA_GRAPHQL_URL}:
+      headers:
+        x-hasura-admin-secret: ${REACT_APP_HASURA_GRAPHQL_ADMIN_SECRET}
+documents: ./src/**/*.graphql
+generates:
+  ./src/graphql/generated/react_apollo.tsx:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+      - add:
+          content: '/* eslint-disable */'
+    config:
+      withHooks: true
+      withHOC: false
+      withComponent: true
+      skipTypename: false
+      namingConvention:
+        typeNames: change-case-all#pascalCase
+        enumValues: keep
+      defaultMapper: any
+      reactApolloVersion: 3
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+        - tslint --fix
+  ./src/graphql/generated/graphql.schema.json:
+    plugins:
+      - introspection

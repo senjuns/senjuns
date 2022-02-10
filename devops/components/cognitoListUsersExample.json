@@ -1,0 +1,138 @@
+{
+  "Users": [
+    {
+      "Username": "elmar@neatleaf.com",
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "d20b6090-da5b-4f74-8bed-a0d0606f3233"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "phone_number_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "phone_number",
+          "Value": "+16503914337"
+        },
+        {
+          "Name": "email",
+          "Value": "elmar@neatleaf.com"
+        }
+      ],
+      "UserCreateDate": "2021-11-10T22:43:54.671Z",
+      "UserLastModifiedDate": "2021-11-10T22:44:57.994Z",
+      "Enabled": true,
+      "UserStatus": "CONFIRMED"
+    },
+    {
+      "Username": "jerry@neatleaf.com",
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "1a98e96e-c020-44a9-be04-638d1f186d61"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "email",
+          "Value": "jerry@neatleaf.com"
+        }
+      ],
+      "UserCreateDate": "2021-11-08T22:24:11.261Z",
+      "UserLastModifiedDate": "2021-11-08T23:30:14.122Z",
+      "Enabled": true,
+      "UserStatus": "CONFIRMED"
+    },
+    {
+      "Username": "joe@neatleaf.com",
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "d6533943-44ee-4f4c-a96c-a1c5d7172d69"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "email",
+          "Value": "joe@neatleaf.com"
+        }
+      ],
+      "UserCreateDate": "2021-11-04T14:31:40.247Z",
+      "UserLastModifiedDate": "2021-11-04T23:56:32.683Z",
+      "Enabled": true,
+      "UserStatus": "CONFIRMED"
+    },
+    {
+      "Username": "martin.mueller@opreto.com",
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "e6e1fafc-73b7-435e-8029-f19f3fa8d066"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "email",
+          "Value": "martin.mueller@opreto.com"
+        }
+      ],
+      "UserCreateDate": "2021-11-02T07:10:52.533Z",
+      "UserLastModifiedDate": "2021-11-02T07:11:01.758Z",
+      "Enabled": true,
+      "UserStatus": "CONFIRMED"
+    },
+    {
+      "Username": "noa@neatleaf.com",
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "37b373e6-2dac-4a75-81ac-ef74a5edb16e"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "email",
+          "Value": "noa@neatleaf.com"
+        }
+      ],
+      "UserCreateDate": "2021-11-08T03:40:43.977Z",
+      "UserLastModifiedDate": "2021-11-08T18:51:55.745Z",
+      "Enabled": true,
+      "UserStatus": "CONFIRMED"
+    },
+    {
+      "Username": "ralf@neatleaf.com",
+      "Attributes": [
+        {
+          "Name": "sub",
+          "Value": "96dc84dc-db24-4519-9461-ab08a4255715"
+        },
+        {
+          "Name": "email_verified",
+          "Value": "true"
+        },
+        {
+          "Name": "email",
+          "Value": "ralf@neatleaf.com"
+        }
+      ],
+      "UserCreateDate": "2021-11-13T01:04:20.422Z",
+      "UserLastModifiedDate": "2021-11-19T22:53:01.122Z",
+      "Enabled": true,
+      "UserStatus": "CONFIRMED"
+    }
+  ]
+}

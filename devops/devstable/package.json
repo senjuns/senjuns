@@ -1,0 +1,16 @@
+{
+  "cdk_app_dir": "$npm_package_env_stage/hasura",
+  "cdk_dir": "../",
+  "env": {
+    "account": "192790213875",
+    "region": "us-west-2",
+    "stage": "devstable"
+  },
+  "scripts": {
+    "dependencies": "cd $npm_package_cdk_dir; yarn install",
+    "build": "yarn dependencies && tsc",
+    "diff": "yarn build && cd $npm_package_cdk_dir && yarn cdk diff -a 'cdk.out/' $npm_package_env_stage-*",
+    "diff-site": "yarn build && cd $npm_package_cdk_dir && yarn cdk diff -a 'site.cdk.out/' $npm_package_env_stage-*",
+    "bootstrap": "cd $npm_package_cdk_dir && yarn build && yarn cdk bootstrap --trust 320946421302 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://$npm_package_env_account/$npm_package_env_region"
+  }
+}
