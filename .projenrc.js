@@ -1,5 +1,5 @@
 const { typescript } = require('projen');
-const project = new typescript.TypeScriptAppProject({
+const project = new typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'senjun-teams',
 
