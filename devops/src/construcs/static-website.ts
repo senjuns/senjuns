@@ -9,10 +9,19 @@ import * as constructs from 'constructs';
 
 export interface StaticWebsiteProps {
   /**
-   * e.g. dashboard.senjun-teams.com or senjun-teams.com
+   * e.g. dashboard . if '' than root
+   */
+  recordName: string;
+
+  /**
+   * e.g. senjun-teams.com
    */
   domainName: string;
-  zone: route53.IHostedZone;
+
+  /**
+   * e.g. www.senjun-teams.com
+   */
+  alternativeRecordName?: string;
 
   /**
    * build folder for static website
@@ -25,6 +34,7 @@ export class StaticWebsite extends constructs.Construct {
   recordDomainName: string;
   bucketWebsiteUrl: string;
   distributionDomainName: string;
+  alternativeRecordDomainName: string | undefined;
 
   constructor(scope: constructs.Construct, id: string, props: StaticWebsiteProps) {
     super(scope, id);
@@ -50,9 +60,12 @@ export class StaticWebsite extends constructs.Construct {
     const cloudFrontOAI = new cloudfront.OriginAccessIdentity(this, 'OAI');
     siteBucket.grantRead(cloudFrontOAI.grantPrincipal);
 
+    const hostedZone = route53.HostedZone.fromLookup(this, 'Zone', { domainName: props.domainName });
+
     const certificate = new certificatemanager.DnsValidatedCertificate(this, 'certificate', {
-      domainName: props.domainName,
-      hostedZone: props.zone,
+      domainName: `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`,
+      subjectAlternativeNames: props.alternativeRecordName ? [`${props.alternativeRecordName}.${props.domainName}`] : undefined,
+      hostedZone,
       region: 'us-east-1',
     });
 
@@ -75,16 +88,27 @@ export class StaticWebsite extends constructs.Construct {
         }
       ],
       viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
-        aliases: [props.domainName],
+        aliases: props.alternativeRecordName ? [
+          `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`,
+          `${props.alternativeRecordName}.${props.domainName}`,
+        ] : [ `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}` ],
       }),
     });
 
     const record = new route53.ARecord(this, 'record', {
+      recordName: props.recordName === '' ? undefined : props.recordName,
       target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
-      zone: props.zone,
+      zone: hostedZone,
     });
 
+    const alternativeRecord = props.alternativeRecordName ? new route53.ARecord(this, 'alternativeRecord', {
+      recordName: props.alternativeRecordName,
+      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      zone: hostedZone,
+    }) : undefined;
+
     this.recordDomainName = record.domainName;
+    this.alternativeRecordDomainName = alternativeRecord?.domainName;
     this.distributionDomainName = distribution.distributionDomainName;
 
     // Deploy site contents to S3 bucket
