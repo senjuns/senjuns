@@ -1,19 +1,64 @@
-import * as cdk from '@aws-cdk/core';
-import { Stage } from '../components/stage';
+import * as core from 'aws-cdk-lib';
+import { Construct } from 'constructs';
+import { StaticWebsite } from './construcs/static-website';
+import * as route53 from 'aws-cdk-lib/aws-route53';
 
-const app = new cdk.App();
+export class LandingPageStack extends core.Stack {
+  constructor(scope: Construct, id: string, props: core.StackProps = {}) {
+    super(scope, id, props);
 
-const devEnv = require('./../dev/package.json').env;
-new Stage(app, { stage: 'dev', env: devEnv, userPoolId: 'us-west-2_3zgoEdJ3Z' });
+    const landingPage = new StaticWebsite(this, 'landingPage', {
+      build: '../landingpage/build',
+      domainName: 'senjun-teams.com',
+      zone: route53.HostedZone.fromLookup(this, 'Zone', { domainName: 'senjun-teams.com' }),
+    });
 
-const devStableEnv = require('./../devstable/package.json').env;
-new Stage(app, { stage: 'devstable', env: devStableEnv, userPoolId: 'us-west-2_NZ0M4wxln' });
+    new core.CfnOutput(this, 'BucketWebsiteUrl', {
+      value: landingPage.bucketWebsiteUrl,
+    });
 
-const sqaEnv = require('./../sqa/package.json').env;
-new Stage(app, { stage: 'sqa', env: sqaEnv, userPoolId: 'us-west-2_VZb8exfdA' });
+    new core.CfnOutput(this, 'CustomDomainWebsiteUrl', {
+      value: landingPage.recordDomainName,
+    });
 
-const stagingEnv = require('./../staging/package.json').env;
-new Stage(app, { stage: 'staging', env: stagingEnv, userPoolId: 'us-west-2_AvvoSs7CC' });
+    new core.CfnOutput(this, 'WebsiteCloudfrontDomainName', {
+      value: landingPage.distributionDomainName,
+    });
+  }
+}
 
-const prodEnv = require('./../prod/package.json').env;
-new Stage(app, { stage: 'prod', env: prodEnv, enableLambdaAlarms: true, userPoolId: 'us-west-2_Afxq4vqCV' });
+export class DashboardAppStack extends core.Stack {
+  constructor(scope: Construct, id: string, props: core.StackProps = {}) {
+    super(scope, id, props);
+
+    const landingPage = new StaticWebsite(this, 'landingPage', {
+      build: '../dashboard/build',
+      domainName: 'dashboard.senjun-teams.com',
+      zone: route53.HostedZone.fromLookup(this, 'Zone', { domainName: 'senjun-teams.com' }),
+    });
+
+    new core.CfnOutput(this, 'BucketWebsiteUrl', {
+      value: landingPage.bucketWebsiteUrl,
+    });
+
+    new core.CfnOutput(this, 'CustomDomainWebsiteUrl', {
+      value: landingPage.recordDomainName,
+    });
+
+    new core.CfnOutput(this, 'WebsiteCloudfrontDomainName', {
+      value: landingPage.distributionDomainName,
+    });
+  }
+}
+
+const devEnv = {
+  account: '981237193288',
+  region: 'eu-central-1',
+};
+
+const app = new core.App();
+
+new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
+new DashboardAppStack(app, 'prod-DashboardAppStack', { env: devEnv });
+
+app.synth();

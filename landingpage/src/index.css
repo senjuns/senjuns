@@ -7,29 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body * {
-  box-sizing: border-box;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url(./assets/font/Poppins/Poppins-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url(./assets/font/Poppins/Poppins-Bold.ttf);
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url(./assets/font/Poppins/Poppins-SemiBold.ttf);
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url(./assets/font/Poppins/Poppins-Medium.ttf);
-  font-weight: 400;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }

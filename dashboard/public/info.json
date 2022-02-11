@@ -1,6 +1,0 @@
-{
-  "commit_url": "https://bitbucket.org/neatleaf/neatleaf/commits/COMMIT_ID",
-  "stage": "STAGE",
-  "user_pool_id": "USER_POOL_ID",
-  "aws_user_pools_web_client_id": "AWS_USER_POOLS_WEB_CLIENT_ID"
-}

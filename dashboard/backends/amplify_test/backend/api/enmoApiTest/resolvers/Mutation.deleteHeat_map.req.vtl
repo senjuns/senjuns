@@ -1,6 +1,0 @@
-#set ( $tableName = "data.heat_map")
-
-{
-  "version": "2018-05-29",
-  "statements":   ["SELECT * FROM $tableName WHERE id=$ctx.args.id", "DELETE FROM $tableName WHERE id=$ctx.args.id"]
-}

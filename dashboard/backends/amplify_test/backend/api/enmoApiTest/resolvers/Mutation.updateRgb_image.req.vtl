@@ -1,9 +1,0 @@
-#set( $updateList = {} )
-#foreach( $entry in $ctx.args.updateRgb_imageInput.keySet() )
-  #set( $discard = $updateList.put($entry, "'$ctx.args.updateRgb_imageInput[$entry]'") )
-#end
-#set( $update = $updateList.toString().replace("{","").replace("}","") )
-{
-  "version": "2018-05-29",
-  "statements":   ["UPDATE rgb_image SET $update WHERE id=$ctx.args.updateRgb_imageInput.id", "SELECT * FROM Rgb_image WHERE id=$ctx.args.updateRgb_imageInput.id"]
-}

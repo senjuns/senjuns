@@ -1,8 +1,0 @@
-{
-  "AppSyncApiName": "enmoApiTest",
-  "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthCognitoUserPoolId": {
-    "Fn::GetAtt": ["authenmotestab546f70", "Outputs.UserPoolId"]
-  }
-}

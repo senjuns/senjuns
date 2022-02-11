@@ -1,9 +1,0 @@
-#set( $updateList = {} )
-#foreach( $entry in $ctx.args.updateLabel_taskInput.keySet() )
-  #set( $discard = $updateList.put($entry, "'$ctx.args.updateLabel_taskInput[$entry]'") )
-#end
-#set( $update = $updateList.toString().replace("{","").replace("}","") )
-{
-  "version": "2018-05-29",
-  "statements":   ["UPDATE label_task SET $update WHERE id=$ctx.args.updateLabel_taskInput.id", "SELECT * FROM Label_task WHERE id=$ctx.args.updateLabel_taskInput.id"]
-}
