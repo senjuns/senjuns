@@ -92,6 +92,15 @@
         }
       ]
     },
+    "eslint": {
+      "name": "eslint",
+      "description": "Runs eslint against the codebase",
+      "steps": [
+        {
+          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools .projenrc.js"
+        }
+      ]
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"
@@ -112,6 +121,9 @@
       "name": "test",
       "description": "Run tests",
       "steps": [
+        {
+          "spawn": "eslint"
+        },
         {
           "exec": "react-scripts test --watchAll=false"
         }
@@ -143,7 +155,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom npm-check-updates typescript react react-dom react-scripts web-vitals"
+          "exec": "yarn upgrade @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint husky json-schema lint-staged npm-check-updates prettier typescript react react-dom react-scripts web-vitals"
         },
         {
           "exec": "npx projen"

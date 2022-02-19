@@ -30,11 +30,14 @@ jspm_packages/
 .yarn-integrity
 .cache
 !/.projenrc.js
+!/.prettierignore
+!/.prettierrc.json
 !/test/
 !/tsconfig.json
 !/tsconfig.dev.json
 !/src/
 /lib
 /dist/
+!/.eslintrc.json
 /build/
 !/react-app-env.d.ts

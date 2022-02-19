@@ -18,8 +18,7 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "prepare": "cd .. && husky install",
-    "lint:staged": "lint-staged",
-    "lint": "eslint"
+    "lint:staged": "lint-staged"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.2",

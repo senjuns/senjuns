@@ -31,7 +31,6 @@ landingpage.package.addField('lint-staged', {
 
 landingpage.setScript('prepare', 'cd .. && husky install');
 landingpage.setScript('lint:staged', 'lint-staged');
-landingpage.setScript('lint', 'eslint');
 landingpage.synth();
 
 const devops = new pj.awscdk.AwsCdkTypeScriptApp({
@@ -51,16 +50,22 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   parent: project,
   name: 'dashboard',
   deps: [],
-  devDeps: [],
-  tsconfig: {
-    compilerOptions: {
-      // forceConsistentCasingInFileNames: false,
-      // strictNullChecks: false,
+  eslint: true,
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      singleQuote: true,
     },
-    // exclude: ['**/node_modules/**/*.ts'],
   },
-
-  // releaseWorkflow: false,
+  devDeps: ['lint-staged', 'husky'],
 });
+
+dashboard.package.addField('lint-staged', {
+  '*.(ts|tsx)': ['eslint --fix'],
+  '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
+});
+
+dashboard.setScript('prepare', 'cd .. && husky install');
+dashboard.setScript('lint:staged', 'lint-staged');
 
 dashboard.synth();
