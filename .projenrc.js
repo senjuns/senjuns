@@ -23,6 +23,12 @@ const landingpage = new web.ReactTypeScriptProject({
   parent: project,
   name: 'landingpage',
   deps: [],
+  prettier: true,
+  // prettierOptions: {
+  //   settings: {
+  //     singleQuote: true,
+  //   },
+  // },
   devDeps: [
     'lint-staged',
     'husky',

@@ -149,7 +149,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom husky lint-staged npm-check-updates typescript react react-dom react-scripts web-vitals"
+          "exec": "yarn upgrade @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom husky lint-staged npm-check-updates prettier typescript react react-dom react-scripts web-vitals"
         },
         {
           "exec": "npx projen"
