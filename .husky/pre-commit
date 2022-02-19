@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-cd landingpage && yarn lint:staged
+cd landingpage && yarn eslint
