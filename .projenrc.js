@@ -23,7 +23,10 @@ const landingpage = new web.ReactTypeScriptProject({
   parent: project,
   name: 'landingpage',
   deps: [],
-  devDeps: [],
+  devDeps: [
+    'lint-staged',
+    'husky',
+  ],
   tsconfig: {
     compilerOptions: {
       // forceConsistentCasingInFileNames: false,
@@ -35,6 +38,17 @@ const landingpage = new web.ReactTypeScriptProject({
   // releaseWorkflow: false,
 });
 
+landingpage.package.addField('lint-staged', {
+  '*.(ts|tsx)': [
+    'eslint --fix',
+  ],
+  '*.(ts|tsx|js|jsx|json)': [
+    'prettier --write',
+  ],
+});
+
+landingpage.addTask('prepare', 'cd .. && husky install');
+landingpage.addTask('lint:staged', 'lint-staged');
 landingpage.synth();
 
 const dashboard = new web.ReactTypeScriptProject({

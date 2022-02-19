@@ -92,6 +92,9 @@
         }
       ]
     },
+    "lint:staged": {
+      "name": "lint:staged"
+    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"
@@ -107,6 +110,9 @@
     "pre-compile": {
       "name": "pre-compile",
       "description": "Prepare the project for compilation"
+    },
+    "prepare": {
+      "name": "prepare"
     },
     "test": {
       "name": "test",
@@ -143,7 +149,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom npm-check-updates typescript react react-dom react-scripts web-vitals"
+          "exec": "yarn upgrade @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/node @types/react @types/react-dom husky lint-staged npm-check-updates typescript react react-dom react-scripts web-vitals"
         },
         {
           "exec": "npx projen"

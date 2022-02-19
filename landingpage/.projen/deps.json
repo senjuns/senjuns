@@ -30,6 +30,14 @@
       "type": "build"
     },
     {
+      "name": "husky",
+      "type": "build"
+    },
+    {
+      "name": "lint-staged",
+      "type": "build"
+    },
+    {
       "name": "npm-check-updates",
       "version": "^12",
       "type": "build"
