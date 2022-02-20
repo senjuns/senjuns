@@ -13,7 +13,14 @@ const landingpage = new pj.web.ReactTypeScriptProject({
   outdir: 'landingpage',
   parent: project,
   name: 'landingpage',
-  deps: [],
+  deps: [
+    'react-router-dom@5.2.0',
+    // 'react-router',
+    'react-scripts@5.0.0',
+    'styled-components',
+    'axios',
+    'react-responsive@^9.0.0-beta.6',
+  ],
   eslint: true,
   prettier: true,
   prettierOptions: {
@@ -21,7 +28,12 @@ const landingpage = new pj.web.ReactTypeScriptProject({
       singleQuote: true,
     },
   },
-  devDeps: ['lint-staged', 'husky'],
+  devDeps: [
+    'lint-staged',
+    'husky',
+    '@types/styled-components',
+    '@types/react-router-dom@^5.3.2',
+  ],
 });
 
 landingpage.package.addField('lint-staged', {

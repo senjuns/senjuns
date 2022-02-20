@@ -10,8 +10,8 @@ vi ~/.config/Code/User/settings.json
 
 ```json
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
 ```
 
-VS Code has troubles to associate those multiple tsconfig files in root and subprojects like landingpage. Therefore use [multi-root-workspaces(https://code.visualstudio.com/docs/editor/multi-root-workspaces) to setup sub ts projects like landingpage
+VS Code has troubles to associate those multiple tsconfig files in root and subprojects like landingpage and dashboard. Therefore use [multi-root-workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) to setup sub ts projects like landingpage and dashboard
