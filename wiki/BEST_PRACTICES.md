@@ -24,7 +24,7 @@ VS Code has troubles to associate those multiple tsconfig files in root and subp
 
 ## GitHub Issues
 
-We will leverage GitHub Issues https://github.com/senjun-teams/senjun-teams/issues for tracking working on features, bugs or refactoring tasks. So if you want to update Code an issue for it should exist!
+We will leverage GitHub Issues <https://github.com/senjun-teams/senjun-teams/issues> for tracking working on features, bugs or refactoring tasks. So if you want to update Code an issue for it should exist!
 
 ### Issue Types
 
@@ -66,6 +66,21 @@ A nice picture is seen
 Actual Result:
 Everything stops to work
 ```
+
+### Working on Issues
+
+Working on Issues you are supposed to keep the normal git flow:
+
+1. Create a local and remote branch from main with patter {ISSUE*TYPE}/{ISSUE_ID}*{DESCRIPTION} . Examples:
+
+- feature/4_add-layout
+- fix/2_change-button-b
+
+2. Do the requested changes and push to local and remote branch. When doing your commits, keep attention to follow the [Commits](#commits) guidline.
+
+3. Create a Pull Request (PR)
+4. Ask someone for reviewing the PR.
+5. When review done merge the PR and delete the branch.
 
 ### Issue Sizing
 
