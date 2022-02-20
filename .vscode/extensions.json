@@ -1,5 +1,13 @@
 {
-    "recommendations": [
-        "styled-components.vscode-styled-components"
-    ]
+  "recommendations": [
+    "styled-components.vscode-styled-components",
+    "cssho.vscode-svgviewer",
+    "streetsidesoftware.code-spell-checker",
+    "ms-azuretools.vscode-docker",
+    "eamodio.gitlens",
+    "znck.grammarly",
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "TabNine.tabnine-vscode"
+  ]
 }
