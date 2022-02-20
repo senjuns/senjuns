@@ -1,17 +1,13 @@
-# replace this
+# senjun-teams
 
-## Linting
+Please read the best practices when working in the repo.
 
-As working with prettier you should use:
+[BEST_PRACTICES](wiki/BEST_PRACTICES.md)
 
-```bash
-vi ~/.config/Code/User/settings.json
-```
+## Landingpage
 
-```json
-{
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
-```
+[Landingpage](landingpage/README.md)
 
-VS Code has troubles to associate those multiple tsconfig files in root and subprojects like landingpage and dashboard. Therefore use [multi-root-workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) to setup sub ts projects like landingpage and dashboard
+## Dashboard
+
+[Dashboard](dashboard/README.md)
