@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HeatMapGradient /> renders correctly. 1`] = `
+<Styled(MuiBox)
+  className="makeStyles-gradientBox-1"
+>
+  <Styled(MuiBox)
+    className="makeStyles-gradientLine-2 makeStyles-gradientLine-3"
+  />
+  <Styled(MuiBox)
+    alignItems="center"
+    display="flex"
+    flexDirection="row"
+    justifyContent="space-between"
+  >
+    <Typography
+      variant="body1"
+    >
+      54 mph
+    </Typography>
+    <Typography
+      variant="body1"
+    >
+      75 mph
+    </Typography>
+    <Typography
+      variant="body1"
+    >
+      91 mph
+    </Typography>
+  </Styled(MuiBox)>
+</Styled(MuiBox)>
+`;

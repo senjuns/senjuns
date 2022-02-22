@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhotoZoomHandler /> renders correctly. 1`] = `
+<div
+  className="makeStyles-controls-1"
+  data-scale={1}
+  id="photo-zoom-button-group"
+  style={
+    Object {
+      "left": 440,
+      "top": 390,
+    }
+  }
+>
+  <WithStyles(ForwardRef(IconButton))
+    className="makeStyles-zoomButton-2 makeStyles-zoomIn-3"
+    disabled={false}
+    id="photo-zoom-in-button"
+    onClick={[Function]}
+  >
+    <Memo />
+  </WithStyles(ForwardRef(IconButton))>
+  <WithStyles(ForwardRef(IconButton))
+    className="makeStyles-zoomButton-2"
+    disabled={true}
+    id="photo-zoom-out-button"
+    onClick={[Function]}
+  >
+    <Memo />
+  </WithStyles(ForwardRef(IconButton))>
+</div>
+`;

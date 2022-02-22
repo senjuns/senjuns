@@ -1,0 +1,10 @@
+query getSystemsByZoneId($zone_id: Int) {
+  system(
+    where: { zone_id: { _eq: $zone_id} }
+    order_by: { id: asc }
+  ) {
+    id
+    organization_id
+    zone_id
+  }
+}

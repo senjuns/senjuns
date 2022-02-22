@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LightStatusPanel /> renders correctly. 1`] = `
+<styled.div>
+  <styled.div>
+    <ForwardRef(SvgLightOff) />
+    <styled.div>
+      <styled.div>
+        Light
+      </styled.div>
+      <styled.div>
+        OFF
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <svg
+      height={104}
+      width={104}
+    >
+      <circle
+        cx={50}
+        cy={50}
+        fill="none"
+        r={47}
+        stroke="#FFB94C"
+        strokeDasharray="295.3097094374406"
+        strokeDashoffset={151}
+        strokeWidth={3}
+        transform="rotate(-180
+               50 50)"
+      />
+      <circle
+        cx={50}
+        cy={50}
+        fill="none"
+        r={47}
+        stroke="#C3C7D9"
+        strokeDasharray="295.3097094374406"
+        strokeDashoffset={151}
+        strokeWidth={3}
+        transform="rotate(0, 50 50)"
+      />
+      <circle
+        cx={73.50000000000001}
+        cy={90.70319397786861}
+        fill="#F8F8FC"
+        r={5}
+        stroke="#C3C7D9"
+        strokeWidth={3}
+      />
+      <circle
+        cx={50}
+        cy={50}
+        fill="white"
+        r={40}
+        style={
+          Object {
+            "transition": "all 1s ease-out 0s",
+          }
+        }
+      />
+    </svg>
+    <styled.div>
+      <styled.div>
+        <styled.div>
+          <styled.div>
+            8
+          </styled.div>
+          <styled.div>
+            h
+          </styled.div>
+        </styled.div>
+        <styled.div>
+          TIL 
+          LIGHT
+        </styled.div>
+      </styled.div>
+    </styled.div>
+  </styled.div>
+  <styled.div>
+    <styled.div>
+      CYCLE
+    </styled.div>
+    <styled.div>
+      12/12
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tab /> renders correctly. 1`] = `
+<styled.div
+  data-selected={true}
+  id="test_tab"
+>
+  <styled.div
+    onClick={[MockFunction]}
+    style={
+      Object {
+        "color": "#E86339",
+        "fontWeight": 600,
+      }
+    }
+  >
+    test
+  </styled.div>
+  <styled.div>
+    <styled.div />
+  </styled.div>
+</styled.div>
+`;
