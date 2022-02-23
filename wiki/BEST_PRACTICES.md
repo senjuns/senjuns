@@ -133,10 +133,10 @@ If you followed the instructions from [code workflow](#code-workflow) you have n
 
 To create the PR in GitHub go to the project root dir e.g. https://github.com/senjun-teams/senjun-teams . Normally GitHub should already suggest you to create a PR. If not go to Pull Requests and create your PR there.
 
-For the Title of the PR try to be similar to your commit / commits for example:
+For the **Title** of the PR try to be similar to your commit / commits for example:
 
 ```txt
-Title: feat: #1 init landing page
+feat: #1 init landing page
 ```
 
 For the content of the PR the first line should be
