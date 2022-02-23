@@ -96,7 +96,7 @@ Commits will follow the following layout:
 ### examples
 
 - git commit -m "feat: #1 init dashboard"
-  git commit -m "fix: #3 button type changed"
+- git commit -m "fix: #3 button type changed"
 
 ### Code Workflow
 
@@ -129,9 +129,9 @@ Git cli will might ask you that the remote branch needs to be created. Just foll
 
 ### GitHub Pull Request
 
-If you followed the instructions from [code workflow](#code-workflow) you have now created a remote branch which is ready to be used as Pull Request (PR).
+If you followed the instructions from [code workflow](#code-workflow) you have now created a remote branch which is ready to be used as a Pull Request (PR).
 
-To create the PR in GitHub go to the project root dir e.g. https://github.com/senjun-teams/senjun-teams . Normally GitHub should already suggest you to create a PR. If not go to Pull Requests and create your PR there.
+To create the PR in GitHub go to the project root dir like https://github.com/senjun-teams/senjun-teams . Normally GitHub should already suggest you to create a PR. If not, go to Pull Requests and create your PR there.
 
 For the **Title** of the PR try to be similar to your commit / commits for example:
 
