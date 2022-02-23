@@ -124,6 +124,7 @@ git add --all && git commit -m "feat: #1 init landing page" && git push
 ```
 
 **IMPORTANT**: Follow the branch [commit convention](#commit-convention)
+**IMPORTANT**: the `git add --all` saves a lot of time but is also a bit risky because you might check in files you don't want to check in! So before you do that command I suggest to check via VS Code which files are added and changed.
 
 Git cli will might ask you that the remote branch needs to be created. Just follow that instruction.
 
