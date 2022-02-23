@@ -45,16 +45,18 @@ landingpage.setScript('prepare', 'cd .. && husky install');
 landingpage.setScript('lint:staged', 'lint-staged');
 landingpage.synth();
 
-const devops = new pj.awscdk.AwsCdkTypeScriptApp({
+const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
-  outdir: 'devops',
+  outdir: 'backend',
   parent: project,
-  name: 'devops',
+  name: 'backend',
   cdkVersion: '2.12.0',
 });
 
-devops.setScript('cdk', 'cdk');
-devops.synth();
+backend.setScript('cdk', 'cdk');
+backend.setScript('tsc', 'tsc');
+
+backend.synth();
 
 const dashboard = new pj.web.ReactTypeScriptProject({
   defaultReleaseBranch: 'main',

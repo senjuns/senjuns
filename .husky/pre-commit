@@ -8,3 +8,6 @@ yarn lint:staged
 cd ../dashboard
 #yarn eslint
 yarn lint:staged
+
+cd ../backend
+yarn tsc

@@ -1,5 +1,5 @@
 {
-  "name": "devops",
+  "name": "backend",
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",
@@ -24,7 +24,8 @@
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "tsc": "tsc"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",

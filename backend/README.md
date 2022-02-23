@@ -1,4 +1,4 @@
-# devops
+# backend
 
 ## How to deploy locally
 
@@ -6,7 +6,7 @@
 
 ${STAGE} can be dev or prod.
 
-Synthing the CDK APP can be done with going to devops/${STAGE} and run:
+Synthing the CDK APP can be done with going to backend/${STAGE} and run:
 
 ```bash
 yarn synth
