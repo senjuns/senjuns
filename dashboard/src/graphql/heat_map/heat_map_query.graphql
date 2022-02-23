@@ -1,0 +1,30 @@
+query getRecentHeatMapsBySystemId(
+  $start: timestamptz = ""
+  $end: timestamptz = ""
+  $system_id: Int = 1
+  $enumeration: String = ""
+) {
+  heat_map(
+    order_by: { measurement_run: { start_time: asc } }
+    where: {
+      measurement_run: {
+        system_id: { _eq: $system_id }
+        end_time: { _gte: $start, _lte: $end }
+      }
+      enumeration: { code: { _eq: $enumeration } }
+    }
+  ) {
+    id
+    data
+    measurement_run {
+      start_time
+      end_time
+      id
+      metadata
+    }
+    enumeration {
+      code
+      description
+    }
+  }
+}
