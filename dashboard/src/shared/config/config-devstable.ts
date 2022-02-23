@@ -1,5 +1,5 @@
 export const config: any = {
-  gaTrackingId: 'UA-179417847-2',
+  gaTrackingId: 'AB-1234568-9',
   aws_hasura_graphqlEndpoint:
     'https://dashboard-hasura.devstable.neatleaf.com/v1/graphql',
   aws_project_region: 'us-west-2',

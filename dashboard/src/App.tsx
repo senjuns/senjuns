@@ -10,7 +10,7 @@ import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
 import Amplify, { Auth } from 'aws-amplify';
 
 import { lazy, Suspense } from 'react';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ErrorBoundary from './components/error/ErrorBoundary';
 import { AuthProvider, RoomProvider } from './contexts';
@@ -36,7 +36,7 @@ const MainLayout = lazy(() => import('./components/layout/MainLayout'));
 
 Amplify.configure(config);
 
-ReactGA.initialize(config.gaTrackingId);
+// ReactGA.initialize(config.gaTrackingId);
 
 const httpLink = createHttpLink({
   uri: config.aws_hasura_graphqlEndpoint,
