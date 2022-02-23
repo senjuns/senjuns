@@ -22,13 +22,13 @@ vi ~/.config/Code/User/settings.json
 
 VS Code has troubles to associate those multiple tsconfig files in root and subprojects like landingpage and dashboard. Therefore use [multi-root-workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) to setup sub ts projects like landingpage and dashboard
 
-## GitHub Issues
+## GitHub
 
-We will leverage GitHub Issues <https://github.com/senjun-teams/senjun-teams/issues> for tracking working on features, bugs or refactoring tasks. So if you want to update Code an issue for it should exist!
+In this section you will find related thinks to GitHub
 
 ### Issue Types
 
-Issue types have a related issue label to mark them as such.
+We will leverage GitHub Issues <https://github.com/senjun-teams/senjun-teams/issues> for tracking working on features, bugs or refactoring tasks. So if you want to update Code an issue for it should exist! Issue types have a related issue label to mark them as such.
 
 #### Feature
 
@@ -47,7 +47,7 @@ Notice:
 * On this github side you find an example
 ```
 
-### Bug
+#### Bug
 
 Template:
 
@@ -67,32 +67,88 @@ Actual Result:
 Everything stops to work
 ```
 
-### Working on Issues
-
-Working on Issues you are supposed to keep the normal git flow:
-
-1. Create a local and remote branch from main with patter {ISSUE*TYPE}/{ISSUE_ID}*{DESCRIPTION} . Examples:
-
-- feature/4_add-layout
-- fix/2_change-button-b
-
-2. Do the requested changes and push to local and remote branch. When doing your commits, keep attention to follow the [Commits](#commits) guidline.
-
-3. Create a Pull Request (PR)
-4. Ask someone for reviewing the PR.
-5. When review done merge the PR and delete the branch.
-
 ### Issue Sizing
 
 1, 2, 3, 5, 8, 13 ...
-
-## Commits
-
-Commits will follow the following layout:
-
-- ISSUE_TYPE: ISSUE_ID DESCRIPTION
 
 ### Examples
 
 - fix: #2 Changed button B
 - feat: #4 I added a new layout to about side
+
+## Working with Code
+
+Here we describe how you work with the programming code.
+
+### Branch Naming Convention
+
+Create a local and remote branch from main with patter {ISSUE*TYPE}/{ISSUE_ID}*{DESCRIPTION} . Examples:
+
+- feat/4_add-layout
+- fix/2_change-button-b
+
+## Commit Convention
+
+Commits will follow the following layout:
+
+- ISSUE_TYPE: #ISSUE_ID DESCRIPTION
+
+### examples
+
+- git commit -m "feat: #1 init dashboard"
+  git commit -m "fix: #3 button type changed"
+
+### Code Workflow
+
+**Info**: If you prefer using VS Code instead of the git cli that would be totally fine.
+
+When you start your work please switch to the main branch and make sure it is up to date:
+
+```bash
+git switch main
+git pull
+```
+
+Then start a new branch with:
+
+```bash
+git checkout -b feat/1_landingpage
+```
+
+**IMPORTANT**: Follow the [branch naming convention](#branch-naming-convention)
+
+Work on your Github Issue and update the code. Then commit the code:
+
+```bash
+git add --all && git commit -m "feat: #1 init landing page" && git push
+```
+
+**IMPORTANT**: Follow the branch [commit convention](#commit-convention)
+
+Git cli will might ask you that the remote branch needs to be created. Just follow that instruction.
+
+### GitHub Pull Request
+
+If you followed the instructions from [code workflow](#code-workflow) you have now create a remote branch which is ready to be used as Pull Request (PR).
+
+To create the PR in GitHub go to the project root dir e.g. https://github.com/senjun-teams/senjun-teams . Normally GitHub should already suggest you to create a PR. If not go to Pull Requests and create your PR there.
+
+For the Title of the PR try to be similar to your commit / commits for example:
+
+```txt
+Title: feat: #1 init landinge page
+```
+
+For the content of the PR the first line should be
+
+```txt
+fixes: #1
+```
+
+Then the next line should consist of important information for the reviewer. Here are some examples:
+
+```txt
+fixes: #4
+* add the grid layout
+* change the color of the table
+```
