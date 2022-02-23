@@ -38,18 +38,10 @@ const Header: FC<HeaderProps> = ({ color }) => {
         )}
       </LinkContainer>
 
-      {isMobile ? (
+      {isMobile &&
         <HamburgerMenu color={color} current={location.pathname} />
-      ) : (
-        <ButtonContainer>
-          <StyledLink
-            color="white"
-            text="LEARN MORE"
-            to={ROUTES.CONTACT_US}
-            variant="contained"
-          />
-        </ButtonContainer>
-      )}
+      }
+      
     </HeaderContainer>
   );
 };

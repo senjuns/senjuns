@@ -24,7 +24,7 @@ const Landing: FC = () => {
       <BenefitsWrapper isMobile={isMobile}>
         <Benefits benefits={BENEFITS} />
       </BenefitsWrapper>
-      <WhatNeatleafWrapper isMobile={isMobile}>
+      {/* <WhatNeatleafWrapper isMobile={isMobile}>
         <WhatNeatleaf />
       </WhatNeatleafWrapper>
       <UniqueValuePropositionWrapper isMobile={isMobile}>
@@ -32,7 +32,7 @@ const Landing: FC = () => {
       </UniqueValuePropositionWrapper>
       <ActionableInsightsWrapper isMobile={isMobile}>
         <ActionableInsights />
-      </ActionableInsightsWrapper>
+      </ActionableInsightsWrapper> */}
       <Footer />
     </LandingContainer>
   );

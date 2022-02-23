@@ -19,7 +19,7 @@ const Benefits: FC<BenefitsProps> = ({ benefits }) => {
       <BenefitsTitleWrapper>
         <BenefitsTitleDivider />
         <BenefitsTitle variant={isMobile ? 'body1' : 'h6'}>
-          BENEFITS PROVIDED BY OUR TECHNOLOGY
+          SENJUN TEAMS - VALUES
         </BenefitsTitle>
         <BenefitsTitleDivider />
       </BenefitsTitleWrapper>

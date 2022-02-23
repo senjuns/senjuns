@@ -5,7 +5,6 @@ import Routes from './Routes';
 const App: FC = () => {
   return (
     <div className="App">
-      HII
       <Routes />
     </div>
   );
