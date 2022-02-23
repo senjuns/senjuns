@@ -3,3 +3,5 @@
 
 cd landingpage && yarn eslint
 cd ../dashboard && yarn eslint
+
+exit 1
