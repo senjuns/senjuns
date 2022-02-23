@@ -27,7 +27,9 @@ describe('getPublicResourcePath function', () => {
   test('should return correct public path', () => {
     expect(
       getPublicResourcePath('neatleaf/130*130/index.png', [400, 400])
-    ).toEqual('https://neatleaf.s3.us-west-2.amazonaws.com/400x400/index.png');
+    ).toEqual(
+      'https://neatleaf.s3.eu-central-1.amazonaws.com/400x400/index.png'
+    );
   });
 });
 

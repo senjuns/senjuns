@@ -2,18 +2,18 @@ const config = {
   gaTrackingId: 'AB-1234568-9',
   aws_project_region: 'eu-central-1',
   aws_cognito_identity_pool_id:
-    'COGNITO_DASHBOARD_APP_USER_POOL_IDENTITY_POOL_ID',
+    'eu-central-1:766b1253-2f54-4dfb-b27b-aad1f1dcdac9',
   aws_cognito_region: 'eu-central-1',
-  aws_user_pools_id: 'USER_POOL_ID',
-  aws_user_pools_web_client_id: 'USER_POOL_WEB_CLIENT',
+  aws_user_pools_id: 'eu-central-1_tQoQRbDHI',
+  aws_user_pools_web_client_id: '152gqhs7el03g9of2c18rs9flp',
   oauth: {},
   aws_appsync_region: 'eu-central-1',
   aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
   Auth: {
-    identityPoolId: 'COGNITO_DASHBOARD_APP_USER_POOL_IDENTITY_POOL_ID',
+    identityPoolId: 'eu-central-1:766b1253-2f54-4dfb-b27b-aad1f1dcdac9',
     region: 'eu-central-1',
-    userPoolId: 'USER_POOL_ID',
-    userPoolWebClientId: 'USER_POOL_WEB_CLIENT',
+    userPoolId: 'eu-central-1_tQoQRbDHI',
+    userPoolWebClientId: '152gqhs7el03g9of2c18rs9flp',
   },
 };
 

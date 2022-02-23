@@ -50,7 +50,15 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.12.0',
+  cdkVersion: '2.13.0',
+  eslint: true,
+  prettier: true,
+  devDeps: ['@types/aws-lambda', 'aws-sdk'],
+  prettierOptions: {
+    settings: {
+      singleQuote: true,
+    },
+  },
 });
 
 backend.setScript('cdk', 'cdk');
@@ -105,11 +113,11 @@ const dashboard = new pj.web.ReactTypeScriptProject({
       singleQuote: true,
     },
   },
-  tsconfig: {
-    compilerOptions: {
-      skipLibCheck: true,
-    },
-  },
+  // tsconfig: {
+  //   compilerOptions: {
+  //     skipLibCheck: true,
+  //   },
+  // },
   devDeps: [
     'lint-staged',
     'husky',

@@ -42,17 +42,17 @@ could also be part of the template.yaml as described [here](http://www.michalsak
 If you change the template you might have to delete the stack and re-deploy it in order for new roles to take effect. To delete the current stack run
 
 ```bash
-aws --profile neatleaf-dev cloudformation delete-stack --region us-west-2 --stack-name "PestDetectorThreshold${ENV^}SAMStack"
+aws --profile neatleaf-dev cloudformation delete-stack --region eu-central-1 --stack-name "PestDetectorThreshold${ENV^}SAMStack"
 
-aws --profile neatleaf-dev cloudformation delete-stack --region us-west-2 --stack-name "PestDetectorThresholdTestSAMStack"
+aws --profile neatleaf-dev cloudformation delete-stack --region eu-central-1 --stack-name "PestDetectorThresholdTestSAMStack"
 ```
 
 To see the current bucket configuration run
 
 ```bash
-aws --profile neatleaf --region us-west-2 s3api get-bucket-notification-configuration --bucket "neatleaf-$ENV-sensordata01-us-west-2"
+aws --profile neatleaf --region eu-central-1 s3api get-bucket-notification-configuration --bucket "neatleaf-$ENV-sensordata01-eu-central-1"
 
-aws --profile neatleaf --region us-west-2 s3api get-bucket-notification-configuration --bucket "neatleaf-test-sensordata01-us-west-2"
+aws --profile neatleaf --region eu-central-1 s3api get-bucket-notification-configuration --bucket "neatleaf-test-sensordata01-eu-central-1"
 ```
 
 
@@ -108,16 +108,16 @@ cfn-flip input.yaml output.json
 Listing and deleting stacks, examples:
 
 ```bash
-aws --profile neatleaf cloudformation describe-stacks --region us-west-2 --stack-name DataProtoProcessingTestSAMStack
-aws cloudformation list-stacks --region us-west-2
-aws --profile neatleaf cloudformation list-stacks --region us-west-2 --stack-status-filter UPDATE_ROLLBACK_FAILED
-aws --profile neatleaf cloudformation delete-stack --region us-west-2 --stack-name "DataProtoProcessing${ENV^}SAMStack"
+aws --profile neatleaf cloudformation describe-stacks --region eu-central-1 --stack-name DataProtoProcessingTestSAMStack
+aws cloudformation list-stacks --region eu-central-1
+aws --profile neatleaf cloudformation list-stacks --region eu-central-1 --stack-status-filter UPDATE_ROLLBACK_FAILED
+aws --profile neatleaf cloudformation delete-stack --region eu-central-1 --stack-name "DataProtoProcessing${ENV^}SAMStack"
 ```
 
 Selectively copying data in S3, example:
 
 ```bash
-aws --profile neatleaf s3 sync --dryrun s3://sensordata01-us-west-2/ s3://neatleaf-dev-sensordata01-us-west-2/upload/ --exclude "*" --include "archive/sparrow:b827eba4c37d:hw-01:sw-0-0-8_2020-09-1*"
+aws --profile neatleaf s3 sync --dryrun s3://sensordata01-eu-central-1/ s3://neatleaf-dev-sensordata01-eu-central-1/upload/ --exclude "*" --include "archive/sparrow:b827eba4c37d:hw-01:sw-0-0-8_2020-09-1*"
 ```
 This command wouldn't actually copy data, since the `--dryrun` flag is specified.  To move the data, remove the dryrun flag.
 

@@ -1,6 +1,10 @@
 {
   "dependencies": [
     {
+      "name": "@types/aws-lambda",
+      "type": "build"
+    },
+    {
       "name": "@types/jest",
       "type": "build"
     },
@@ -21,11 +25,19 @@
     },
     {
       "name": "aws-cdk",
-      "version": "^2.12.0",
+      "version": "^2.13.0",
+      "type": "build"
+    },
+    {
+      "name": "aws-sdk",
       "type": "build"
     },
     {
       "name": "esbuild",
+      "type": "build"
+    },
+    {
+      "name": "eslint-config-prettier",
       "type": "build"
     },
     {
@@ -38,6 +50,10 @@
     },
     {
       "name": "eslint-plugin-import",
+      "type": "build"
+    },
+    {
+      "name": "eslint-plugin-prettier",
       "type": "build"
     },
     {
@@ -64,6 +80,10 @@
       "type": "build"
     },
     {
+      "name": "prettier",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "type": "build"
     },
@@ -82,7 +102,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.12.0",
+      "version": "^2.13.0",
       "type": "runtime"
     },
     {

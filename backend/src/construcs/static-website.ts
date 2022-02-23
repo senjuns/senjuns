@@ -1,10 +1,10 @@
 import * as core from 'aws-cdk-lib';
-import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as certificatemanager from 'aws-cdk-lib/aws-certificatemanager';
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as route53 from 'aws-cdk-lib/aws-route53';
 import * as targets from 'aws-cdk-lib/aws-route53-targets';
-import * as certificatemanager from 'aws-cdk-lib/aws-certificatemanager';
+import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3deploy from 'aws-cdk-lib/aws-s3-deployment';
-import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as constructs from 'constructs';
 
 export interface StaticWebsiteProps {
@@ -77,21 +77,21 @@ export class StaticWebsite extends constructs.Construct {
             s3BucketSource: siteBucket,
             originAccessIdentity: cloudFrontOAI,
           },
-          behaviors: [{ isDefaultBehavior: true }]
-        }
+          behaviors: [{ isDefaultBehavior: true }],
+        },
       ],
       errorConfigurations: [
         {
           errorCode: 404,
           responseCode: 404,
-          responsePagePath: '/index.html'
-        }
+          responsePagePath: '/index.html',
+        },
       ],
       viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
         aliases: props.alternativeRecordName ? [
           `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`,
           `${props.alternativeRecordName}.${props.domainName}`,
-        ] : [ `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}` ],
+        ] : [`${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`],
       }),
     });
 

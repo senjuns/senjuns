@@ -1,5 +1,11 @@
 # dashboard
 
+Init Amplify config files:
+
+```bash
+./scripts/create_config.sh
+```
+
 Run React app with hot reload:
 
 ```bash

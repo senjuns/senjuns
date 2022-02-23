@@ -53,7 +53,7 @@ export const getPublicResourcePath = (
   return subPaths
     .map((subPath, index) =>
       index === 0
-        ? `https://${subPath}.s3.us-west-2.amazonaws.com`
+        ? `https://${subPath}.s3.eu-central-1.amazonaws.com`
         : index === subPaths.length - 2
         ? `${rgbImageSize[0]}x${rgbImageSize[1]}`
         : subPath

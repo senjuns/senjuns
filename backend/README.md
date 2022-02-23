@@ -21,6 +21,7 @@ yarn deploy
 Or with the new watch flag a faster deploying for local development:
 
 ```bash
+yarn cdk deploy 'prod-DashboardBackendStack'
 yarn cdk deploy 'prod-DashboardAppStack'
 yarn cdk deploy 'prod-LandingpageStack'
 yarn cdk deploy 'dev-...Stack'
@@ -35,3 +36,17 @@ yarn destroy
 ```
 
 For setup access to the specific stage get your programmatic credentials via AWS SSO and store them in ~/.aws/credentials or more convenient store them as environment variables.
+
+## Cognito
+
+Create User
+
+```bash
+USER_POOL_ID=eu-central-1_tQoQRbDHI
+USER_NAME=martin
+USER_PASSWORD=M@rtindev1
+REGION=eu-central-1
+
+aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --region $REGION
+aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --region $REGION
+```
