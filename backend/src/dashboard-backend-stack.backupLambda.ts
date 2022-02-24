@@ -147,11 +147,13 @@ export async function handler(
 
   let userGroups: { groupName: string; users: string[] }[] = [];
   for (const group of groups.Groups || []) {
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     const param: AWS.CognitoIdentityServiceProvider.Types.ListUsersInGroupRequest =
       {
         UserPoolId: dashboardUserPoolId,
         GroupName: group.GroupName || '',
       };
+    // eslint-disable-next-line @typescript-eslint/no-shadow
     const users = await cognito.listUsersInGroup(param).promise();
     userGroups.push({
       groupName: group.GroupName || '',
