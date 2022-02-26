@@ -2,11 +2,8 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
-import ActionableInsights from '../../components/Landing/ActionableInsights';
 import Benefits from '../../components/Landing/Benefits';
 import Introduction from '../../components/Landing/Introduction';
-import UniqueValueProposition from '../../components/Landing/UniqueValueProposition';
-import WhatNeatleaf from '../../components/Landing/WhatNeatleaf';
 
 import { BENEFITS, UNIQUE_VALUES } from '../../containers/Landing/constants';
 import { useScreenSize } from '../../hooks/useScreenSize';
@@ -24,7 +21,7 @@ const Landing: FC = () => {
       <BenefitsWrapper isMobile={isMobile}>
         <Benefits benefits={BENEFITS} />
       </BenefitsWrapper>
-      <WhatNeatleafWrapper isMobile={isMobile}>
+      {/* <WhatNeatleafWrapper isMobile={isMobile}>
         <WhatNeatleaf />
       </WhatNeatleafWrapper>
       <UniqueValuePropositionWrapper isMobile={isMobile}>
@@ -32,7 +29,7 @@ const Landing: FC = () => {
       </UniqueValuePropositionWrapper>
       <ActionableInsightsWrapper isMobile={isMobile}>
         <ActionableInsights />
-      </ActionableInsightsWrapper>
+      </ActionableInsightsWrapper> */}
       <Footer />
     </LandingContainer>
   );
