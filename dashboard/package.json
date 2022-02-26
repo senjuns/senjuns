@@ -17,7 +17,6 @@
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "prepare": "cd .. && husky install",
     "lint:staged": "lint-staged"
   },
   "devDependencies": {
@@ -46,7 +45,6 @@
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.2",
     "json-schema": "^0.4.0",
     "lint-staged": "^11.1.2",
     "npm-check-updates": "^12",

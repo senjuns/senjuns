@@ -10,6 +10,11 @@ const project = new pj.typescript.TypeScriptProject({
   ],
 });
 
+// project.package.addField('commithelper', {
+//   '*.(ts|tsx)': ['eslint --fix'],
+//   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
+// });
+
 project.setScript('prepare', 'husky install');
 
 project.synth();
@@ -36,7 +41,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
   },
   devDeps: [
     'lint-staged',
-    'husky',
+    // 'husky',
     '@types/styled-components',
     '@types/react-router-dom@^5.3.2',
   ],
@@ -47,7 +52,7 @@ landingpage.package.addField('lint-staged', {
   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
 });
 
-landingpage.setScript('prepare', 'cd .. && husky install');
+// landingpage.setScript('prepare', 'cd .. && husky install');
 landingpage.setScript('lint:staged', 'lint-staged');
 landingpage.synth();
 
@@ -126,7 +131,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   // },
   devDeps: [
     'lint-staged',
-    'husky',
+    // 'husky',
     '@graphql-codegen/typescript-react-apollo@^3.1.6',
     '@types/react-router-dom@^5.1.7',
     '@types/styled-components@^5.1.9',
@@ -146,7 +151,7 @@ dashboard.package.addField('lint-staged', {
   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
 });
 
-dashboard.setScript('prepare', 'cd .. && husky install');
+// dashboard.setScript('prepare', 'cd .. && husky install');
 dashboard.setScript('lint:staged', 'lint-staged');
 
 dashboard.synth();

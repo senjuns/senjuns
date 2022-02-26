@@ -74,10 +74,6 @@
       "type": "build"
     },
     {
-      "name": "husky",
-      "type": "build"
-    },
-    {
       "name": "json-schema",
       "type": "build"
     },
