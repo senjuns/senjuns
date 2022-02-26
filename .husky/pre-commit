@@ -1,13 +1,13 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-cd landingpage
+# cd landingpage
 # yarn eslint
 yarn lint:staged
 
-cd ../dashboard
+# cd ../dashboard
 #yarn eslint
-yarn lint:staged
+# yarn lint:staged
 
-cd ../backend
+cd backend
 yarn tsc

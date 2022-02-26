@@ -4,16 +4,21 @@ const project = new pj.typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'senjun-teams',
   projenrcTs: true,
-  devDeps: [
-    'commithelper',
-    'husky',
-  ],
+  eslint: true,
+  prettier: true,
+  prettierOptions: {
+    settings: {
+      singleQuote: true,
+    },
+  },
+  devDeps: ['commithelper', 'husky', 'lint-staged'],
 });
 
-// project.package.addField('commithelper', {
-//   '*.(ts|tsx)': ['eslint --fix'],
-//   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
-// });
+project.package.addField('lint-staged', {
+  '*.(ts|tsx)': ['eslint --fix'],
+  '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
+});
+project.setScript('lint:staged', 'lint-staged');
 
 project.setScript('prepare', 'husky install');
 
@@ -32,28 +37,28 @@ const landingpage = new pj.web.ReactTypeScriptProject({
     'axios',
     'react-responsive@^9.0.0-beta.6',
   ],
-  eslint: true,
-  prettier: true,
-  prettierOptions: {
-    settings: {
-      singleQuote: true,
-    },
-  },
+  // eslint: true,
+  // prettier: true,
+  // prettierOptions: {
+  //   settings: {
+  //     singleQuote: true,
+  //   },
+  // },
   devDeps: [
-    'lint-staged',
+    // 'lint-staged',
     // 'husky',
     '@types/styled-components',
     '@types/react-router-dom@^5.3.2',
   ],
 });
 
-landingpage.package.addField('lint-staged', {
-  '*.(ts|tsx)': ['eslint --fix'],
-  '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
-});
+// landingpage.package.addField('lint-staged', {
+//   '*.(ts|tsx)': ['eslint --fix'],
+//   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
+// });
 
 // landingpage.setScript('prepare', 'cd .. && husky install');
-landingpage.setScript('lint:staged', 'lint-staged');
+// landingpage.setScript('lint:staged', 'lint-staged');
 landingpage.synth();
 
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
@@ -62,14 +67,14 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   parent: project,
   name: 'backend',
   cdkVersion: '2.13.0',
-  eslint: true,
-  prettier: true,
+  // eslint: true,
+  // prettier: true,
   devDeps: ['@types/aws-lambda', 'aws-sdk'],
-  prettierOptions: {
-    settings: {
-      singleQuote: true,
-    },
-  },
+  // prettierOptions: {
+  //   settings: {
+  //     singleQuote: true,
+  //   },
+  // },
 });
 
 backend.setScript('cdk', 'cdk');
@@ -130,7 +135,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   //   },
   // },
   devDeps: [
-    'lint-staged',
+    // 'lint-staged',
     // 'husky',
     '@graphql-codegen/typescript-react-apollo@^3.1.6',
     '@types/react-router-dom@^5.1.7',
@@ -146,12 +151,12 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   ],
 });
 
-dashboard.package.addField('lint-staged', {
-  '*.(ts|tsx)': ['eslint --fix'],
-  '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
-});
+// dashboard.package.addField('lint-staged', {
+//   '*.(ts|tsx)': ['eslint --fix'],
+//   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
+// });
 
 // dashboard.setScript('prepare', 'cd .. && husky install');
-dashboard.setScript('lint:staged', 'lint-staged');
+// dashboard.setScript('lint:staged', 'lint-staged');
 
 dashboard.synth();
