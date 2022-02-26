@@ -20,6 +20,10 @@
       "type": "build"
     },
     {
+      "name": "commithelper",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-node",
       "type": "build"
     },
@@ -34,6 +38,10 @@
     {
       "name": "eslint",
       "version": "^8",
+      "type": "build"
+    },
+    {
+      "name": "husky",
       "type": "build"
     },
     {

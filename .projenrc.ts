@@ -4,7 +4,13 @@ const project = new pj.typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
   name: 'senjun-teams',
   projenrcTs: true,
+  devDeps: [
+    'commithelper',
+    'husky',
+  ],
 });
+
+project.setScript('prepare', 'husky install');
 
 project.synth();
 
