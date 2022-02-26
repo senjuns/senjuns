@@ -13,6 +13,7 @@ const project = new pj.typescript.TypeScriptProject({
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
 });
+project.prettier?.addIgnorePattern('.eslintrc.json');
 
 project.package.addField('lint-staged', {
   '*.(ts|tsx)': ['eslint --fix'],
@@ -95,13 +96,13 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'moment',
     'stream',
   ],
-  eslint: true,
-  prettier: true,
-  prettierOptions: {
-    settings: {
-      singleQuote: true,
-    },
-  },
+  // eslint: true,
+  // prettier: true,
+  // prettierOptions: {
+  //   settings: {
+  //     singleQuote: true,
+  //   },
+  // },
   devDeps: [
     '@graphql-codegen/typescript-react-apollo@^3.1.6',
     '@types/react-router-dom@^5.1.7',
