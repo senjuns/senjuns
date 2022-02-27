@@ -22,7 +22,7 @@ fi
 
 if [[ ! "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$BRANCH" =~ $BRANCH_REGEX ]]
 then
-  echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more in wiki!" && exit 1
+  echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more details in our wiki!" && exit 1
 fi
 
 echo -e ">> Finish checking branch name.\n==="
