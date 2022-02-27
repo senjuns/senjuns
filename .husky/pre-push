@@ -4,16 +4,16 @@ echo -e "===\n>> Pre-push Hook: Checking branch name ..."
 
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 PROTECTED_BRANCHES="^(main|develop)"
+COMMIT=$(cat $1)
 
 echo -e "\n $1 $2 $3 --"
-cat $1
 
 # if [[ $1 != *"$BRANCH"* ]]
 # then
 #   echo -e "\n🚫 You must use (git push origin $BRANCH) (git push origin $BRANCH).\n" && exit 1
 # fi
 
-if [[ "$BRANCH" =~ $PROTECTED_BRANCHES ]]
+if [[ "$BRANCH" =~ $PROTECTED_BRANCHES ] && [ ! "$COMMIT" == *..]]
 then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and use a PR." && exit 1
 fi
