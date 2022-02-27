@@ -15,7 +15,7 @@ echo -e "\n $1 $2 $3 --"
 
 if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$COMMIT" == *.. ]]
 then
-  echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and use a PR." && exit 1
+  echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and used a PR." && exit 1
 fi
 
 echo -e ">> Finish checking branch name.\n==="
