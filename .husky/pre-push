@@ -13,7 +13,7 @@ echo -e "\n $1 $2 $3 --"
 #   echo -e "\n🚫 You must use (git push origin $BRANCH) (git push origin $BRANCH).\n" && exit 1
 # fi
 
-if [[ "$BRANCH" =~ $PROTECTED_BRANCHES ] && [ ! "$COMMIT" == *.. ]]
+if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$COMMIT" == *.. ]]
 then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and use a PR." && exit 1
 fi
