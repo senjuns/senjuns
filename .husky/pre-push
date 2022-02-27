@@ -6,7 +6,7 @@ BRANCH=`git rev-parse --abbrev-ref HEAD`
 PROTECTED_BRANCHES="^(main|develop)"
 COMMIT=$(cat $1)
 
-echo -e "\n $1 $2 $3 --"
+echo -e $COMMIT
 
 # if [[ $1 != *"$BRANCH"* ]]
 # then
