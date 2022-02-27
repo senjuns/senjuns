@@ -8,10 +8,10 @@ PROTECTED_BRANCHES="^(main|develop)"
 echo -e "\n $1 $2 $3 --"
 cat $1
 
-if [[ $1 != *"$BRANCH"* ]]
-then
-  echo -e "\n🚫 You must use (git push origin $BRANCH) (git push origin $BRANCH).\n" && exit 1
-fi
+# if [[ $1 != *"$BRANCH"* ]]
+# then
+#   echo -e "\n🚫 You must use (git push origin $BRANCH) (git push origin $BRANCH).\n" && exit 1
+# fi
 
 if [[ "$BRANCH" =~ $PROTECTED_BRANCHES ]]
 then
