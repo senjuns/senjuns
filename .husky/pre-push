@@ -5,7 +5,7 @@ echo -e "===\n>> Pre-push Hook: Checking branch name ..."
 BRANCH=`git rev-parse --abbrev-ref HEAD`
 PROTECTED_BRANCHES="^(main|develop)"
 COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-BRANCH_REGEX="(feat|fix)/[0-9]+*"
+BRANCH_REGEX="(feat|fix)/.*"
 
 # echo -e "\n $1 $2 $3 --"
 
@@ -13,15 +13,16 @@ BRANCH_REGEX="(feat|fix)/[0-9]+*"
 # then
 #   echo -e "\n🚫 You must use (git push origin $BRANCH) (git push origin $BRANCH).\n" && exit 1
 # fi
+# test ..
 
 if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$COMMIT_MESSAGE" == *.. ]]
 then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and used a PR." && exit 1
 fi
 
-if [[ ! "$BRANCH" == $BRANCH_REGEX && ! "$COMMIT_MESSAGE" == *.. ]]
+if [[ ! "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$BRANCH" =~ $BRANCH_REGEX ]]
 then
-  echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more in wiki!" && exit 1
+  echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more details in our wiki!" && exit 1
 fi
 
 echo -e ">> Finish checking branch name.\n==="
