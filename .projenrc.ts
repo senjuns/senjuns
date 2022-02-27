@@ -12,6 +12,7 @@ const project = new pj.typescript.TypeScriptProject({
     },
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
+  release: false,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
 
@@ -38,6 +39,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
     'react-responsive@^9.0.0-beta.6',
   ],
   devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
+  release: false,
 });
 
 landingpage.synth();
@@ -49,6 +51,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   name: 'backend',
   cdkVersion: '2.14.0',
   devDeps: ['@types/aws-lambda', 'aws-sdk'],
+  release: false,
 });
 
 backend.setScript('cdk', 'cdk');
@@ -116,6 +119,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@types/selenium-webdriver@^4.0.16',
     'assert',
   ],
+  release: false,
 });
 
 dashboard.synth();
