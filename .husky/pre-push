@@ -14,16 +14,16 @@ BRANCH_REGEX="(feat|fix)/[0-9]+*"
 #   echo -e "\n🚫 You must use (git push origin $BRANCH) (git push origin $BRANCH).\n" && exit 1
 # fi
 
-# if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$COMMIT_MESSAGE" == *.. ]]
-# then
-#   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and used a PR." && exit 1
-# fi
+if [[ "$BRANCH" =~ $PROTECTED_BRANCHES && ! "$COMMIT_MESSAGE" == *.. ]]
+then
+  echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and used a PR." && exit 1
+fi
 
-# if [[ ! "$BRANCH" == $BRANCH_REGEX ]]
-# then
-#   echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more in wiki!" && exit 1
-# fi
+if [[ ! "$BRANCH" == $BRANCH_REGEX ]]
+then
+  echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more in wiki!" && exit 1
+fi
 
-# echo -e ">> Finish checking branch name.\n==="
+echo -e ">> Finish checking branch name.\n==="
 
 exit 0
