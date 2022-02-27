@@ -19,7 +19,7 @@ then
   echo -e "\n🚫 Cannot push to remote $BRANCH branch, please create your own branch and used a PR." && exit 1
 fi
 
-if [[ ! "$BRANCH" == $BRANCH_REGEX ]]
+if [[ ! "$BRANCH" == $BRANCH_REGEX && ! "$COMMIT_MESSAGE" == *.. ]]
 then
   echo -e "\n🚫 Branch name $BRANCH doesn't follow naming convention: $BRANCH_REGEX. See more in wiki!" && exit 1
 fi
