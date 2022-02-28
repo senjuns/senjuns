@@ -1,7 +1,7 @@
 import React, { lazy } from 'react';
 
-import { CropCycleProvider } from '../../contexts/CropCycleProvider';
-import { RoomOverviewProvider } from '../../contexts/RoomOverviewProvider';
+// import { CropCycleProvider } from '../../contexts/CropCycleProvider';
+// import { RoomOverviewProvider } from '../../contexts/RoomOverviewProvider';
 import { useScreenSize } from '../../hooks';
 
 const DesktopLayout = lazy(
@@ -15,15 +15,18 @@ const MainLayout: React.FC = ({ children }) => {
   const { isMobile } = useScreenSize();
 
   return (
-    <CropCycleProvider>
-      <RoomOverviewProvider>
-        {isMobile ? (
-          <MobileLayout>{children}</MobileLayout>
-        ) : (
-          <DesktopLayout>{children}</DesktopLayout>
-        )}
-      </RoomOverviewProvider>
-    </CropCycleProvider>
+    // <DesktopLayout>{children}</DesktopLayout>
+    // <CropCycleProvider>
+    <div>
+      {/* <RoomOverviewProvider> */}
+      {isMobile ? (
+        <MobileLayout>{children}</MobileLayout>
+      ) : (
+        <DesktopLayout>{children}</DesktopLayout>
+      )}
+      {/* </RoomOverviewProvider> */}
+    </div>
+    // </CropCycleProvider>
   );
 };
 
