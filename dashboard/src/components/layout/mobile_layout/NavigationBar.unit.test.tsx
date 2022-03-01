@@ -15,6 +15,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('<NavigationBar />', () => {
   it('renders correctly.', async () => {
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const renderer = ShallowRenderer.createRenderer();
     renderer.render(
       <Providers>
@@ -22,6 +23,7 @@ describe('<NavigationBar />', () => {
       </Providers>
     );
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const result = renderer.getRenderOutput();
     expect(result).toMatchSnapshot();
   });

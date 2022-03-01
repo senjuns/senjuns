@@ -91,7 +91,7 @@ Create a local and remote branch from main with patter {ISSUE*TYPE}/{ISSUE_ID}*{
 
 Commits will follow the following layout:
 
-- ISSUE_TYPE: #ISSUE_ID DESCRIPTION
+- ISSUE_TYPE: #ISSUE_ID_1,#ISSUE_ID_2 DESCRIPTION
 
 ### examples
 

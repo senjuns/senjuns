@@ -1,19 +1,21 @@
-import {
-  ApolloClient,
-  ApolloProvider,
-  createHttpLink,
-  InMemoryCache,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
+// import {
+//   ApolloClient,
+//   ApolloProvider,
+//   createHttpLink,
+//   InMemoryCache,
+// } from '@apollo/client';
+// import { setContext } from '@apollo/client/link/context';
 import Container from '@material-ui/core/Container';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify from 'aws-amplify';
+import './App.css';
 
 import { lazy, Suspense } from 'react';
 // import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ErrorBoundary from './components/error/ErrorBoundary';
-import { AuthProvider, RoomProvider } from './contexts';
+import TeamCard from './components/team_card/TeamCard';
+import { AuthProvider } from './contexts';
 import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 
 import { ProtectedRoute } from './ProtectedRoute';
@@ -21,14 +23,14 @@ import config from './shared/config';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
 
-const Home = lazy(() => import('./pages/home/Home'));
+// const Home = lazy(() => import('./pages/home/Home'));
 const Login = lazy(() => import('./pages/auth/LoginPage'));
 const ForgotPassword = lazy(() => import('./pages/auth/ForgotPasswordPage'));
 const Reset = lazy(() => import('./pages/auth/ResetPasswordPage'));
 const NotFoundPage = lazy(() => import('./pages/not_found/NotFoundPage'));
-const RoomDetailsPage = lazy(
-  () => import('./pages/room_details/RoomDetailsPage')
-);
+// const RoomDetailsPage = lazy(
+//   () => import('./pages/room_details/RoomDetailsPage')
+// );
 const RouteChangeTracker = lazy(
   () => import('./components/common/RouteChangeTracker')
 );
@@ -38,27 +40,22 @@ Amplify.configure(config);
 
 // ReactGA.initialize(config.gaTrackingId);
 
-const httpLink = createHttpLink({
-  uri: config.aws_hasura_graphqlEndpoint,
-});
+// const httpLink = createHttpLink({
+//   uri: config.aws_hasura_graphqlEndpoint,
+// });
 
-const authLink = setContext(async (_, { headers }) => {
-  const token = (await Auth.currentSession()).getIdToken().getJwtToken();
-  if (!token) {
-    return headers;
-  }
-  return {
-    headers: {
-      ...headers,
-      Authorization: `Bearer ${token}`,
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+// const authLink = setContext(async (_, { headers }) => {
+//   const token = (await Auth.currentSession()).getIdToken().getJwtToken();
+//   if (!token) {
+//     return headers;
+//   }
+//   return {
+//     headers: {
+//       ...headers,
+//       Authorization: `Bearer ${token}`,
+//     },
+//   };
+// });
 
 /**
  * https://v4.mui.com/styles/advanced/#injectfirst
@@ -75,30 +72,46 @@ const client = new ApolloClient({
  * @returns {JSX.Element} App component
  */
 function App() {
+  const teamCardData = {
+    teamcarddetailsdescriptiontitle: 'AWS CDK Team',
+    teamcarddetailsdescriptionbody:
+      'we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...',
+    badge1Text: 'AWS',
+    badge2Text: 'IaC',
+    badge3Text: 'DevOps',
+    teamcardmember1Image: 'teamcardmember1image.png',
+    teamcardmember1Descriptionfirstname: 'Chris',
+    teamcardmember1Descriptionrole: '- Senior AWS Cloud Engineer',
+    teamcardmember2Image: 'teamcardmember2image.png',
+    teamcardmember2Descriptionfirstname: 'Kache',
+    teamcardmember2Descriptionrole: '- Junior AWS Cloud Engineer',
+  };
+
   return (
-    <ApolloProvider client={client}>
-      <StylesProvider injectFirst>
-        <ThemeProvider theme={theme}>
-          <ErrorBoundary>
-            <Suspense fallback={<Container>Loading Suspense...</Container>}>
-              <FeatureFlagsProvider>
-                <Router>
-                  <AuthProvider>
-                    <RoomProvider>
-                      <Switch>
-                        <Route exact path={APP_URL.login} component={Login} />
-                        <Route
-                          exact
-                          path={APP_URL.forgot}
-                          component={ForgotPassword}
-                        />
-                        <Route exact path={APP_URL.reset} component={Reset} />
-                        <ProtectedRoute exact path="/">
-                          <MainLayout>
-                            <Home />
-                          </MainLayout>
-                        </ProtectedRoute>
-                        <ProtectedRoute exact path="/room-details/:id">
+    // <ApolloProvider client={client}>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <ErrorBoundary>
+          <Suspense fallback={<Container>Loading Suspense...</Container>}>
+            <FeatureFlagsProvider>
+              <Router>
+                <AuthProvider>
+                  {/* <RoomProvider> */}
+                  <Switch>
+                    <Route exact path={APP_URL.login} component={Login} />
+                    <Route
+                      exact
+                      path={APP_URL.forgot}
+                      component={ForgotPassword}
+                    />
+                    <Route exact path={APP_URL.reset} component={Reset} />
+                    <ProtectedRoute exact path="/">
+                      <MainLayout>
+                        {/* <Home /> */}
+                        <TeamCard {...teamCardData} />
+                      </MainLayout>
+                    </ProtectedRoute>
+                    {/* <ProtectedRoute exact path="/room-details/:id">
                           <MainLayout>
                             <RoomDetailsPage />
                           </MainLayout>
@@ -107,21 +120,20 @@ function App() {
                           <MainLayout>
                             <RoomDetailsPage />
                           </MainLayout>
-                        </ProtectedRoute>
-                        <Route path="*">
-                          <NotFoundPage />
-                        </Route>
-                        <RouteChangeTracker />
-                      </Switch>
-                    </RoomProvider>
-                  </AuthProvider>
-                </Router>
-              </FeatureFlagsProvider>
-            </Suspense>
-          </ErrorBoundary>
-        </ThemeProvider>
-      </StylesProvider>
-    </ApolloProvider>
+                        </ProtectedRoute> */}
+                    <Route path="*">
+                      <NotFoundPage />
+                    </Route>
+                    <RouteChangeTracker />
+                  </Switch>
+                  {/* </RoomProvider> */}
+                </AuthProvider>
+              </Router>
+            </FeatureFlagsProvider>
+          </Suspense>
+        </ErrorBoundary>
+      </ThemeProvider>
+    </StylesProvider>
   );
 }
 
