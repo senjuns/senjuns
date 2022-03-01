@@ -6,7 +6,7 @@ import { ReactComponent as ChartIcon } from '../../assets/svgs/chart.svg';
 import { ReactComponent as CheckIcon } from '../../assets/svgs/check.svg';
 import { ReactComponent as ConceptAboutProblemSolvingImg } from '../../assets/svgs/concept-about-problem-solution-by-business-manager.svg';
 import { ReactComponent as GrowIcon } from '../../assets/svgs/grow.svg';
-import { ReactComponent as SimbolIco } from '../../assets/svgs/simbols.svg';
+import { ReactComponent as SymbolIcon } from '../../assets/svgs/symbols.svg';
 import { ReactComponent as TogetherIco } from '../../assets/svgs/together.svg';
 
 export type TBenefit = {
@@ -43,7 +43,7 @@ export const BENEFITS: TBenefit[] = [
       'Junior becomes Senior',
   },
   {
-    Icon: SimbolIco,
+    Icon: SymbolIcon,
     title: 'Simple',
     content:
       // eslint-disable-next-line max-len

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import { ReactComponent as PeopleIco } from '../../assets/svgs/people-ico.svg';
+import { ReactComponent as PeopleIcon } from '../../assets/svgs/people-icon.svg';
 import { Typography } from '../../common';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { COLORS, SIZES } from '../../shared/constants';
@@ -15,14 +15,15 @@ const Introduction: FC = () => {
       <FrontPageTitle isMobile={isMobile}>
         Seniors and Juniors Together
       </FrontPageTitle>
-      <StyledPeopleIco></StyledPeopleIco>
+      <StyledPeopleIcon></StyledPeopleIcon>
       <Title variant={isMobile ? 'h5' : 'h2'} color="white">
-        {"Let's get stuff done with fun!"}
+        Let's get stuff done with fun!
       </Title>
       <Description>
-        {
-          'As you know seniors in IT and engineering are less available and expensive. That trend doesn’t seem to change at all. Let’s stop that madness and put seniors and juniors together as teams.Senjun teams are eager to learn and to help you with your compelx IT problems.'
-        }
+        As you know seniors in IT and engineering are less available and
+        expensive. That trend doesn’t seem to change at all. Let’s stop that
+        madness and put seniors and juniors together as teams.Senjun teams are
+        eager to learn and to help you with your compelx IT problems.
       </Description>
       {/* <Description>
         {"Interested? Reach out today and let's grow together!"}
@@ -62,7 +63,7 @@ const FrontPageTitle = styled.div<ResponsiveLayoutProps>`
   align-items: center;
 `;
 
-const StyledPeopleIco = styled(PeopleIco)``;
+const StyledPeopleIcon = styled(PeopleIcon)``;
 const Title = styled(Typography)`
   margin-bottom: ${SIZES.xLarge}px;
   font-weight: 400;
