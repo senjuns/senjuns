@@ -5,9 +5,9 @@ import { ReactComponent as BusinessLadyImg } from '../../assets/svgs/business-la
 import { ReactComponent as ChartIcon } from '../../assets/svgs/chart.svg';
 import { ReactComponent as CheckIcon } from '../../assets/svgs/check.svg';
 import { ReactComponent as ConceptAboutProblemSolvingImg } from '../../assets/svgs/concept-about-problem-solution-by-business-manager.svg';
-import { ReactComponent as DetectIcon } from '../../assets/svgs/detect.svg';
-import { ReactComponent as EyeIcon } from '../../assets/svgs/eye.svg';
-import { ReactComponent as LeafIcon } from '../../assets/svgs/leaf.svg';
+import { ReactComponent as GrowIcon } from '../../assets/svgs/grow.svg';
+import { ReactComponent as SymbolIcon } from '../../assets/svgs/symbols.svg';
+import { ReactComponent as TogetherIco } from '../../assets/svgs/together.svg';
 
 export type TBenefit = {
   Icon: FC;
@@ -17,38 +17,37 @@ export type TBenefit = {
 
 export const BENEFITS: TBenefit[] = [
   {
-    Icon: LeafIcon,
-    title: 'Monitor and optimize every individual plant',
-    content:
-      'Neatleaf is creating the first system in the industry that enables you to remotely monitor and optimize the growth and environment of each individual plant in the cultivation space.',
+    Icon: TogetherIco,
+    title: 'Together',
+    content: 'Senjun teams consist of Seniors and Juinors',
   },
   {
     Icon: ChartIcon,
-    title: 'Increase profitability by creating more with less',
+    title: 'Learning',
     content:
       // eslint-disable-next-line max-len
-      'We are building a technology that is capable of detecting the subtle ways a plant responds to its environment and model what input factors create which outcome, so that you can optimize profits by creating optimal plant growth with fewer resources.',
+      'Useful skills',
   },
   {
     Icon: CheckIcon,
-    title: 'Consistent quality with every run',
+    title: 'Fair',
     content:
       // eslint-disable-next-line max-len
-      'Neatleaf’s technology helps you identify existing inconsistencies and microclimates within the cultivation environment, empowering you to streamline each growth cycle and generate a consistently high-quality product every single time.',
+      'Fair and transparent',
   },
   {
-    Icon: EyeIcon,
-    title: 'Remotely monitor plants anytime, anywhere',
+    Icon: GrowIcon,
+    title: 'Grow',
     content:
       // eslint-disable-next-line max-len
-      'Our powerful digital interfaces allow you to remotely evaluate your crop status anytime, anywhere and help you pinpoint any actionable issues. Automate your scouting and IPM activities while minimizing the risk of contamination within your cultivation space.',
+      'Junior becomes Senior',
   },
   {
-    Icon: DetectIcon,
-    title: 'Detect issues as early as they happen',
+    Icon: SymbolIcon,
+    title: 'Simple',
     content:
       // eslint-disable-next-line max-len
-      'Our breakthrough technology automatically detects any abnormalities in your cultivation area, including nutrient deficiencies or pest problems, and subsequently alerts you, prompting you to take immediate action.',
+      'Payments are managed either by task or hour',
   },
 ];
 
