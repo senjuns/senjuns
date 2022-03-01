@@ -20,6 +20,14 @@
       "type": "build"
     },
     {
+      "name": "commithelper",
+      "type": "build"
+    },
+    {
+      "name": "eslint-config-prettier",
+      "type": "build"
+    },
+    {
       "name": "eslint-import-resolver-node",
       "type": "build"
     },
@@ -32,8 +40,16 @@
       "type": "build"
     },
     {
+      "name": "eslint-plugin-prettier",
+      "type": "build"
+    },
+    {
       "name": "eslint",
       "version": "^8",
+      "type": "build"
+    },
+    {
+      "name": "husky",
       "type": "build"
     },
     {
@@ -50,17 +66,20 @@
       "type": "build"
     },
     {
+      "name": "lint-staged",
+      "type": "build"
+    },
+    {
       "name": "npm-check-updates",
       "version": "^12",
       "type": "build"
     },
     {
-      "name": "projen",
+      "name": "prettier",
       "type": "build"
     },
     {
-      "name": "standard-version",
-      "version": "^9",
+      "name": "projen",
       "type": "build"
     },
     {

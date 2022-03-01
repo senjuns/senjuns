@@ -25,7 +25,7 @@
     },
     {
       "name": "aws-cdk",
-      "version": "^2.13.0",
+      "version": "^2.14.0",
       "type": "build"
     },
     {
@@ -34,10 +34,6 @@
     },
     {
       "name": "esbuild",
-      "type": "build"
-    },
-    {
-      "name": "eslint-config-prettier",
       "type": "build"
     },
     {
@@ -50,10 +46,6 @@
     },
     {
       "name": "eslint-plugin-import",
-      "type": "build"
-    },
-    {
-      "name": "eslint-plugin-prettier",
       "type": "build"
     },
     {
@@ -80,10 +72,6 @@
       "type": "build"
     },
     {
-      "name": "prettier",
-      "type": "build"
-    },
-    {
       "name": "projen",
       "type": "build"
     },
@@ -102,7 +90,7 @@
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.13.0",
+      "version": "^2.14.0",
       "type": "runtime"
     },
     {

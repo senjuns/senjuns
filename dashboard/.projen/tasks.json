@@ -92,15 +92,6 @@
         }
       ]
     },
-    "eslint": {
-      "name": "eslint",
-      "description": "Runs eslint against the codebase",
-      "steps": [
-        {
-          "exec": "eslint --ext .ts,.tsx --fix --no-error-on-unmatched-pattern src test build-tools .projenrc.js"
-        }
-      ]
-    },
     "package": {
       "name": "package",
       "description": "Creates the distribution package"
@@ -121,9 +112,6 @@
       "name": "test",
       "description": "Run tests",
       "steps": [
-        {
-          "spawn": "eslint"
-        },
         {
           "exec": "react-scripts test --watchAll=false"
         }
@@ -155,7 +143,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @graphql-codegen/typescript-react-apollo @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/js-cookie @types/lodash @types/node @types/react @types/react-color @types/react-dom @types/react-plotly.js @types/react-router-dom @types/react-test-renderer @types/selenium-webdriver @types/styled-components @typescript-eslint/eslint-plugin @typescript-eslint/parser assert eslint-config-prettier eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint-plugin-prettier eslint husky json-schema lint-staged npm-check-updates prettier react-test-renderer typescript @apollo/client @date-io/date-fns @date-io/moment @material-ui/core @material-ui/icons @material-ui/lab @material-ui/pickers apollo-boost aws-amplify-react aws-amplify clsx date-fns js-cookie konva lodash moment plotly.js react react-apollo react-color react-dom react-ga react-hook-form react-konva react-plotly.js react-responsive react-router-dom react-scripts react-swipeable react-tooltip react-zoom-pan-pinch selenium-webdriver stream styled-components use-debounce use-image web-vitals"
+          "exec": "yarn upgrade @graphql-codegen/typescript-react-apollo @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/js-cookie @types/lodash @types/node @types/react @types/react-color @types/react-dom @types/react-plotly.js @types/react-router-dom @types/react-test-renderer @types/selenium-webdriver @types/styled-components assert npm-check-updates react-test-renderer typescript @apollo/client @date-io/date-fns @date-io/moment @material-ui/core @material-ui/icons @material-ui/lab @material-ui/pickers apollo-boost aws-amplify-react aws-amplify clsx date-fns js-cookie konva lodash moment plotly.js react react-apollo react-color react-dom react-ga react-hook-form react-konva react-plotly.js react-responsive react-router-dom react-scripts react-swipeable react-tooltip react-zoom-pan-pinch selenium-webdriver stream styled-components use-debounce use-image web-vitals"
         },
         {
           "exec": "npx projen"
