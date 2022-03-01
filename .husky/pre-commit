@@ -3,11 +3,11 @@
 
 cd landingpage
 # yarn eslint
-yarn lint:staged
+# yarn lint:staged
 
 cd ../dashboard
 #yarn eslint
-yarn lint:staged
+# yarn lint:staged
 
 cd ../backend
 yarn tsc
