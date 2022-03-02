@@ -2,14 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import background from '../../assets/image/background.png';
-import backgroundMobile from '../../assets/image/background_mobile.jpg';
+// import background from '../../assets/image/background.png';
+// import backgroundMobile from '../../assets/image/background_mobile.jpg';
 import facebookIcon from '../../assets/svg/facebook.svg';
 import instagramIcon from '../../assets/svg/instagram.svg';
 import linkedinIcon from '../../assets/svg/linkedin.svg';
 import logo from '../../assets/svg/logo.svg';
 import twitterIcon from '../../assets/svg/twitter.svg';
 import { Typography } from '../../components/common/Typography';
+import { Colors } from '../../shared/constants';
 
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { APP_URL, ScreenSize } from '../../shared/constants';
@@ -51,20 +52,20 @@ export const NonAuthLayout: React.FC<NonAuthLayoutProps> = ({
       }
     >
       <BackgroundContainer>
-        <BackgroundImageWrapper>
+        {/* <BackgroundImageWrapper>
           <BackgroundImage
             isMobile={isMobile}
             src={isMobile ? backgroundMobile : background}
             alt="background"
           />
-        </BackgroundImageWrapper>
+        </BackgroundImageWrapper> */}
 
         <Logo src={logo} />
         <Title>
           {isMobile ? (
-            <Typography variant="h2">Let&rsquo;s grow together</Typography>
+            <Typography variant="h2">Seniors and Juniors together</Typography>
           ) : (
-            <TitleText>Let&rsquo;s grow together</TitleText>
+            <TitleText>Seniors and Juniors together</TitleText>
           )}
         </Title>
         {!isMobile && (
@@ -75,7 +76,7 @@ export const NonAuthLayout: React.FC<NonAuthLayoutProps> = ({
               <img src={linkedinIcon} />
               <img src={instagramIcon} />
             </SocialIconGroup>
-            <WaterMark>{`© ${new Date().getFullYear()} Neatleaf.`}</WaterMark>
+            <WaterMark>{`© ${new Date().getFullYear()} senjun-teams.`}</WaterMark>
           </>
         )}
       </BackgroundContainer>
@@ -108,14 +109,14 @@ const Logo = styled.img`
   position: absolute;
   left: 100px;
   top: 100px;
-  width: 220px;
-  height: 40px;
+  /* width: 220px;
+  height: 40px; */
 
   @media only screen and (max-width: ${ScreenSize.xs}px) {
     left: 40px;
     top: 60px;
-    width: 167px;
-    height: 30px;
+    /* width: 167px;
+    height: 30px; */
   }
 `;
 
@@ -123,7 +124,7 @@ const Title = styled.div`
   position: absolute;
   left: 100px;
   top: 350px;
-  color: white;
+  color: black;
   width: calc(520 / ${ScreenSize.xl} * 100vw);
 
   @media only screen and (max-width: ${ScreenSize.xl}px) {
@@ -153,20 +154,21 @@ const BackgroundContainer = styled.div`
   height: 100%;
   flex: 1;
   position: relative;
+  background-color: ${Colors.grey100};
 `;
 
-const BackgroundImageWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
+// const BackgroundImageWrapper = styled.div`
+//   width: 100%;
+//   height: 100%;
+//   overflow: hidden;
+// `;
 
-const BackgroundImage = styled.img<{ isMobile: boolean }>`
-  width: 100%;
-  height: 100%;
+// const BackgroundImage = styled.img<{ isMobile: boolean }>`
+//   width: 100%;
+//   height: 100%;
 
-  ${(props) => (props.isMobile ? 'width: auto;' : '')}
-`;
+//   ${(props) => (props.isMobile ? 'width: auto;' : '')}
+// `;
 
 interface FormContainerProps {
   minHeight?: number;
@@ -203,5 +205,5 @@ const WaterMark = styled.div`
   right: 100px;
   bottom: 50px;
   font-size: 14px;
-  color: white;
+  color: black;
 `;

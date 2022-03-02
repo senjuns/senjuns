@@ -49,7 +49,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.14.0',
+  cdkVersion: '2.15.0',
   devDeps: ['@types/aws-lambda', 'aws-sdk'],
   release: false,
 });

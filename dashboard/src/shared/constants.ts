@@ -30,6 +30,12 @@ export const ScreenSize = {
 };
 
 export const Colors = {
+  brightBlue100: '#60C3E3',
+  brightBlue80: '#7FCEE8',
+  brightBlue60: '#9FDAEE',
+  grey100: '#E5E5E5',
+  grey80: '#EAEAEA',
+  grey60: '#EFEFEF',
   black: '#000000',
   dark1: '#383838',
   dark7: '#808080',
