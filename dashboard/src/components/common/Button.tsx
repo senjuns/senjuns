@@ -28,7 +28,7 @@ const getButtonStyles = (color: ButtonProps['color']) => {
   switch (color) {
     case 'primary':
       return {
-        backgroundColor: Colors.orange3,
+        backgroundColor: Colors.brightBlue100,
         border: 'none',
         color: Colors.white,
       };

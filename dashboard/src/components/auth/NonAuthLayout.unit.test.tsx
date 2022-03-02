@@ -8,15 +8,17 @@ jest.mock('react-router-dom', () => ({
     pathname: '/reset',
   }),
   useParams: () => ({
-    username: '../../qa@neatleaf.com',
+    username: '../../qa@senjun-teams.com',
   }),
 }));
 
 describe('<NonAuthLayout />', () => {
   it('renders correctly.', async () => {
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const renderer = ShallowRenderer.createRenderer();
     renderer.render(<NonAuthLayout>Auth Layout</NonAuthLayout>);
 
+    // eslint-disable-next-line testing-library/render-result-naming-convention
     const result = renderer.getRenderOutput();
     expect(result).toMatchSnapshot();
   });

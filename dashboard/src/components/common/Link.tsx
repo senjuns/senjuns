@@ -56,9 +56,9 @@ const StyledLink = styled(RouterLink)<StyledLinkProps>`
   font-weight: 600;
   font-size: ${Fonts.body2.size}px;
   text-decoration: none;
-  color: ${(props) => Colors[props.$linkColor || 'orange3']};
+  color: ${(props) => Colors[props.$linkColor || 'brightBlue100']};
 
   &:hover {
-    color: ${(props) => Colors[props.$hoverColor || 'orange4']};
+    color: ${(props) => Colors[props.$hoverColor || 'brightBlue80']};
   }
 `;
