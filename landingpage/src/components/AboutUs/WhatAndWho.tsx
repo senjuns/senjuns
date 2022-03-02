@@ -16,24 +16,14 @@ const WhatAndWho: FC = () => {
         What &amp; Who
       </WhatAndWhoLabel>
       <GeneralDescription isMobile={isMobile} variant="body1">
-        Neatleaf was founded to be a driving force for the next generation of
-        technologies in agriculture and to create a positive impact for us and
-        our planet.
+        Senjun-teams was founded to be a driving force for ...
       </GeneralDescription>
       <WhatWeDoTitle variant="h4">What we do</WhatWeDoTitle>
       <WhatWeDoDescription isMobile={isMobile} variant="body1">
-        Neatleaf is building a completely novel and first-of-its-kind robotic
-        platform for indoor and greenhouse cultivation, empowering you to
-        sustainably produce more optimal yields at a higher quality and lower
-        cost. Our initial system has already been deployed with the first pilot
-        customers who have observed significant improvements in crop production.
+        ...
       </WhatWeDoDescription>
       <WhoWeAreTitle variant="h4">Who we are</WhoWeAreTitle>
-      <WhoWeAreDescription variant="body1">
-        We are a diverse group of roboticists, engineers and machine learning
-        experts coming from some of the world&apos;s leading technology
-        companies and research institutions.
-      </WhoWeAreDescription>
+      <WhoWeAreDescription variant="body1">...</WhoWeAreDescription>
     </WhatAndWhoContainer>
   );
 };

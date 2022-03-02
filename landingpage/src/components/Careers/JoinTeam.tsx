@@ -5,7 +5,8 @@ import { useScreenSize } from '../../hooks/useScreenSize';
 import { SIZES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
 
-const CAREERS_LINK = 'https://apply.workable.com/neatleaf/?lng=en';
+// const CAREERS_LINK = 'https://apply.workable.com/neatleaf/?lng=en';
+const CAREERS_LINK = 'https://martinmueller.dev';
 
 const JoinTeam: FC = () => {
   const { isMobile } = useScreenSize();
@@ -34,7 +35,7 @@ const JoinTeam: FC = () => {
       <Typography variant="body2">Don’t see your role listed?</Typography>
       <ReachOutUs isMobile={isMobile} variant="body2">
         Reach out to us through the contact form or write us at&nbsp;
-        <b>career@neatleaf.com</b>
+        <b>career@senjun-teams.com</b>
       </ReachOutUs>
     </JoinTeamContainer>
   );

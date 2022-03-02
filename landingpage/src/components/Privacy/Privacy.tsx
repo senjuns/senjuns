@@ -13,18 +13,18 @@ const Privacy: FC = () => {
         Privacy
       </Title>
       <WhatWeDoTitle variant="h4">
-        <i>neatleaf</i>, Inc. Webpage Privacy Policy (www.neatleaf.com)
+        <i>senjun-teams</i>, Inc. Webpage Privacy Policy (www.senjun-teams.com)
       </WhatWeDoTitle>
       <WhatWeDoDescription isMobile={isMobile} variant="body1">
-        Effective Date: August 28, 2020
+        Effective Date: February 28, 2022
         <br />
         <br />
-        <i>neatleaf</i>, Inc. provides data analysis and automation solutions,
-        including but not limited to sensors, actuators, and data processing
-        tools, to help our customers improve farming efficiency.
+        <i>senjun-teams</i>, Inc. provides data analysis and automation
+        solutions, including but not limited to sensors, actuators, and data
+        processing tools, to help our customers improve farming efficiency.
         <br />
         <br />
-        At <i>neatleaf</i> one of our main priorities is the privacy of our
+        At <i>senjun-teams</i> one of our main priorities is the privacy of our
         visitors and customers. This Privacy Policy is designed to inform you
         about the type of information that we may gather or collect from you in
         connection with your use of our Services. It also explains the
@@ -277,7 +277,8 @@ const Privacy: FC = () => {
       <WhatWeDoTitle variant="h2">Comments and Questions</WhatWeDoTitle>
       <WhatWeDoDescription isMobile={isMobile} variant="body1">
         If you have a comment or question about this Privacy Policy or would
-        like to exercise your rights, please contact us at support@neatleaf.com.
+        like to exercise your rights, please contact us at
+        support@senjun-teams.com.
         <br />
         <br />
         Notice to California residents: If you are a California resident, you
@@ -296,9 +297,9 @@ const Privacy: FC = () => {
         If you are a resident of Nevada, you have the right to opt-out of the
         sale of certain Personal Information to third parties who intend to
         license or sell that Personal Information. You can exercise this right
-        by contacting us at support@neatleaf.com with the subject line “Nevada
-        Do Not Sell Request” and providing us with your name and the email
-        address associated with your account. Please note that we do not
+        by contacting us at support@senjun-teams.com with the subject line
+        “Nevada Do Not Sell Request” and providing us with your name and the
+        email address associated with your account. Please note that we do not
         currently sell your Personal Information as sales are defined in Nevada
         Revised Statutes Chapter 603A.
       </WhatWeDoDescription>
@@ -328,7 +329,7 @@ const Privacy: FC = () => {
             Provider.
           </ListItem>
           <ListItem>
-            <b>Our, Us, or We</b> means <i>neatleaf</i>, Inc.
+            <b>Our, Us, or We</b> means <i>senjun-teams</i>, Inc.
           </ListItem>
           <ListItem>
             <b>Personal Information</b> means information that identifies,
@@ -344,7 +345,7 @@ const Privacy: FC = () => {
             identifier described above.
           </ListItem>
           <ListItem>
-            <b>Site</b> means our website, located at www.neatleaf.com .
+            <b>Site</b> means our website, located at www.senjun-teams.com .
           </ListItem>
           <ListItem>
             <b>Services</b> means our Site, as well as any processing activities

@@ -8,7 +8,7 @@ import { ReactComponent as Logo } from '../../assets/svgs/logo.svg';
 import { Link } from '../../common';
 import HamburgerMenu from '../../components/Header/HamburgerMenu';
 import { useScreenSize } from '../../hooks/useScreenSize';
-import { SIZES, ROUTES } from '../../shared/constants';
+import { ROUTES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
 
 interface HeaderProps {
@@ -65,9 +65,9 @@ const LinkContainer = styled.div`
   align-items: center;
 `;
 
-const ButtonContainer = styled.div`
-  display: flex;
-  gap: ${SIZES.xSmall}px;
-`;
+// const ButtonContainer = styled.div`
+//   display: flex;
+//   gap: ${SIZES.xSmall}px;
+// `;
 
 export default Header;
