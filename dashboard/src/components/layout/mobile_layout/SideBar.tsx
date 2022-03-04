@@ -7,9 +7,7 @@ import { ReactComponent as SettingsIcon } from '../../../assets/svg/settings-ico
 import Profile from '../../../components/common/Profile';
 import { useAuth } from '../../../contexts';
 import { useFeatureFlags } from '../../../contexts/FeatureFlagsProvider';
-import { submitMetrics } from '../../../shared/analytics/metrics';
 import { Colors } from '../../../shared/constants';
-import { METRICS_TYPE } from '../../../shared/interfaces';
 import SideBarMenuItem from './SideBarMenuItem';
 
 /**
@@ -34,7 +32,6 @@ const SideBar: React.FC = () => {
     setIsLoggingOut(true);
     try {
       await signOut();
-      submitMetrics(METRICS_TYPE.USER_LOGOUT);
     } finally {
       setIsLoggingOut(false);
     }

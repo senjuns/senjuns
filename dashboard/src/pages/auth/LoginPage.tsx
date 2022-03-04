@@ -12,9 +12,7 @@ import {
   Typography,
 } from '../../components/common';
 import { useAuth } from '../../contexts';
-import { submitMetrics } from '../../shared/analytics/metrics';
 import { APP_URL, ScreenSize } from '../../shared/constants';
-import { METRICS_TYPE } from '../../shared/interfaces';
 
 /**
  * LogInPage component.
@@ -23,7 +21,7 @@ import { METRICS_TYPE } from '../../shared/interfaces';
  */
 const LoginPage: React.FC = () => {
   const [error, setError] = useState('');
-  const { isLoggedIn, logIn, userInfo } = useAuth();
+  const { isLoggedIn, logIn } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const history = useHistory();
@@ -35,7 +33,6 @@ const LoginPage: React.FC = () => {
     try {
       await logIn(data.email, data.password);
       history.push(APP_URL.home);
-      submitMetrics(METRICS_TYPE.USER_LOGIN, { email: data.email });
       // eslint-disable-next-line @typescript-eslint/no-shadow
     } catch (error) {
       if (error && (error as Error).message) {
@@ -51,7 +48,6 @@ const LoginPage: React.FC = () => {
   useEffect(() => {
     if (isLoggedIn) {
       history.push(APP_URL.home);
-      submitMetrics(METRICS_TYPE.USER_LOGIN, { email: userInfo.username });
     }
   }, [isLoggedIn]);
 

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import ReactGA from 'react-ga';
+// import ReactGA from 'react-ga';
 import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../../contexts';
@@ -9,12 +9,12 @@ const RouteChangeTracker: FC = () => {
   const { userInfo } = useAuth();
 
   useEffect(() => {
-    history.listen((location) => {
-      ReactGA.set({
-        email: userInfo?.username,
-        page: location.pathname,
-      });
-      ReactGA.pageview(location.pathname);
+    history.listen((_location) => {
+      // ReactGA.set({
+      //   email: userInfo?.username,
+      //   page: location.pathname,
+      // });
+      // ReactGA.pageview(location.pathname);
     });
   }, [userInfo]);
 

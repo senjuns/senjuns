@@ -18,6 +18,12 @@ Deploy with:
 yarn deploy
 ```
 
+For listing all available stacks do:
+
+```bash
+yarn cdk list
+```
+
 Or with the new watch flag a faster deploying for local development:
 
 ```bash
@@ -27,6 +33,7 @@ yarn cdk deploy 'prod-LandingpageStack'
 yarn cdk deploy 'dev-...Stack'
 yarn cdk deploy 'dev-...Stack' --watch
 yarn cdk deploy 'dev-...Stack' --require-approval none
+yarn cdk deploy 'senjun-teams-pipeline/prod/prod-DashboardBackendStack'
 ```
 
 For destroy do
@@ -36,6 +43,12 @@ yarn destroy
 ```
 
 For setup access to the specific stage get your programmatic credentials via AWS SSO and store them in ~/.aws/credentials or more convenient store them as environment variables.
+
+## Deploy Pipeline
+
+```bash
+yarn cdk deploy 'senjun-teams-pipeline' --require-approval none
+```
 
 ## Cognito
 
