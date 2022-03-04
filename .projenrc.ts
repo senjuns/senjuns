@@ -1,4 +1,5 @@
 import * as pj from 'projen';
+import { TrailingComma } from 'projen/lib/javascript';
 
 const project = new pj.typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
@@ -9,12 +10,14 @@ const project = new pj.typescript.TypeScriptProject({
   prettierOptions: {
     settings: {
       singleQuote: true,
+      trailingComma: TrailingComma.ALL,
     },
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
   release: false,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
+project.prettier?.addIgnorePattern('tsconfig.dev.json');
 
 project.package.addField('lint-staged', {
   '*.(ts|tsx)': ['eslint --fix'],
@@ -23,6 +26,8 @@ project.package.addField('lint-staged', {
 project.setScript('lint:staged', 'lint-staged');
 
 project.setScript('prepare', 'husky install');
+
+project.tsconfigDev?.addInclude('backend/**/*.ts');
 
 project.synth();
 
@@ -75,7 +80,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'aws-amplify@^4.2.0',
     'aws-amplify-react@^5.0.2',
     'react-router-dom@^5.2.0',
-    'react-ga@^3.3.0',
+    // 'react-ga@^3.3.0',
     'styled-components@^5.3.1',
     'react-color@^2.19.3',
     'use-debounce@^7.0.1',

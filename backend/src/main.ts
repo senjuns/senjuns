@@ -1,7 +1,8 @@
 import * as core from 'aws-cdk-lib';
-import { DashboardAppStack } from './dashboard-app-stack';
-import { DashboardBackendStack } from './dashboard-backend-stack';
-import { LandingPageStack } from './landingpage-stack';
+// import { DashboardAppStack } from './dashboard-app-stack';
+// import { DashboardBackendStack } from './dashboard-backend-stack';
+// import { LandingPageStack } from './landingpage-stack';
+import { PipelineStack } from './pipeline-stack';
 
 const devEnv = {
   account: '981237193288',
@@ -10,11 +11,13 @@ const devEnv = {
 
 const app = new core.App();
 
-new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
-new DashboardAppStack(app, 'prod-DashboardAppStack', { env: devEnv });
-new DashboardBackendStack(app, 'prod-DashboardBackendStack', {
-  env: devEnv,
-  stage: 'prod',
-});
+new PipelineStack(app, 'senjun-teams-pipeline', { env: devEnv });
+
+// new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
+// new DashboardAppStack(app, 'prod-DashboardAppStack', { env: devEnv });
+// new DashboardBackendStack(app, 'prod-DashboardBackendStack', {
+//   env: devEnv,
+//   stage: 'prod',
+// });
 
 app.synth();
