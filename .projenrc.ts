@@ -127,4 +127,6 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   release: false,
 });
 
+dashboard.addGitIgnore('src/shared/config/config.ts');
+
 dashboard.synth();

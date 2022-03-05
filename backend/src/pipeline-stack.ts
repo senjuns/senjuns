@@ -31,7 +31,7 @@ export class PipelineStack extends cdk.Stack {
     });
 
     pipeline.addStage(
-      new BackendStage(this, 'prod-backendStage', {
+      new BackendStage(this, 'prod', {
         env: {
           account: '981237193288',
           region: 'eu-central-1',
@@ -50,14 +50,14 @@ export class PipelineStack extends cdk.Stack {
       },
     );
 
-    pipeline.addStage(
-      new FrontendStage(this, 'prod-FrontendStage', {
-        env: {
-          account: '981237193288',
-          region: 'eu-central-1',
-        },
-      }),
-    );
+    // pipeline.addStage(
+    //   new FrontendStage(this, 'prod-FrontendStage', {
+    //     env: {
+    //       account: '981237193288',
+    //       region: 'eu-central-1',
+    //     },
+    //   }),
+    // );
   }
 }
 
@@ -72,14 +72,16 @@ class BackendStage extends cdk.Stage {
     new DashboardBackendStack(this, 'DashboardBackendStack', {
       stage: props.stage,
     });
-  }
-}
-
-class FrontendStage extends cdk.Stage {
-  constructor(scope: Construct, id: string, props?: cdk.StageProps) {
-    super(scope, id, props);
-
     new LandingPageStack(this, 'LandingPageStack');
     new DashboardAppStack(this, 'DashboardAppStack');
   }
 }
+
+// class FrontendStage extends cdk.Stage {
+//   constructor(scope: Construct, id: string, props?: cdk.StageProps) {
+//     super(scope, id, props);
+
+//     new LandingPageStack(this, 'LandingPageStack');
+//     new DashboardAppStack(this, 'DashboardAppStack');
+//   }
+// }
