@@ -38,16 +38,6 @@ export class PipelineStack extends cdk.Stack {
         },
         stage: 'prod',
       }),
-      {
-        post: [
-          new pipelines.ShellStep('Update Amplify config', {
-            commands: [
-              'export STAGE=prod',
-              'chmod +x ./dashboard/scripts/create_config.sh && ./dashboard/scripts/create_config.sh',
-            ],
-          }),
-        ],
-      },
     );
 
     // pipeline.addStage(
