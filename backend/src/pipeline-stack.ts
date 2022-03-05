@@ -31,11 +31,12 @@ export class PipelineStack extends cdk.Stack {
     });
 
     pipeline.addStage(
-      new BackendStage(this, 'backendStage', {
+      new BackendStage(this, 'prod-backendStage', {
         env: {
           account: '981237193288',
           region: 'eu-central-1',
         },
+        stage: 'prod',
       }),
       {
         post: [
@@ -50,7 +51,7 @@ export class PipelineStack extends cdk.Stack {
     );
 
     pipeline.addStage(
-      new FrontendStage(this, 'FrontendStage', {
+      new FrontendStage(this, 'prod-FrontendStage', {
         env: {
           account: '981237193288',
           region: 'eu-central-1',
@@ -60,12 +61,16 @@ export class PipelineStack extends cdk.Stack {
   }
 }
 
+interface BackendStageProps extends cdk.StageProps {
+  stage: 'prod' | 'dev';
+}
+
 class BackendStage extends cdk.Stage {
-  constructor(scope: Construct, id: string, props?: cdk.StageProps) {
+  constructor(scope: Construct, id: string, props: BackendStageProps) {
     super(scope, id, props);
 
     new DashboardBackendStack(this, 'DashboardBackendStack', {
-      stage: 'prod',
+      stage: props.stage,
     });
   }
 }
