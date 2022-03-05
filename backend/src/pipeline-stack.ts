@@ -31,7 +31,26 @@ export class PipelineStack extends cdk.Stack {
     });
 
     pipeline.addStage(
-      new MyApplication(this, 'prod', {
+      new BackendStage(this, 'backendStage', {
+        env: {
+          account: '981237193288',
+          region: 'eu-central-1',
+        },
+      }),
+      {
+        post: [
+          new pipelines.ShellStep('Update Amplify config', {
+            commands: [
+              'export STAGE=prod',
+              'chmod +x ./dashboard/scripts/create_config.sh && ./dashboard/scripts/create_config.sh',
+            ],
+          }),
+        ],
+      },
+    );
+
+    pipeline.addStage(
+      new FrontendStage(this, 'FrontendStage', {
         env: {
           account: '981237193288',
           region: 'eu-central-1',
@@ -41,14 +60,21 @@ export class PipelineStack extends cdk.Stack {
   }
 }
 
-class MyApplication extends cdk.Stage {
+class BackendStage extends cdk.Stage {
+  constructor(scope: Construct, id: string, props?: cdk.StageProps) {
+    super(scope, id, props);
+
+    new DashboardBackendStack(this, 'DashboardBackendStack', {
+      stage: 'prod',
+    });
+  }
+}
+
+class FrontendStage extends cdk.Stage {
   constructor(scope: Construct, id: string, props?: cdk.StageProps) {
     super(scope, id, props);
 
     new LandingPageStack(this, 'LandingPageStack');
     new DashboardAppStack(this, 'DashboardAppStack');
-    new DashboardBackendStack(this, 'DashboardBackendStack', {
-      stage: 'prod',
-    });
   }
 }
