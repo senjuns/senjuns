@@ -45,9 +45,9 @@ class MyApplication extends cdk.Stage {
   constructor(scope: Construct, id: string, props?: cdk.StageProps) {
     super(scope, id, props);
 
-    new LandingPageStack(this, 'prod-LandingPageStack');
-    new DashboardAppStack(this, 'prod-DashboardAppStack');
-    new DashboardBackendStack(this, 'prod-DashboardBackendStack', {
+    new LandingPageStack(this, 'LandingPageStack');
+    new DashboardAppStack(this, 'DashboardAppStack');
+    new DashboardBackendStack(this, 'DashboardBackendStack', {
       stage: 'prod',
     });
   }

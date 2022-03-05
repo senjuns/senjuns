@@ -32,8 +32,8 @@ yarn cdk deploy 'prod-DashboardAppStack'
 yarn cdk deploy 'prod-LandingpageStack'
 yarn cdk deploy 'dev-...Stack'
 yarn cdk deploy 'dev-...Stack' --watch
-yarn cdk deploy 'dev-...Stack' --require-approval none
-yarn cdk deploy 'senjun-teams-pipeline/prod/prod-DashboardBackendStack'
+yarn cdk deploy 'dev-...Stack' --require-approval never
+yarn cdk deploy 'senjun-teams-pipeline/prod/DashboardBackendStack' --require-approval never
 ```
 
 For destroy do
@@ -55,7 +55,7 @@ yarn cdk deploy 'senjun-teams-pipeline' --require-approval none
 Create User
 
 ```bash
-USER_POOL_ID=eu-central-1_tQoQRbDHI
+USER_POOL_ID=eu-central-1_wi4nczkft
 USER_NAME=martin
 USER_PASSWORD=M@rtindev1
 REGION=eu-central-1
@@ -63,3 +63,10 @@ REGION=eu-central-1
 aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --region $REGION
 aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --region $REGION
 ```
+
+## Migration
+
+Future tasks when we get funding:
+
+- Setup proper multi accounts with landingpage and more. Perhaps use kreuzwerker template
+- Change 'senjun-teams-pipeline/prod/prod-DashboardBackendStack' to 'senjun-teams-pipeline/prod/DashboardBackendStack'
