@@ -32,7 +32,7 @@ const NotFoundPage = lazy(() => import('./pages/not_found/NotFoundPage'));
 //   () => import('./pages/room_details/RoomDetailsPage')
 // );
 const RouteChangeTracker = lazy(
-  () => import('./components/common/RouteChangeTracker')
+  () => import('./components/common/RouteChangeTracker'),
 );
 const MainLayout = lazy(() => import('./components/layout/MainLayout'));
 
@@ -72,21 +72,6 @@ Amplify.configure(config);
  * @returns {JSX.Element} App component
  */
 function App() {
-  const teamCardData = {
-    teamcarddetailsdescriptiontitle: 'AWS CDK Team',
-    teamcarddetailsdescriptionbody:
-      'we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...',
-    badge1Text: 'AWS',
-    badge2Text: 'IaC',
-    badge3Text: 'DevOps',
-    teamcardmember1Image: 'teamcardmember1image.png',
-    teamcardmember1Descriptionfirstname: 'Chris',
-    teamcardmember1Descriptionrole: '- Senior AWS Cloud Engineer',
-    teamcardmember2Image: 'teamcardmember2image.png',
-    teamcardmember2Descriptionfirstname: 'Kache',
-    teamcardmember2Descriptionrole: '- Junior AWS Cloud Engineer',
-  };
-
   return (
     // <ApolloProvider client={client}>
     <StylesProvider injectFirst>
@@ -108,7 +93,7 @@ function App() {
                     <ProtectedRoute exact path="/">
                       <MainLayout>
                         {/* <Home /> */}
-                        <TeamCard {...teamCardData} />
+                        <TeamCard />
                       </MainLayout>
                     </ProtectedRoute>
                     {/* <ProtectedRoute exact path="/room-details/:id">
