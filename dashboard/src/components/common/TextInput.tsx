@@ -44,7 +44,7 @@ export const TextInput = forwardRef<HTMLDivElement, TextInputProps>(
         {...rest}
       />
     );
-  }
+  },
 );
 
 TextInput.displayName = 'TextInput';
@@ -60,10 +60,10 @@ const StyledTextField = styled(TextField)`
   }
 
   & .MuiInput-underline::before {
-    border-bottom: 1px solid ${Colors.orange3};
+    border-bottom: 1px solid ${Colors.brightBlue100};
   }
 
   & .MuiInput-underline::after {
-    border-bottom: 2px solid ${Colors.orange3};
+    border-bottom: 2px solid ${Colors.brightBlue100};
   }
 `;
