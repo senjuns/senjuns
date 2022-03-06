@@ -8,7 +8,7 @@ import { ReactComponent as Logo } from '../../assets/svgs/logo.svg';
 import { Link } from '../../common';
 import HamburgerMenu from '../../components/Header/HamburgerMenu';
 import { useScreenSize } from '../../hooks/useScreenSize';
-import { ROUTES } from '../../shared/constants';
+import { COLORS, FONTS, ROUTES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
 
 interface HeaderProps {
@@ -34,6 +34,9 @@ const Header: FC<HeaderProps> = ({ color }) => {
               text="Contact Us"
               to={ROUTES.CONTACT_US}
             />
+            <StyledHrefLink href={'https://dashboard.senjun-teams.com'}>
+              Login
+            </StyledHrefLink>
           </>
         )}
       </LinkContainer>
@@ -63,6 +66,17 @@ const StyledLink = styled(Link)`
 const LinkContainer = styled.div`
   display: flex;
   align-items: center;
+`;
+
+const StyledHrefLink = styled.a`
+  font-weight: 600;
+  font-size: ${FONTS.body1.size}px;
+  text-decoration: none;
+  color: ${COLORS.white};
+
+  &:hover {
+    color: ${COLORS.grey5};
+  }
 `;
 
 // const ButtonContainer = styled.div`

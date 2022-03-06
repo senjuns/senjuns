@@ -82,7 +82,7 @@ const StyledLink = styled(RouterLink)<StyledLinkProps>`
           align-items: center;
           padding: ${SIZES.small}px ${SIZES.large}px;
 
-          background: ${COLORS.orange2};
+          background: ${COLORS.brightBlue100};
           color: ${$linkColor};
 
           border-radius: 20px;
