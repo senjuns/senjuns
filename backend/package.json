@@ -25,7 +25,8 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "cdk": "cdk",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "dia": "mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardBackendStack senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/all.png"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92",
@@ -35,6 +36,7 @@
     "@typescript-eslint/parser": "^5",
     "aws-cdk": "^2.15.0",
     "aws-sdk": "^2.1080.0",
+    "cdk-dia": "^0.6.1",
     "esbuild": "^0.14.21",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.6",
