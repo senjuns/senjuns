@@ -1,0 +1,793 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "senjun-teams-pipeline" {
+    subgraph "cluster-SubGraph.senjun-teams-pipeline" {
+      graph [
+        label = "senjun-teams-pipeline",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      subgraph "cluster-SubGraph.prod" {
+        graph [
+          label = "prod",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        subgraph "cluster-SubGraph.DashboardBackendStack" {
+          graph [
+            label = "DashboardBackendStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+            label = "\nprodDashboardUserPool",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_Amazon-Cognito_64.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/userPoolWebClient" [
+            label = " userPoolWebClient",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_Amazon-Cognito_64.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+            label = " Cognito IdentityPool\nDashboardIdentityPool",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_Amazon-Cognito_64.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.682,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/unauthenticatedRole" [
+            label = " unauthenticatedRole",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/authenticatedRole" [
+            label = " authenticatedRole",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" [
+            label = " Cognito identityRole",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_Amazon-Cognito_64.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/userBackupBucket" [
+            label = " userBackupBucket",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" [
+            label = " backupLambda",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/userImportRole" [
+            label = " userImportRole",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/Rule" [
+            label = " Rule",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_App-Integration/Arch_64/Arch_Amazon-EventBridge_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/role" [
+            label = " role",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/customResource" [
+            label = " CloudFormation\nCustomResource\ncustomResource",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.898,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/info" [
+            label = " info",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/infoApi" [
+            label = " infoApi",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-API-Gateway_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/infoRecord" [
+            label = " infoRecord",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/provider/framework-onEvent" [
+            label = " framework-onEvent",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          "senjun-teams-pipeline/prod/DashboardBackendStack/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole" [
+            label = " ServiceRole",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          subgraph "cluster-SubGraph.infoCertificate" {
+            graph [
+              label = "infoCertificate",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#b9b9b9",
+            ];
+            "senjun-teams-pipeline/prod/DashboardBackendStack/infoCertificate/CertificateRequestorFunction" [
+              label = "\nCertificateRequestorF",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.4819999999999998,
+            ];
+            "senjun-teams-pipeline/prod/DashboardBackendStack/infoCertificate/CertificateRequestorResource" [
+              label = " CloudFormation\nCustomResource",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.682,
+            ];
+          }
+        }
+        subgraph "cluster-SubGraph.LandingPageStack" {
+          graph [
+            label = "LandingPageStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "senjun-teams-pipeline/prod/LandingPageStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" [
+            label = " Custom \nCDKBucketDeployment86",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.4819999999999998,
+          ];
+          subgraph "cluster-SubGraph.landingPage" {
+            graph [
+              label = "landingPage",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#b9b9b9",
+            ];
+            "senjun-teams-pipeline/prod/LandingPageStack/landingPage/SiteBucket" [
+              label = " SiteBucket",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "senjun-teams-pipeline/prod/LandingPageStack/landingPage/OAI" [
+              label = " OAI",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Resource/Res_Security-Identity-and-Compliance/Res_48_Dark/Res_AWS-Identity-Access-Management_Permissions_48_Dark_gen.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "senjun-teams-pipeline/prod/LandingPageStack/landingPage/record" [
+              label = " record",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.466,
+            ];
+            "senjun-teams-pipeline/prod/LandingPageStack/landingPage/alternativeRecord" [
+              label = " alternativeRecord",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.466,
+            ];
+            "senjun-teams-pipeline/prod/LandingPageStack/landingPage/Distribution/CFDistribution" [
+              label = " CloudFront\nDistribution\nCFDistribution",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.6979999999999995,
+            ];
+            subgraph "cluster-SubGraph.certificate" {
+              graph [
+                label = "certificate",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#aaaaaa",
+              ];
+              "senjun-teams-pipeline/prod/LandingPageStack/landingPage/certificate/CertificateRequestorFunction" [
+                label = "\nCertificateRequestorF",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.4819999999999998,
+              ];
+              "senjun-teams-pipeline/prod/LandingPageStack/landingPage/certificate/CertificateRequestorResource" [
+                label = " CloudFormation\nCustomResource",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.682,
+              ];
+            }
+            subgraph "cluster-SubGraph.BucketDeployment" {
+              graph [
+                label = "BucketDeployment",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#aaaaaa",
+              ];
+              "senjun-teams-pipeline/prod/LandingPageStack/landingPage/BucketDeployment/AwsCliLayer" [
+                label = " AwsCliLayer",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.266,
+              ];
+              "senjun-teams-pipeline/prod/LandingPageStack/landingPage/BucketDeployment/CustomResource" [
+                label = " CloudFormation\nCustomResource\nCustomResource",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.898,
+              ];
+            }
+          }
+        }
+        subgraph "cluster-SubGraph.DashboardAppStack" {
+          graph [
+            label = "DashboardAppStack",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "senjun-teams-pipeline/prod/DashboardAppStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" [
+            label = " Custom \nCDKBucketDeployment86",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.4819999999999998,
+          ];
+          subgraph "cluster-SubGraph.dashboard" {
+            graph [
+              label = "dashboard",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#b9b9b9",
+            ];
+            "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/SiteBucket" [
+              label = " SiteBucket",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Storage/64/Arch_Amazon-S3-Standard_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/OAI" [
+              label = " OAI",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Resource/Res_Security-Identity-and-Compliance/Res_48_Dark/Res_AWS-Identity-Access-Management_Permissions_48_Dark_gen.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.266,
+            ];
+            "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/record" [
+              label = " record",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Resource/Res_Networking-and-Content-Delivery/Res_48_Dark/Res_Amazon-Route-53-Hosted-Zone_48_Dark_gen.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.466,
+            ];
+            "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/Distribution/CFDistribution" [
+              label = " CloudFront\nDistribution\nCFDistribution",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-CloudFront_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.6979999999999995,
+            ];
+            subgraph "cluster-SubGraph.certificate" {
+              graph [
+                label = "certificate",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#aaaaaa",
+              ];
+              "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/certificate/CertificateRequestorFunction" [
+                label = "\nCertificateRequestorF",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.4819999999999998,
+              ];
+              "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/certificate/CertificateRequestorResource" [
+                label = " CloudFormation\nCustomResource",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.682,
+              ];
+            }
+            subgraph "cluster-SubGraph.BucketDeployment" {
+              graph [
+                label = "BucketDeployment",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#aaaaaa",
+              ];
+              "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/BucketDeployment/AwsCliLayer" [
+                label = " AwsCliLayer",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.266,
+              ];
+              "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/BucketDeployment/CustomResource" [
+                label = " CloudFormation\nCustomResource\nCustomResource",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.898,
+              ];
+            }
+          }
+        }
+      }
+    }
+  }
+  "senjun-teams-pipeline/prod/DashboardBackendStack/userPoolWebClient" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" -> "senjun-teams-pipeline/prod/DashboardBackendStack/userPoolWebClient" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/unauthenticatedRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/authenticatedRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/userPoolWebClient" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/unauthenticatedRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/authenticatedRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" -> "senjun-teams-pipeline/prod/DashboardBackendStack/userBackupBucket" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/Rule" -> "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/role" -> "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/info" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/info" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/info" -> "senjun-teams-pipeline/prod/DashboardBackendStack/userPoolWebClient" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/infoApi" -> "senjun-teams-pipeline/prod/DashboardBackendStack/infoCertificate/CertificateRequestorResource" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/infoApi" -> "senjun-teams-pipeline/prod/DashboardBackendStack/info" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/infoRecord" -> "senjun-teams-pipeline/prod/DashboardBackendStack/infoApi" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/provider/framework-onEvent" -> "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/provider/framework-onEvent" -> "senjun-teams-pipeline/prod/DashboardBackendStack/role" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/landingPage/SiteBucket" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/OAI" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/landingPage/record" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/Distribution/CFDistribution" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/landingPage/alternativeRecord" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/Distribution/CFDistribution" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/landingPage/Distribution/CFDistribution" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/certificate/CertificateRequestorResource" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/landingPage/Distribution/CFDistribution" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/SiteBucket" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/landingPage/Distribution/CFDistribution" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/OAI" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/SiteBucket" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/LandingPageStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "senjun-teams-pipeline/prod/LandingPageStack/landingPage/BucketDeployment/AwsCliLayer" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/SiteBucket" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/OAI" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/record" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/Distribution/CFDistribution" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/Distribution/CFDistribution" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/certificate/CertificateRequestorResource" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/Distribution/CFDistribution" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/SiteBucket" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/Distribution/CFDistribution" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/OAI" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/SiteBucket" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardAppStack/Custom__CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C" -> "senjun-teams-pipeline/prod/DashboardAppStack/dashboard/BucketDeployment/AwsCliLayer" [
+    dir = "both",
+  ];
+}

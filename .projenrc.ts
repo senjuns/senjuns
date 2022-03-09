@@ -55,12 +55,18 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   parent: project,
   name: 'backend',
   cdkVersion: '2.15.0',
-  devDeps: ['@types/aws-lambda', 'aws-sdk'],
+  devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
   release: false,
 });
 
 backend.setScript('cdk', 'cdk');
 backend.setScript('tsc', 'tsc');
+backend.setScript(
+  'dia',
+  'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardBackendStack senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/all.png',
+);
+
+backend.gitignore.addPatterns('.diagram.dot');
 
 backend.synth();
 
