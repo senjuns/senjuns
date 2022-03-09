@@ -15,8 +15,8 @@ const Header: FC<HeaderProps> = ({ userName }) => {
       <NeatleafIcon
         src="/ms-icon-70x70.png"
         alt="Neatleaf Icon"
-        height={40}
-        width={40}
+        // height={40}
+        // width={40}
       />
 
       <StyledDashNavIcon height={24} width={24} />

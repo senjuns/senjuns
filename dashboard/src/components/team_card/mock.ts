@@ -17,21 +17,21 @@ export const teamCardsMock = [
       },
     ],
   },
-  // {
-  //   teamName: 'Data Engineering Team',
-  //   teamDescription: 'we are a very cool ML team ...',
-  //   tags: ['ML', 'Python', 'Panda', 'PySpark'],
-  //   members: [
-  //     {
-  //       image: 'https://i.pravatar.cc/302',
-  //       firstName: 'Peter',
-  //       role: '- Senior AWS Cloud Engineer',
-  //     },
-  //     {
-  //       image: 'https://i.pravatar.cc/303',
-  //       firstName: 'Naga',
-  //       role: '- Junior AWS Cloud Engineer',
-  //     },
-  //   ],
-  // },
+  {
+    teamName: 'Data Engineering Team',
+    teamDescription: 'we are a very cool ML team ...',
+    tags: ['ML', 'Python', 'Panda', 'PySpark'],
+    members: [
+      {
+        image: 'https://i.pravatar.cc/302',
+        firstName: 'Peter',
+        role: '- Senior AWS Cloud Engineer',
+      },
+      {
+        image: 'https://i.pravatar.cc/303',
+        firstName: 'Naga',
+        role: '- Junior AWS Cloud Engineer',
+      },
+    ],
+  },
 ];

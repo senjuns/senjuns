@@ -57,7 +57,9 @@ Create User
 ```bash
 USER_POOL_ID=eu-central-1_wi4nczkft
 USER_NAME=damadden88@googlemail.com
+USER_NAME=benhur.onrails@gmail.com
 USER_PASSWORD=M@rtindev1
+USER_PASSWORD=B€nhurdev1!
 REGION=eu-central-1
 
 aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --user-attributes Name=email,Value=$USER_NAME --region $REGION
