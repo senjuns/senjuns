@@ -112,13 +112,6 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'moment',
     'stream',
   ],
-  // eslint: true,
-  // prettier: true,
-  // prettierOptions: {
-  //   settings: {
-  //     singleQuote: true,
-  //   },
-  // },
   devDeps: [
     '@graphql-codegen/typescript-react-apollo@^3.1.6',
     '@types/react-router-dom@^5.1.7',
