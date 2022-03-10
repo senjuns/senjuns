@@ -18,7 +18,7 @@ import TeamCard from './components/team_card/TeamCard';
 import { AuthProvider } from './contexts';
 import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 
-// import { ProtectedRoute } from './ProtectedRoute';
+import { ProtectedRoute } from './ProtectedRoute';
 import config from './shared/config';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
@@ -90,12 +90,12 @@ function App() {
                       component={ForgotPassword}
                     />
                     <Route exact path={APP_URL.reset} component={Reset} />
-                    <Route exact path="/">
+                    <ProtectedRoute exact path="/">
                       <MainLayout>
                         {/* <Home /> */}
                         <TeamCard />
                       </MainLayout>
-                    </Route>
+                    </ProtectedRoute>
                     {/* <ProtectedRoute exact path="/room-details/:id">
                           <MainLayout>
                             <RoomDetailsPage />
