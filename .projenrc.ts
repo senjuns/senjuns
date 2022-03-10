@@ -23,8 +23,8 @@ project.package.addField('lint-staged', {
   '*.(ts|tsx)': ['eslint --fix'],
   '*.(ts|tsx|js|jsx|json)': ['prettier --write'],
 });
-project.setScript('lint:staged', 'lint-staged');
 
+project.setScript('lint:staged', 'lint-staged');
 project.setScript('prepare', 'husky install');
 
 project.tsconfigDev?.addInclude('backend/**/*.ts');
@@ -88,6 +88,8 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'react-router-dom@^5.2.0',
     // 'react-ga@^3.3.0',
     'styled-components@^5.3.1',
+    // https://dev.to/sureshramani/how-to-use-tailwind-css-with-a-react-app-1j6h
+    ...['tailwindcss', 'postcss-cli', 'autoprefixer'],
     'react-color@^2.19.3',
     'use-debounce@^7.0.1',
     '@date-io/date-fns@latest',
@@ -132,6 +134,12 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   ],
   release: false,
 });
+
+dashboard.setScript('start', 'yarn run build:css && react-scripts start');
+dashboard.setScript(
+  'build:css',
+  'postcss src/styles/tailwind.css -o src/styles/main.css',
+);
 
 dashboard.addGitIgnore('src/shared/config/config.ts');
 

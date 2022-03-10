@@ -8,17 +8,18 @@
 import Container from '@material-ui/core/Container';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
 import Amplify from 'aws-amplify';
-import './App.css';
+// import './App.css';
 
 import { lazy, Suspense } from 'react';
 // import ReactGA from 'react-ga';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ErrorBoundary from './components/error/ErrorBoundary';
-import TeamCard from './components/team_card/TeamCard';
+// import TeamCard from './components/team_card/TeamCard';
+import TeamCard from './components/team_card/TeamCardTailwind';
 import { AuthProvider } from './contexts';
 import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 
-import { ProtectedRoute } from './ProtectedRoute';
+// import { ProtectedRoute } from './ProtectedRoute';
 import config from './shared/config';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
@@ -90,12 +91,12 @@ function App() {
                       component={ForgotPassword}
                     />
                     <Route exact path={APP_URL.reset} component={Reset} />
-                    <ProtectedRoute exact path="/">
+                    <Route exact path="/">
                       <MainLayout>
                         {/* <Home /> */}
                         <TeamCard />
                       </MainLayout>
-                    </ProtectedRoute>
+                    </Route>
                     {/* <ProtectedRoute exact path="/room-details/:id">
                           <MainLayout>
                             <RoomDetailsPage />

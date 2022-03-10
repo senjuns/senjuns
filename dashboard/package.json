@@ -15,7 +15,9 @@
     "upgrade": "npx projen upgrade",
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "start": "yarn run build:css && react-scripts start",
+    "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
   },
   "devDependencies": {
     "@graphql-codegen/typescript-react-apollo": "^3.1.6",
@@ -49,6 +51,7 @@
     "@material-ui/lab": "^4.0.0-alpha.58",
     "@material-ui/pickers": "^3.3.10",
     "apollo-boost": "^0.4.9",
+    "autoprefixer": "^10.4.2",
     "aws-amplify": "^4.2.0",
     "aws-amplify-react": "^5.0.2",
     "clsx": "^1.1.1",
@@ -58,6 +61,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "plotly.js": "^2.3.0",
+    "postcss-cli": "^9.1.0",
     "react": "^17.0.2",
     "react-apollo": "^3.1.5",
     "react-color": "^2.19.3",
@@ -74,6 +78,7 @@
     "selenium-webdriver": "^4.1.1",
     "stream": "^0.0.2",
     "styled-components": "^5.3.1",
+    "tailwindcss": "^3.0.23",
     "use-debounce": "^7.0.1",
     "use-image": "^1.0.8",
     "web-vitals": "^2.1.4"

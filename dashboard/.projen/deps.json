@@ -137,6 +137,10 @@
       "type": "runtime"
     },
     {
+      "name": "autoprefixer",
+      "type": "runtime"
+    },
+    {
       "name": "aws-amplify-react",
       "version": "^5.0.2",
       "type": "runtime"
@@ -177,6 +181,10 @@
     {
       "name": "plotly.js",
       "version": "^2.3.0",
+      "type": "runtime"
+    },
+    {
+      "name": "postcss-cli",
       "type": "runtime"
     },
     {
@@ -254,6 +262,10 @@
     {
       "name": "styled-components",
       "version": "^5.3.1",
+      "type": "runtime"
+    },
+    {
+      "name": "tailwindcss",
       "type": "runtime"
     },
     {
