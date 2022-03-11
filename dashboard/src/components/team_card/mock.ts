@@ -34,4 +34,21 @@ export const teamCardsMock = [
       },
     ],
   },
+  {
+    teamName: 'The Team',
+    teamDescription: 'we are nice ...',
+    tags: ['AWS', 'IaC'],
+    members: [
+      {
+        image: 'https://i.pravatar.cc/304',
+        firstName: 'Chris',
+        role: '- Senior AWS Engineer',
+      },
+      {
+        image: 'https://i.pravatar.cc/305',
+        firstName: 'Kache',
+        role: '- Junior AWS Engineer',
+      },
+    ],
+  },
 ];
