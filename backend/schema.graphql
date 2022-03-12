@@ -1,0 +1,22 @@
+type TeamCard
+  @model
+  # @aws_iam @auth(rules: [{ allow: owner }, { allow: private }, { allow: public }]) {
+  # @aws_cognito_user_pools @aws_iam {
+  @auth(
+    rules: [
+      { allow: private, provider: iam }
+      { allow: private, provider: userPools }
+    ]
+  ) {
+  id: ID!
+  teamName: String!
+  teamDescription: String!
+  tags: [String]
+  members: [Member]
+}
+
+type Member {
+  image: String!
+  firstName: String!
+  role: String!
+}

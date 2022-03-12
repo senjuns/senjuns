@@ -6,8 +6,7 @@ export const config: any = {
   aws_cognito_region: 'eu-central-1',
   aws_user_pools_id: 'USER_POOL_ID',
   aws_user_pools_web_client_id: 'USER_POOL_WEB_CLIENT',
-  aws_appsync_graphqlEndpoint:
-    'https://uijj43arhnc2hmjcycwjzt3eyu.appsync-api.eu-central-1.amazonaws.com/graphql',
+  aws_appsync_graphqlEndpoint: 'AWS_APPSYNC_GRAPHQLENDPOINT',
   aws_appsync_region: 'eu-central-1',
   aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
   Auth: {

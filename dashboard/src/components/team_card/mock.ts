@@ -2,24 +2,25 @@ export const teamCardsMock = [
   {
     teamName: 'AWS CDK Team',
     teamDescription:
-      'we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...',
+      'we are obsessed with AWS and building cool solutions for our customers ...',
     tags: ['AWS', 'IaC', 'DevOps'],
     members: [
       {
         image: 'https://i.pravatar.cc/300',
-        firstName: 'Chris',
+        firstName: 'Martin',
         role: '- Senior AWS Cloud Engineer',
       },
       {
         image: 'https://i.pravatar.cc/301',
-        firstName: 'Kache',
+        firstName: 'Ben-Hur',
         role: '- Junior AWS Cloud Engineer',
       },
     ],
   },
   {
     teamName: 'Data Engineering Team',
-    teamDescription: 'we are a very cool ML team ...',
+    teamDescription:
+      'we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...',
     tags: ['ML', 'Python', 'Panda', 'PySpark'],
     members: [
       {
@@ -35,19 +36,19 @@ export const teamCardsMock = [
     ],
   },
   {
-    teamName: 'The Team',
+    teamName: 'React Team',
     teamDescription: 'we are nice ...',
     tags: ['AWS', 'IaC'],
     members: [
       {
         image: 'https://i.pravatar.cc/304',
-        firstName: 'Chris',
-        role: '- Senior AWS Engineer',
+        firstName: 'Ben-Hur',
+        role: '- Senior React Engineer',
       },
       {
         image: 'https://i.pravatar.cc/305',
-        firstName: 'Kache',
-        role: '- Junior AWS Engineer',
+        firstName: 'Martin',
+        role: '- Junior React Engineer',
       },
     ],
   },

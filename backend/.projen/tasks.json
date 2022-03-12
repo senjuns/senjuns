@@ -187,6 +187,15 @@
         }
       ]
     },
+    "updateSchema": {
+      "name": "updateSchema",
+      "description": "Udates all places when changing the schema.graphql",
+      "steps": [
+        {
+          "exec": "yarn synth && cd ../dashboard && yarn codegen && cd .."
+        }
+      ]
+    },
     "upgrade": {
       "name": "upgrade",
       "description": "upgrade dependencies",
@@ -213,7 +222,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk aws-sdk cdk-dia esbuild eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit json-schema npm-check-updates ts-jest ts-node typescript aws-cdk-lib constructs"
+          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk aws-sdk cdk-dia esbuild eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit json-schema npm-check-updates ts-jest ts-node typescript @aws-cdk/aws-appsync-alpha aws-cdk-lib cdk-appsync-transformer constructs"
         },
         {
           "exec": "npx projen"

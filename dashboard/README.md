@@ -21,3 +21,7 @@ yarn build
 ## Styling
 
 We use ts styled components https://blog.logrocket.com/using-styled-components-in-typescript-a-tutorial-with-examples/
+
+## Amplify / AppSync
+
+- https://aws.amazon.com/blogs/mobile/graphql-security-appsync-amplify/

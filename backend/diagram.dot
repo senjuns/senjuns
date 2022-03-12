@@ -40,6 +40,214 @@ digraph "Diagram" {
         style = "filled,rounded",
         fillcolor = "#e4e4e4",
       ];
+      subgraph "cluster-SubGraph.Pipeline" {
+        graph [
+          label = "Pipeline",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "senjun-teams-pipeline/Pipeline/Pipeline" [
+          label = " Pipeline",
+          fontsize = 12,
+          image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        "senjun-teams-pipeline/Pipeline/UpdatePipeline/SelfMutation" [
+          label = " SelfMutation",
+          fontsize = 12,
+          image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.466,
+        ];
+        subgraph "cluster-SubGraph.Assets" {
+          graph [
+            label = "Assets",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#c7c7c7",
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+            label = " FileRole",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset1" [
+            label = " FileAsset1",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset10" [
+            label = " FileAsset10",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset11" [
+            label = " FileAsset11",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset2" [
+            label = " FileAsset2",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset3" [
+            label = " FileAsset3",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset4" [
+            label = " FileAsset4",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset5" [
+            label = " FileAsset5",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset6" [
+            label = " FileAsset6",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset7" [
+            label = " FileAsset7",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset8" [
+            label = " FileAsset8",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "senjun-teams-pipeline/Pipeline/Assets/FileAsset9" [
+            label = " FileAsset9",
+            fontsize = 12,
+            image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+        }
+      }
       subgraph "cluster-SubGraph.prod" {
         graph [
           label = "prod",
@@ -285,6 +493,82 @@ digraph "Diagram" {
             width = 1.2,
             height = 1.466,
           ];
+          subgraph "cluster-SubGraph.senjun-graphql" {
+            graph [
+              label = "senjun-graphql",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#b9b9b9",
+            ];
+            "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack.NestedStack/appsync-nested-stack.NestedStackResource" [
+              label = " CloudFormation Stack",
+              fontsize = 12,
+              image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.466,
+            ];
+            subgraph "cluster-SubGraph.appsync-nested-stack" {
+              graph [
+                label = "appsync-nested-stack",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#aaaaaa",
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/senjun-graphql-api" [
+                label = " senjun-graphql-api",
+                fontsize = 12,
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/TeamCardTable" [
+                label = " TeamCardTable",
+                fontsize = 12,
+                image = "/Users/martinmuller/git/senjun-teams/backend/node_modules/cdk-dia/icons/aws/Service/Arch_Database/64/Arch_Amazon-DynamoDB_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.466,
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/Query-getTeamCard-resolver" [
+                label = " Query getTeamCard\nresolver",
+                fontsize = 12,
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/Query-listTeamCards-resolver" [
+                label = " Query listTeamCards\nresolver",
+                fontsize = 12,
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/Mutation-createTeamCard-resolver" [
+                label = " Mutation\ncreateTeamCard\nresolver",
+                fontsize = 12,
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/Mutation-updateTeamCard-resolver" [
+                label = " Mutation\nupdateTeamCard\nresolver",
+                fontsize = 12,
+              ];
+              "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack/Mutation-deleteTeamCard-resolver" [
+                label = " Mutation\ndeleteTeamCard\nresolver",
+                fontsize = 12,
+              ];
+            }
+          }
           subgraph "cluster-SubGraph.infoCertificate" {
             graph [
               label = "infoCertificate",
@@ -679,6 +963,81 @@ digraph "Diagram" {
       }
     }
   }
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/UpdatePipeline/SelfMutation" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset1" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset10" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset11" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset2" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset3" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset4" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset5" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset6" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset7" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset8" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Pipeline" -> "senjun-teams-pipeline/Pipeline/Assets/FileAsset9" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileRole" -> "senjun-teams-pipeline/Pipeline/Pipeline" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset1" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset10" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset11" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset2" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset3" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset4" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset5" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset6" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset7" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset8" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/Assets/FileAsset9" -> "senjun-teams-pipeline/Pipeline/Assets/FileRole" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/Pipeline/UpdatePipeline/SelfMutation" -> "senjun-teams-pipeline/Pipeline/Pipeline" [
+    dir = "both",
+  ];
   "senjun-teams-pipeline/prod/DashboardBackendStack/userPoolWebClient" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
     dir = "both",
   ];
@@ -692,6 +1051,9 @@ digraph "Diagram" {
     dir = "both",
   ];
   "senjun-teams-pipeline/prod/DashboardBackendStack/authenticatedRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/authenticatedRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack.NestedStack/appsync-nested-stack.NestedStackResource" [
     dir = "both",
   ];
   "senjun-teams-pipeline/prod/DashboardBackendStack/identityRole" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
@@ -721,7 +1083,13 @@ digraph "Diagram" {
   "senjun-teams-pipeline/prod/DashboardBackendStack/role" -> "senjun-teams-pipeline/prod/DashboardBackendStack/backupLambda" [
     dir = "both",
   ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack.NestedStack/appsync-nested-stack.NestedStackResource" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [
+    dir = "both",
+  ];
   "senjun-teams-pipeline/prod/DashboardBackendStack/info" -> "senjun-teams-pipeline/prod/DashboardBackendStack/DashboardIdentityPool" [
+    dir = "both",
+  ];
+  "senjun-teams-pipeline/prod/DashboardBackendStack/info" -> "senjun-teams-pipeline/prod/DashboardBackendStack/senjun-graphql/appsync-nested-stack.NestedStack/appsync-nested-stack.NestedStackResource" [
     dir = "both",
   ];
   "senjun-teams-pipeline/prod/DashboardBackendStack/info" -> "senjun-teams-pipeline/prod/DashboardBackendStack/prodDashboardUserPool" [

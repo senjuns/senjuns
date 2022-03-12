@@ -54,9 +54,18 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.15.0',
+  cdkVersion: '2.16.0',
   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
+  deps: [
+    'cdk-appsync-transformer@2.0.0-alpha.0',
+    '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
+  ],
   release: false,
+  tsconfig: {
+    compilerOptions: {
+      skipLibCheck: true,
+    },
+  },
 });
 
 backend.setScript('cdk', 'cdk');
@@ -65,8 +74,13 @@ backend.setScript(
   'dia',
   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia && mv diagram.png diagrams/all.png',
 );
+backend.addTask('updateSchema', {
+  description: 'Udates all places when changing the schema.graphql',
+  exec: 'yarn synth && cd ../dashboard && yarn codegen && cd ..',
+});
 
 backend.gitignore.addPatterns('.diagram.dot');
+backend.gitignore.addPatterns('appsync');
 
 backend.synth();
 
@@ -76,6 +90,13 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   parent: project,
   name: 'dashboard',
   deps: [
+    ...[
+      '@aws-amplify/auth@^4.3.8',
+      '@aws-amplify/ui-components@^1.8.1',
+      '@aws-amplify/ui-react@^1.2.18',
+      'aws-appsync@^4.1.2',
+    ],
+    'react-query@^2',
     '@apollo/client@^3.3.20',
     'apollo-boost@^0.4.9',
     'react-apollo@^3.1.5',
@@ -118,6 +139,13 @@ const dashboard = new pj.web.ReactTypeScriptProject({
   //   },
   // },
   devDeps: [
+    ...[
+      'amplify-graphql-docs-generator@^2.2.4',
+      '@graphql-codegen/cli@*',
+      '@graphql-codegen/typescript@*',
+      '@graphql-codegen/typescript-operations@*',
+      '@graphql-codegen/typescript-react-query@alpha',
+    ],
     '@graphql-codegen/typescript-react-apollo@^3.1.6',
     '@types/react-router-dom@^5.1.7',
     '@types/styled-components@^5.1.9',
@@ -131,6 +159,19 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'assert',
   ],
   release: false,
+});
+
+dashboard.addTask('copy-schema', {
+  exec: 'cp ../backend/appsync/schema.graphql ./schema.graphql',
+});
+
+dashboard.addTask('generate-statements', {
+  exec: 'node bin/generateStatements.js',
+});
+
+dashboard.addTask('codegen', {
+  description: 'Generates frontend GraphQL wrapper API code',
+  exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
 });
 
 dashboard.addGitIgnore('src/shared/config/config.ts');

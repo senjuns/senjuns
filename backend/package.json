@@ -20,6 +20,7 @@
     "test": "npx projen test",
     "test:update": "npx projen test:update",
     "test:watch": "npx projen test:watch",
+    "updateSchema": "npx projen updateSchema",
     "upgrade": "npx projen upgrade",
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
@@ -34,7 +35,7 @@
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk": "^2.15.0",
+    "aws-cdk": "^2.16.0",
     "aws-sdk": "^2.1080.0",
     "cdk-dia": "^0.6.1",
     "esbuild": "^0.14.21",
@@ -52,7 +53,9 @@
     "typescript": "^4.5.5"
   },
   "dependencies": {
-    "aws-cdk-lib": "^2.15.0",
+    "@aws-cdk/aws-appsync-alpha": "2.15.0-alpha.0",
+    "aws-cdk-lib": "^2.16.0",
+    "cdk-appsync-transformer": "2.0.0-alpha.0",
     "constructs": "^10.0.5"
   },
   "license": "Apache-2.0",

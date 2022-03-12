@@ -1,30 +1,37 @@
 // import { FC } from 'react';
 import styled from 'styled-components';
 import { InterBoldMirage16px, Poppins22, Poppins26 } from '../../shared/fonts';
-import { useGetLatestPhotoFeedDataBySystemId } from './useListTeamCardData';
+// import { useGetLatestPhotoFeedDataBySystemId } from './useListTeamCardData';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { ResponsiveLayoutProps } from '../../shared/types';
+import { useListTeamCardsQuery } from '../../lib/api';
 
 const TeamCard = () => {
   const { isMobile } = useScreenSize();
-  const teamCards = useGetLatestPhotoFeedDataBySystemId({});
+  // const teamCards = useGetLatestPhotoFeedDataBySystemId({});
+
+  const { data, isLoading } = useListTeamCardsQuery(undefined, {
+    refetchOnWindowFocus: false,
+  });
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <div>
-      {teamCards.map((teamCard) => (
+      {data?.listTeamCards?.items?.map((teamCard) => (
         <div className="container-center-horizontal">
           <div className="teamcard screen">
             <TeamCardDetails>
               <TeamCardDetailsDescription>
                 <TeamCardDetailsDescriptionTitle>
-                  {teamCard.teamName}
+                  {teamCard?.teamName}
                 </TeamCardDetailsDescriptionTitle>
                 <TeamCardDetailsDescriptionBody>
-                  {teamCard.teamDescription}
+                  {teamCard?.teamDescription}
                 </TeamCardDetailsDescriptionBody>
               </TeamCardDetailsDescription>
               <TeamCardDetailsTags>
-                {teamCard.tags.map((tag) => (
+                {teamCard?.tags?.map((tag) => (
                   <Badge>
                     <BadgeText>{tag}</BadgeText>
                   </Badge>
@@ -32,15 +39,15 @@ const TeamCard = () => {
               </TeamCardDetailsTags>
             </TeamCardDetails>
             <TeamCardMembers isMobile={isMobile}>
-              {teamCard.members.map((member) => (
+              {teamCard?.members?.map((member) => (
                 <TeamCardMember>
-                  <TeamCardMemberImage src={member.image} />
+                  <TeamCardMemberImage src={member?.image} />
                   <TeamCardMemberDescription>
                     <TeamCardMemberDescriptionFirstName>
-                      {member.firstName}
+                      {member?.firstName}
                     </TeamCardMemberDescriptionFirstName>
                     <TeamCardMemberDescriptionRole>
-                      {member.role}
+                      {member?.role}
                     </TeamCardMemberDescriptionRole>
                   </TeamCardMemberDescription>
                 </TeamCardMember>
