@@ -18,6 +18,7 @@ const project = new pj.typescript.TypeScriptProject({
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
+project.prettier?.addIgnorePattern('tsconfig.json');
 
 project.package.addField('lint-staged', {
   '*.(ts|tsx)': ['eslint --fix'],
@@ -79,7 +80,7 @@ backend.addTask('updateSchema', {
   exec: 'yarn synth && cd ../dashboard && yarn codegen && cd ..',
 });
 
-backend.gitignore.addPatterns('.diagram.dot');
+backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
 backend.gitignore.addPatterns('appsync');
 
 backend.synth();

@@ -45,5 +45,6 @@ junit.xml
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
-.diagram.dot
+diagram.dot
+diagram.png
 appsync
