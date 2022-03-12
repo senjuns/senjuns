@@ -1,5 +1,17 @@
 # backend
 
+## AWS component diagram
+
+This diagram can be generated out of the CDK code with `yarn dia`
+
+### Landingpage
+
+![landingpage.png](diagrams/landingpage.png)
+
+### Dashboard
+
+![dashboard.png](diagrams/dashboard.png)
+
 ## How to deploy locally
 
 **Notice:** Deploying shouldn't be done manually if not necessary! The BitBucket pipeline can and should deploy changes. Anyway if you decide deploy manually read the next sections.
