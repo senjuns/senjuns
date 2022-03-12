@@ -27,7 +27,7 @@
     "projen": "npx projen",
     "cdk": "cdk",
     "tsc": "tsc",
-    "dia": "mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia && mv diagram.png diagrams/all.png"
+    "dia": "mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92",

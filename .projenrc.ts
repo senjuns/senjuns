@@ -72,7 +72,7 @@ backend.setScript('cdk', 'cdk');
 backend.setScript('tsc', 'tsc');
 backend.setScript(
   'dia',
-  'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia && mv diagram.png diagrams/all.png',
+  'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
 );
 backend.addTask('updateSchema', {
   description: 'Udates all places when changing the schema.graphql',
