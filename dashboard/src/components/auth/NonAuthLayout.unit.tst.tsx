@@ -8,7 +8,7 @@ jest.mock('react-router-dom', () => ({
     pathname: '/reset',
   }),
   useParams: () => ({
-    username: '../../qa@senjun-teams.com',
+    username: '../../qa@senjuns.com',
   }),
 }));
 

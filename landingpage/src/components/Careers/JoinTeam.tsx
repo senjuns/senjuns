@@ -35,7 +35,7 @@ const JoinTeam: FC = () => {
       <Typography variant="body2">Don’t see your role listed?</Typography>
       <ReachOutUs isMobile={isMobile} variant="body2">
         Reach out to us through the contact form or write us at&nbsp;
-        <b>career@senjun-teams.com</b>
+        <b>career@senjuns.com</b>
       </ReachOutUs>
     </JoinTeamContainer>
   );

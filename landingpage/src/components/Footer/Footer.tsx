@@ -48,7 +48,7 @@ const Footer: FC = () => {
       </FooterMain>
 
       <Typography variant="body1" color="grey4">
-        2022 senjun-teams.com. All rights reserved.
+        2022 senjuns.com. All rights reserved.
       </Typography>
     </FooterContainer>
   );

@@ -9,7 +9,7 @@ export class LandingPageStack extends core.Stack {
 
     const landingPage = new StaticWebsite(this, 'landingPage', {
       build: '../landingpage/build',
-      domainName: 'senjun-teams.com',
+      domainName: 'senjuns.com',
       recordName: '',
       alternativeRecordName: 'www',
     });

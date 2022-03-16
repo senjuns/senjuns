@@ -1,3 +1,4 @@
+/* eslint-disable quote-props */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import * as lambda from 'aws-lambda';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -10,7 +11,7 @@ const bucketName = process.env.BUCKET_NAME || '';
 const dashboardUserPoolId = process.env.DASHBOARD_USERPOOL_ID || '';
 
 export async function handler(
-  event: lambda.CloudFormationCustomResourceEvent | any
+  event: lambda.CloudFormationCustomResourceEvent | any,
 ) {
   // exports.handler = async (event/*: lambda.DynamoDBStreamEvent*/) => {
   console.debug(`event: ${JSON.stringify(event)}`);
@@ -87,7 +88,7 @@ export async function handler(
           ?.Value || '123',
       phone_number_verified:
         user.Attributes?.filter(
-          (attr) => attr.Name === 'phone_number_verified'
+          (attr) => attr.Name === 'phone_number_verified',
         )[0]?.Value || 'FALSE',
       address: '',
       updated_at: '',
@@ -95,7 +96,7 @@ export async function handler(
       'cognito:username': user.Username || '',
       'custom:organization_id':
         user.Attributes?.filter(
-          (attr) => attr.Name === 'custom:organization_id'
+          (attr) => attr.Name === 'custom:organization_id',
         )[0]?.Value || '0',
     };
     console.debug(`newCognitoCsv: ${JSON.stringify(newCognitoCsv)}`);

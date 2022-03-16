@@ -6,9 +6,9 @@ if [ -z "$STAGE" ]; then
 fi
 
 if [ "$STAGE" = "prod" ]; then
-  DASHBOARD_INFO_URL="https://dashboard-info.senjun-teams.com"
+  DASHBOARD_INFO_URL="https://dashboard-info.senjuns.com"
 else
-  DASHBOARD_INFO_URL="https://dashboard-info.$STAGE.senjun-teams.com"
+  DASHBOARD_INFO_URL="https://dashboard-info.$STAGE.senjuns.com"
 fi
 
 RESPONSE=$(curl -sS $DASHBOARD_INFO_URL)

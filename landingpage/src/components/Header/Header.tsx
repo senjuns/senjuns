@@ -34,7 +34,7 @@ const Header: FC<HeaderProps> = ({ color }) => {
               text="Contact Us"
               to={ROUTES.CONTACT_US}
             />
-            <StyledHrefLink href={'https://dashboard.senjun-teams.com'}>
+            <StyledHrefLink href={'https://dashboard.senjuns.com'}>
               Login
             </StyledHrefLink>
           </>

@@ -9,7 +9,7 @@ export class DashboardAppStack extends core.Stack {
     const dashboard = new StaticWebsite(this, 'dashboard', {
       build: '../dashboard/build',
       recordName: 'dashboard',
-      domainName: 'senjun-teams.com',
+      domainName: 'senjuns.com',
     });
 
     new core.CfnOutput(this, 'BucketWebsiteUrl', {

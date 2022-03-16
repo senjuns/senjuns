@@ -335,7 +335,7 @@ export class DashboardBackendStack extends core.Stack {
 
     const domainName = `${
       props.stage === 'prod' ? '' : props.stage + '.'
-    }senjun-teams.com`;
+    }senjuns.com`;
     const infoSubDomain = 'dashboard-info';
     const infoDomain = `${infoSubDomain}.${domainName}`;
 

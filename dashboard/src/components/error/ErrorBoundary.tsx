@@ -51,7 +51,7 @@ class ErrorBoundary extends Component {
             <div>{error?.message}</div>
             <br />
             <br />
-            If the error continues, please email support@senjun-teams.com
+            If the error continues, please email support@senjuns.com
           </Alert>
         </BoundaryContainer>
       );

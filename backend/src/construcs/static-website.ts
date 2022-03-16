@@ -14,12 +14,12 @@ export interface StaticWebsiteProps {
   recordName: string;
 
   /**
-   * e.g. senjun-teams.com
+   * e.g. senjuns.com
    */
   domainName: string;
 
   /**
-   * e.g. www.senjun-teams.com
+   * e.g. www.senjuns.com
    */
   alternativeRecordName?: string;
 
@@ -36,7 +36,11 @@ export class StaticWebsite extends constructs.Construct {
   distributionDomainName: string;
   alternativeRecordDomainName: string | undefined;
 
-  constructor(scope: constructs.Construct, id: string, props: StaticWebsiteProps) {
+  constructor(
+    scope: constructs.Construct,
+    id: string,
+    props: StaticWebsiteProps,
+  ) {
     super(scope, id);
 
     const siteBucket = new s3.Bucket(this, 'SiteBucket', {
@@ -48,7 +52,13 @@ export class StaticWebsite extends constructs.Construct {
           allowedMethods: [s3.HttpMethods.GET, s3.HttpMethods.HEAD],
           allowedOrigins: ['*'],
           allowedHeaders: ['*'],
-          exposedHeaders: ['ETag', 'x-amz-meta-custom-header', 'Authorization', 'Content-Type', 'Accept'],
+          exposedHeaders: [
+            'ETag',
+            'x-amz-meta-custom-header',
+            'Authorization',
+            'Content-Type',
+            'Accept',
+          ],
         },
       ],
       removalPolicy: core.RemovalPolicy.DESTROY,
@@ -60,52 +70,83 @@ export class StaticWebsite extends constructs.Construct {
     const cloudFrontOAI = new cloudfront.OriginAccessIdentity(this, 'OAI');
     siteBucket.grantRead(cloudFrontOAI.grantPrincipal);
 
-    const hostedZone = route53.HostedZone.fromLookup(this, 'Zone', { domainName: props.domainName });
-
-    const certificate = new certificatemanager.DnsValidatedCertificate(this, 'certificate', {
-      domainName: `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`,
-      subjectAlternativeNames: props.alternativeRecordName ? [`${props.alternativeRecordName}.${props.domainName}`] : undefined,
-      hostedZone,
-      region: 'us-east-1',
+    const hostedZone = route53.HostedZone.fromLookup(this, 'Zone', {
+      domainName: props.domainName,
     });
 
-    const distribution = new cloudfront.CloudFrontWebDistribution(this, 'Distribution', {
-      enableIpV6: false,
-      originConfigs: [
-        {
-          s3OriginSource: {
-            s3BucketSource: siteBucket,
-            originAccessIdentity: cloudFrontOAI,
+    const certificate = new certificatemanager.DnsValidatedCertificate(
+      this,
+      'certificate',
+      {
+        domainName: `${props.recordName === '' ? '' : props.recordName + '.'}${
+          props.domainName
+        }`,
+        subjectAlternativeNames: props.alternativeRecordName
+          ? [`${props.alternativeRecordName}.${props.domainName}`]
+          : undefined,
+        hostedZone,
+        region: 'us-east-1',
+      },
+    );
+
+    const distribution = new cloudfront.CloudFrontWebDistribution(
+      this,
+      'Distribution',
+      {
+        enableIpV6: false,
+        originConfigs: [
+          {
+            s3OriginSource: {
+              s3BucketSource: siteBucket,
+              originAccessIdentity: cloudFrontOAI,
+            },
+            behaviors: [{ isDefaultBehavior: true }],
           },
-          behaviors: [{ isDefaultBehavior: true }],
-        },
-      ],
-      errorConfigurations: [
-        {
-          errorCode: 404,
-          responseCode: 404,
-          responsePagePath: '/index.html',
-        },
-      ],
-      viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(certificate, {
-        aliases: props.alternativeRecordName ? [
-          `${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`,
-          `${props.alternativeRecordName}.${props.domainName}`,
-        ] : [`${props.recordName === '' ? '' : props.recordName + '.' }${props.domainName}`],
-      }),
-    });
+        ],
+        errorConfigurations: [
+          {
+            errorCode: 404,
+            responseCode: 404,
+            responsePagePath: '/index.html',
+          },
+        ],
+        viewerCertificate: cloudfront.ViewerCertificate.fromAcmCertificate(
+          certificate,
+          {
+            aliases: props.alternativeRecordName
+              ? [
+                `${props.recordName === '' ? '' : props.recordName + '.'}${
+                  props.domainName
+                }`,
+                `${props.alternativeRecordName}.${props.domainName}`,
+              ]
+              : [
+                `${props.recordName === '' ? '' : props.recordName + '.'}${
+                  props.domainName
+                }`,
+              ],
+          },
+        ),
+      },
+    );
 
     const record = new route53.ARecord(this, 'record', {
       recordName: props.recordName === '' ? undefined : props.recordName,
-      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      target: route53.RecordTarget.fromAlias(
+        new targets.CloudFrontTarget(distribution),
+      ),
       zone: hostedZone,
     });
 
-    const alternativeRecord = props.alternativeRecordName ? new route53.ARecord(this, 'alternativeRecord', {
-      recordName: props.alternativeRecordName,
-      target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
-      zone: hostedZone,
-    }) : undefined;
+    const alternativeRecord = props.alternativeRecordName
+      ? new route53.ARecord(this, 'alternativeRecord', {
+        recordName: props.alternativeRecordName,
+        target: route53.RecordTarget.fromAlias(
+          new targets.CloudFrontTarget(distribution),
+        ),
+        zone: hostedZone,
+      })
+      : undefined;
 
     this.recordDomainName = record.domainName;
     this.alternativeRecordDomainName = alternativeRecord?.domainName;

@@ -42,7 +42,7 @@ const NotFoundPage: FC = () => {
           </Typography>
           <Typography variant="h6" fontWeight="light">
             It seems like something went wrong. Please go back to the homepage
-            or contact us at support@senjun-teams.com
+            or contact us at support@senjuns.com
           </Typography>
           <Button color="primary" onClick={handleBackToLogin}>
             Back to login
