@@ -1,1 +1,6 @@
-{}
+{
+  "hosted-zone:account=981237193288:domainName=senjuns.com:region=eu-central-1": {
+    "Id": "/hostedzone/Z04442642VX8K6K24XWPH",
+    "Name": "senjuns.com."
+  }
+}
