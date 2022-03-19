@@ -14,8 +14,8 @@ const DesktopLayout: React.FC = ({ children }) => {
 
   return (
     <Container>
-      <Header userName={userInfo?.username} />
-      <SideBar onLogOut={signOut} />
+      <Header userName={userInfo?.username} onLogOut={signOut} />
+      <SideBar />
       <MainArea>{children}</MainArea>
     </Container>
   );
@@ -34,6 +34,8 @@ const MainArea = styled.div`
   margin-left: ${SIDEBAR_WIDTH}px;
   height: calc(100vh - ${HEADER_HEIGHT}px);
   width: calc(100vw - ${SIDEBAR_WIDTH}px);
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export default DesktopLayout;

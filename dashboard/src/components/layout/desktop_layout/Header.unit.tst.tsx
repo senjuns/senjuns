@@ -8,7 +8,7 @@ describe('<Header />', () => {
     const renderer = ShallowRenderer.createRenderer();
     renderer.render(
       <Providers>
-        <Header userName="tester" />
+        <Header userName="tester" onLogOut={jest.fn} />
       </Providers>,
     );
 

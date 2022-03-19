@@ -19,42 +19,45 @@ const TeamCard = () => {
   return (
     <div>
       {data?.listTeamCards?.items?.map((teamCard) => (
-        <div className="container-center-horizontal">
-          <div className="teamcard screen">
-            <TeamCardDetails>
-              <TeamCardDetailsDescription>
-                <TeamCardDetailsDescriptionTitle>
-                  {teamCard?.teamName}
-                </TeamCardDetailsDescriptionTitle>
-                <TeamCardDetailsDescriptionBody>
-                  {teamCard?.teamDescription}
-                </TeamCardDetailsDescriptionBody>
-              </TeamCardDetailsDescription>
-              <TeamCardDetailsTags>
-                {teamCard?.tags?.map((tag) => (
-                  <Badge>
-                    <BadgeText>{tag}</BadgeText>
-                  </Badge>
+        <>
+          <div className="container-center-horizontal">
+            <div className="teamcard screen">
+              <TeamCardDetails>
+                <TeamCardDetailsDescription>
+                  <TeamCardDetailsDescriptionTitle>
+                    {teamCard?.teamName}
+                  </TeamCardDetailsDescriptionTitle>
+                  <TeamCardDetailsTags>
+                    {teamCard?.tags?.map((tag) => (
+                      <Badge>
+                        <BadgeText>{tag}</BadgeText>
+                      </Badge>
+                    ))}
+                  </TeamCardDetailsTags>
+                  <TeamCardDetailsDescriptionBody>
+                    {teamCard?.teamDescription}
+                  </TeamCardDetailsDescriptionBody>
+                </TeamCardDetailsDescription>
+              </TeamCardDetails>
+              <TeamCardMembers isMobile={isMobile}>
+                {teamCard?.members?.map((member) => (
+                  <TeamCardMember>
+                    <TeamCardMemberImage src={member?.image} />
+                    <TeamCardMemberDescription>
+                      <TeamCardMemberDescriptionFirstName>
+                        {member?.firstName}
+                      </TeamCardMemberDescriptionFirstName>
+                      <TeamCardMemberDescriptionRole>
+                        {member?.role}
+                      </TeamCardMemberDescriptionRole>
+                    </TeamCardMemberDescription>
+                  </TeamCardMember>
                 ))}
-              </TeamCardDetailsTags>
-            </TeamCardDetails>
-            <TeamCardMembers isMobile={isMobile}>
-              {teamCard?.members?.map((member) => (
-                <TeamCardMember>
-                  <TeamCardMemberImage src={member?.image} />
-                  <TeamCardMemberDescription>
-                    <TeamCardMemberDescriptionFirstName>
-                      {member?.firstName}
-                    </TeamCardMemberDescriptionFirstName>
-                    <TeamCardMemberDescriptionRole>
-                      {member?.role}
-                    </TeamCardMemberDescriptionRole>
-                  </TeamCardMemberDescription>
-                </TeamCardMember>
-              ))}
-            </TeamCardMembers>
+              </TeamCardMembers>
+            </div>
           </div>
-        </div>
+          <hr></hr>
+        </>
       ))}
     </div>
   );
@@ -63,15 +66,15 @@ const TeamCard = () => {
 export default TeamCard;
 
 const TeamCardDetails = styled.div`
-  height: 190px;
   display: flex;
+  width: 100%;
+  padding: 20px;
+  margin-left: 40px;
 `;
 
 const TeamCardDetailsDescription = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 190px;
-  width: 50%;
 `;
 
 const TeamCardDetailsDescriptionTitle = styled.h1`
@@ -85,7 +88,6 @@ const TeamCardDetailsDescriptionTitle = styled.h1`
 
 const TeamCardDetailsDescriptionBody = styled.div`
   ${Poppins22}
-  min-height: 120px;
   margin-top: 40px;
   font-weight: 400;
   color: var(--black);
@@ -95,8 +97,6 @@ const TeamCardDetailsDescriptionBody = styled.div`
 const TeamCardDetailsTags = styled.div`
   display: flex;
   align-items: flex-start;
-  width: 50%;
-  justify-content: space-evenly;
 `;
 
 const BadgeText = styled.div`
@@ -116,12 +116,13 @@ const Badge = styled.div`
   background-color: var(--gallery);
   border-radius: 99px;
   justify-content: center;
+  margin-right: 38px;
 `;
 
 const TeamCardMembers = styled.div<ResponsiveLayoutProps>`
   display: flex;
   align-items: center;
-  padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '120px 134px')};
+  padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '')};
   gap: 30px;
   flex-wrap: wrap;
   justify-content: space-evenly;
