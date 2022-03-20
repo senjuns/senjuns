@@ -1,6 +1,6 @@
 # senjuns
 
-This is a monorepo. The idea of a monorepo is to have all code related modules, documentation and so on next to each other. That allows to reduce the overhead when managing multiple repos. Please read the best practices when working in the repo.
+This is a monorepo. The idea of a monorepo is to have all code-related modules, documentation and so on next to each other. That allows reducing the overhead when managing multiple repos. Please read the best practices when working in the repo.
 
 [BEST_PRACTICES](wiki/BEST_PRACTICES.md)
 

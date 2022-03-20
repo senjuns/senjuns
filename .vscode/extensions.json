@@ -8,6 +8,9 @@
     "znck.grammarly",
     "esbenp.prettier-vscode",
     "davidanson.vscode-markdownlint",
-    "TabNine.tabnine-vscode"
+    "tabnine.tabnine-vscode",
+    "aaron-bond.better-comments",
+    "brittanychiang.halcyon-vscode",
+    "PKief.material-icon-theme"
   ]
 }
