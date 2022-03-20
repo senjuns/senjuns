@@ -1,6 +1,12 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
+# Only run linting if dashboard, landingpage, or backend files have been changed.
+# if ! git diff --name-only --cached | egrep 'dashboard|landingpage|backend' > /dev/null ; then
+#   echo "Aborting husky since no dashboard, landingpage, or devops files have been changed."
+#   exit 0
+# fi
+
 yarn lint:staged
 
 cd backend

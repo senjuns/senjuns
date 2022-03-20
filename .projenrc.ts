@@ -14,7 +14,7 @@ const project = new pj.typescript.TypeScriptProject({
     },
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
-  release: false,
+  release: true,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
@@ -55,7 +55,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.16.0',
+  cdkVersion: '2.17.0',
   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
   deps: [
     'cdk-appsync-transformer@2.0.0-alpha.0',
