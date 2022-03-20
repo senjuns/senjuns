@@ -45,7 +45,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
     'react-responsive@^9.0.0-beta.6',
   ],
   devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
-  release: true,
+  release: false,
 });
 
 landingpage.synth();
@@ -71,14 +71,19 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
 
 backend.setScript('cdk', 'cdk');
 backend.setScript('tsc', 'tsc');
-backend.setScript(
-  'dia',
-  'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
-);
+// backend.setScript(
+//   'dia',
+//   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
+// );
 backend.addTask('updateSchema', {
   description: 'Udates all places when changing the schema.graphql',
   exec: 'yarn synth && cd ../dashboard && yarn codegen && cd ..',
 });
+
+// Always update the diagram if manually synth
+backend.cdkTasks.synth.exec(
+  'yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
+);
 
 backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
 backend.gitignore.addPatterns('appsync');

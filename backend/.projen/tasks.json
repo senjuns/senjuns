@@ -145,6 +145,9 @@
       "steps": [
         {
           "exec": "cdk synth"
+        },
+        {
+          "exec": "yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png"
         }
       ]
     },
