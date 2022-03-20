@@ -48,6 +48,11 @@
       "type": "build"
     },
     {
+      "name": "standard-version",
+      "version": "^9",
+      "type": "build"
+    },
+    {
       "name": "typescript",
       "version": "^4.0.3",
       "type": "build"

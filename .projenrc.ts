@@ -14,7 +14,7 @@ const project = new pj.typescript.TypeScriptProject({
     },
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
-  release: true,
+  release: false,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
@@ -45,7 +45,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
     'react-responsive@^9.0.0-beta.6',
   ],
   devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
-  release: false,
+  release: true,
 });
 
 landingpage.synth();
