@@ -22,7 +22,7 @@ const project = new pj.typescript.TypeScriptProject({
     },
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
-  release: false,
+  release: true,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
