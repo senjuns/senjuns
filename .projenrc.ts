@@ -40,63 +40,63 @@ project.tsconfigDev?.addInclude('backend/**/*.ts');
 
 project.synth();
 
-const landingpage = new pj.web.ReactTypeScriptProject({
-  defaultReleaseBranch: 'main',
-  outdir: 'landingpage',
-  parent: project,
-  name: 'landingpage',
-  deps: [
-    'react-router-dom@5.2.0',
-    'react-scripts@5.0.0',
-    'styled-components',
-    'axios',
-    'react-responsive@^9.0.0-beta.6',
-  ],
-  devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
-  release: false,
-});
+// const landingpage = new pj.web.ReactTypeScriptProject({
+//   defaultReleaseBranch: 'main',
+//   outdir: 'landingpage',
+//   parent: project,
+//   name: 'landingpage',
+//   deps: [
+//     'react-router-dom@5.2.0',
+//     'react-scripts@5.0.0',
+//     'styled-components',
+//     'axios',
+//     'react-responsive@^9.0.0-beta.6',
+//   ],
+//   devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
+//   release: false,
+// });
 
-landingpage.synth();
+// landingpage.synth();
 
-const backend = new pj.awscdk.AwsCdkTypeScriptApp({
-  defaultReleaseBranch: 'main',
-  outdir: 'backend',
-  parent: project,
-  name: 'backend',
-  cdkVersion: '2.17.0',
-  devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
-  deps: [
-    'cdk-appsync-transformer@2.0.0-alpha.0',
-    '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
-  ],
-  release: false,
-  tsconfig: {
-    compilerOptions: {
-      skipLibCheck: true,
-    },
-  },
-});
+// const backend = new pj.awscdk.AwsCdkTypeScriptApp({
+//   defaultReleaseBranch: 'main',
+//   outdir: 'backend',
+//   parent: project,
+//   name: 'backend',
+//   cdkVersion: '2.17.0',
+//   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
+//   deps: [
+//     'cdk-appsync-transformer@2.0.0-alpha.0',
+//     '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
+//   ],
+//   release: false,
+//   tsconfig: {
+//     compilerOptions: {
+//       skipLibCheck: true,
+//     },
+//   },
+// });
 
-backend.setScript('cdk', 'cdk');
-backend.setScript('tsc', 'tsc');
-// backend.setScript(
-//   'dia',
-//   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
+// backend.setScript('cdk', 'cdk');
+// backend.setScript('tsc', 'tsc');
+// // backend.setScript(
+// //   'dia',
+// //   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
+// // );
+// backend.addTask('updateSchema', {
+//   description: 'Udates all places when changing the schema.graphql',
+//   exec: 'yarn synth && cd ../dashboard && yarn codegen && cd ..',
+// });
+
+// // Always update the diagram if manually synth
+// backend.cdkTasks.synth.exec(
+//   'yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
 // );
-backend.addTask('updateSchema', {
-  description: 'Udates all places when changing the schema.graphql',
-  exec: 'yarn synth && cd ../dashboard && yarn codegen && cd ..',
-});
 
-// Always update the diagram if manually synth
-backend.cdkTasks.synth.exec(
-  'yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
-);
+// backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
+// backend.gitignore.addPatterns('appsync');
 
-backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
-backend.gitignore.addPatterns('appsync');
-
-backend.synth();
+// backend.synth();
 
 // const dashboard = new pj.web.ReactTypeScriptProject({
 //   defaultReleaseBranch: 'main',
