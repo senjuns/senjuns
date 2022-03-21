@@ -4,7 +4,8 @@ import { useLocation } from 'react-router';
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { ReactComponent as Logo } from '../../assets/svgs/logo.svg';
+import { ReactComponent as LogoWhite } from '../../assets/svgs/logo-white.svg';
+import { ReactComponent as LogoBlack } from '../../assets/svgs/logo-black.svg';
 import { Link } from '../../common';
 import HamburgerMenu from '../../components/Header/HamburgerMenu';
 import { useScreenSize } from '../../hooks/useScreenSize';
@@ -23,7 +24,11 @@ const Header: FC<HeaderProps> = ({ color }) => {
     <HeaderContainer isMobile={isMobile}>
       <LinkContainer>
         <RouterLink to={ROUTES.LANDING}>
-          <StyledLogo color={color} />
+          {color === 'black' ? (
+            <StyledLogoBlack color={color} />
+          ) : (
+            <StyledLogoWhite color={color} />
+          )}
         </RouterLink>
         {!isMobile && (
           <>
@@ -55,7 +60,11 @@ const HeaderContainer = styled.header<ResponsiveLayoutProps>`
   width: 100%;
 `;
 
-const StyledLogo = styled(Logo)`
+const StyledLogoWhite = styled(LogoWhite)`
+  margin-right: 100px;
+`;
+
+const StyledLogoBlack = styled(LogoBlack)`
   margin-right: 100px;
 `;
 
