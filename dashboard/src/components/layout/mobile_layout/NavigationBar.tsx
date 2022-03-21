@@ -3,7 +3,7 @@ import styled from 'styled-components';
 // import backIcon from '../../../assets/svg/back-icon.svg';
 import closeIcon from '../../../assets/svg/close-icon.svg';
 import hamburgerIcon from '../../../assets/svg/hamburger.svg';
-import logoIcon from '../../../assets/svg/small-logo.svg';
+
 import { ImageButton } from '../../../components/common';
 import { useFeatureFlags } from '../../../contexts/FeatureFlagsProvider';
 // import { useRoomDetails } from '../../../contexts/RoomProvider';
@@ -57,12 +57,34 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
         icon={isSideBarOpen ? closeIcon : hamburgerIcon}
       />
       {/* )} */}
-      <img src={logoIcon} />
+      <MobileLogo>
+        <MobileLogoImg src={'/ms-icon-70x70.png'} />
+        <MobileLogoText>senjuns</MobileLogoText>
+      </MobileLogo>
+
       {notificationFlag ? <NotificationButton /> : <div></div>}
     </Container>
   );
 };
 
+const MobileLogo = styled.div`
+  height: 50px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 20px;
+`;
+const MobileLogoImg = styled.img`
+  height: 50px;
+  margin-right: 5px;
+`;
+const MobileLogoText = styled.div`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 54px;
+`;
 const Container = styled.div`
   display: flex;
   justify-content: space-between;

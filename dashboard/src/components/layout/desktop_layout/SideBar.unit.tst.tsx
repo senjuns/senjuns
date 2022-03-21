@@ -8,7 +8,7 @@ describe('<SideBar />', () => {
     const renderer = ShallowRenderer.createRenderer();
     renderer.render(
       <Providers>
-        <SideBar onLogOut={jest.fn} />
+        <SideBar />
       </Providers>,
     );
 

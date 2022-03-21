@@ -1,21 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as LogoutIcon } from '../../../assets/svg/logout-icon.svg';
-import { IconButton } from '../../../components/common';
 import { SIDEBAR_WIDTH } from '../../../components/layout/desktop_layout/constants';
 
-interface SideBarProps {
-  onLogOut: () => {};
-}
-
-const SideBar: React.FC<SideBarProps> = ({ onLogOut }: SideBarProps) => {
-  return (
-    <StyledSideBar>
-      <IconButton onClick={onLogOut}>
-        <LogoutIcon />
-      </IconButton>
-    </StyledSideBar>
-  );
+const SideBar: React.FC = () => {
+  return <StyledSideBar></StyledSideBar>;
 };
 
 export default SideBar;

@@ -1,15 +1,17 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as DashNavIcon } from '../../../assets/svg/dash-nav-icon.svg';
-import { Typography } from '../../../components/common';
+import { Typography, IconButton } from '../../../components/common';
+import { ReactComponent as LogoutIcon } from '../../../assets/svg/logout-icon.svg';
 import { HEADER_HEIGHT } from '../../../components/layout/desktop_layout/constants';
 import { Sizes } from '../../../shared/constants';
 
 interface HeaderProps {
   userName?: string;
+  onLogOut: () => {};
 }
 
-const Header: FC<HeaderProps> = ({ userName }) => {
+const Header: FC<HeaderProps> = ({ userName, onLogOut }: HeaderProps) => {
   return (
     <StyledHeader id="desktop_header">
       <NeatleafIcon
@@ -24,6 +26,11 @@ const Header: FC<HeaderProps> = ({ userName }) => {
       <UserWelcome color="gray" variant="h4">
         Hey, <b>{userName}</b>
       </UserWelcome>
+      <RightMenu>
+        <IconButton onClick={onLogOut}>
+          <LogoutIcon />
+        </IconButton>
+      </RightMenu>
     </StyledHeader>
   );
 };
@@ -54,4 +61,10 @@ const UserWelcome = styled(Typography)`
   line-height: 40px;
   font-family: Poppins;
   font-weight: normal;
+`;
+
+const RightMenu = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 `;
