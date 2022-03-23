@@ -7,6 +7,9 @@
 !/package.json
 !/LICENSE
 !/.npmignore
+landingpage/
+dashboard/
+backend/
 logs
 *.log
 npm-debug.log*
