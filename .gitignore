@@ -7,9 +7,6 @@
 !/package.json
 !/LICENSE
 !/.npmignore
-landingpage/
-dashboard/
-backend/
 logs
 *.log
 npm-debug.log*
@@ -52,4 +49,7 @@ junit.xml
 /lib
 /dist/
 !/.eslintrc.json
+landingpage/
+dashboard/
+backend/
 !/.github/workflows/upgrade-main.yml
