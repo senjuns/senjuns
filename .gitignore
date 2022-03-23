@@ -49,13 +49,4 @@ junit.xml
 /lib
 /dist/
 !/.eslintrc.json
-landingpage/
-dashboard/
-backend/
-.husky/
-architecture-decision-record/
-common/
-src/
-test/
-wiki/
 !/.github/workflows/upgrade-main.yml
