@@ -52,4 +52,10 @@ junit.xml
 landingpage/
 dashboard/
 backend/
+.husky/
+architecture-decision-record/
+common/
+src/
+test/
+wiki/
 !/.github/workflows/upgrade-main.yml

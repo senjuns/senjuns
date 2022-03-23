@@ -38,7 +38,17 @@ project.setScript('prepare', 'husky install');
 
 project.tsconfigDev?.addInclude('backend/**/*.ts');
 
-project.gitignore.addPatterns('landingpage/', 'dashboard/', 'backend/');
+project.gitignore.addPatterns(
+  'landingpage/',
+  'dashboard/',
+  'backend/',
+  '.husky/',
+  'architecture-decision-record/',
+  'common/',
+  'src/',
+  'test/',
+  'wiki/',
+);
 
 project.synth();
 
