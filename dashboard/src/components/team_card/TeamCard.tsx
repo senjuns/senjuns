@@ -8,7 +8,7 @@ import { useListTeamCardsQuery } from '../../lib/api';
 
 const TeamCard = () => {
   const { isMobile } = useScreenSize();
-  // const teamCards = useGetLatestPhotoFeedDataBySystemId({});
+  // const s = useGetLatestPhotoFeedDataBySystemId({});
 
   const { data, isLoading } = useListTeamCardsQuery(undefined, {
     refetchOnWindowFocus: false,
@@ -22,38 +22,34 @@ const TeamCard = () => {
         <>
           <div className="container-center-horizontal">
             <div className="teamcard screen">
-              <TeamCardDetails>
-                <TeamCardDetailsDescription>
-                  <TeamCardDetailsDescriptionTitle>
+              <Details>
+                <DetailsDescription>
+                  <DetailsDescriptionTitle>
                     {teamCard?.teamName}
-                  </TeamCardDetailsDescriptionTitle>
-                  <TeamCardDetailsTags>
+                  </DetailsDescriptionTitle>
+                  <Tags>
                     {teamCard?.tags?.map((tag) => (
                       <Badge>
                         <BadgeText>{tag}</BadgeText>
                       </Badge>
                     ))}
-                  </TeamCardDetailsTags>
-                  <TeamCardDetailsDescriptionBody>
+                  </Tags>
+                  <DetailsDescriptionBody>
                     {teamCard?.teamDescription}
-                  </TeamCardDetailsDescriptionBody>
-                </TeamCardDetailsDescription>
-              </TeamCardDetails>
-              <TeamCardMembers isMobile={isMobile}>
+                  </DetailsDescriptionBody>
+                </DetailsDescription>
+              </Details>
+              <Members isMobile={isMobile}>
                 {teamCard?.members?.map((member) => (
-                  <TeamCardMember>
-                    <TeamCardMemberImage src={member?.image} />
-                    <TeamCardMemberDescription>
-                      <TeamCardMemberDescriptionFirstName>
-                        {member?.firstName}
-                      </TeamCardMemberDescriptionFirstName>
-                      <TeamCardMemberDescriptionRole>
-                        {member?.role}
-                      </TeamCardMemberDescriptionRole>
-                    </TeamCardMemberDescription>
-                  </TeamCardMember>
+                  <Member>
+                    <Image src={member?.image} />
+                    <MemberDescription>
+                      <FirstName>{member?.firstName}</FirstName>
+                      <Role>{member?.role}</Role>
+                    </MemberDescription>
+                  </Member>
                 ))}
-              </TeamCardMembers>
+              </Members>
             </div>
           </div>
           <hr></hr>
@@ -65,19 +61,19 @@ const TeamCard = () => {
 
 export default TeamCard;
 
-const TeamCardDetails = styled.div`
+const Details = styled.div`
   display: flex;
   width: 100%;
   padding: 20px;
   margin-left: 40px;
 `;
 
-const TeamCardDetailsDescription = styled.div`
+const DetailsDescription = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const TeamCardDetailsDescriptionTitle = styled.h1`
+const DetailsDescriptionTitle = styled.h1`
   ${Poppins26}
   min-height: 30px;
   font-weight: 400;
@@ -86,7 +82,7 @@ const TeamCardDetailsDescriptionTitle = styled.h1`
   white-space: nowrap;
 `;
 
-const TeamCardDetailsDescriptionBody = styled.div`
+const DetailsDescriptionBody = styled.div`
   ${Poppins22}
   margin-top: 40px;
   font-weight: 400;
@@ -94,7 +90,7 @@ const TeamCardDetailsDescriptionBody = styled.div`
   line-height: 30px;
 `;
 
-const TeamCardDetailsTags = styled.div`
+const Tags = styled.div`
   display: flex;
   align-items: flex-start;
 `;
@@ -119,7 +115,7 @@ const Badge = styled.div`
   margin-right: 38px;
 `;
 
-const TeamCardMembers = styled.div<ResponsiveLayoutProps>`
+const Members = styled.div<ResponsiveLayoutProps>`
   display: flex;
   align-items: center;
   padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '')};
@@ -129,19 +125,19 @@ const TeamCardMembers = styled.div<ResponsiveLayoutProps>`
   width: 100%;
 `;
 
-const TeamCardMember = styled.div`
+const Member = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const TeamCardMemberImage = styled.img`
+const Image = styled.img`
   width: 200px;
   height: 201px;
 `;
 
-const TeamCardMemberDescription = styled.div`
+const MemberDescription = styled.div`
   ${Poppins22}
   height: 1px;
   margin-top: 40px;
@@ -151,7 +147,7 @@ const TeamCardMemberDescription = styled.div`
   justify-content: center;
 `;
 
-const TeamCardMemberDescriptionFirstName = styled.div`
+const FirstName = styled.div`
   min-height: 30px;
   margin-bottom: -29px;
   font-weight: 400;
@@ -161,7 +157,7 @@ const TeamCardMemberDescriptionFirstName = styled.div`
   white-space: nowrap;
 `;
 
-const TeamCardMemberDescriptionRole = styled.div`
+const Role = styled.div`
   min-height: 30px;
   margin-left: 5px;
   margin-bottom: -29px;

@@ -76,7 +76,7 @@ export const NonAuthLayout: React.FC<NonAuthLayoutProps> = ({
               <img src={linkedinIcon} />
               <img src={instagramIcon} />
             </SocialIconGroup>
-            <WaterMark>{`© ${new Date().getFullYear()} senjun-teams.`}</WaterMark>
+            <WaterMark>{`© ${new Date().getFullYear()} senjuns.`}</WaterMark>
           </>
         )}
       </BackgroundContainer>

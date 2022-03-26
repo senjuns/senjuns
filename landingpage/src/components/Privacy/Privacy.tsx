@@ -13,18 +13,18 @@ const Privacy: FC = () => {
         Privacy
       </Title>
       <WhatWeDoTitle variant="h4">
-        <i>senjun-teams</i>, Inc. Webpage Privacy Policy (www.senjuns.com)
+        <i>senjuns</i>, Inc. Webpage Privacy Policy (www.senjuns.com)
       </WhatWeDoTitle>
       <WhatWeDoDescription isMobile={isMobile} variant="body1">
         Effective Date: February 28, 2022
         <br />
         <br />
-        <i>senjun-teams</i>, Inc. provides data analysis and automation
-        solutions, including but not limited to sensors, actuators, and data
-        processing tools, to help our customers improve farming efficiency.
+        <i>senjuns</i>, Inc. provides data analysis and automation solutions,
+        including but not limited to sensors, actuators, and data processing
+        tools, to help our customers improve farming efficiency.
         <br />
         <br />
-        At <i>senjun-teams</i> one of our main priorities is the privacy of our
+        At <i>senjuns</i> one of our main priorities is the privacy of our
         visitors and customers. This Privacy Policy is designed to inform you
         about the type of information that we may gather or collect from you in
         connection with your use of our Services. It also explains the
@@ -328,7 +328,7 @@ const Privacy: FC = () => {
             Provider.
           </ListItem>
           <ListItem>
-            <b>Our, Us, or We</b> means <i>senjun-teams</i>, Inc.
+            <b>Our, Us, or We</b> means <i>senjuns</i>, Inc.
           </ListItem>
           <ListItem>
             <b>Personal Information</b> means information that identifies,
