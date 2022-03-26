@@ -7,7 +7,7 @@
     "compile": "npx projen compile",
     "copy-schema": "npx projen copy-schema",
     "default": "npx projen default",
-    "dev": "npx projen dev",
+    "dev": "export STAGE=prod && yarn build:config && REACT_APP_STAGE=prod react-scripts start",
     "eject": "npx projen eject",
     "generate-statements": "npx projen generate-statements",
     "package": "npx projen package",
@@ -18,7 +18,8 @@
     "upgrade": "npx projen upgrade",
     "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
-    "projen": "npx projen"
+    "projen": "npx projen",
+    "build:config": "cd scripts/create_config; yarn; yarn start; cd -"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.6.2",

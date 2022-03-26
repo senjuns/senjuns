@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# ! deprecated we use create_config/index.ts instead
 if [ -z "$STAGE" ]; then
     echo "Error: STAGE not set. Set STAGE example: export STAGE=dev"
     exit 1
