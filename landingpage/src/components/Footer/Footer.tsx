@@ -7,6 +7,7 @@ import { Link, Typography } from '../../common';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { ROUTES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
+import localization from '../../localization';
 
 interface LinkGroupProps {
   title: string;
@@ -36,19 +37,32 @@ const Footer: FC = () => {
         </LogoContainer>
 
         <LinkContainer>
-          <LinkGroup title="Company">
-            <StyledLink text="About Us" to={ROUTES.ABOUT_US} />
-            <StyledLink text="Careers" to={ROUTES.CAREERS} />
-            <StyledLink text="Contact Us" to={ROUTES.CONTACT_US} />
+          <LinkGroup title={localization['landing.footer.company']}>
+            <StyledLink
+              text={localization['landing.menu.about_us']}
+              to={ROUTES.ABOUT_US}
+            />
+            <StyledLink
+              text={localization['landing.menu.careers']}
+              to={ROUTES.CAREERS}
+            />
+            <StyledLink
+              text={localization['landing.menu.contact']}
+              to={ROUTES.CONTACT_US}
+            />
           </LinkGroup>
-          <LinkGroup title="Legal">
-            <StyledLink color="orange3" text="Privacy" to={ROUTES.PRIVACY} />
+          <LinkGroup title={localization['landing.footer.legal']}>
+            <StyledLink
+              color="orange3"
+              text={localization['landing.menu.privacy']}
+              to={ROUTES.PRIVACY}
+            />
           </LinkGroup>
         </LinkContainer>
       </FooterMain>
 
       <Typography variant="body1" color="grey4">
-        2022 senjuns.com. All rights reserved.
+        {localization['landing.footer.copyright']}
       </Typography>
     </FooterContainer>
   );

@@ -6,6 +6,7 @@ import BenefitCard from '../../components/Landing/BenefitCard';
 import { TBenefit } from '../../containers/Landing/constants';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { ResponsiveLayoutProps } from '../../shared/types';
+import localization from '../../localization';
 
 interface BenefitsProps {
   benefits: TBenefit[];
@@ -19,7 +20,7 @@ const Benefits: FC<BenefitsProps> = ({ benefits }) => {
       <BenefitsTitleWrapper>
         <BenefitsTitleDivider />
         <BenefitsTitle variant={isMobile ? 'body1' : 'h6'}>
-          SENJUN TEAMS - VALUES
+          {localization['landing.benefits.title']}
         </BenefitsTitle>
         <BenefitsTitleDivider />
       </BenefitsTitleWrapper>

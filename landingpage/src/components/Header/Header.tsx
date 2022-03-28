@@ -11,6 +11,7 @@ import HamburgerMenu from '../../components/Header/HamburgerMenu';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { COLORS, FONTS, ROUTES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
+import localization from '../../localization';
 
 interface HeaderProps {
   color: 'black' | 'white';
@@ -32,15 +33,23 @@ const Header: FC<HeaderProps> = ({ color }) => {
         </RouterLink>
         {!isMobile && (
           <>
-            <StyledLink color={color} text="About Us" to={ROUTES.ABOUT_US} />
-            <StyledLink color={color} text="Careers" to={ROUTES.CAREERS} />
             <StyledLink
               color={color}
-              text="Contact Us"
+              text={localization['landing.menu.about_us']}
+              to={ROUTES.ABOUT_US}
+            />
+            <StyledLink
+              color={color}
+              text={localization['landing.menu.careers']}
+              to={ROUTES.CAREERS}
+            />
+            <StyledLink
+              color={color}
+              text={localization['landing.menu.contact']}
               to={ROUTES.CONTACT_US}
             />
             <StyledHrefLink href={'https://dashboard.senjuns.com'}>
-              Login
+              {localization['landing.menu.login']}
             </StyledHrefLink>
           </>
         )}
