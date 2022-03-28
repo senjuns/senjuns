@@ -7,6 +7,7 @@ We highly value contributions, with roughly half of all commits to senjuns.com c
 This document describes how to set up a development environment and submit your changes. Please let us know if it's not up-to-date (even better, submit a PR with your corrections ;-)).
 
 - [Getting Started](#getting-started)
+- [GitHub](#github)
 - [Pull Requests](#pull-requests)
   - [Step 1: Find something to work on](#step-1-find-something-to-work-on)
   - [Step 2: Design (optional)](#step-2-design)
@@ -18,12 +19,9 @@ This document describes how to set up a development environment and submit your 
   - [Rosetta](#rosetta)
 - [Tools](#tools)
   - [Linters](#linters)
-- [Feature Flags](#feature-flags)
 - [Versioning and Release](#versioning-and-release)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
-  - [Connecting the VS Code Debugger](#connecting-the-vs-code-debugger)
-  - [Run a CDK unit test in the debugger](#run-a-cdk-unit-test-in-the-debugger)
 - [Related Repositories](#related-repositories)
 
 ## Getting Started
@@ -196,7 +194,6 @@ sufficient to get clarity on what you plan to do.
 Work your magic. Here are some guidelines:
 
 - Coding style.
-  - Take a look at our [design guidelines](./DESIGN_GUIDELINES.md)
   - We have a number of linters that run during standard build that will enforce coding consistency and correctness.
     Watch out for their error messages and adjust your code accordingly.
 - Every change requires a unit test
@@ -204,32 +201,6 @@ Work your magic. Here are some guidelines:
   changes along the way, but try to avoid conflating multiple features. Eventually, all these are going to go into a
   single commit, so you can use that to frame your scope.
 
-#### Integration Tests
-
-Integration tests perform a few functions in the CDK code base -
-
-...
-
-**When are integration tests required?**
-
-The following list contains common scenarios where we _know_ that integration tests are required.
-This is not an exhaustive list and we will, by default, require integration tests for all
-new features unless there is a good reason why one is not needed.
-
-- Adding a new feature
-
-Examples:
-
-- [integ.destinations.ts](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-lambda-destinations/test/integ.destinations.ts#L7)
-- [integ.token-authorizer.lit.ts](https://github.com/aws/aws-cdk/blob/master/packages/%40aws-cdk/aws-apigateway/test/authorizers/integ.token-authorizer.lit.ts#L7-L12)
-
-**What do do if you cannot run integration tests**
-
-If you are working on a PR that requires an update to an integration test and you are unable
-to to perform a real deployment, please call this out on the pull request
-so a maintainer can run the tests for you.
-
-See the [integration test guide](./INTEGRATION_TESTS.md) for a more complete guide on running
 CDK integration tests.
 
 ### Step 4: Pull Request
