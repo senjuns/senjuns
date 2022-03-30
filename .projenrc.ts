@@ -110,7 +110,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
       '@aws-amplify/ui-react@^1.2.18',
       'aws-appsync@^4.1.2',
     ],
-    'react-query@^2',
+    'react-query@^3',
     '@apollo/client@^3.3.20',
     'apollo-boost@^0.4.9',
     'react-apollo@^3.1.5',
