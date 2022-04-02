@@ -11,6 +11,7 @@
     "tabnine.tabnine-vscode",
     "aaron-bond.better-comments",
     "brittanychiang.halcyon-vscode",
-    "PKief.material-icon-theme"
+    "pkief.material-icon-theme",
+    "firsttris.vscode-jest-runner"
   ]
 }

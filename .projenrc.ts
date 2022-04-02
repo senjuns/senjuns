@@ -36,6 +36,10 @@ project.setScript('lint:staged', 'lint-staged');
 
 project.setScript('prepare', 'husky install');
 
+project.package.addField('commithelper', {
+  scopes: ['dashboard', 'landingpage', 'backend', 'docs'],
+});
+
 project.tsconfigDev?.addInclude('backend/**/*.ts');
 
 project.synth();
@@ -63,7 +67,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.17.0',
+  cdkVersion: '2.19.0',
   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
   deps: [
     'cdk-appsync-transformer@2.0.0-alpha.0',
@@ -173,6 +177,14 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'assert',
   ],
   release: false,
+  jest: true,
+  // jestOptions: {
+  //   jestConfig: {
+  //     transform: {
+  //       '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
+  //     },
+  //   },
+  // },
 });
 
 dashboard.addTask('copy-schema', {

@@ -103,6 +103,15 @@
       "type": "build"
     },
     {
+      "name": "jest",
+      "type": "build"
+    },
+    {
+      "name": "jest-junit",
+      "version": "^13",
+      "type": "build"
+    },
+    {
       "name": "npm-check-updates",
       "version": "^12",
       "type": "build"
@@ -114,6 +123,10 @@
     {
       "name": "react-test-renderer",
       "version": "^17.0.2",
+      "type": "build"
+    },
+    {
+      "name": "ts-jest",
       "type": "build"
     },
     {

@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TeamCard /> deep renders correctly. 1`] = `
+<div>
+  <div
+    className="container-center-horizontal"
+  >
+    <div
+      className="teamcard screen"
+    >
+      <div
+        className="sc-bdvvtL gizfTv"
+      >
+        <div
+          className="sc-gsDKAQ gFZcdC"
+        >
+          <h1
+            className="sc-dkPtRN eYYopd"
+          >
+            AWS CDK Team
+          </h1>
+          <div
+            className="sc-eCImPb hGygE"
+          >
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                AWS
+              </div>
+            </div>
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                IaC
+              </div>
+            </div>
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                DevOps
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-hKwDye fzKgPb"
+          >
+            we are obsessed with AWS and building cool solutions for our customers ...
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-iCfMLu bcfidr"
+      >
+        <div
+          className="sc-furwcr fUWVbG"
+        >
+          <img
+            className="sc-pVTFL fziFaN"
+            src="https://i.pravatar.cc/300"
+          />
+          <div
+            className="sc-jrQzAO fRGqez"
+          >
+            <div
+              className="sc-kDTinF bHAUvf"
+            >
+              Martin
+            </div>
+            <div
+              className="sc-iqseJM cqKyoS"
+            >
+              - Senior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-furwcr fUWVbG"
+        >
+          <img
+            className="sc-pVTFL fziFaN"
+            src="https://i.pravatar.cc/301"
+          />
+          <div
+            className="sc-jrQzAO fRGqez"
+          >
+            <div
+              className="sc-kDTinF bHAUvf"
+            >
+              Ben-Hur
+            </div>
+            <div
+              className="sc-iqseJM cqKyoS"
+            >
+              - Junior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div
+    className="container-center-horizontal"
+  >
+    <div
+      className="teamcard screen"
+    >
+      <div
+        className="sc-bdvvtL gizfTv"
+      >
+        <div
+          className="sc-gsDKAQ gFZcdC"
+        >
+          <h1
+            className="sc-dkPtRN eYYopd"
+          >
+            Data Engineering Team
+          </h1>
+          <div
+            className="sc-eCImPb hGygE"
+          >
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                ML
+              </div>
+            </div>
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                Python
+              </div>
+            </div>
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                Panda
+              </div>
+            </div>
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                PySpark
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-hKwDye fzKgPb"
+          >
+            we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-iCfMLu bcfidr"
+      >
+        <div
+          className="sc-furwcr fUWVbG"
+        >
+          <img
+            className="sc-pVTFL fziFaN"
+            src="https://i.pravatar.cc/302"
+          />
+          <div
+            className="sc-jrQzAO fRGqez"
+          >
+            <div
+              className="sc-kDTinF bHAUvf"
+            >
+              Peter
+            </div>
+            <div
+              className="sc-iqseJM cqKyoS"
+            >
+              - Senior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-furwcr fUWVbG"
+        >
+          <img
+            className="sc-pVTFL fziFaN"
+            src="https://i.pravatar.cc/303"
+          />
+          <div
+            className="sc-jrQzAO fRGqez"
+          >
+            <div
+              className="sc-kDTinF bHAUvf"
+            >
+              Naga
+            </div>
+            <div
+              className="sc-iqseJM cqKyoS"
+            >
+              - Junior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div
+    className="container-center-horizontal"
+  >
+    <div
+      className="teamcard screen"
+    >
+      <div
+        className="sc-bdvvtL gizfTv"
+      >
+        <div
+          className="sc-gsDKAQ gFZcdC"
+        >
+          <h1
+            className="sc-dkPtRN eYYopd"
+          >
+            React Team
+          </h1>
+          <div
+            className="sc-eCImPb hGygE"
+          >
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                AWS
+              </div>
+            </div>
+            <div
+              className="sc-gKclnd egdtCv"
+            >
+              <div
+                className="sc-jRQBWg gzcDxS"
+              >
+                IaC
+              </div>
+            </div>
+          </div>
+          <div
+            className="sc-hKwDye fzKgPb"
+          >
+            we are nice ...
+          </div>
+        </div>
+      </div>
+      <div
+        className="sc-iCfMLu bcfidr"
+      >
+        <div
+          className="sc-furwcr fUWVbG"
+        >
+          <img
+            className="sc-pVTFL fziFaN"
+            src="https://i.pravatar.cc/304"
+          />
+          <div
+            className="sc-jrQzAO fRGqez"
+          >
+            <div
+              className="sc-kDTinF bHAUvf"
+            >
+              Ben-Hur
+            </div>
+            <div
+              className="sc-iqseJM cqKyoS"
+            >
+              - Senior React Engineer
+            </div>
+          </div>
+        </div>
+        <div
+          className="sc-furwcr fUWVbG"
+        >
+          <img
+            className="sc-pVTFL fziFaN"
+            src="https://i.pravatar.cc/305"
+          />
+          <div
+            className="sc-jrQzAO fRGqez"
+          >
+            <div
+              className="sc-kDTinF bHAUvf"
+            >
+              Martin
+            </div>
+            <div
+              className="sc-iqseJM cqKyoS"
+            >
+              - Junior React Engineer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
+`;

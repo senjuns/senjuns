@@ -18,42 +18,40 @@ const TeamCard = () => {
 
   return (
     <div>
-      {data?.listTeamCards?.items?.map((teamCard) => (
-        <>
-          <div className="container-center-horizontal">
-            <div className="teamcard screen">
-              <Details>
-                <DetailsDescription>
-                  <DetailsDescriptionTitle>
-                    {teamCard?.teamName}
-                  </DetailsDescriptionTitle>
-                  <Tags>
-                    {teamCard?.tags?.map((tag) => (
-                      <Badge>
-                        <BadgeText>{tag}</BadgeText>
-                      </Badge>
-                    ))}
-                  </Tags>
-                  <DetailsDescriptionBody>
-                    {teamCard?.teamDescription}
-                  </DetailsDescriptionBody>
-                </DetailsDescription>
-              </Details>
-              <Members isMobile={isMobile}>
-                {teamCard?.members?.map((member) => (
-                  <Member>
-                    <Image src={member?.image} />
-                    <MemberDescription>
-                      <FirstName>{member?.firstName}</FirstName>
-                      <Role>{member?.role}</Role>
-                    </MemberDescription>
-                  </Member>
-                ))}
-              </Members>
-            </div>
+      {data?.listTeamCards?.items?.map((teamCard, index) => (
+        <div key={index} className="container-center-horizontal">
+          <div className="teamcard screen">
+            <Details>
+              <DetailsDescription>
+                <DetailsDescriptionTitle>
+                  {teamCard?.teamName}
+                </DetailsDescriptionTitle>
+                <Tags>
+                  {teamCard?.tags?.map((tag, index) => (
+                    <Tag key={index}>
+                      <Text>{tag}</Text>
+                    </Tag>
+                  ))}
+                </Tags>
+                <DetailsDescriptionBody>
+                  {teamCard?.teamDescription}
+                </DetailsDescriptionBody>
+              </DetailsDescription>
+            </Details>
+            <Members isMobile={isMobile}>
+              {teamCard?.members?.map((member, index) => (
+                <Member key={index}>
+                  <Image src={member?.image} />
+                  <MemberDescription>
+                    <FirstName>{member?.firstName}</FirstName>
+                    <Role>{member?.role}</Role>
+                  </MemberDescription>
+                </Member>
+              ))}
+            </Members>
           </div>
           <hr></hr>
-        </>
+        </div>
       ))}
     </div>
   );
@@ -95,7 +93,7 @@ const Tags = styled.div`
   align-items: flex-start;
 `;
 
-const BadgeText = styled.div`
+const Text = styled.div`
   ${InterBoldMirage16px}
   min-height: 20px;
   text-align: center;
@@ -104,7 +102,7 @@ const BadgeText = styled.div`
   white-space: nowrap;
 `;
 
-const Badge = styled.div`
+const Tag = styled.div`
   height: 44px;
   display: flex;
   padding: 0 16px;
