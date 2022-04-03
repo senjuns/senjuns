@@ -23,11 +23,11 @@ Contents:
 
 ### Issue
 
-We need to choose programming languages for our software. We have two major needs: a front-end programming language suitable for web applications, and a back-end programming language suitable for server applications.
+We need to choose programming languages for the React frontends and the AWS backend.
 
 ### Decision
 
-We are choosing TypeScript for the front-end.
+We are choosing TypeScript for the React front-end.
 
 We are choosing TypeScript for the AWS back-end.
 

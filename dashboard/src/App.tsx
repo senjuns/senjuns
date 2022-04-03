@@ -22,6 +22,7 @@ import { ProtectedRoute } from './ProtectedRoute';
 import config from './shared/config';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 const Login = lazy(() => import('./pages/auth/LoginPage'));
@@ -37,6 +38,8 @@ const RouteChangeTracker = lazy(
 const MainLayout = lazy(() => import('./components/layout/MainLayout'));
 
 Amplify.configure(config);
+
+const queryClient = new QueryClient();
 
 // ReactGA.initialize(config.gaTrackingId);
 
@@ -74,29 +77,30 @@ Amplify.configure(config);
 function App() {
   return (
     // <ApolloProvider client={client}>
-    <StylesProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <ErrorBoundary>
-          <Suspense fallback={<Container>Loading Suspense...</Container>}>
-            <FeatureFlagsProvider>
-              <Router>
-                <AuthProvider>
-                  {/* <RoomProvider> */}
-                  <Switch>
-                    <Route exact path={APP_URL.login} component={Login} />
-                    <Route
-                      exact
-                      path={APP_URL.forgot}
-                      component={ForgotPassword}
-                    />
-                    <Route exact path={APP_URL.reset} component={Reset} />
-                    <ProtectedRoute exact path="/">
-                      <MainLayout>
-                        {/* <Home /> */}
-                        <TeamCard />
-                      </MainLayout>
-                    </ProtectedRoute>
-                    {/* <ProtectedRoute exact path="/room-details/:id">
+    <QueryClientProvider client={queryClient}>
+      <StylesProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <ErrorBoundary>
+            <Suspense fallback={<Container>Loading Suspense...</Container>}>
+              <FeatureFlagsProvider>
+                <Router>
+                  <AuthProvider>
+                    {/* <RoomProvider> */}
+                    <Switch>
+                      <Route exact path={APP_URL.login} component={Login} />
+                      <Route
+                        exact
+                        path={APP_URL.forgot}
+                        component={ForgotPassword}
+                      />
+                      <Route exact path={APP_URL.reset} component={Reset} />
+                      <ProtectedRoute exact path="/">
+                        <MainLayout>
+                          {/* <Home /> */}
+                          <TeamCard />
+                        </MainLayout>
+                      </ProtectedRoute>
+                      {/* <ProtectedRoute exact path="/room-details/:id">
                           <MainLayout>
                             <RoomDetailsPage />
                           </MainLayout>
@@ -106,19 +110,20 @@ function App() {
                             <RoomDetailsPage />
                           </MainLayout>
                         </ProtectedRoute> */}
-                    <Route path="*">
-                      <NotFoundPage />
-                    </Route>
-                    <RouteChangeTracker />
-                  </Switch>
-                  {/* </RoomProvider> */}
-                </AuthProvider>
-              </Router>
-            </FeatureFlagsProvider>
-          </Suspense>
-        </ErrorBoundary>
-      </ThemeProvider>
-    </StylesProvider>
+                      <Route path="*">
+                        <NotFoundPage />
+                      </Route>
+                      <RouteChangeTracker />
+                    </Switch>
+                    {/* </RoomProvider> */}
+                  </AuthProvider>
+                </Router>
+              </FeatureFlagsProvider>
+            </Suspense>
+          </ErrorBoundary>
+        </ThemeProvider>
+      </StylesProvider>
+    </QueryClientProvider>
   );
 }
 

@@ -114,8 +114,8 @@ Everything stops to work
 
 ### Examples
 
-- fix: #2 Changed button B
-- feat: #4 I added a new layout to about side
+- fix(dashboard): #2 Changed button B
+- feat(landingpage): #4 I added a new layout to about side
 
 ## Working with Code
 
@@ -136,8 +136,8 @@ Commits will follow the following layout:
 
 ### examples
 
-- git commit -m "feat: #1 init dashboard"
-- git commit -m "fix: #3 button type changed"
+- git commit -m "feat(dashboard): #1 init dashboard"
+- git commit -m "fix(dashboard): #3 button type changed"
 
 ### Code Workflow
 
