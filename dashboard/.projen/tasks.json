@@ -138,28 +138,7 @@
       "description": "Run tests",
       "steps": [
         {
-          "exec": "jest --passWithNoTests --all --updateSnapshot"
-        },
-        {
           "exec": "react-scripts test --watchAll=false"
-        }
-      ]
-    },
-    "test:update": {
-      "name": "test:update",
-      "description": "Update jest snapshots",
-      "steps": [
-        {
-          "exec": "jest --updateSnapshot"
-        }
-      ]
-    },
-    "test:watch": {
-      "name": "test:watch",
-      "description": "Run jest in watch mode",
-      "steps": [
-        {
-          "exec": "react-scripts test"
         }
       ]
     },
@@ -192,7 +171,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @graphql-codegen/cli @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo @graphql-codegen/typescript-react-query @graphql-codegen/typescript @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/js-cookie @types/lodash @types/node @types/react @types/react-color @types/react-dom @types/react-plotly.js @types/react-router-dom @types/react-test-renderer @types/selenium-webdriver @types/styled-components amplify-graphql-docs-generator assert jest jest-junit npm-check-updates react-test-renderer ts-jest typescript @apollo/client @aws-amplify/auth @aws-amplify/ui-components @aws-amplify/ui-react @date-io/date-fns @date-io/moment @material-ui/core @material-ui/icons @material-ui/lab @material-ui/pickers apollo-boost aws-amplify-react aws-amplify aws-appsync clsx date-fns js-cookie konva lodash moment plotly.js react react-apollo react-color react-dom react-hook-form react-konva react-plotly.js react-query react-responsive react-router-dom react-scripts react-swipeable react-tooltip react-zoom-pan-pinch selenium-webdriver stream styled-components use-debounce use-image web-vitals"
+          "exec": "yarn upgrade @graphql-codegen/cli @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo @graphql-codegen/typescript-react-query @graphql-codegen/typescript @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/js-cookie @types/lodash @types/node @types/react @types/react-color @types/react-dom @types/react-plotly.js @types/react-router-dom @types/react-test-renderer @types/selenium-webdriver @types/styled-components amplify-graphql-docs-generator assert npm-check-updates react-test-renderer typescript @apollo/client @aws-amplify/auth @aws-amplify/ui-components @aws-amplify/ui-react @date-io/date-fns @date-io/moment @material-ui/core @material-ui/icons @material-ui/lab @material-ui/pickers apollo-boost aws-amplify-react aws-amplify aws-appsync clsx date-fns js-cookie konva lodash moment plotly.js react react-apollo react-color react-dom react-hook-form react-konva react-plotly.js react-query react-responsive react-router-dom react-scripts react-swipeable react-tooltip react-zoom-pan-pinch selenium-webdriver stream styled-components use-debounce use-image web-vitals"
         },
         {
           "exec": "npx projen"

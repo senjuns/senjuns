@@ -24,9 +24,11 @@ const listTeamCards: ListTeamCardsQuery = {
   },
 };
 
+const mockListTeamCardQuery = { data: listTeamCards, isLoading: false };
+
 jest.mock('../../lib/api', () => ({
   useListTeamCardsQuery: () => {
-    return { data: listTeamCards, isLoading: false };
+    return mockListTeamCardQuery;
   },
 }));
 

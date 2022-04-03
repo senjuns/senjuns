@@ -177,14 +177,14 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'assert',
   ],
   release: false,
-  jest: true,
-  // jestOptions: {
-  //   jestConfig: {
-  //     transform: {
-  //       '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
-  //     },
-  //   },
-  // },
+  jest: false,
+  jestOptions: {
+    jestConfig: {
+      transform: {
+        '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
+      },
+    },
+  },
 });
 
 dashboard.addTask('copy-schema', {
