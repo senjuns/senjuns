@@ -5,5 +5,5 @@ import ptBR from './pt-BR.json';
 import LocalizedStrings from 'react-localization';
 
 const Localization = new LocalizedStrings({ en, de, ptBR });
-
+Localization.setLanguage('ptBR');
 export default Localization;
