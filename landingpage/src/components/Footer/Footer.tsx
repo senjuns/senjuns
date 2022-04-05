@@ -62,7 +62,7 @@ const Footer: FC = () => {
       </FooterMain>
 
       <Typography variant="body1" color="grey4">
-        {localization['landing.footer.copyright']}
+        2022 senjuns.com. {localization['landing.footer.copyright']}
       </Typography>
     </FooterContainer>
   );

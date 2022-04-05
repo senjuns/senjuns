@@ -8,7 +8,6 @@
     "eager to learn and to help you with your compelx IT problems."
   ],
 
-  "landing.benefits.title": "SENJUN TEAMS - VALUES",
   "landing.benefits.card.together.title": "Together",
   "landing.benefits.card.together.content": "Senjun teams consist of Seniors and Juinors",
   "landing.benefits.card.learning.title": "Learning",
@@ -25,7 +24,7 @@
   "landing.menu.contact": "Contact Us",
   "landing.menu.login": "Login",
   "landing.menu.privacy": "Privacy",
-  "landing.footer.copyright": "2022 senjuns.com. All rights reserved.",
+  "landing.footer.copyright": "All rights reserved.",
   "landing.footer.company": "Company",
   "landing.footer.legal": "Legal"
 }

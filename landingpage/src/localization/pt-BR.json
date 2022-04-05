@@ -1,6 +1,6 @@
 {
   "landing.introduction.title": "Seniors e Juniors Juntos",
-  "landing.introduction.subtitle": "Let's get stuff done with fun!",
+  "landing.introduction.subtitle": "Vamos resolver problemas divertindo",
   "landing.introduction.description": [
     "Como você sabe os séniores em TI e engenharia estão escassos e caros",
     "Essa tendencia não parece que vai reverter. Vamos parar essa loucura.",
@@ -8,7 +8,6 @@
     "Isso acontecer e te ajudar com esse problema complexo."
   ],
 
-  "landing.benefits.title": "SENJUN TEAMS - VALUES",
   "landing.benefits.card.together.title": "Juntos",
   "landing.benefits.card.together.content": "Senjun teams consiste de Seniors e Juinors",
   "landing.benefits.card.learning.title": "Aprendendo",
@@ -25,7 +24,7 @@
   "landing.menu.contact": "Contato",
   "landing.menu.login": "Login",
   "landing.menu.privacy": "Privacidade",
-  "landing.footer.copyright": "2022 senjuns.com. todos direitos reservados.",
+  "landing.footer.copyright": "todos direitos reservados.",
   "landing.footer.company": "Empresa",
   "landing.footer.legal": "Legal"
 }

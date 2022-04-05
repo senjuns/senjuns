@@ -51,6 +51,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
     'styled-components',
     'axios',
     'react-responsive@^9.0.0-beta.6',
+    'react-localization@^1.0.18',
   ],
   devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
   release: false,
