@@ -1,0 +1,30 @@
+{
+  "landing.introduction.title": "Seniors e Juniors Juntos",
+  "landing.introduction.subtitle": "Vamos resolver problemas divertindo",
+  "landing.introduction.description": [
+    "Como você sabe os séniores em TI e engenharia estão escassos e caros",
+    "Essa tendencia não parece que vai reverter. Vamos parar essa loucura.",
+    "E colocar séniores e juniors,  teams.senjun é uma forma de fazer",
+    "Isso acontecer e te ajudar com esse problema complexo."
+  ],
+
+  "landing.benefits.card.together.title": "Juntos",
+  "landing.benefits.card.together.content": "Senjun teams consiste de Seniors e Juinors",
+  "landing.benefits.card.learning.title": "Aprendendo",
+  "landing.benefits.card.learning.content": "Hábilidades úteis",
+  "landing.benefits.card.fair.title": "Justo",
+  "landing.benefits.card.fair.content": "Justo e transparente",
+  "landing.benefits.card.grow.title": "Crescimento",
+  "landing.benefits.card.grow.content": "Junior se tornando Senior",
+  "landing.benefits.card.simple.title": "Simples",
+  "landing.benefits.card.simple.content": "Pagamentos combinados por tarefa ou por hora",
+
+  "landing.menu.about_us": "Sobre nós",
+  "landing.menu.careers": "Carreiras",
+  "landing.menu.contact": "Contato",
+  "landing.menu.login": "Login",
+  "landing.menu.privacy": "Privacidade",
+  "landing.footer.copyright": "todos direitos reservados.",
+  "landing.footer.company": "Empresa",
+  "landing.footer.legal": "Legal"
+}

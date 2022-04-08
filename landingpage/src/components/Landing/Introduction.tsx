@@ -6,6 +6,7 @@ import { Typography } from '../../common';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { COLORS, SIZES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
+import localization from '../../localization';
 
 const Introduction: FC = () => {
   const { isMobile } = useScreenSize();
@@ -13,17 +14,14 @@ const Introduction: FC = () => {
   return (
     <IntroductionContainer isMobile={isMobile}>
       <FrontPageTitle isMobile={isMobile}>
-        Seniors and Juniors Together
+        {localization['landing.introduction.title']}
       </FrontPageTitle>
       <StyledPeopleIcon></StyledPeopleIcon>
       <Title variant={isMobile ? 'h5' : 'h2'} color="white">
-        Let's get stuff done with fun!
+        {localization['landing.introduction.subtitle']}
       </Title>
       <Description>
-        As you know seniors in IT and engineering are less available and
-        expensive. That trend doesn’t seem to change at all. Let’s stop that
-        madness and put seniors and juniors together as teams.Senjun teams are
-        eager to learn and to help you with your compelx IT problems.
+        {localization['landing.introduction.description']}
       </Description>
       {/* <Description>
         {"Interested? Reach out today and let's grow together!"}
