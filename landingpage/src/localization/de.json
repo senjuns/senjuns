@@ -1,0 +1,30 @@
+{
+  "landing.introduction.title": "Seniors and Juniors Together",
+  "landing.introduction.subtitle": "Let's get stuff done with fun!",
+  "landing.introduction.description": [
+    "As you know seniors in IT and engineering are less available and",
+    "expensive. That trend doesn’t seem to change at all. Let’s stop that",
+    "madness and put seniors and juniors together as teams.Senjun teams are",
+    "eager to learn and to help you with your compelx IT problems."
+  ],
+
+  "landing.benefits.card.together.title": "Together",
+  "landing.benefits.card.together.content": "Senjun teams consist of Seniors and Juinors",
+  "landing.benefits.card.learning.title": "Learning",
+  "landing.benefits.card.learning.content": "Useful skills",
+  "landing.benefits.card.fair.title": "Fair",
+  "landing.benefits.card.fair.content": "Fair and transparent",
+  "landing.benefits.card.grow.title": "Grow",
+  "landing.benefits.card.grow.content": "Junior becomes Senior",
+  "landing.benefits.card.simple.title": "Simple",
+  "landing.benefits.card.simple.content": "Payments are managed either by task or hour",
+
+  "landing.menu.about_us": "About Us",
+  "landing.menu.careers": "Careers",
+  "landing.menu.contact": "Contact Us",
+  "landing.menu.login": "Login",
+  "landing.menu.privacy": "Privacy",
+  "landing.footer.copyright": "All rights reserved.",
+  "landing.footer.company": "Company",
+  "landing.footer.legal": "Legal"
+}

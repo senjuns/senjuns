@@ -8,6 +8,7 @@ import { ReactComponent as ConceptAboutProblemSolvingImg } from '../../assets/sv
 import { ReactComponent as GrowIcon } from '../../assets/svgs/grow.svg';
 import { ReactComponent as SymbolIcon } from '../../assets/svgs/symbols.svg';
 import { ReactComponent as TogetherIco } from '../../assets/svgs/together.svg';
+import localization from '../../localization';
 
 export type TBenefit = {
   Icon: FC;
@@ -18,36 +19,28 @@ export type TBenefit = {
 export const BENEFITS: TBenefit[] = [
   {
     Icon: TogetherIco,
-    title: 'Together',
-    content: 'Senjun teams consist of Seniors and Juinors',
+    title: localization['landing.benefits.card.together.title'],
+    content: localization['landing.benefits.card.together.content'],
   },
   {
     Icon: ChartIcon,
-    title: 'Learning',
-    content:
-      // eslint-disable-next-line max-len
-      'Useful skills',
+    title: localization['landing.benefits.card.learning.title'],
+    content: localization['landing.benefits.card.learning.content'],
   },
   {
     Icon: CheckIcon,
-    title: 'Fair',
-    content:
-      // eslint-disable-next-line max-len
-      'Fair and transparent',
+    title: localization['landing.benefits.card.fair.title'],
+    content: localization['landing.benefits.card.fair.content'],
   },
   {
     Icon: GrowIcon,
-    title: 'Grow',
-    content:
-      // eslint-disable-next-line max-len
-      'Junior becomes Senior',
+    title: localization['landing.benefits.card.grow.title'],
+    content: localization['landing.benefits.card.grow.content'],
   },
   {
     Icon: SymbolIcon,
-    title: 'Simple',
-    content:
-      // eslint-disable-next-line max-len
-      'Payments are managed either by task or hour',
+    title: localization['landing.benefits.card.simple.title'],
+    content: localization['landing.benefits.card.simple.content'],
   },
 ];
 
