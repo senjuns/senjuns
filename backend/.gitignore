@@ -45,6 +45,7 @@ junit.xml
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
+!/src/construcs/slack-app/provider-function.ts
 diagram.dot
 diagram.png
 appsync

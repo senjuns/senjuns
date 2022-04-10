@@ -3,6 +3,7 @@ import * as core from 'aws-cdk-lib';
 // import { DashboardBackendStack } from './dashboard-backend-stack';
 // import { LandingPageStack } from './landingpage-stack';
 import { PipelineStack } from './pipeline-stack';
+import { SlackStack } from './slack-stack';
 
 const devEnv = {
   account: '981237193288',
@@ -12,6 +13,7 @@ const devEnv = {
 const app = new core.App();
 
 new PipelineStack(app, 'senjun-teams-pipeline', { env: devEnv });
+new SlackStack(app, 'senjuns-slack-stack');
 
 // new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
 // new DashboardAppStack(app, 'prod-DashboardAppStack', { env: devEnv });

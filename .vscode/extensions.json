@@ -12,6 +12,7 @@
     "aaron-bond.better-comments",
     "brittanychiang.halcyon-vscode",
     "pkief.material-icon-theme",
-    "firsttris.vscode-jest-runner"
+    "firsttris.vscode-jest-runner",
+    "hediet.vscode-drawio"
   ]
 }

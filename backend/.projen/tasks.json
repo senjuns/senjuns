@@ -23,7 +23,30 @@
     },
     "bundle": {
       "name": "bundle",
-      "description": "Prepare assets"
+      "description": "Prepare assets",
+      "steps": [
+        {
+          "spawn": "bundle:construcs/slack-app/provider.lambda"
+        }
+      ]
+    },
+    "bundle:construcs/slack-app/provider.lambda": {
+      "name": "bundle:construcs/slack-app/provider.lambda",
+      "description": "Create a JavaScript bundle from src/construcs/slack-app/provider.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/construcs/slack-app/provider.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/construcs/slack-app/provider.lambda/index.js\" --external:aws-sdk"
+        }
+      ]
+    },
+    "bundle:construcs/slack-app/provider.lambda:watch": {
+      "name": "bundle:construcs/slack-app/provider.lambda:watch",
+      "description": "Continuously update the JavaScript bundle from src/construcs/slack-app/provider.lambda.ts",
+      "steps": [
+        {
+          "exec": "esbuild --bundle src/construcs/slack-app/provider.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/construcs/slack-app/provider.lambda/index.js\" --external:aws-sdk --watch"
+        }
+      ]
     },
     "clobber": {
       "name": "clobber",
@@ -228,7 +251,7 @@
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk aws-sdk cdk-dia esbuild eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit json-schema npm-check-updates ts-jest ts-node typescript @aws-cdk/aws-appsync-alpha aws-cdk-lib cdk-appsync-transformer constructs"
+          "exec": "yarn upgrade @types/aws-lambda @types/jest @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser aws-cdk aws-sdk cdk-dia esbuild eslint-import-resolver-node eslint-import-resolver-typescript eslint-plugin-import eslint jest jest-junit json-schema npm-check-updates ts-jest ts-node typescript @aws-cdk/aws-appsync-alpha aws-cdk-lib cdk-appsync-transformer constructs got"
         },
         {
           "exec": "npx projen"

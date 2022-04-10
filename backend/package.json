@@ -3,6 +3,8 @@
   "scripts": {
     "build": "npx projen build",
     "bundle": "npx projen bundle",
+    "bundle:construcs/slack-app/provider.lambda": "npx projen bundle:construcs/slack-app/provider.lambda",
+    "bundle:construcs/slack-app/provider.lambda:watch": "npx projen bundle:construcs/slack-app/provider.lambda:watch",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",
@@ -34,7 +36,7 @@
     "@types/node": "^12",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk": "^2.19.0",
+    "aws-cdk": "^2.20.0",
     "aws-sdk": "^2.1080.0",
     "cdk-dia": "^0.6.1",
     "esbuild": "^0.14.21",
@@ -53,9 +55,10 @@
   },
   "dependencies": {
     "@aws-cdk/aws-appsync-alpha": "2.15.0-alpha.0",
-    "aws-cdk-lib": "^2.19.0",
+    "aws-cdk-lib": "^2.20.0",
     "cdk-appsync-transformer": "2.0.0-alpha.0",
-    "constructs": "^10.0.5"
+    "constructs": "^10.0.5",
+    "got": "*"
   },
   "license": "Apache-2.0",
   "version": "0.0.0",

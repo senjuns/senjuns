@@ -1,4 +1,4 @@
-# CSS framework
+# chat-system
 
 Contents:
 
@@ -35,7 +35,7 @@ We want to leverage an existing chat system for the senior, junior and clients t
 
 ### Decision
 
-Decided on Discord / Slack
+Decided on Slack.
 
 ### Status
 
@@ -57,7 +57,7 @@ We didn't consider implementing our own chat system. That would consume way to m
 
 ### Argument
 
-...
+Martin and other members are strongly into the Slack environment for a lot of communities like AWS CDK, AWS DACH, ... already. Further more it seems nicely combinable with AWS ChatBot.
 
 ### Implications
 
