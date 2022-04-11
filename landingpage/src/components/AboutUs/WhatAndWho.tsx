@@ -16,7 +16,7 @@ const WhatAndWho: FC = () => {
         What &amp; Who
       </WhatAndWhoLabel>
       <GeneralDescription isMobile={isMobile} variant="body1">
-        Senjun-teams was founded to be a driving force for ...
+        senjuns was founded to be a driving force for ...
       </GeneralDescription>
       <WhatWeDoTitle variant="h4">What we do</WhatWeDoTitle>
       <WhatWeDoDescription isMobile={isMobile} variant="body1">

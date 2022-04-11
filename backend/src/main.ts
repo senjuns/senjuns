@@ -12,7 +12,7 @@ const devEnv = {
 
 const app = new core.App();
 
-new PipelineStack(app, 'senjun-teams-pipeline', { env: devEnv });
+new PipelineStack(app, 'senjuns-pipeline', { env: devEnv });
 new SlackStack(app, 'senjuns-slack-stack');
 
 // new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });

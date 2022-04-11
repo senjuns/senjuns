@@ -11,7 +11,7 @@ import { TrailingComma } from 'projen/lib/javascript';
  */
 const project = new pj.typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
-  name: 'senjun-teams',
+  name: 'senjuns',
   projenrcTs: true,
   eslint: true,
   prettier: true,
@@ -87,7 +87,7 @@ backend.setScript('cdk', 'cdk');
 backend.setScript('tsc', 'tsc');
 // backend.setScript(
 //   'dia',
-//   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
+//   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjuns-pipeline/prod/DashboardAppStack senjuns-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
 // );
 backend.addTask('updateSchema', {
   description: 'Udates all places when changing the schema.graphql',
@@ -96,8 +96,8 @@ backend.addTask('updateSchema', {
 
 // Always update the diagram if manually synth
 backend.cdkTasks.synth.exec(`
-yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png &&
-yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png &&
+yarn cdk-dia --stacks senjuns-pipeline/prod/DashboardAppStack senjuns-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png &&
+yarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png &&
 yarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png
 `);
 

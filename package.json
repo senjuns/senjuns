@@ -1,5 +1,5 @@
 {
-  "name": "senjun-teams",
+  "name": "senjuns",
   "scripts": {
     "build": "npx projen build",
     "bump": "npx projen bump",

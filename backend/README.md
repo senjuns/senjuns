@@ -45,7 +45,7 @@ yarn cdk deploy 'prod-LandingpageStack'
 yarn cdk deploy 'dev-...Stack'
 yarn cdk deploy 'dev-...Stack' --watch
 yarn cdk deploy 'dev-...Stack' --require-approval never
-yarn cdk deploy 'senjun-teams-pipeline/prod/DashboardBackendStack' --require-approval never
+yarn cdk deploy 'senjuns-pipeline/prod/DashboardBackendStack' --require-approval never
 ```
 
 For destroy do
@@ -59,7 +59,7 @@ For setup access to the specific stage get your programmatic credentials via AWS
 ## Deploy Pipeline
 
 ```bash
-yarn cdk deploy 'senjun-teams-pipeline' --require-approval none
+yarn cdk deploy 'senjuns-pipeline' --require-approval none
 ```
 
 ## Cognito
@@ -85,4 +85,4 @@ aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username 
 Future tasks when we get funding:
 
 - Setup proper multi accounts with landingpage and more. Perhaps use kreuzwerker template
-- Change 'senjun-teams-pipeline/prod/prod-DashboardBackendStack' to 'senjun-teams-pipeline/prod/DashboardBackendStack'
+- Change 'senjuns-pipeline/prod/prod-DashboardBackendStack' to 'senjuns-pipeline/prod/DashboardBackendStack'

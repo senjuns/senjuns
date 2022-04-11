@@ -211,7 +211,7 @@
           "exec": "cdk synth"
         },
         {
-          "exec": "\nyarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png &&\nyarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png &&\nyarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png\n"
+          "exec": "\nyarn cdk-dia --stacks senjuns-pipeline/prod/DashboardAppStack senjuns-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png &&\nyarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png &&\nyarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png\n"
         }
       ]
     },

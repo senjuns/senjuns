@@ -11,15 +11,11 @@ export class PipelineStack extends cdk.Stack {
 
     const pipeline = new pipelines.CodePipeline(this, 'Pipeline', {
       synth: new pipelines.ShellStep('Synth', {
-        input: pipelines.CodePipelineSource.gitHub(
-          'senjun-teams/senjun-teams',
-          'main',
-          {
-            authentication: cdk.SecretValue.secretsManager(
-              'pipelines/token/mmuller88',
-            ),
-          },
-        ),
+        input: pipelines.CodePipelineSource.gitHub('senjuns/senjuns', 'main', {
+          authentication: cdk.SecretValue.secretsManager(
+            'pipelines/token/mmuller88',
+          ),
+        }),
         commands: [
           'yarn install && npx projen',
           'cd dashboard && yarn build',

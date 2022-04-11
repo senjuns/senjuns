@@ -41,8 +41,8 @@ The following tools need to be installed on your system prior to installing the 
 First fork the repository, and then run the following commands to clone the repository locally.
 
 ```console
-$ git clone https://github.com/{your-account}/senjun-teams.git
-$ cd senjun-teams
+$ git clone https://github.com/{your-account}/senjuns.git
+$ cd senjuns
 $ yarn install
 $ yarn projen # installs dependencies in sub projects
 ```
@@ -69,7 +69,7 @@ In this section you will find related thinks to GitHub
 
 ### Issue Types
 
-We will leverage GitHub Issues <https://github.com/senjun-teams/senjun-teams/issues> for tracking working on features, bugs or refactoring tasks. So if you want to update Code an issue for it should exist! Issue types have a related issue label to mark them as such.
+We will leverage GitHub Issues <https://github.com/senjuns/senjuns/issues> for tracking working on features, bugs or refactoring tasks. So if you want to update Code an issue for it should exist! Issue types have a related issue label to mark them as such.
 
 #### Feature
 
@@ -174,11 +174,11 @@ Git cli will might ask you that the remote branch needs to be created. Just foll
 ### Step 1: Find something to work on
 
 If you want to contribute a specific feature or fix you have in mind, look at active [pull
-requests](https://github.com/senjun-teams/senjun-teams/pulls) to see if someone else is already working on it. If not, you can start
+requests](https://github.com/senjuns/senjuns/pulls) to see if someone else is already working on it. If not, you can start
 contributing your changes.
 
 On the other hand, if you are here looking for an issue to work on, explore our [backlog of
-issues](https://github.com/senjun-teams/senjun-teams/issues) and find something that piques your interest. We have labeled all of our
+issues](https://github.com/senjuns/senjuns/issues) and find something that piques your interest. We have labeled all of our
 issues for easy searching.
 
 ### Step 2: Design
