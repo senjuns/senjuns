@@ -75,7 +75,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
     'cdk-appsync-transformer@2.0.0-alpha.0',
     '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
   ],
-  release: false,
+  release: true,
   tsconfig: {
     compilerOptions: {
       skipLibCheck: true,
@@ -95,9 +95,11 @@ backend.addTask('updateSchema', {
 });
 
 // Always update the diagram if manually synth
-backend.cdkTasks.synth.exec(
-  'yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
-);
+backend.cdkTasks.synth.exec(`
+yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png &&
+yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png &&
+yarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png
+`);
 
 backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
 backend.gitignore.addPatterns('appsync');
