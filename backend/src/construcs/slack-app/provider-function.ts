@@ -6,7 +6,8 @@ import { Construct } from 'constructs';
 /**
  * Props for ProviderFunction
  */
-export interface ProviderFunctionProps extends lambda.FunctionOptions {}
+export interface ProviderFunctionProps extends lambda.FunctionOptions {
+}
 
 /**
  * An AWS Lambda function which executes src/construcs/slack-app/provider.
@@ -18,15 +19,8 @@ export class ProviderFunction extends lambda.Function {
       ...props,
       runtime: lambda.Runtime.NODEJS_14_X,
       handler: 'index.handler',
-      code: lambda.Code.fromAsset(
-        path.join(
-          __dirname,
-          '../../../assets/construcs/slack-app/provider.lambda',
-        ),
-      ),
+      code: lambda.Code.fromAsset(path.join(__dirname, '../../../assets/construcs/slack-app/provider.lambda')),
     });
-    this.addEnvironment('AWS_NODEJS_CONNECTION_REUSE_ENABLED', '1', {
-      removeInEdge: true,
-    });
+    this.addEnvironment('AWS_NODEJS_CONNECTION_REUSE_ENABLED', '1', { removeInEdge: true });
   }
 }
