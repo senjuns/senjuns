@@ -4,8 +4,6 @@
     "build": "npx projen build",
     "bump": "npx projen bump",
     "bundle": "npx projen bundle",
-    "bundle:construcs/slack-app/provider.lambda": "npx projen bundle:construcs/slack-app/provider.lambda",
-    "bundle:construcs/slack-app/provider.lambda:watch": "npx projen bundle:construcs/slack-app/provider.lambda:watch",
     "clobber": "npx projen clobber",
     "compile": "npx projen compile",
     "default": "npx projen default",

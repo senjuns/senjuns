@@ -40,30 +40,7 @@
     },
     "bundle": {
       "name": "bundle",
-      "description": "Prepare assets",
-      "steps": [
-        {
-          "spawn": "bundle:construcs/slack-app/provider.lambda"
-        }
-      ]
-    },
-    "bundle:construcs/slack-app/provider.lambda": {
-      "name": "bundle:construcs/slack-app/provider.lambda",
-      "description": "Create a JavaScript bundle from src/construcs/slack-app/provider.lambda.ts",
-      "steps": [
-        {
-          "exec": "esbuild --bundle src/construcs/slack-app/provider.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/construcs/slack-app/provider.lambda/index.js\" --external:aws-sdk"
-        }
-      ]
-    },
-    "bundle:construcs/slack-app/provider.lambda:watch": {
-      "name": "bundle:construcs/slack-app/provider.lambda:watch",
-      "description": "Continuously update the JavaScript bundle from src/construcs/slack-app/provider.lambda.ts",
-      "steps": [
-        {
-          "exec": "esbuild --bundle src/construcs/slack-app/provider.lambda.ts --target=\"node14\" --platform=\"node\" --outfile=\"assets/construcs/slack-app/provider.lambda/index.js\" --external:aws-sdk --watch"
-        }
-      ]
+      "description": "Prepare assets"
     },
     "clobber": {
       "name": "clobber",
