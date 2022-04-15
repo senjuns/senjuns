@@ -25,6 +25,8 @@ interface TypographyProps {
    * Line height to be applied.
    */
   lineHeight?: number | string;
+
+  children: React.ReactNode;
 }
 
 export const Typography: React.FC<TypographyProps> = ({

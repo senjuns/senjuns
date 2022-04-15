@@ -16,7 +16,6 @@
     "pre-compile": "npx projen pre-compile",
     "test": "npx projen test",
     "upgrade": "npx projen upgrade",
-    "upgrade-projen": "npx projen upgrade-projen",
     "watch": "npx projen watch",
     "projen": "npx projen",
     "build:config": "cd scripts/create_config; yarn; yarn start; cd -"

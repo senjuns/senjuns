@@ -63,17 +63,18 @@ const landingpage = new pj.web.ReactTypeScriptProject({
 
 landingpage.synth();
 
+const cdkVersion = '2.20.0';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.20.0',
+  cdkVersion,
   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
   deps: [
     'got',
     'cdk-appsync-transformer@2.0.0-alpha.0',
-    '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
+    `@aws-cdk/aws-appsync-alpha@${cdkVersion}-alpha.0`,
   ],
   release: true,
   tsconfig: {
