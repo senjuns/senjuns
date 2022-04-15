@@ -99,7 +99,7 @@
     },
     {
       "name": "@aws-cdk/aws-appsync-alpha",
-      "version": "2.15.0-alpha.0",
+      "version": "2.20.0-alpha.0",
       "type": "runtime"
     },
     {

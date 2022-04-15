@@ -50,30 +50,35 @@ const landingpage = new pj.web.ReactTypeScriptProject({
   parent: project,
   name: 'landingpage',
   deps: [
-    'react-router-dom@5.2.0',
-    'react-scripts@5.0.0',
+    'react-router-dom',
+    'react-scripts',
     'styled-components',
     'axios',
-    'react-responsive@^9.0.0-beta.6',
-    'react-localization@^1.0.18',
+    'react-responsive',
+    'react-localization',
   ],
-  devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
+  devDeps: [
+    '@types/styled-components',
+    '@types/react-responsive',
+    '@types/react-router-dom',
+  ],
   release: false,
 });
 
 landingpage.synth();
 
+const cdkVersion = '2.20.0';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.20.0',
+  cdkVersion,
   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
   deps: [
     'got',
     'cdk-appsync-transformer@2.0.0-alpha.0',
-    '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
+    `@aws-cdk/aws-appsync-alpha@${cdkVersion}-alpha.0`,
   ],
   release: true,
   tsconfig: {

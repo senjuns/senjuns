@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
-import Routes from './Routes';
+import Routess from './Routes';
 
 const App: FC = () => {
   return (
     <div className="App">
-      <Routes />
+      <Routess />
     </div>
   );
 };
