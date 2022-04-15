@@ -84,5 +84,5 @@ aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username 
 
 Future tasks when we get funding:
 
-- Setup proper multi accounts with landingpage and more. Perhaps use kreuzwerker template
+- Setup proper multi accounts with landingpage and more. Perhaps use kreuzwerker template.
 - Change 'senjuns-pipeline/prod/prod-DashboardBackendStack' to 'senjuns-pipeline/prod/DashboardBackendStack'
