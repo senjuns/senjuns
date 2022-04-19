@@ -56,11 +56,13 @@ const landingpage = new pj.web.ReactTypeScriptProject({
     'axios',
     'react-responsive',
     'react-localization',
+    'js-cookie@^3.0.1',
   ],
   devDeps: [
     '@types/styled-components',
     '@types/react-responsive',
     '@types/react-router-dom',
+    '@types/js-cookie@^3.0.1',
   ],
   release: false,
 });

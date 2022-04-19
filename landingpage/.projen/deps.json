@@ -17,6 +17,11 @@
       "type": "build"
     },
     {
+      "name": "@types/js-cookie",
+      "version": "^3.0.1",
+      "type": "build"
+    },
+    {
       "name": "@types/node",
       "version": "^12",
       "type": "build"
@@ -57,6 +62,11 @@
     },
     {
       "name": "axios",
+      "type": "runtime"
+    },
+    {
+      "name": "js-cookie",
+      "version": "^3.0.1",
       "type": "runtime"
     },
     {
