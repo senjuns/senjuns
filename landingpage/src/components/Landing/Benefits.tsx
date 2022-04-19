@@ -6,7 +6,6 @@ import BenefitCard from '../../components/Landing/BenefitCard';
 import { TBenefit } from '../../containers/Landing/constants';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { ResponsiveLayoutProps } from '../../shared/types';
-import localization from '../../localization';
 
 interface BenefitsProps {
   benefits: TBenefit[];
