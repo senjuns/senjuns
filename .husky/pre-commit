@@ -9,11 +9,22 @@
 
 yarn lint:staged
 
+# Only cdk synth if dashboard files have been changed.
+if ! git diff --name-only --cached | egrep 'dashboard' > /dev/null ; then
+  echo "Aborting dashboard test since no frontend files have been changed."
+  exit 0
+else
+  cd dashboard
+  yarn test
+  cd ..
+fi
+
 # Only cdk synth if backend files have been changed.
 if ! git diff --name-only --cached | egrep 'backend' > /dev/null ; then
   echo "Aborting cdk synth since no backend files have been changed."
   exit 0
+else
+  cd backend
+  yarn synth
+  cd ..
 fi
-
-cd backend
-yarn synth

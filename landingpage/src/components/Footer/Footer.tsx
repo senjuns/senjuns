@@ -11,6 +11,7 @@ import localization from '../../localization';
 
 interface LinkGroupProps {
   title: string;
+  children: React.ReactNode;
 }
 
 const LinkGroup: FC<LinkGroupProps> = ({ children, title }) => {

@@ -1,9 +1,7 @@
 import {
   useMutation,
-  //@ts-ignore
   UseMutationOptions,
   useQuery,
-  //@ts-ignore
   UseQueryOptions,
 } from 'react-query';
 import { amplifyFetcher } from '../lib/fetcher';
@@ -510,7 +508,6 @@ export const useCreateTeamCardMutation = <TError = unknown, TContext = unknown>(
         CreateTeamCardDocument,
         variables,
       )(),
-    //@ts-ignore
     options,
   );
 export const UpdateTeamCardDocument = `
@@ -549,7 +546,7 @@ export const useUpdateTeamCardMutation = <TError = unknown, TContext = unknown>(
       amplifyFetcher<UpdateTeamCardMutation, UpdateTeamCardMutationVariables>(
         UpdateTeamCardDocument,
         variables,
-      )(), //@ts-ignore
+      )(),
     options,
   );
 export const DeleteTeamCardDocument = `
@@ -588,7 +585,7 @@ export const useDeleteTeamCardMutation = <TError = unknown, TContext = unknown>(
       amplifyFetcher<DeleteTeamCardMutation, DeleteTeamCardMutationVariables>(
         DeleteTeamCardDocument,
         variables,
-      )(), //@ts-ignore
+      )(),
     options,
   );
 export const GetTeamCardDocument = `
@@ -612,7 +609,6 @@ export const useGetTeamCardQuery = <TData = GetTeamCardQuery, TError = unknown>(
   variables: GetTeamCardQueryVariables,
   options?: UseQueryOptions<GetTeamCardQuery, TError, TData>,
 ) =>
-  //@ts-ignore
   useQuery<GetTeamCardQuery, TError, TData>(
     ['GetTeamCard', variables],
     amplifyFetcher<GetTeamCardQuery, GetTeamCardQueryVariables>(
@@ -648,7 +644,6 @@ export const useListTeamCardsQuery = <
   variables?: ListTeamCardsQueryVariables,
   options?: UseQueryOptions<ListTeamCardsQuery, TError, TData>,
 ) =>
-  //@ts-ignore
   useQuery<ListTeamCardsQuery, TError, TData>(
     variables === undefined ? ['ListTeamCards'] : ['ListTeamCards', variables],
     amplifyFetcher<ListTeamCardsQuery, ListTeamCardsQueryVariables>(

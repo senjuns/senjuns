@@ -11,7 +11,7 @@ import { TrailingComma } from 'projen/lib/javascript';
  */
 const project = new pj.typescript.TypeScriptProject({
   defaultReleaseBranch: 'main',
-  name: 'senjun-teams',
+  name: 'senjuns',
   projenrcTs: true,
   eslint: true,
   prettier: true,
@@ -22,7 +22,7 @@ const project = new pj.typescript.TypeScriptProject({
     },
   },
   devDeps: ['commithelper', 'husky', 'lint-staged'],
-  release: false,
+  release: true,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
@@ -36,6 +36,10 @@ project.setScript('lint:staged', 'lint-staged');
 
 project.setScript('prepare', 'husky install');
 
+project.package.addField('commithelper', {
+  scopes: ['dashboard', 'landingpage', 'backend', 'docs'],
+});
+
 project.tsconfigDev?.addInclude('backend/**/*.ts');
 
 project.synth();
@@ -46,32 +50,37 @@ const landingpage = new pj.web.ReactTypeScriptProject({
   parent: project,
   name: 'landingpage',
   deps: [
-    'react-router-dom@5.2.0',
-    'react-scripts@5.0.0',
+    'react-router-dom',
+    'react-scripts',
     'styled-components',
     'axios',
-    'react-responsive@^9.0.0-beta.6',
-    'react-localization@^1.0.18',
-    'react-cookie',
+    'react-responsive',
+    'react-localization',
   ],
-  devDeps: ['@types/styled-components', '@types/react-router-dom@^5.3.2'],
+  devDeps: [
+    '@types/styled-components',
+    '@types/react-responsive',
+    '@types/react-router-dom',
+  ],
   release: false,
 });
 
 landingpage.synth();
 
+const cdkVersion = '2.20.0';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
   parent: project,
   name: 'backend',
-  cdkVersion: '2.17.0',
+  cdkVersion,
   devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
   deps: [
+    'got',
     'cdk-appsync-transformer@2.0.0-alpha.0',
-    '@aws-cdk/aws-appsync-alpha@2.15.0-alpha.0',
+    `@aws-cdk/aws-appsync-alpha@${cdkVersion}-alpha.0`,
   ],
-  release: false,
+  release: true,
   tsconfig: {
     compilerOptions: {
       skipLibCheck: true,
@@ -83,7 +92,7 @@ backend.setScript('cdk', 'cdk');
 backend.setScript('tsc', 'tsc');
 // backend.setScript(
 //   'dia',
-//   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
+//   'mkdir -p ../landingpage/build && mkdir -p ../dashboard/build && yarn synth && yarn cdk-dia --stacks senjuns-pipeline/prod/DashboardAppStack senjuns-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
 // );
 backend.addTask('updateSchema', {
   description: 'Udates all places when changing the schema.graphql',
@@ -91,9 +100,11 @@ backend.addTask('updateSchema', {
 });
 
 // Always update the diagram if manually synth
-backend.cdkTasks.synth.exec(
-  'yarn cdk-dia --stacks senjun-teams-pipeline/prod/DashboardAppStack senjun-teams-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png && yarn cdk-dia --stacks senjun-teams-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png',
-);
+backend.cdkTasks.synth.exec(`
+yarn cdk-dia --stacks senjuns-pipeline/prod/DashboardAppStack senjuns-pipeline/prod/DashboardBackendStack && mv diagram.png diagrams/dashboard.png &&
+yarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png diagrams/landingpage.png &&
+yarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png
+`);
 
 backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
 backend.gitignore.addPatterns('appsync');
@@ -112,7 +123,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
       '@aws-amplify/ui-react@^1.2.18',
       'aws-appsync@^4.1.2',
     ],
-    'react-query@^2',
+    'react-query@^3',
     '@apollo/client@^3.3.20',
     'apollo-boost@^0.4.9',
     'react-apollo@^3.1.5',
@@ -175,6 +186,14 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'assert',
   ],
   release: false,
+  jest: false,
+  jestOptions: {
+    jestConfig: {
+      transform: {
+        '^.+\\.(ts|tsx|js|jsx)$': 'ts-jest',
+      },
+    },
+  },
 });
 
 dashboard.addTask('copy-schema', {

@@ -153,64 +153,25 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form,projen'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form,projen'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form,projen'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form,projen'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form,projen'"
-        },
-        {
-          "exec": "yarn install --check-files"
-        },
-        {
-          "exec": "yarn upgrade @graphql-codegen/cli @graphql-codegen/typescript-operations @graphql-codegen/typescript-react-apollo @graphql-codegen/typescript-react-query @graphql-codegen/typescript @testing-library/jest-dom @testing-library/react @testing-library/user-event @types/jest @types/js-cookie @types/lodash @types/node @types/react @types/react-color @types/react-dom @types/react-plotly.js @types/react-router-dom @types/react-test-renderer @types/selenium-webdriver @types/styled-components amplify-graphql-docs-generator assert npm-check-updates react-test-renderer typescript @apollo/client @aws-amplify/auth @aws-amplify/ui-components @aws-amplify/ui-react @date-io/date-fns @date-io/moment @material-ui/core @material-ui/icons @material-ui/lab @material-ui/pickers apollo-boost aws-amplify-react aws-amplify aws-appsync clsx date-fns js-cookie konva lodash moment plotly.js react react-apollo react-color react-dom react-hook-form react-konva react-plotly.js react-query react-responsive react-router-dom react-scripts react-swipeable react-tooltip react-zoom-pan-pinch selenium-webdriver stream styled-components use-debounce use-image web-vitals"
-        },
-        {
-          "exec": "npx projen"
-        },
-        {
-          "spawn": "post-upgrade"
-        }
-      ]
-    },
-    "upgrade-projen": {
-      "name": "upgrade-projen",
-      "description": "upgrade projen",
-      "env": {
-        "CI": "0"
-      },
-      "steps": [
-        {
-          "exec": "yarn upgrade npm-check-updates"
-        },
-        {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --filter='projen'"
-        },
-        {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --filter='projen'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@graphql-codegen/cli,@graphql-codegen/typescript-operations,@graphql-codegen/typescript-react-query,@graphql-codegen/typescript,@date-io/date-fns,@date-io/moment,react-hook-form'"
         },
         {
           "exec": "yarn install --check-files"
         },
         {
-          "exec": "yarn upgrade projen"
+          "exec": "yarn upgrade"
         },
         {
           "exec": "npx projen"
