@@ -13,6 +13,8 @@ import { COLORS, FONTS, ROUTES } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
 import localization from '../../localization';
 
+import Cookies from 'js-cookie';
+
 interface HeaderProps {
   color: 'black' | 'white';
 }
@@ -21,6 +23,11 @@ const Header: FC<HeaderProps> = ({ color }) => {
   const { isMobile } = useScreenSize();
   const location = useLocation();
 
+  const setLanguage = (language: string) => {
+    Cookies.set('language', language);
+    // refresh the page
+    window.location.reload();
+  };
   return (
     <HeaderContainer isMobile={isMobile}>
       <LinkContainer>
@@ -54,6 +61,11 @@ const Header: FC<HeaderProps> = ({ color }) => {
           </>
         )}
       </LinkContainer>
+      <div style={{ float: 'right' }}>
+        <StyledHrefLink onClick={() => setLanguage('ptBR')}>PT</StyledHrefLink>
+        <StyledHrefLink onClick={() => setLanguage('en')}>EN</StyledHrefLink>
+        <StyledHrefLink onClick={() => setLanguage('de')}>DE</StyledHrefLink>
+      </div>
 
       {isMobile && <HamburgerMenu color={color} current={location.pathname} />}
     </HeaderContainer>
@@ -91,7 +103,8 @@ const StyledHrefLink = styled.a`
   font-size: ${FONTS.body1.size}px;
   text-decoration: none;
   color: ${COLORS.white};
-
+  margin-right: 20px;
+  cursor: pointer;
   &:hover {
     color: ${COLORS.grey5};
   }
