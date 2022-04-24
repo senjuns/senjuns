@@ -1,6 +1,6 @@
 import { FC, FormEventHandler, useState } from 'react';
 import styled from 'styled-components';
-import { Checkbox, Button, TextInput, Typography } from '../../common';
+import { Button, TextInput, Typography } from '../../common';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { TContactUsForm, ResponsiveLayoutProps } from '../../shared/types';
 
@@ -12,7 +12,7 @@ const ContactUs: FC<ContactUsProps> = ({ onSubmit }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
-  const [isSigningUpForNewsLetter, setIsSigningUpForNewsLetter] =
+  const [isSigningUpForNewsLetter /** setIsSigningUpForNewsLetter **/] =
     useState(false);
   const { isMobile } = useScreenSize();
 
@@ -30,8 +30,7 @@ const ContactUs: FC<ContactUsProps> = ({ onSubmit }) => {
         Let’s talk!
       </LetsTalkLabel>
       <GeneralDescription isMobile={isMobile} variant="body1">
-        Reach out to us and we are happy to walk you through all the details of
-        our system in our next conversation.
+        ...
       </GeneralDescription>
       <ContactUsForm isMobile={isMobile} onSubmit={handleSubmit}>
         <TextInput label="Name" value={name} onChange={setName} />
@@ -47,11 +46,11 @@ const ContactUs: FC<ContactUsProps> = ({ onSubmit }) => {
           placeholder="Write your message..."
           onChange={setMessage}
         />
-        <Checkbox
+        {/* <Checkbox
           label="Please sign me up for the newsletter"
           value={isSigningUpForNewsLetter}
           onChange={setIsSigningUpForNewsLetter}
-        />
+        /> */}
         <SubmitButton type="submit">
           <Typography color="white" variant="body1">
             SEND

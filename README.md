@@ -13,11 +13,11 @@ We use **yarn** as package manager and **node** for deploying locally. Please ma
 
 The monorepo is managed using [projen](https://github.com/projen/projen).
 
-## Landingpage
+## Landingpage <https://senjuns.com>
 
 [Landingpage](landingpage/README.md)
 
-## Dashboard
+## Dashboard <https://dashboard.senjuns.com>
 
 [Dashboard](dashboard/README.md)
 

@@ -6,5 +6,5 @@ import LocalizedStrings from 'react-localization';
 import Cookies from 'js-cookie';
 
 const Localization = new LocalizedStrings({ en, de, ptBR });
-Localization.setLanguage(Cookies.get('language') || 'ptBR');
+Localization.setLanguage(Cookies.get('language') || 'en');
 export default Localization;

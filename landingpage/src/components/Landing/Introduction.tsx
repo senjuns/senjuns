@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { ReactComponent as PeopleIcon } from '../../assets/svgs/people-icon.svg';
 import { Typography } from '../../common';
 import { useScreenSize } from '../../hooks/useScreenSize';
-import { COLORS, SIZES } from '../../shared/constants';
-import { ResponsiveLayoutProps } from '../../shared/types';
+import { COLORS, FONTS, SIZES } from '../../shared/constants';
+import { ResponsiveLayoutProps, StyledHrefLinkProps } from '../../shared/types';
 import localization from '../../localization';
 
 const Introduction: FC = () => {
@@ -22,6 +22,22 @@ const Introduction: FC = () => {
       </Title>
       <Description>
         {localization['landing.introduction.description']}
+        <br></br>
+        <br></br>
+        <StyledHrefLink
+          href={
+            'https://join.slack.com/t/senjuns/shared_invite/zt-16tt3cwp3-Vj~wa1un63ohc6rKQ36H_w'
+          }
+          target="_blank"
+        >
+          Join our senjuns Slack
+        </StyledHrefLink>
+        {/* <a
+          color="white"
+          href="https://join.slack.com/t/senjuns/shared_invite/zt-16tt3cwp3-Vj~wa1un63ohc6rKQ36H_w"
+        >
+          blub
+        </a> */}
       </Description>
       {/* <Description>
         {"Interested? Reach out today and let's grow together!"}
@@ -72,6 +88,19 @@ const Description = styled(Typography)`
   font-size: 20px;
   line-height: 150%;
   margin-bottom: ${SIZES.xLarge}px;
+`;
+
+const StyledHrefLink = styled.a<StyledHrefLinkProps>`
+  font-weight: 600;
+  font-size: ${FONTS.body1.size}px;
+  text-decoration: none;
+  /* color: ${COLORS.white}; */
+  color: ${COLORS.white};
+  margin-right: 20px;
+  cursor: pointer;
+  &:hover {
+    color: ${COLORS.grey5};
+  }
 `;
 
 export default Introduction;

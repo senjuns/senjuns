@@ -10,7 +10,7 @@ import { Link } from '../../common';
 import HamburgerMenu from '../../components/Header/HamburgerMenu';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { COLORS, FONTS, ROUTES } from '../../shared/constants';
-import { ResponsiveLayoutProps } from '../../shared/types';
+import { ResponsiveLayoutProps, StyledHrefLinkProps } from '../../shared/types';
 import localization from '../../localization';
 
 import Cookies from 'js-cookie';
@@ -55,16 +55,25 @@ const Header: FC<HeaderProps> = ({ color }) => {
               text={localization['landing.menu.contact']}
               to={ROUTES.CONTACT_US}
             />
-            <StyledHrefLink href={'https://dashboard.senjuns.com'}>
+            <StyledHrefLink
+              color={color}
+              href={'https://dashboard.senjuns.com'}
+            >
               {localization['landing.menu.login']}
             </StyledHrefLink>
           </>
         )}
       </LinkContainer>
       <div style={{ float: 'right' }}>
-        <StyledHrefLink onClick={() => setLanguage('ptBR')}>PT</StyledHrefLink>
-        <StyledHrefLink onClick={() => setLanguage('en')}>EN</StyledHrefLink>
-        <StyledHrefLink onClick={() => setLanguage('de')}>DE</StyledHrefLink>
+        <StyledHrefLink color={color} onClick={() => setLanguage('en')}>
+          EN
+        </StyledHrefLink>
+        <StyledHrefLink color={color} onClick={() => setLanguage('de')}>
+          DE
+        </StyledHrefLink>
+        <StyledHrefLink color={color} onClick={() => setLanguage('ptBR')}>
+          PT
+        </StyledHrefLink>
       </div>
 
       {isMobile && <HamburgerMenu color={color} current={location.pathname} />}
@@ -98,11 +107,12 @@ const LinkContainer = styled.div`
   align-items: center;
 `;
 
-const StyledHrefLink = styled.a`
+const StyledHrefLink = styled.a<StyledHrefLinkProps>`
   font-weight: 600;
   font-size: ${FONTS.body1.size}px;
   text-decoration: none;
-  color: ${COLORS.white};
+  /* color: ${COLORS.white}; */
+  color: ${({ color }) => color || COLORS.white};
   margin-right: 20px;
   cursor: pointer;
   &:hover {

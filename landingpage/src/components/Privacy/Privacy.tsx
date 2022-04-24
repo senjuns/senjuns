@@ -18,20 +18,6 @@ const Privacy: FC = () => {
       <WhatWeDoDescription isMobile={isMobile} variant="body1">
         Effective Date: February 28, 2022
         <br />
-        <br />
-        <i>senjuns</i>, Inc. provides data analysis and automation solutions,
-        including but not limited to sensors, actuators, and data processing
-        tools, to help our customers improve farming efficiency.
-        <br />
-        <br />
-        At <i>senjuns</i> one of our main priorities is the privacy of our
-        visitors and customers. This Privacy Policy is designed to inform you
-        about the type of information that we may gather or collect from you in
-        connection with your use of our Services. It also explains the
-        conditions under which we use and disclose that information, and your
-        rights with respect to that information.
-        <br />
-        <br />
         If you have additional questions or require more information about our
         Privacy Policy, do not hesitate to contact us.
       </WhatWeDoDescription>

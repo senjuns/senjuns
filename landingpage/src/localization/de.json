@@ -1,30 +1,27 @@
 {
-  "landing.introduction.title": "Seniors and Juniors Together",
+  "landing.introduction.title": "Senior und Junior zusammen",
   "landing.introduction.subtitle": "Let's get stuff done with fun!",
   "landing.introduction.description": [
-    "As you know seniors in IT and engineering are less available and",
-    "expensive. That trend doesn’t seem to change at all. Let’s stop that",
-    "madness and put seniors and juniors together as teams.Senjun teams are",
-    "eager to learn and to help you with your compelx IT problems."
+    "Senioren in den Bereichen IT und Entwicklung sind weniger verfügbar und teurer. Dieser Trend scheint sich überhaupt nicht zu ändern. Lassen Sie uns diesen Wahnsinn stoppen und Senioren und Junioren in Senjun Teams zusammenbringen. Senjun Teams sind begierig darauf, zu lernen und Ihnen bei Ihren komplexen IT-Problemen zu helfen."
   ],
 
-  "landing.benefits.card.together.title": "Together",
-  "landing.benefits.card.together.content": "Senjun teams consist of Seniors and Juinors",
+  "landing.benefits.card.together.title": "Zusammen",
+  "landing.benefits.card.together.content": "Senjun teams bestehen aus Senioren und Junioren",
   "landing.benefits.card.learning.title": "Learning",
-  "landing.benefits.card.learning.content": "Useful skills",
+  "landing.benefits.card.learning.content": "Nützliche Fähigkeiten",
   "landing.benefits.card.fair.title": "Fair",
-  "landing.benefits.card.fair.content": "Fair and transparent",
-  "landing.benefits.card.grow.title": "Grow",
-  "landing.benefits.card.grow.content": "Junior becomes Senior",
-  "landing.benefits.card.simple.title": "Simple",
-  "landing.benefits.card.simple.content": "Payments are managed either by task or hour",
+  "landing.benefits.card.fair.content": "Fair und transparent",
+  "landing.benefits.card.grow.title": "Wachsen",
+  "landing.benefits.card.grow.content": "Junior und Senior",
+  "landing.benefits.card.simple.title": "Einfach",
+  "landing.benefits.card.simple.content": "...",
 
-  "landing.menu.about_us": "About Us",
-  "landing.menu.careers": "Careers",
-  "landing.menu.contact": "Contact Us",
+  "landing.menu.about_us": "Über uns",
+  "landing.menu.careers": "Karriere",
+  "landing.menu.contact": "Kontaktiere uns",
   "landing.menu.login": "Login",
   "landing.menu.privacy": "Privacy",
-  "landing.footer.copyright": "All rights reserved.",
-  "landing.footer.company": "Company",
+  "landing.footer.copyright": "Alle Rechte reserviert.",
+  "landing.footer.company": "Firma",
   "landing.footer.legal": "Legal"
 }
