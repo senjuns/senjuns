@@ -1,4 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
+import * as notifications from 'aws-cdk-lib/aws-codestarnotifications';
+import * as sns from 'aws-cdk-lib/aws-sns';
+import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { DashboardAppStack } from './dashboard-app-stack';
@@ -45,6 +48,24 @@ export class PipelineStack extends cdk.Stack {
     //   }),
     // );
     //
+    // const targetTopic = sns.Topic.fromTopicArn(this, 'topic', slackNotificationTopicArn);
+    const topic = new sns.Topic(this, 'topic');
+    topic.addSubscription(
+      new subscriptions.EmailSubscription('damadden88@googlemail.com'),
+    );
+
+    new notifications.NotificationRule(this, 'Notification', {
+      detailType: notifications.DetailType.BASIC,
+      events: [
+        'codepipeline-pipeline-pipeline-execution-failed',
+        'codepipeline-pipeline-action-execution-failed',
+        'codepipeline-pipeline-stage-execution-failed',
+        'codepipeline-pipeline-manual-approval-failed',
+        'codepipeline-pipeline-manual-approval-needed',
+      ],
+      source: pipeline.pipeline,
+      targets: [topic],
+    });
   }
 }
 
