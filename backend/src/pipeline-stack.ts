@@ -54,6 +54,8 @@ export class PipelineStack extends cdk.Stack {
       new subscriptions.EmailSubscription('damadden88@googlemail.com'),
     );
 
+    pipeline.buildPipeline();
+
     new notifications.NotificationRule(this, 'Notification', {
       detailType: notifications.DetailType.BASIC,
       events: [

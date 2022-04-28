@@ -25,7 +25,7 @@
     },
     {
       "name": "aws-cdk",
-      "version": "^2.21.1",
+      "version": "^2.22.0",
       "type": "build"
     },
     {
@@ -58,12 +58,13 @@
       "type": "build"
     },
     {
-      "name": "jest",
+      "name": "jest-junit",
+      "version": "^13",
       "type": "build"
     },
     {
-      "name": "jest-junit",
-      "version": "^13",
+      "name": "jest",
+      "version": "^27",
       "type": "build"
     },
     {
@@ -99,12 +100,12 @@
     },
     {
       "name": "@aws-cdk/aws-appsync-alpha",
-      "version": "2.21.1-alpha.0",
+      "version": "2.22.0-alpha.0",
       "type": "runtime"
     },
     {
       "name": "aws-cdk-lib",
-      "version": "^2.21.1",
+      "version": "^2.22.0",
       "type": "runtime"
     },
     {

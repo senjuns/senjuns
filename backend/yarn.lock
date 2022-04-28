@@ -9,10 +9,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
-"@aws-cdk/aws-appsync-alpha@2.21.1-alpha.0":
-  version "2.21.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.21.1-alpha.0.tgz#8edc039272880bad451aa17071e7d8393cdd54f5"
-  integrity sha512-nW2RiMXXl1d2GPn+VJTIqdovbHxbmqtalgpnqY1IM0DbrZBNGpw/eoczb5MZUrvPHxkHuuHtBr+TIM5H/L2qqg==
+"@aws-cdk/aws-appsync-alpha@2.22.0-alpha.0":
+  version "2.22.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.22.0-alpha.0.tgz#785bf7547393658d44a075293ed9a653ad984e52"
+  integrity sha512-1hPyB4SC4/aXMZWgW3Lv/phs/Au2hekf+ry/bK9hx55OeyLVXsVWJMW+L1AWMazztSdykfmXKQk5gbmfJm6r8A==
 
 "@aws-cdk/cloud-assembly-schema@1.152.0":
   version "1.152.0"
@@ -1267,10 +1267,10 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-aws-cdk-lib@^2.21.1:
-  version "2.21.1"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.21.1.tgz#f83d5ccf8865ffe07d93428f8b21f632fec82dbb"
-  integrity sha512-dhJUZ50EfhV67Pq7oED3rwyg3eKebxR7LTHQXf52YAxmBSKkE2L6hPAshCyaP49uv4QmyAW14T41o+aVSgyHHw==
+aws-cdk-lib@^2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.22.0.tgz#21b13764eff8c44cfe8ab03509a173ee8b661475"
+  integrity sha512-Orz+c746XGm1QBJKb3Wh6qH2rpmHdYMS5A4Wk91niYzrY4Q2kck/XLeQtEwOzscbW2Hqwc6vXTEpkldAI2pzGw==
   dependencies:
     "@balena/dockerignore" "^1.0.2"
     case "1.6.3"
@@ -1282,10 +1282,10 @@ aws-cdk-lib@^2.21.1:
     semver "^7.3.6"
     yaml "1.10.2"
 
-aws-cdk@^2.21.1:
-  version "2.21.1"
-  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.21.1.tgz#d727c16fb6a070a717d7b87ee620783bb329d8c0"
-  integrity sha512-+pFRv6WVes5uza+3ISyqMzrJitki9f8Zr2K/S3SzhXYho9jsTFpOnndws3osu0vUZyhw08VzKiKjcrUpQyqpRQ==
+aws-cdk@^2.22.0:
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.22.0.tgz#3d0a3158f228f398faed49d73372f8aa351034bf"
+  integrity sha512-oF3VCv/rtuLk8eLb6CBEWvEobabG8q05ersawGEy9CBhKbKNjfY1FDz6gc3ssksTwfcJqyJms2l/BQlLMBjugw==
   optionalDependencies:
     fsevents "2.3.2"
 
@@ -4330,7 +4330,7 @@ jest-worker@^27.5.1:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-jest@^27.5.1:
+jest@^27:
   version "27.5.1"
   resolved "https://registry.yarnpkg.com/jest/-/jest-27.5.1.tgz#dadf33ba70a779be7a6fc33015843b51494f63fc"
   integrity sha512-Yn0mADZB89zTtjkPJEXwrac3LHudkQMR+Paqa8uxJHCBr9agxztUifWCyiYrjhMPBoUVBjyny0I7XH6ozDr7QQ==
