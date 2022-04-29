@@ -39,13 +39,12 @@ yarn cdk list
 Or with the new watch flag a faster deploying for local development:
 
 ```bash
-yarn cdk deploy 'prod-DashboardBackendStack'
-yarn cdk deploy 'prod-DashboardAppStack'
-yarn cdk deploy 'prod-LandingpageStack'
 yarn cdk deploy 'dev-...Stack'
 yarn cdk deploy 'dev-...Stack' --watch
 yarn cdk deploy 'dev-...Stack' --require-approval never
 yarn cdk deploy 'senjuns-pipeline/prod/DashboardBackendStack' --require-approval never
+yarn cdk deploy 'senjuns-pipeline/prod/DashboardAppStack' --require-approval never
+yarn cdk deploy 'senjuns-pipeline/prod/LandingpageStack' --require-approval never
 ```
 
 For destroy do

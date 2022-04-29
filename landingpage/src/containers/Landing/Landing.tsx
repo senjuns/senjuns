@@ -21,9 +21,9 @@ const Landing: FC = () => {
       <BenefitsWrapper isMobile={isMobile}>
         <Benefits benefits={BENEFITS} />
       </BenefitsWrapper>
-      {/* <WhatNeatleafWrapper isMobile={isMobile}>
-        <WhatNeatleaf />
-      </WhatNeatleafWrapper>
+      {/* <WhatSenjunsWrapper isMobile={isMobile}>
+        <WhatSenjuns />
+      </WhatSenjunsWrapper>
       <UniqueValuePropositionWrapper isMobile={isMobile}>
         <UniqueValueProposition uniqueValues={UNIQUE_VALUES} />
       </UniqueValuePropositionWrapper>
@@ -49,7 +49,7 @@ const BenefitsWrapper = styled.div<ResponsiveLayoutProps>`
   padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '120px 134px')};
 `;
 
-// const WhatNeatleafWrapper = styled.div<ResponsiveLayoutProps>`
+// const WhatSenjunsWrapper = styled.div<ResponsiveLayoutProps>`
 //   background: black;
 //   ${({ isMobile }) => (isMobile ? '' : 'padding: 124px 134px')};
 // `;

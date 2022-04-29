@@ -323,6 +323,17 @@ export class DashboardBackendStack extends core.Stack {
       }),
     );
 
+    unauthenticatedRole.addToPolicy(
+      new iam.PolicyStatement({
+        effect: iam.Effect.ALLOW,
+        actions: ['appsync:GraphQL'],
+        resources: [
+          // Queries
+          `arn:aws:appsync:${this.region}:${this.account}:apis/${appSyncTransformer.appsyncAPI.apiId}/types/*`,
+        ],
+      }),
+    );
+
     const infoLambda = new lambdajs.NodejsFunction(this, 'info', {
       environment: {
         login_client_id: userPoolWebClient.userPoolClientId,

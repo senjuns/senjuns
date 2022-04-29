@@ -14,9 +14,9 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ userName, onLogOut }: HeaderProps) => {
   return (
     <StyledHeader id="desktop_header">
-      <NeatleafIcon
+      <SenjunsIcon
         src="/ms-icon-70x70.png"
-        alt="Neatleaf Icon"
+        alt="Senjuns Icon"
         // height={40}
         // width={40}
       />
@@ -48,7 +48,7 @@ const StyledHeader = styled.div`
   width: 100%;
 `;
 
-const NeatleafIcon = styled.img`
+const SenjunsIcon = styled.img`
   margin-right: 90px;
 `;
 

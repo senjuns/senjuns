@@ -14,7 +14,7 @@ const ActionableInsights: FC = () => {
     <ActionableInsightsContainer isMobile={isMobile}>
       <img
         src={ScreensImageSrc}
-        alt="Neatleaf Screens"
+        alt="Senjuns Screens"
         width={isMobile ? '100%' : 540}
       />
       <InsightDetails isMobile={isMobile}>

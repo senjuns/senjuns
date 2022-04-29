@@ -4,9 +4,9 @@ type TeamCard
   # @aws_cognito_user_pools @aws_iam {
   @auth(
     rules: [
-      { allow: private, provider: iam }
-      { allow: private, provider: userPools }
-      { allow: public }
+      # { allow: private, provider: iam }
+      # { allow: private, provider: userPools }
+      { allow: public, provider: iam }
     ]
   ) {
   id: ID!
