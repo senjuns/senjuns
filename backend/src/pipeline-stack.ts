@@ -47,7 +47,7 @@ export class PipelineStack extends cdk.Stack {
     //     },
     //   }),
     // );
-    //
+    // .
     // const targetTopic = sns.Topic.fromTopicArn(this, 'topic', slackNotificationTopicArn);
     const topic = new sns.Topic(this, 'topic');
     topic.addSubscription(
