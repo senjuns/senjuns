@@ -59,7 +59,7 @@ const Header: FC<HeaderProps> = ({ color }) => {
               color={color}
               href={'https://dashboard.senjuns.com'}
             >
-              {localization['landing.menu.login']}
+              Dashboard
             </StyledHrefLink>
           </>
         )}
