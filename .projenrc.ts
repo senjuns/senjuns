@@ -160,13 +160,6 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'moment',
     'stream',
   ],
-  // eslint: true,
-  // prettier: true,
-  // prettierOptions: {
-  //   settings: {
-  //     singleQuote: true,
-  //   },
-  // },
   devDeps: [
     ...[
       'amplify-graphql-docs-generator@^2.2.4',
