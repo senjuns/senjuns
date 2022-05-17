@@ -1,12 +1,17 @@
 # senjuns
 
-This is a monorepo. The idea of a monorepo is to have all code-related modules, documentation and so on next to each other. That allows reducing the overhead when managing multiple repos. Please read the best practices when working in the repo.
+This is a monorepo. The idea of a monorepo is to have all code-related modules, documentation and so on next to each other. That allows reducing the overhead when managing multiple repos.
 
-[BEST_PRACTICES](wiki/BEST_PRACTICES.md)
+Want to know more about Senjuns? Checkout the Pitch slide:
+
+[Senjuns Pitch](misc/SenjunsPitch.pdf)
+
+Please read the contributing when working in the repo.
+
+[CONTRIBUTING](CONTRIBUTING.md)
 
 ## Setup
 
-3
 We use **yarn** as package manager and **node** for deploying locally. Please make sure to have node and yarn installed!
 
 ### Projen
