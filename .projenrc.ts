@@ -69,7 +69,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
 
 landingpage.synth();
 
-const cdkVersion = '2.22.0';
+const cdkVersion = '2.24.1';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
