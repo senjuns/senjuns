@@ -21,6 +21,7 @@ const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
 // if (!SLACK_SIGNING_SECRET || !SLACK_BOT_TOKEN || !WELCOME_CHANNEL_ID) {
 //   throw new Error("Some environment variables are empty or missing");
 // }
+
 new SlackBotStack(app, 'SlackBotStack', {
   env: devEnv,
   slackSigningSecret: SLACK_SIGNING_SECRET ?? '',
