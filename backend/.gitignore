@@ -29,6 +29,10 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+.env
+diagram.dot
+diagram.png
+appsync
 !/.projenrc.js
 /test-reports/
 junit.xml
@@ -47,6 +51,3 @@ junit.xml
 /cdk.out/
 .cdk.staging/
 .parcel-cache/
-diagram.dot
-diagram.png
-appsync
