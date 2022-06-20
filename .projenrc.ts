@@ -27,6 +27,7 @@ const project = new pj.typescript.TypeScriptProject({
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
 project.prettier?.addIgnorePattern('tsconfig.json');
+project.prettier?.addIgnorePattern('backend/cdk.json');
 
 project.package.addField('lint-staged', {
   '*.(ts|tsx)': ['eslint --fix'],
@@ -120,7 +121,6 @@ backend.setScript(
 // project.defaultTask?.exec("esno .projenrc.ts");
 
 backend.cdkConfig.json.addOverride('app', 'npx esno src/pipeline-stack.ts');
-backend.prettier?.addIgnorePattern('cdk.json');
 
 // project.eslint?.addIgnorePattern("!.projenrc.ts");
 
