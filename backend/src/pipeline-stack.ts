@@ -4,9 +4,13 @@ import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
+import { BotStack } from './bot-stack';
 import { DashboardAppStack } from './dashboard-app-stack';
 import { DashboardBackendStack } from './dashboard-backend-stack';
 import { LandingPageStack } from './landingpage-stack';
+// import { DashboardAppStack } from './dashboard-app-stack';
+// import { DashboardBackendStack } from './dashboard-backend-stack';
+// import { LandingPageStack } from './landingpage-stack';
 
 export class PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -21,8 +25,9 @@ export class PipelineStack extends cdk.Stack {
         }),
         commands: [
           'yarn install && npx projen',
-          'cd dashboard && yarn build',
-          'cd ../landingpage && yarn build',
+          'cd backend && yarn buildReactApps',
+          // 'cd dashboard && yarn build',
+          // 'cd ../landingpage && yarn build',
           'cd ../backend && yarn synth',
           'mv cdk.out ../',
         ],
@@ -84,6 +89,25 @@ class BackendStage extends cdk.Stage {
     });
     new LandingPageStack(this, 'LandingPageStack');
     new DashboardAppStack(this, 'DashboardAppStack');
+
+    const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
+      process.env;
+    if (!SLACK_SIGNING_SECRET || !SLACK_BOT_TOKEN || !WELCOME_CHANNEL_ID) {
+      throw new Error('Some environment variables are empty or missing');
+    }
+
+    new BotStack(this, 'BotStack', {
+      slackSigningSecret: SLACK_SIGNING_SECRET ?? '',
+      slackBotToken: SLACK_BOT_TOKEN ?? '0',
+      welcomeChannelId: WELCOME_CHANNEL_ID ?? '',
+    });
+
+    // new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
+    // new DashboardAppStack(app, 'prod-DashboardAppStack', { env: devEnv });
+    // new DashboardBackendStack(app, 'prod-DashboardBackendStack', {
+    //   env: devEnv,
+    //   stage: 'prod',
+    // });
   }
 }
 

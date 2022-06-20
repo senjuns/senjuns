@@ -16,6 +16,19 @@ function greetOnJoin(app: App, options: { welcomeChannel: string }) {
       logger.error(error);
     }
   });
+
+  app.event('message', async ({ event, client, logger }) => {
+    try {
+      // Call chat.postMessage with the built-in client
+      const result = await client.chat.postMessage({
+        channel: options.welcomeChannel,
+        text: `Someone typed something in <@${event.channel}> :O!!!`,
+      });
+      logger.info(result);
+    } catch (error) {
+      logger.error(error);
+    }
+  });
 }
 
 function waveBackWithSkulls(app: App) {
@@ -31,7 +44,7 @@ function waveBackWithSkulls(app: App) {
 /**
  * Apply the business logic of the chat bot.
  */
-export function applySeniEvents(app: App, options: { welcomeChannel: string }) {
+export function applyEvents(app: App, options: { welcomeChannel: string }) {
   greetOnJoin(app, options);
 
   waveBackWithSkulls(app);

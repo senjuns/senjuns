@@ -1,16 +1,16 @@
-import { App, CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
+import { CfnOutput, Stack, StackProps } from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as lambdaNodejs from 'aws-cdk-lib/aws-lambda-nodejs';
 import { Construct } from 'constructs';
 
-export interface SlackBotProps extends StackProps {
+export interface BotStackProps extends StackProps {
   slackSigningSecret: string;
   slackBotToken: string;
   welcomeChannelId: string;
 }
 
-export class SlackBotStack extends Stack {
-  constructor(scope: Construct, id: string, props: SlackBotProps) {
+export class BotStack extends Stack {
+  constructor(scope: Construct, id: string, props: BotStackProps) {
     super(scope, id, props);
 
     const listener = new lambdaNodejs.NodejsFunction(this, 'listener', {

@@ -12,11 +12,35 @@ This diagram can be generated out of the CDK code with `yarn dia`
 
 ![dashboard.png](diagrams/dashboard.png)
 
+### Slack
+
+Creating a Slack Bot <https://slack.dev/bolt-js/tutorial/getting-started>
+
+You'll need an .env file:
+
+```bash
+cp .env-example .env
+```
+
+And insert valid values.
+
+Then, you can start the local socket connection to Slack:
+
+```sh
+npx esno src/main.local.ts
+```
+
 ## How to deploy locally
 
 **Notice:** Deploying shouldn't be done manually if not necessary! The BitBucket pipeline can and should deploy changes. Anyway if you decide deploy manually read the next sections.
 
 ${STAGE} can be dev or prod.
+
+Build the React build folders first with:
+
+```bash
+yarn buildReactApps
+```
 
 Synthing the CDK APP can be done with going to backend/${STAGE} and run:
 
@@ -44,7 +68,8 @@ yarn cdk deploy 'dev-...Stack' --watch
 yarn cdk deploy 'dev-...Stack' --require-approval never
 yarn cdk deploy 'senjuns-pipeline/prod/DashboardBackendStack' --require-approval never
 yarn cdk deploy 'senjuns-pipeline/prod/DashboardAppStack' --require-approval never
-yarn cdk deploy 'senjuns-pipeline/prod/LandingpageStack' --require-approval never
+yarn cdk deploy 'senjuns-pipeline/prod/LandingPageStack' --require-approval never
+yarn cdk deploy 'senjuns-pipeline/prod/BotStack' --require-approval never
 ```
 
 For destroy do

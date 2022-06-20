@@ -28,7 +28,8 @@
     "watch": "npx projen watch",
     "projen": "npx projen",
     "cdk": "cdk",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "buildReactApps": "cd ../dashboard && yarn build && cd ../landingpage && yarn build"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.93",

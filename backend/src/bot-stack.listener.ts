@@ -1,5 +1,5 @@
 import { App, AwsLambdaReceiver } from '@slack/bolt';
-import { applySeniEvents } from './app-events';
+import { applyEvents } from './app-events';
 
 const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
   process.env;
@@ -13,11 +13,11 @@ const awsLambdaReceiver = new AwsLambdaReceiver({
 
 const app = new App({
   token: SLACK_BOT_TOKEN,
-  signingSecret: SLACK_SIGNING_SECRET,
+  // signingSecret: SLACK_SIGNING_SECRET,
   receiver: awsLambdaReceiver,
 });
 
-applySeniEvents(app, {
+applyEvents(app, {
   welcomeChannel: WELCOME_CHANNEL_ID,
 });
 

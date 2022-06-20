@@ -111,6 +111,19 @@ yarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png d
 yarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png
 `);
 
+backend.setScript(
+  'buildReactApps',
+  'cd ../dashboard && yarn build && cd ../landingpage && yarn build',
+);
+
+// project.defaultTask?.reset();
+// project.defaultTask?.exec("esno .projenrc.ts");
+
+backend.cdkConfig.json.addOverride('app', 'npx esno src/pipeline-stack.ts');
+backend.prettier?.addIgnorePattern('cdk.json');
+
+// project.eslint?.addIgnorePattern("!.projenrc.ts");
+
 backend.synth();
 
 const dashboard = new pj.web.ReactTypeScriptProject({
