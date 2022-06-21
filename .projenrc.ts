@@ -77,7 +77,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   parent: project,
   name: 'backend',
   cdkVersion,
-  devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia'],
+  devDeps: ['@types/aws-lambda', 'aws-sdk', 'cdk-dia', 'esno'],
   deps: [
     'got',
     'cdk-appsync-transformer@2.0.0-alpha.0',
@@ -120,7 +120,7 @@ backend.setScript(
 // project.defaultTask?.reset();
 // project.defaultTask?.exec("esno .projenrc.ts");
 
-backend.cdkConfig.json.addOverride('app', 'npx esno src/pipeline-stack.ts');
+// backend.cdkConfig.json.addOverride('app', 'npx esno src/pipeline-stack.ts');
 
 // project.eslint?.addIgnorePattern("!.projenrc.ts");
 

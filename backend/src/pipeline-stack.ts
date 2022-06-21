@@ -92,9 +92,9 @@ class BackendStage extends cdk.Stage {
 
     const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
       process.env;
-    if (!SLACK_SIGNING_SECRET || !SLACK_BOT_TOKEN || !WELCOME_CHANNEL_ID) {
-      throw new Error('Some environment variables are empty or missing');
-    }
+    // if (!SLACK_SIGNING_SECRET || !SLACK_BOT_TOKEN || !WELCOME_CHANNEL_ID) {
+    //   throw new Error('Some environment variables are empty or missing');
+    // }
 
     new BotStack(this, 'BotStack', {
       slackSigningSecret: SLACK_SIGNING_SECRET ?? '',
