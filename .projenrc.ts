@@ -27,6 +27,7 @@ const project = new pj.typescript.TypeScriptProject({
 project.prettier?.addIgnorePattern('.eslintrc.json');
 project.prettier?.addIgnorePattern('tsconfig.dev.json');
 project.prettier?.addIgnorePattern('tsconfig.json');
+project.prettier?.addIgnorePattern('backend/cdk.json');
 
 project.package.addField('lint-staged', {
   '*.(ts|tsx)': ['eslint --fix'],
@@ -69,7 +70,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
 
 landingpage.synth();
 
-const cdkVersion = '2.24.1';
+const cdkVersion = '2.28.1';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
@@ -81,7 +82,10 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
     'got',
     'cdk-appsync-transformer@2.0.0-alpha.0',
     `@aws-cdk/aws-appsync-alpha@${cdkVersion}-alpha.0`,
+    '@slack/bolt',
+    'dotenv',
   ],
+  gitignore: ['.env', 'diagram.dot', 'diagram.png', 'appsync'],
   release: true,
   tsconfig: {
     compilerOptions: {
@@ -108,8 +112,17 @@ yarn cdk-dia --stacks senjuns-pipeline/prod/LandingPageStack && mv diagram.png d
 yarn cdk-dia --stacks senjuns-slack-stack && mv diagram.png diagrams/slack.png
 `);
 
-backend.gitignore.addPatterns('diagram.dot', 'diagram.png');
-backend.gitignore.addPatterns('appsync');
+backend.setScript(
+  'buildReactApps',
+  'cd ../dashboard && yarn build && cd ../landingpage && yarn build',
+);
+
+// project.defaultTask?.reset();
+// project.defaultTask?.exec("esno .projenrc.ts");
+
+backend.cdkConfig.json.addOverride('app', 'npx esno src/pipeline-stack.ts');
+
+// project.eslint?.addIgnorePattern("!.projenrc.ts");
 
 backend.synth();
 
