@@ -3,7 +3,7 @@ import { PipelineStack } from './pipeline-stack';
 import { SlackStack } from './slack-stack';
 
 const devEnv = {
-  account: '981237193288',
+  account: '456906467194',
   region: 'eu-central-1',
 };
 

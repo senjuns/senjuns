@@ -37,7 +37,7 @@ export class PipelineStack extends cdk.Stack {
     pipeline.addStage(
       new BackendStage(this, 'prod', {
         env: {
-          account: '981237193288',
+          account: '456906467194',
           region: 'eu-central-1',
         },
         stage: 'prod',

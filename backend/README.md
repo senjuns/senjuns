@@ -30,6 +30,21 @@ Then, you can start the local socket connection to Slack:
 npx esno src/main.local.ts
 ```
 
+## CDK bootstrap
+
+<https://docs.aws.amazon.com/cdk/v2/guide/bootstrapping.html>
+
+```bash
+ACCOUNT_BUILD_ID=456906467194
+yarn cdk bootstrap aws://$ACCOUNT_BUILD_ID/us-east-1 aws://$ACCOUNT_BUILD_ID/eu-central-1
+
+ACCOUNT_DEV_ID=...
+yarn cdk bootstrap aws://$ACCOUNT_DEV_ID/us-east-1 aws://$ACCOUNT_DEV_ID/eu-central-1 --trust $ACCOUNT_BUILD_ID
+
+ACCOUNT_PROD_ID=...
+yarn cdk bootstrap aws://$ACCOUNT_PROD_ID/us-east-1 aws://$ACCOUNT_PROD_ID/eu-central-1 --trust $ACCOUNT_BUILD_ID
+```
+
 ## How to deploy locally
 
 **Notice:** Deploying shouldn't be done manually if not necessary! The BitBucket pipeline can and should deploy changes. Anyway if you decide deploy manually read the next sections.
