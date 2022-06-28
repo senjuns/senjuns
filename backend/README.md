@@ -99,6 +99,7 @@ For setup access to the specific stage get your programmatic credentials via AWS
 
 ```bash
 yarn cdk deploy 'senjuns-pipeline' --require-approval never
+yes | yarn cdk destroy 'senjuns-pipeline'
 ```
 
 ## Cognito
