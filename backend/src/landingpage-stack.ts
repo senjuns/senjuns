@@ -3,13 +3,17 @@ import * as core from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { StaticWebsite } from './construcs/static-website';
 
+interface LandingPageStackProps extends core.StackProps {
+  domainName: string;
+}
+
 export class LandingPageStack extends core.Stack {
-  constructor(scope: Construct, id: string, props: core.StackProps = {}) {
+  constructor(scope: Construct, id: string, props: LandingPageStackProps) {
     super(scope, id, props);
 
     const landingPage = new StaticWebsite(this, 'landingPage', {
       build: '../landingpage/build',
-      domainName: 'senjuns.com',
+      domainName: props.domainName,
       recordName: '',
       alternativeRecordName: 'www',
     });

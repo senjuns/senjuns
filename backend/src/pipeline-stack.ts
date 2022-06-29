@@ -36,6 +36,16 @@ export class PipelineStack extends cdk.Stack {
     });
 
     pipeline.addStage(
+      new BackendStage(this, 'dev', {
+        env: {
+          account: '240818873559',
+          region: 'eu-central-1',
+        },
+        stage: 'dev',
+      }),
+    );
+
+    pipeline.addStage(
       new BackendStage(this, 'prod', {
         env: {
           account: '768874568263',
@@ -88,8 +98,11 @@ class BackendStage extends cdk.Stage {
     new DashboardBackendStack(this, 'DashboardBackendStack', {
       stage: props.stage,
     });
-    new LandingPageStack(this, 'LandingPageStack');
-    new DashboardAppStack(this, 'DashboardAppStack');
+    const domainName = `${
+      props.stage === 'prod' ? '' : props.stage + '.'
+    }senjuns.com`;
+    new LandingPageStack(this, 'LandingPageStack', { domainName });
+    new DashboardAppStack(this, 'DashboardAppStack', { domainName });
 
     const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
       process.env;
