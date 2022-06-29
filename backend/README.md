@@ -38,11 +38,11 @@ npx esno src/main.local.ts
 ACCOUNT_BUILD_ID=456906467194
 yarn cdk bootstrap aws://$ACCOUNT_BUILD_ID/us-east-1 aws://$ACCOUNT_BUILD_ID/eu-central-1
 
-ACCOUNT_DEV_ID=...
-yarn cdk bootstrap aws://$ACCOUNT_DEV_ID/us-east-1 aws://$ACCOUNT_DEV_ID/eu-central-1 --trust $ACCOUNT_BUILD_ID
+ACCOUNT_DEV_ID=240818873559
+yarn cdk bootstrap aws://$ACCOUNT_DEV_ID/us-east-1 aws://$ACCOUNT_DEV_ID/eu-central-1 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess --trust $ACCOUNT_BUILD_ID
 
-ACCOUNT_PROD_ID=...
-yarn cdk bootstrap aws://$ACCOUNT_PROD_ID/us-east-1 aws://$ACCOUNT_PROD_ID/eu-central-1 --trust $ACCOUNT_BUILD_ID
+ACCOUNT_PROD_ID=768874568263
+yarn cdk bootstrap aws://$ACCOUNT_PROD_ID/us-east-1 aws://$ACCOUNT_PROD_ID/eu-central-1 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess --trust $ACCOUNT_BUILD_ID
 ```
 
 ## How to deploy locally

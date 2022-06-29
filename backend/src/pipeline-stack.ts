@@ -1,5 +1,5 @@
 import * as cdk from 'aws-cdk-lib';
-import * as notifications from 'aws-cdk-lib/aws-codestarnotifications';
+// import * as notifications from 'aws-cdk-lib/aws-codestarnotifications';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as pipelines from 'aws-cdk-lib/pipelines';
@@ -17,6 +17,7 @@ export class PipelineStack extends cdk.Stack {
     super(scope, id, props);
 
     const pipeline = new pipelines.CodePipeline(this, 'Pipeline', {
+      crossAccountKeys: true,
       synth: new pipelines.ShellStep('Synth', {
         input: pipelines.CodePipelineSource.gitHub('senjuns/senjuns', 'main', {
           authentication: cdk.SecretValue.secretsManager(
@@ -37,7 +38,7 @@ export class PipelineStack extends cdk.Stack {
     pipeline.addStage(
       new BackendStage(this, 'prod', {
         env: {
-          account: '456906467194',
+          account: '768874568263',
           region: 'eu-central-1',
         },
         stage: 'prod',
@@ -61,18 +62,18 @@ export class PipelineStack extends cdk.Stack {
 
     pipeline.buildPipeline();
 
-    new notifications.NotificationRule(this, 'Notification', {
-      detailType: notifications.DetailType.BASIC,
-      events: [
-        'codepipeline-pipeline-pipeline-execution-failed',
-        'codepipeline-pipeline-action-execution-failed',
-        'codepipeline-pipeline-stage-execution-failed',
-        'codepipeline-pipeline-manual-approval-failed',
-        'codepipeline-pipeline-manual-approval-needed',
-      ],
-      source: pipeline.pipeline,
-      targets: [topic],
-    });
+    //   new notifications.NotificationRule(this, 'Notification', {
+    //     detailType: notifications.DetailType.BASIC,
+    //     events: [
+    //       'codepipeline-pipeline-pipeline-execution-failed',
+    //       'codepipeline-pipeline-action-execution-failed',
+    //       'codepipeline-pipeline-stage-execution-failed',
+    //       'codepipeline-pipeline-manual-approval-failed',
+    //       'codepipeline-pipeline-manual-approval-needed',
+    //     ],
+    //     source: pipeline.pipeline,
+    //     targets: [topic],
+    //   });
   }
 }
 
