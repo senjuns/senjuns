@@ -1,11 +1,5 @@
-import {
-  Compression,
-  CostAndUsageReport,
-  Format,
-  TimeUnit,
-} from '@cremich/cdk-bill-bot';
 import * as cdk from 'aws-cdk-lib';
-// import * as notifications from 'aws-cdk-lib/aws-codestarnotifications';
+import * as notifications from 'aws-cdk-lib/aws-codestarnotifications';
 import * as sns from 'aws-cdk-lib/aws-sns';
 import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as pipelines from 'aws-cdk-lib/pipelines';
@@ -78,18 +72,18 @@ export class PipelineStack extends cdk.Stack {
 
     pipeline.buildPipeline();
 
-    //   new notifications.NotificationRule(this, 'Notification', {
-    //     detailType: notifications.DetailType.BASIC,
-    //     events: [
-    //       'codepipeline-pipeline-pipeline-execution-failed',
-    //       'codepipeline-pipeline-action-execution-failed',
-    //       'codepipeline-pipeline-stage-execution-failed',
-    //       'codepipeline-pipeline-manual-approval-failed',
-    //       'codepipeline-pipeline-manual-approval-needed',
-    //     ],
-    //     source: pipeline.pipeline,
-    //     targets: [topic],
-    //   });
+    new notifications.NotificationRule(this, 'Notification', {
+      detailType: notifications.DetailType.BASIC,
+      events: [
+        'codepipeline-pipeline-pipeline-execution-failed',
+        // 'codepipeline-pipeline-action-execution-failed',
+        // 'codepipeline-pipeline-stage-execution-failed',
+        // 'codepipeline-pipeline-manual-approval-failed',
+        // 'codepipeline-pipeline-manual-approval-needed',
+      ],
+      source: pipeline.pipeline,
+      targets: [topic],
+    });
   }
 }
 
@@ -120,12 +114,6 @@ class BackendStage extends cdk.Stage {
       slackSigningSecret: SLACK_SIGNING_SECRET ?? '',
       slackBotToken: SLACK_BOT_TOKEN ?? '0',
       welcomeChannelId: WELCOME_CHANNEL_ID ?? '',
-    });
-
-    new CostAndUsageReport(this, 'cur', {
-      compression: Compression.PARQUET,
-      format: Format.PARQUET,
-      timeUnit: TimeUnit.DAILY,
     });
 
     // new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
