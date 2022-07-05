@@ -70,7 +70,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
 
 landingpage.synth();
 
-const cdkVersion = '2.28.1';
+const cdkVersion = '2.30.0';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
@@ -84,6 +84,7 @@ const backend = new pj.awscdk.AwsCdkTypeScriptApp({
     `@aws-cdk/aws-appsync-alpha@${cdkVersion}-alpha.0`,
     '@slack/bolt',
     'dotenv',
+    '@cremich/cdk-bill-bot',
   ],
   gitignore: ['.env', 'diagram.dot', 'diagram.png', 'appsync'],
   release: true,

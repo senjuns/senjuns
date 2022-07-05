@@ -1,3 +1,9 @@
+import {
+  Compression,
+  CostAndUsageReport,
+  Format,
+  TimeUnit,
+} from '@cremich/cdk-bill-bot';
 import * as cdk from 'aws-cdk-lib';
 // import * as notifications from 'aws-cdk-lib/aws-codestarnotifications';
 import * as sns from 'aws-cdk-lib/aws-sns';
@@ -114,6 +120,12 @@ class BackendStage extends cdk.Stage {
       slackSigningSecret: SLACK_SIGNING_SECRET ?? '',
       slackBotToken: SLACK_BOT_TOKEN ?? '0',
       welcomeChannelId: WELCOME_CHANNEL_ID ?? '',
+    });
+
+    new CostAndUsageReport(this, 'cur', {
+      compression: Compression.PARQUET,
+      format: Format.PARQUET,
+      timeUnit: TimeUnit.DAILY,
     });
 
     // new LandingPageStack(app, 'prod-LandingPageStack', { env: devEnv });
