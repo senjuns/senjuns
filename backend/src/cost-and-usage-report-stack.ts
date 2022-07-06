@@ -14,11 +14,13 @@ export class CostAndUsageReportStack extends core.Stack {
 
     const curBucket = new CURBucket(this, 'bucket');
 
-    new CostAndUsageReport(this, 'cur', {
+    const report = new CostAndUsageReport(this, 'cur', {
       bucket: curBucket,
       compression: Compression.PARQUET,
       format: Format.PARQUET,
       timeUnit: TimeUnit.DAILY,
     });
+
+    report.addDataCatalog();
   }
 }
