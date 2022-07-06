@@ -37,6 +37,16 @@ export class PipelineStack extends cdk.Stack {
     });
 
     pipeline.addStage(
+      new UtilStage(this, 'util', {
+        env: {
+          account: '240818873559',
+          region: 'us-east-1',
+        },
+        stage: 'dev',
+      }),
+    );
+
+    pipeline.addStage(
       new BackendStage(this, 'dev', {
         env: {
           account: '240818873559',
@@ -124,6 +134,14 @@ class BackendStage extends cdk.Stage {
     //   env: devEnv,
     //   stage: 'prod',
     // });
+  }
+}
+
+class UtilStage extends cdk.Stage {
+  constructor(scope: Construct, id: string, props: BackendStageProps) {
+    super(scope, id, props);
+
+    new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
   }
 }
 
