@@ -18,6 +18,10 @@ Build React app:
 yarn build
 ```
 
+## local developing
+
+curl https://dxxxxxxxxxx.cloudfront.net/runtime-config.json > public/runtime-config.json
+
 ## Styling
 
 We use ts styled components https://blog.logrocket.com/using-styled-components-in-typescript-a-tutorial-with-examples/

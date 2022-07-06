@@ -7,7 +7,7 @@
 // import { setContext } from '@apollo/client/link/context';
 import Container from '@material-ui/core/Container';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
-import Amplify from 'aws-amplify';
+import { Amplify } from 'aws-amplify';
 import './App.css';
 
 import { lazy, Suspense } from 'react';

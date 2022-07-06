@@ -5,6 +5,7 @@ import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { BotStack } from './bot-stack';
+import { CostAndUsageReportStack } from './cost-and-usage-report-stack';
 import { DashboardAppStack } from './dashboard-app-stack';
 import { DashboardBackendStack } from './dashboard-backend-stack';
 import { LandingPageStack } from './landingpage-stack';
@@ -103,6 +104,7 @@ class BackendStage extends cdk.Stage {
     }senjuns.com`;
     new LandingPageStack(this, 'LandingPageStack', { domainName });
     new DashboardAppStack(this, 'DashboardAppStack', { domainName });
+    new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
 
     const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
       process.env;

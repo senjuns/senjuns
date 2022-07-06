@@ -12,6 +12,7 @@ import * as route53 from 'aws-cdk-lib/aws-route53';
 // import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as cr from 'aws-cdk-lib/custom-resources';
+// import { StaticWebsite } from './construcs/static-website';
 import { AppSyncTransformer } from 'cdk-appsync-transformer';
 import * as constructs from 'constructs';
 
@@ -19,6 +20,8 @@ export interface DashboardBackendStackProps extends core.StackProps {
   stage: string;
 
   userPoolId?: string;
+
+  domainName?: string;
 }
 
 export class DashboardBackendStack extends core.Stack {
@@ -230,6 +233,32 @@ export class DashboardBackendStack extends core.Stack {
         ],
       }),
     );
+
+    // const dashboard = new StaticWebsite(this, 'dashboard', {
+    //   build: '../dashboard/build',
+    //   recordName: 'dashboard',
+    //   domainName: props.domainName,
+    //   runtimeOptions: {
+    //     jsonPayload: {
+    //       region: core.Stack.of(this).region,
+    //       identityPoolId: identityPool.ref,
+    //       userPoolId: userPool.userPoolId,
+    //       userPoolWebClientId: userPoolWebClient.userPoolClientId,
+    //     },
+    //   },
+    // });
+
+    // new core.CfnOutput(this, 'BucketWebsiteUrl', {
+    //   value: dashboard.bucketWebsiteUrl,
+    // });
+
+    // new core.CfnOutput(this, 'CustomDomainWebsiteUrl', {
+    //   value: dashboard.recordDomainName,
+    // });
+
+    // new core.CfnOutput(this, 'WebsiteCloudfrontDomainName', {
+    //   value: dashboard.distributionDomainName,
+    // });
 
     const userImportRole = new iam.Role(this, 'userImportRole', {
       assumedBy: new iam.ServicePrincipal('cognito-idp.amazonaws.com'),
