@@ -114,7 +114,7 @@ class BackendStage extends cdk.Stage {
     }senjuns.com`;
     new LandingPageStack(this, 'LandingPageStack', { domainName });
     new DashboardAppStack(this, 'DashboardAppStack', { domainName });
-    new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
+    // new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
 
     const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =
       process.env;
