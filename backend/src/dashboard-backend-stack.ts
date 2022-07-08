@@ -1,6 +1,6 @@
 import * as appsync from '@aws-cdk/aws-appsync-alpha';
 import * as core from 'aws-cdk-lib';
-// import * as apigateway from 'aws-cdk-lib/aws-apigateway';
+import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as certificatemanager from 'aws-cdk-lib/aws-certificatemanager';
 import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as events from 'aws-cdk-lib/aws-events';
@@ -9,7 +9,7 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import * as lambdajs from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as logs from 'aws-cdk-lib/aws-logs';
 import * as route53 from 'aws-cdk-lib/aws-route53';
-// import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
+import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as cr from 'aws-cdk-lib/custom-resources';
 // import { StaticWebsite } from './construcs/static-website';
@@ -392,25 +392,25 @@ export class DashboardBackendStack extends core.Stack {
     );
     infoCertificate;
 
-    // const infoApi = new apigateway.LambdaRestApi(this, 'infoApi', {
-    //   handler: infoLambda,
-    //   proxy: true,
-    //   domainName: {
-    //     domainName: infoDomain,
-    //     certificate: infoCertificate,
-    //   },
-    // });
+    const infoApi = new apigateway.LambdaRestApi(this, 'infoApi', {
+      handler: infoLambda,
+      proxy: true,
+      domainName: {
+        domainName: infoDomain,
+        certificate: infoCertificate,
+      },
+    });
 
-    // const infoRecord = new route53.ARecord(this, 'infoRecord', {
-    //   recordName: infoSubDomain,
-    //   target: route53.RecordTarget.fromAlias(
-    //     new route53Targets.ApiGateway(infoApi),
-    //   ),
-    //   zone: zone,
-    // });
+    const infoRecord = new route53.ARecord(this, 'infoRecord', {
+      recordName: infoSubDomain,
+      target: route53.RecordTarget.fromAlias(
+        new route53Targets.ApiGateway(infoApi),
+      ),
+      zone: zone,
+    });
 
-    // new core.CfnOutput(this, 'InfoUrl', {
-    //   value: infoRecord.domainName,
-    // });
+    new core.CfnOutput(this, 'InfoUrl', {
+      value: infoRecord.domainName,
+    });
   }
 }

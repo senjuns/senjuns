@@ -13,6 +13,7 @@
     "brittanychiang.halcyon-vscode",
     "pkief.material-icon-theme",
     "firsttris.vscode-jest-runner",
-    "hediet.vscode-drawio"
+    "hediet.vscode-drawio",
+    "GraphQL.vscode-graphql"
   ]
 }

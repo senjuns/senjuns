@@ -5,7 +5,7 @@ type TeamCard
   @auth(
     rules: [
       # { allow: private, provider: iam }
-      # { allow: private, provider: userPools }
+      { allow: private, provider: userPools }
       { allow: public, provider: iam }
     ]
   ) {

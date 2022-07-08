@@ -31,10 +31,10 @@ const main = async () => {
       'Error: STAGE not set. Set STAGE example: export STAGE=prod',
     );
   }
-  // let dashboardInfoUrl = `https://dashboard-info.${stage}.senjuns.com`;
-  // if (stage === 'prod') {
-  const dashboardInfoUrl = 'https://dashboard-info.senjuns.com';
-  // }
+  const dashboardInfoUrl = `https://dashboard-info.${stage}.senjuns.com`;
+  if (stage === 'prod') {
+    const dashboardInfoUrl = 'https://dashboard-info.senjuns.com';
+  }
   const { data } = await axios.get(dashboardInfoUrl);
   console.log(`\ninfo response: ${JSON.stringify(data, null, 2)}`);
   if (data === undefined || data === null) {

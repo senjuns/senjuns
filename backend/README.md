@@ -81,10 +81,11 @@ Or with the new watch flag a faster deploying for local development:
 yarn cdk deploy 'dev-...Stack'
 yarn cdk deploy 'dev-...Stack' --watch
 yarn cdk deploy 'dev-...Stack' --require-approval never
-yarn cdk deploy 'senjuns-pipeline/prod/DashboardBackendStack' --require-approval never
-yarn cdk deploy 'senjuns-pipeline/prod/DashboardAppStack' --require-approval never
-yarn cdk deploy 'senjuns-pipeline/prod/LandingPageStack' --require-approval never
-yarn cdk deploy 'senjuns-pipeline/prod/BotStack' --require-approval never
+STAGE=dev
+yarn cdk deploy "senjuns-pipeline/$STAGE/DashboardBackendStack" --require-approval never
+yarn cdk deploy "senjuns-pipeline/$STAGE/DashboardAppStack" --require-approval never
+yarn cdk deploy "senjuns-pipeline/$STAGE/LandingPageStack" --require-approval never
+yarn cdk deploy "senjuns-pipeline/$STAGE/BotStack" --require-approval never
 ```
 
 For destroy do
@@ -108,14 +109,16 @@ Create User
 
 ```bash
 REGION=eu-central-1
+# dev
+USER_POOL_ID=eu-central-1_HV8PCNy1W
+
+USER_NAME=martinmueller@senjuns.com
+USER_PASSWORD=M@rtin1988
 
 aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --user-attributes Name=email,Value=$USER_NAME --region $REGION
 aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --region $REGION
 ```
 
-## Migration
+## AppSync
 
-Future tasks when we get funding:
-
-- Setup proper multi accounts with landingpage and more. Perhaps use kreuzwerker template.
-- Change 'senjuns-pipeline/prod/prod-DashboardBackendStack' to 'senjuns-pipeline/prod/DashboardBackendStack'
+Seed the AppSync managed DynamoDB with the AWS Console -> AppSync using test/create-team-card-data.graphql
