@@ -16,6 +16,7 @@ import { useScreenSize } from '../../hooks/useScreenSize';
 import { APP_URL, ScreenSize } from '../../shared/constants';
 
 interface NonAuthLayoutProps {
+  children: any;
   /**
    * Minimum height of the NonAuthLayout Form
    */

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Colors, Fonts } from '../../shared/constants';
 
 interface TypographyProps {
+  children: any;
   /**
    * className to be applied to the component.
    */

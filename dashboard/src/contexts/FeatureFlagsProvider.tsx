@@ -16,7 +16,7 @@ export interface FeatureFlagsContextState {
 }
 
 export const FeatureFlagsContext = createContext<FeatureFlagsContextState>(
-  undefined!
+  undefined!,
 );
 
 /**
@@ -25,7 +25,7 @@ export const FeatureFlagsContext = createContext<FeatureFlagsContextState>(
  * @param {FC} props The props
  * @returns {JSX.Element} The rendered element.
  */
-export const FeatureFlagsProvider: FC = (props) => {
+export const FeatureFlagsProvider: FC<any> = (props) => {
   const [heatMapViewFlag, setHeatMapViewFlag] = useState(true);
   const [settingsFlag, setSettingsFlag] = useState(false);
   const [dashboardFlag, setDashboardFlag] = useState(false);
@@ -43,15 +43,15 @@ export const FeatureFlagsProvider: FC = (props) => {
     setLineChartFlag(Cookies.get(FEATURE_FLAGS.LINE_CHART) === FEATURE_ENABLED);
     setCalendarFlag(Cookies.get(FEATURE_FLAGS.CALENDAR) === FEATURE_ENABLED);
     setNotificationFlag(
-      Cookies.get(FEATURE_FLAGS.NOTIFICATION) === FEATURE_ENABLED
+      Cookies.get(FEATURE_FLAGS.NOTIFICATION) === FEATURE_ENABLED,
     );
     setDebugFlag(Cookies.get(FEATURE_FLAGS.DEBUG) === FEATURE_ENABLED);
     // cookieStore.set("FEATURE_INTERNAL_HEATMAP_TOOL_FLAG", "FEATURE_ENABLED");
     setInternalHeatmapToolFlag(
-      Cookies.get(FEATURE_FLAGS.INTERNAL_HEATMAP_TOOL_FLAG) === FEATURE_ENABLED
+      Cookies.get(FEATURE_FLAGS.INTERNAL_HEATMAP_TOOL_FLAG) === FEATURE_ENABLED,
     );
     setAirflowSensorFlag(
-      Cookies.get(FEATURE_FLAGS.AIRFLOW_SENSOR_FLAG) === FEATURE_ENABLED
+      Cookies.get(FEATURE_FLAGS.AIRFLOW_SENSOR_FLAG) === FEATURE_ENABLED,
     );
   }, []);
 

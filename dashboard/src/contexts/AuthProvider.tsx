@@ -37,7 +37,7 @@ export interface AuthContextType {
 
 export const AuthContext = createContext<AuthContextType>(undefined!);
 
-export const AuthProvider: FC = ({ children }) => {
+export const AuthProvider: FC<any> = ({ children }) => {
   const history = useHistory();
   const [userInfo, setUserInfo] = useState<any>();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -73,7 +73,7 @@ export const AuthProvider: FC = ({ children }) => {
       signOut,
       userInfo,
     }),
-    [isLoggedIn, logIn, signOut, userInfo]
+    [isLoggedIn, logIn, signOut, userInfo],
   );
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;

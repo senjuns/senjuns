@@ -14,7 +14,7 @@ export interface ErrorBoundaryState {
 /**
  * @returns {JSX.Element} - The rendered error boundary.
  */
-class ErrorBoundary extends Component {
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   /**
    * Update state so the next render will show the fallback UI.
    *

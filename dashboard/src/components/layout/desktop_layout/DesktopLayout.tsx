@@ -9,7 +9,7 @@ import SideBar from '../../../components/layout/desktop_layout/SideBar';
 import { useAuth } from '../../../contexts';
 import { Colors } from '../../../shared/constants';
 
-const DesktopLayout: React.FC = ({ children }) => {
+const DesktopLayout: React.FC<any> = ({ children }) => {
   const { userInfo, signOut } = useAuth();
 
   return (

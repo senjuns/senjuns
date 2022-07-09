@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { ScreenSize, Sizes } from '../../shared/constants';
 
 interface NonAuthFormProps {
+  children: any;
   /**
    * Header of the NonAuthForm
    */

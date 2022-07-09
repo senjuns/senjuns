@@ -7,6 +7,7 @@ import { Colors, Sizes } from '../../shared/constants';
 import { TPasswordRule } from '../../shared/interfaces';
 
 interface PasswordRulesProps {
+  children: any;
   /**
    * ConfirmPassword
    */
@@ -28,6 +29,7 @@ interface PasswordRulesProps {
  * @returns {JSX.Element} - The rendered component.
  */
 export const PasswordRules: FC<PasswordRulesProps> = ({
+  children,
   confirmPassword,
   password,
   rules,
@@ -39,6 +41,7 @@ export const PasswordRules: FC<PasswordRulesProps> = ({
           <CheckIcon disabled={!rule.check(password, confirmPassword)}>
             <Check />
           </CheckIcon>
+          {children}
           <Typography variant="body1">{rule.label}</Typography>
         </RuleItem>
       ))}

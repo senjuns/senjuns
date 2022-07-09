@@ -2,27 +2,22 @@
   "dependencies": [
     {
       "name": "@graphql-codegen/cli",
-      "version": "*",
-      "type": "build"
-    },
-    {
-      "name": "@graphql-codegen/typescript-operations",
-      "version": "*",
-      "type": "build"
-    },
-    {
-      "name": "@graphql-codegen/typescript-react-apollo",
-      "version": "^3.1.6",
-      "type": "build"
-    },
-    {
-      "name": "@graphql-codegen/typescript-react-query",
-      "version": "alpha",
       "type": "build"
     },
     {
       "name": "@graphql-codegen/typescript",
-      "version": "*",
+      "type": "build"
+    },
+    {
+      "name": "@graphql-codegen/typescript-operations",
+      "type": "build"
+    },
+    {
+      "name": "@graphql-codegen/typescript-react-apollo",
+      "type": "build"
+    },
+    {
+      "name": "@graphql-codegen/typescript-react-query",
       "type": "build"
     },
     {
@@ -43,7 +38,6 @@
     },
     {
       "name": "@types/js-cookie",
-      "version": "^3.0.1",
       "type": "build"
     },
     {
@@ -61,7 +55,6 @@
     },
     {
       "name": "@types/react-color",
-      "version": "^3.0.6",
       "type": "build"
     },
     {
@@ -70,7 +63,10 @@
     },
     {
       "name": "@types/react-plotly.js",
-      "version": "^2.5.0",
+      "type": "build"
+    },
+    {
+      "name": "@types/react-responsive",
       "type": "build"
     },
     {
@@ -80,22 +76,19 @@
     },
     {
       "name": "@types/react-test-renderer",
-      "version": "^17.0.1",
       "type": "build"
     },
     {
       "name": "@types/selenium-webdriver",
-      "version": "^4.0.16",
       "type": "build"
     },
     {
       "name": "@types/styled-components",
-      "version": "^5.1.9",
       "type": "build"
     },
     {
       "name": "amplify-graphql-docs-generator",
-      "version": "^2.2.4",
+      "version": "",
       "type": "build"
     },
     {
@@ -113,7 +106,6 @@
     },
     {
       "name": "react-test-renderer",
-      "version": "^17.0.2",
       "type": "build"
     },
     {
@@ -123,92 +115,74 @@
     },
     {
       "name": "@apollo/client",
-      "version": "^3.3.20",
       "type": "runtime"
     },
     {
       "name": "@aws-amplify/auth",
-      "version": "^4.3.8",
       "type": "runtime"
     },
     {
       "name": "@aws-amplify/ui-components",
-      "version": "^1.8.1",
       "type": "runtime"
     },
     {
       "name": "@aws-amplify/ui-react",
-      "version": "^1.2.18",
       "type": "runtime"
     },
     {
       "name": "@date-io/date-fns",
-      "version": "latest",
       "type": "runtime"
     },
     {
       "name": "@date-io/moment",
-      "version": "1.1.0",
       "type": "runtime"
     },
     {
       "name": "@material-ui/core",
-      "version": "^4.12.3",
       "type": "runtime"
     },
     {
       "name": "@material-ui/icons",
-      "version": "^4.11.2",
       "type": "runtime"
     },
     {
       "name": "@material-ui/lab",
-      "version": "^4.0.0-alpha.58",
       "type": "runtime"
     },
     {
       "name": "@material-ui/pickers",
-      "version": "^3.3.10",
       "type": "runtime"
     },
     {
       "name": "apollo-boost",
-      "version": "^0.4.9",
-      "type": "runtime"
-    },
-    {
-      "name": "aws-amplify-react",
-      "version": "^5.0.2",
       "type": "runtime"
     },
     {
       "name": "aws-amplify",
-      "version": "^4.2.0",
+      "type": "runtime"
+    },
+    {
+      "name": "aws-amplify-react",
       "type": "runtime"
     },
     {
       "name": "aws-appsync",
-      "version": "^4.1.2",
       "type": "runtime"
     },
     {
       "name": "clsx",
-      "version": "^1.1.1",
       "type": "runtime"
     },
     {
       "name": "date-fns",
-      "version": "^2.23.0",
       "type": "runtime"
     },
     {
       "name": "js-cookie",
-      "version": "^3.0.1",
       "type": "runtime"
     },
     {
       "name": "konva",
-      "version": "^8.2.2",
       "type": "runtime"
     },
     {
@@ -221,7 +195,6 @@
     },
     {
       "name": "plotly.js",
-      "version": "^2.3.0",
       "type": "runtime"
     },
     {
@@ -230,12 +203,10 @@
     },
     {
       "name": "react-apollo",
-      "version": "^3.1.5",
       "type": "runtime"
     },
     {
       "name": "react-color",
-      "version": "^2.19.3",
       "type": "runtime"
     },
     {
@@ -244,27 +215,22 @@
     },
     {
       "name": "react-hook-form",
-      "version": "7.14.2",
       "type": "runtime"
     },
     {
       "name": "react-konva",
-      "version": "^17.0.2-5",
       "type": "runtime"
     },
     {
       "name": "react-plotly.js",
-      "version": "^2.5.1",
       "type": "runtime"
     },
     {
       "name": "react-query",
-      "version": "^3",
       "type": "runtime"
     },
     {
       "name": "react-responsive",
-      "version": "^9.0.0-beta.4",
       "type": "runtime"
     },
     {
@@ -279,17 +245,14 @@
     },
     {
       "name": "react-swipeable",
-      "version": "^6.2.0",
       "type": "runtime"
     },
     {
       "name": "react-tooltip",
-      "version": "^4.2.21",
       "type": "runtime"
     },
     {
       "name": "react-zoom-pan-pinch",
-      "version": "^2.1.3",
       "type": "runtime"
     },
     {
@@ -303,17 +266,15 @@
     },
     {
       "name": "styled-components",
-      "version": "^5.3.1",
       "type": "runtime"
     },
     {
       "name": "use-debounce",
-      "version": "^7.0.1",
       "type": "runtime"
     },
     {
       "name": "use-image",
-      "version": "^1.0.8",
+      "version": "",
       "type": "runtime"
     },
     {

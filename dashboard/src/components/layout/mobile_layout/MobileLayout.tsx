@@ -5,7 +5,7 @@ import { ScreenSize } from '../../../shared/constants';
 import NavigationBar from './NavigationBar';
 import SideBar from './SideBar';
 
-const MobileLayout: React.FC = ({ children }) => {
+const MobileLayout: React.FC<any> = ({ children }) => {
   const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const { isMobile } = useScreenSize();
   const handleMenuClick = () => {

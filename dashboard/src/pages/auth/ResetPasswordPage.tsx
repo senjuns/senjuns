@@ -24,7 +24,7 @@ import { APP_URL, PASSWORD_RULES } from '../../shared/constants';
  *
  * @returns {JSX.Element} The rendered component.
  */
-const PasswordResetPage: React.FC = () => {
+const PasswordResetPage: React.FC<any> = ({ children }) => {
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shouldShowRules, setShouldShowRules] = useState(false);
@@ -56,7 +56,7 @@ const PasswordResetPage: React.FC = () => {
       await Auth.forgotPasswordSubmit(
         username || '',
         values.code,
-        values.password
+        values.password,
       );
       // show password changed dialog
       showPasswordChangedDialog();
@@ -130,6 +130,7 @@ const PasswordResetPage: React.FC = () => {
             {shouldShowRules && (
               <Grid item xs={12}>
                 <PasswordRules
+                  children={children}
                   confirmPassword={values.confirmPassword}
                   password={values.password}
                   rules={PASSWORD_RULES}

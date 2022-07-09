@@ -1,15 +1,12 @@
 import { FC } from 'react';
-import { Route, RouteProps, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { useAuth } from './contexts';
 import { APP_URL } from './shared/constants';
 
-interface ProtectedRouteProps extends RouteProps {}
+// interface ProtectedRouteProps extends RouteProps {}
 
-export const ProtectedRoute: FC<ProtectedRouteProps> = ({
-  children,
-  ...rest
-}) => {
+export const ProtectedRoute: FC<any> = ({ children, ...rest }) => {
   const { isLoggedIn } = useAuth();
 
   return (
