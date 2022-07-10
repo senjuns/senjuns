@@ -155,7 +155,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'apollo-boost',
     '@material-ui/core',
     '@material-ui/icons',
-    '@material-ui/lab',
+    '@material-ui/lab@^4.0.0-alpha.61',
     '@material-ui/pickers',
     // 'react-ga@^3.3.0',
     'styled-components',
