@@ -165,12 +165,14 @@ export class StaticWebsite extends constructs.Construct {
         ),
       },
     );
+    distribution.applyRemovalPolicy(core.RemovalPolicy.DESTROY);
 
     const record = new route53.ARecord(this, 'record', {
       recordName: props.recordName === '' ? undefined : props.recordName,
       target: route53.RecordTarget.fromAlias(
         new targets.CloudFrontTarget(distribution),
       ),
+      deleteExisting: true,
       zone: hostedZone,
     });
 
@@ -180,6 +182,7 @@ export class StaticWebsite extends constructs.Construct {
         target: route53.RecordTarget.fromAlias(
           new targets.CloudFrontTarget(distribution),
         ),
+        deleteExisting: true,
         zone: hostedZone,
       })
       : undefined;

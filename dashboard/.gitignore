@@ -29,6 +29,7 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+runtime-config.json
 !/.projenrc.js
 !/test/
 !/tsconfig.json

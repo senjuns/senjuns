@@ -1,4 +1,4 @@
-import { Auth } from 'aws-amplify';
+import { Amplify, Auth } from 'aws-amplify';
 
 import {
   FC,
@@ -65,6 +65,27 @@ export const AuthProvider: FC<any> = ({ children }) => {
   useEffect(() => {
     void authenticateCurrentUser();
   }, [authenticateCurrentUser]);
+
+  useEffect(() => {
+    fetch('/runtime-config.json')
+      .then((response) => response.json())
+      .then((runtimeContext) => {
+        runtimeContext.region &&
+          runtimeContext.userPoolId &&
+          runtimeContext.userPoolWebClientId &&
+          runtimeContext.identityPoolId &&
+          Amplify.configure({
+            aws_appsync_graphqlEndpoint: runtimeContext.appSyncGraphqlEndpoint,
+            Auth: {
+              region: runtimeContext.region,
+              userPoolId: runtimeContext.userPoolId,
+              userPoolWebClientId: runtimeContext.userPoolWebClientId,
+              identityPoolId: runtimeContext.identityPoolId,
+            },
+          });
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   const values = useMemo<AuthContextType>(
     () => ({

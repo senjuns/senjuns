@@ -91,7 +91,7 @@ yarn cdk deploy "senjuns-pipeline/$STAGE/BotStack" --require-approval never
 For destroy do
 
 ```bash
-yarn destroy
+yes | yarn cdk destroy "senjuns-pipeline/$STAGE/DashboardBackendStack"
 ```
 
 For setup access to the specific stage get your programmatic credentials via AWS SSO and store them in ~/.aws/credentials or more convenient store them as environment variables.

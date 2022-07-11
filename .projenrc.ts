@@ -70,7 +70,7 @@ const landingpage = new pj.web.ReactTypeScriptProject({
 
 landingpage.synth();
 
-const cdkVersion = '2.31.0';
+const cdkVersion = '2.31.1';
 const backend = new pj.awscdk.AwsCdkTypeScriptApp({
   defaultReleaseBranch: 'main',
   outdir: 'backend',
@@ -195,6 +195,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@types/selenium-webdriver',
     'assert',
   ],
+  gitignore: ['runtime-config.json'],
   release: false,
   jest: false,
   jestOptions: {
@@ -224,9 +225,14 @@ dashboard.setScript(
   'cd scripts/create_config; yarn; yarn start; cd -',
 );
 
+// dashboard.setScript(
+//   'dev',
+//   'export STAGE=prod && yarn build:config && REACT_APP_STAGE=prod react-scripts start',
+// );
+
 dashboard.setScript(
   'dev',
-  'export STAGE=prod && yarn build:config && REACT_APP_STAGE=prod react-scripts start',
+  'curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && react-scripts start',
 );
 // only have prod atm
 // dashboard.setScript('start:prod', 'build:config && react-scripts start');

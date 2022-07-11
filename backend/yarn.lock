@@ -9,10 +9,10 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
-"@aws-cdk/aws-appsync-alpha@2.31.0-alpha.0":
-  version "2.31.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.31.0-alpha.0.tgz#88521696a9c96981ea7861d156971b9c0bc65823"
-  integrity sha512-t+eXLT02P7HNTTFyklZrdao4ZtHWt/ji8ui8EBQxrdNHm1zmgQedoGUZaxfXvZGL5pK0jvMrB+zhljliUMtX5g==
+"@aws-cdk/aws-appsync-alpha@2.31.1-alpha.0":
+  version "2.31.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.31.1-alpha.0.tgz#a044b0bbe0be2db0e0dadc7678e44a4193ff9dba"
+  integrity sha512-NTe4vobwYV6r/hgDQxPhLwjIVNX6cH0YSpG2efb6RT6/ORWM2Gz+Gq3Nw6+JC8XSefWn6CsTdrB595dIMu9gYw==
 
 "@aws-cdk/cloud-assembly-schema@1.152.0":
   version "1.152.0"
@@ -1501,10 +1501,10 @@ at-least-node@^1.0.0:
   resolved "https://registry.yarnpkg.com/at-least-node/-/at-least-node-1.0.0.tgz#602cd4b46e844ad4effc92a8011a3c46e0238dc2"
   integrity sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
 
-aws-cdk-lib@^2.31.0:
-  version "2.31.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.31.0.tgz#391e8ff70c6de0a0629915e45ae6fcec17cae847"
-  integrity sha512-6GvBmHtUx74uffl6kzvTL1bWN2/qPj4oHQj12gtqPifFBbNNrYGjLEeBY6DuidLhg96OoRoFc3lyJoiB/p7BEw==
+aws-cdk-lib@^2.31.1:
+  version "2.31.1"
+  resolved "https://registry.yarnpkg.com/aws-cdk-lib/-/aws-cdk-lib-2.31.1.tgz#97b8a21f14b44875d9424e00758b79c7ec2f765f"
+  integrity sha512-1IFgMxr1PpX90KFzTRZKVwfY+qP/UzLsrNgfylvqveOKy3R6qtGAhAx186+Zy2nx+wYoy+hVz89CZSItGDapMA==
   dependencies:
     "@balena/dockerignore" "^1.0.2"
     case "1.6.3"
@@ -1516,10 +1516,10 @@ aws-cdk-lib@^2.31.0:
     semver "^7.3.7"
     yaml "1.10.2"
 
-aws-cdk@^2.31.0:
-  version "2.31.0"
-  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.31.0.tgz#779b4d121ac705333e81a86a0be1cc46e2979a90"
-  integrity sha512-vA6ErwhUX7IuIvYkmzlEH8XUN6Ygali/MlEdRwvcD2Dlg1D1WF2zMxGPN8H0sY69S6N2lnM8VmiNiSrh/fpShg==
+aws-cdk@^2.31.1:
+  version "2.31.1"
+  resolved "https://registry.yarnpkg.com/aws-cdk/-/aws-cdk-2.31.1.tgz#8ab6d6fb9405baa6c8f6e9f009a66d4cf692a43e"
+  integrity sha512-iET6uQkkllhidC7EsmC8+q8iHGe8o/JCZiEWAdsU4WvZRFuh0ckktQphYf9l/gKgO9x4hthvcEWbMlnjrmzXsw==
   optionalDependencies:
     fsevents "2.3.2"
 
