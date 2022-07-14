@@ -17,8 +17,7 @@
     "test": "npx projen test",
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
-    "projen": "npx projen",
-    "build:config": "cd scripts/create_config; yarn; yarn start; cd -"
+    "projen": "npx projen"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^2.8.0",

@@ -7,7 +7,7 @@ import { Construct } from 'constructs';
 import { BotStack } from './bot-stack';
 import { CostAndUsageReportStack } from './cost-and-usage-report-stack';
 // import { DashboardAppStack } from './dashboard-app-stack';
-import { DashboardBackendStack } from './dashboard-backend-stack';
+import { DashboardStack } from './dashboard-stack';
 import { LandingPageStack } from './landingpage-stack';
 // import { DashboardAppStack } from './dashboard-app-stack';
 // import { DashboardBackendStack } from './dashboard-backend-stack';
@@ -110,7 +110,7 @@ class BackendStage extends cdk.Stage {
       props.stage === 'prod' ? '' : props.stage + '.'
     }senjuns.com`;
 
-    new DashboardBackendStack(this, 'DashboardBackendStack', {
+    new DashboardStack(this, 'DashboardStack', {
       stage: props.stage,
       domainName,
     });

@@ -39,4 +39,3 @@ runtime-config.json
 /dist/
 /build/
 !/react-app-env.d.ts
-src/shared/config/config.ts

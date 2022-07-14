@@ -220,11 +220,6 @@ dashboard.addTask('codegen', {
   exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
 });
 
-dashboard.setScript(
-  'build:config',
-  'cd scripts/create_config; yarn; yarn start; cd -',
-);
-
 // dashboard.setScript(
 //   'dev',
 //   'export STAGE=prod && yarn build:config && REACT_APP_STAGE=prod react-scripts start',
@@ -236,7 +231,5 @@ dashboard.setScript(
 );
 // only have prod atm
 // dashboard.setScript('start:prod', 'build:config && react-scripts start');
-
-dashboard.addGitIgnore('src/shared/config/config.ts');
 
 dashboard.synth();
