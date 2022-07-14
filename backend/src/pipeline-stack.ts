@@ -6,8 +6,8 @@ import * as pipelines from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { BotStack } from './bot-stack';
 import { CostAndUsageReportStack } from './cost-and-usage-report-stack';
-import { DashboardAppStack } from './dashboard-app-stack';
-import { DashboardBackendStack } from './dashboard-backend-stack';
+// import { DashboardAppStack } from './dashboard-app-stack';
+import { DashboardStack } from './dashboard-stack';
 import { LandingPageStack } from './landingpage-stack';
 // import { DashboardAppStack } from './dashboard-app-stack';
 // import { DashboardBackendStack } from './dashboard-backend-stack';
@@ -106,14 +106,17 @@ class BackendStage extends cdk.Stage {
   constructor(scope: Construct, id: string, props: BackendStageProps) {
     super(scope, id, props);
 
-    new DashboardBackendStack(this, 'DashboardBackendStack', {
-      stage: props.stage,
-    });
     const domainName = `${
       props.stage === 'prod' ? '' : props.stage + '.'
     }senjuns.com`;
+
+    new DashboardStack(this, 'DashboardStack', {
+      stage: props.stage,
+      domainName,
+    });
+
     new LandingPageStack(this, 'LandingPageStack', { domainName });
-    new DashboardAppStack(this, 'DashboardAppStack', { domainName });
+    // new DashboardAppStack(this, 'DashboardAppStack', { domainName });
     // new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
 
     const { SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, WELCOME_CHANNEL_ID } =

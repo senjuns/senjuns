@@ -1,4 +1,4 @@
-import { Auth } from 'aws-amplify';
+import { Amplify, Auth } from 'aws-amplify';
 
 import {
   FC,
@@ -42,13 +42,6 @@ export const AuthProvider: FC<any> = ({ children }) => {
   const [userInfo, setUserInfo] = useState<any>();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const authenticateCurrentUser = useCallback(async () => {
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    const userInfo = await Auth.currentAuthenticatedUser();
-    setUserInfo(userInfo);
-    setIsLoggedIn(true);
-  }, []);
-
   const signOut = useCallback(async () => {
     await Auth.signOut();
     setIsLoggedIn(false);
@@ -63,8 +56,33 @@ export const AuthProvider: FC<any> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    void authenticateCurrentUser();
-  }, [authenticateCurrentUser]);
+    fetch('/runtime-config.json')
+      .then((response) => response.json())
+      .then((runtimeContext) => {
+        runtimeContext.region &&
+          runtimeContext.userPoolId &&
+          runtimeContext.userPoolWebClientId &&
+          runtimeContext.identityPoolId &&
+          Amplify.configure({
+            aws_project_region: runtimeContext.region,
+            aws_cognito_identity_pool_id: runtimeContext.identityPoolId,
+            aws_cognito_region: runtimeContext.region,
+            aws_user_pools_id: runtimeContext.userPoolId,
+            aws_user_pools_web_client_id: runtimeContext.userPoolWebClientId,
+            aws_appsync_graphqlEndpoint: runtimeContext.appSyncGraphqlEndpoint,
+            aws_appsync_region: runtimeContext.region,
+            aws_appsync_authenticationType: 'AWS_IAM',
+            Auth: {
+              region: runtimeContext.region,
+              userPoolId: runtimeContext.userPoolId,
+              userPoolWebClientId: runtimeContext.userPoolWebClientId,
+              identityPoolId: runtimeContext.identityPoolId,
+            },
+          });
+        console.log(Amplify);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   const values = useMemo<AuthContextType>(
     () => ({

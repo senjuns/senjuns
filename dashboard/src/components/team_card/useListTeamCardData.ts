@@ -9,7 +9,7 @@ export interface TeamCardType {
 
 interface IGetTeamCardDataProps {}
 
-export const useGetLatestPhotoFeedDataBySystemId =
+export const useListTeamCardData =
   // eslint-disable-next-line no-empty-pattern
   ({}: IGetTeamCardDataProps): TeamCardType[] => {
     return teamCardsMock;

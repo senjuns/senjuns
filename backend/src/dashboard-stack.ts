@@ -1,34 +1,31 @@
 import * as appsync from '@aws-cdk/aws-appsync-alpha';
 import * as core from 'aws-cdk-lib';
-import * as apigateway from 'aws-cdk-lib/aws-apigateway';
-import * as certificatemanager from 'aws-cdk-lib/aws-certificatemanager';
 import * as cognito from 'aws-cdk-lib/aws-cognito';
 import * as events from 'aws-cdk-lib/aws-events';
 import * as targets from 'aws-cdk-lib/aws-events-targets';
 import * as iam from 'aws-cdk-lib/aws-iam';
 import * as lambdajs from 'aws-cdk-lib/aws-lambda-nodejs';
 import * as logs from 'aws-cdk-lib/aws-logs';
-import * as route53 from 'aws-cdk-lib/aws-route53';
-import * as route53Targets from 'aws-cdk-lib/aws-route53-targets';
 import * as s3 from 'aws-cdk-lib/aws-s3';
+import * as ssm from 'aws-cdk-lib/aws-ssm';
 import * as cr from 'aws-cdk-lib/custom-resources';
-// import { StaticWebsite } from './construcs/static-website';
 import { AppSyncTransformer } from 'cdk-appsync-transformer';
 import * as constructs from 'constructs';
+import { StaticWebsite } from './construcs/static-website';
 
-export interface DashboardBackendStackProps extends core.StackProps {
+export interface DashboardStackProps extends core.StackProps {
   stage: string;
 
   userPoolId?: string;
 
-  domainName?: string;
+  domainName: string;
 }
 
-export class DashboardBackendStack extends core.Stack {
+export class DashboardStack extends core.Stack {
   constructor(
     scope: constructs.Construct,
     id: string,
-    props: DashboardBackendStackProps,
+    props: DashboardStackProps,
   ) {
     super(scope, id, props);
 
@@ -234,32 +231,6 @@ export class DashboardBackendStack extends core.Stack {
       }),
     );
 
-    // const dashboard = new StaticWebsite(this, 'dashboard', {
-    //   build: '../dashboard/build',
-    //   recordName: 'dashboard',
-    //   domainName: props.domainName,
-    //   runtimeOptions: {
-    //     jsonPayload: {
-    //       region: core.Stack.of(this).region,
-    //       identityPoolId: identityPool.ref,
-    //       userPoolId: userPool.userPoolId,
-    //       userPoolWebClientId: userPoolWebClient.userPoolClientId,
-    //     },
-    //   },
-    // });
-
-    // new core.CfnOutput(this, 'BucketWebsiteUrl', {
-    //   value: dashboard.bucketWebsiteUrl,
-    // });
-
-    // new core.CfnOutput(this, 'CustomDomainWebsiteUrl', {
-    //   value: dashboard.recordDomainName,
-    // });
-
-    // new core.CfnOutput(this, 'WebsiteCloudfrontDomainName', {
-    //   value: dashboard.distributionDomainName,
-    // });
-
     const userImportRole = new iam.Role(this, 'userImportRole', {
       assumedBy: new iam.ServicePrincipal('cognito-idp.amazonaws.com'),
     });
@@ -324,6 +295,13 @@ export class DashboardBackendStack extends core.Stack {
       },
     });
     appSyncTransformer;
+    Object.entries(appSyncTransformer.tableMap).forEach((table) => {
+      table[1].applyRemovalPolicy(core.RemovalPolicy.DESTROY);
+    });
+    const graphqlUrl = new ssm.StringParameter(this, 'GraphqlUrl', {
+      parameterName: 'GraphqlUrl',
+      stringValue: appSyncTransformer.appsyncAPI.graphqlUrl,
+    });
     // const publicRole = new iam.Role(this, 'public-role', {
     //   assumedBy: new iam.WebIdentityPrincipal(
     //     'cognito-identity.amazonaws.com',
@@ -339,6 +317,36 @@ export class DashboardBackendStack extends core.Stack {
     // });
     // publicRole;
     // appSyncTransformer.grantPublic(publicRole);
+
+    // const nestedStack = new core.NestedStack(this, 'appsync-nested-stack');
+    // const app = new appsync.GraphqlApi(nestedStack, 'api', { name: 'blub' });
+
+    const dashboard = new StaticWebsite(this, 'dashboard', {
+      build: '../dashboard/build',
+      recordName: 'dashboard',
+      domainName: props.domainName,
+      runtimeOptions: {
+        jsonPayload: {
+          region: core.Stack.of(this).region,
+          identityPoolId: identityPool.ref,
+          userPoolId: userPool.userPoolId,
+          userPoolWebClientId: userPoolWebClient.userPoolClientId,
+          appSyncGraphqlEndpoint: graphqlUrl.stringValue,
+        },
+      },
+    });
+
+    new core.CfnOutput(this, 'BucketWebsiteUrl', {
+      value: dashboard.bucketWebsiteUrl,
+    });
+
+    new core.CfnOutput(this, 'CustomDomainWebsiteUrl', {
+      value: dashboard.recordDomainName,
+    });
+
+    new core.CfnOutput(this, 'WebsiteCloudfrontDomainName', {
+      value: dashboard.distributionDomainName,
+    });
 
     // Add allowed queries to the unauthorized identity pool role
     authenticatedRole.addToPolicy(
@@ -362,55 +370,5 @@ export class DashboardBackendStack extends core.Stack {
         ],
       }),
     );
-
-    const infoLambda = new lambdajs.NodejsFunction(this, 'info', {
-      environment: {
-        login_client_id: userPoolWebClient.userPoolClientId,
-        cognito_user_pool: userPool.userPoolId,
-        cognito_pool_address: `cognito-idp.${this.region}.amazonaws.com/${userPool.userPoolId}`,
-        identity_pool_id: identityPool.ref,
-        aws_appsync_graphqlEndpoint: appSyncTransformer.appsyncAPI.graphqlUrl,
-      },
-    });
-    infoLambda;
-
-    const domainName = `${
-      props.stage === 'prod' ? '' : props.stage + '.'
-    }senjuns.com`;
-    const infoSubDomain = 'dashboard-info';
-    const infoDomain = `${infoSubDomain}.${domainName}`;
-
-    const zone = route53.HostedZone.fromLookup(this, 'Zone', { domainName });
-
-    const infoCertificate = new certificatemanager.DnsValidatedCertificate(
-      this,
-      'infoCertificate',
-      {
-        domainName: infoDomain,
-        hostedZone: zone,
-      },
-    );
-    infoCertificate;
-
-    const infoApi = new apigateway.LambdaRestApi(this, 'infoApi', {
-      handler: infoLambda,
-      proxy: true,
-      domainName: {
-        domainName: infoDomain,
-        certificate: infoCertificate,
-      },
-    });
-
-    const infoRecord = new route53.ARecord(this, 'infoRecord', {
-      recordName: infoSubDomain,
-      target: route53.RecordTarget.fromAlias(
-        new route53Targets.ApiGateway(infoApi),
-      ),
-      zone: zone,
-    });
-
-    new core.CfnOutput(this, 'InfoUrl', {
-      value: infoRecord.domainName,
-    });
   }
 }

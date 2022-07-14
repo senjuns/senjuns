@@ -29,6 +29,7 @@ jspm_packages/
 *.tgz
 .yarn-integrity
 .cache
+runtime-config.json
 !/.projenrc.js
 !/test/
 !/tsconfig.json
@@ -38,4 +39,3 @@ jspm_packages/
 /dist/
 /build/
 !/react-app-env.d.ts
-src/shared/config/config.ts

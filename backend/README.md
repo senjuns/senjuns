@@ -82,8 +82,7 @@ yarn cdk deploy 'dev-...Stack'
 yarn cdk deploy 'dev-...Stack' --watch
 yarn cdk deploy 'dev-...Stack' --require-approval never
 STAGE=dev
-yarn cdk deploy "senjuns-pipeline/$STAGE/DashboardBackendStack" --require-approval never
-yarn cdk deploy "senjuns-pipeline/$STAGE/DashboardAppStack" --require-approval never
+yarn cdk deploy "senjuns-pipeline/$STAGE/DashboardStack" --require-approval never
 yarn cdk deploy "senjuns-pipeline/$STAGE/LandingPageStack" --require-approval never
 yarn cdk deploy "senjuns-pipeline/$STAGE/BotStack" --require-approval never
 ```
@@ -91,7 +90,7 @@ yarn cdk deploy "senjuns-pipeline/$STAGE/BotStack" --require-approval never
 For destroy do
 
 ```bash
-yarn destroy
+yes | yarn cdk destroy "senjuns-pipeline/$STAGE/DashboardBackendStack"
 ```
 
 For setup access to the specific stage get your programmatic credentials via AWS SSO and store them in ~/.aws/credentials or more convenient store them as environment variables.
@@ -110,13 +109,14 @@ Create User
 ```bash
 REGION=eu-central-1
 # dev
-USER_POOL_ID=eu-central-1_HV8PCNy1W
+# USER_POOL_ID=eu-central-1_voL4v2egL
+USER_POOL_ID=$(curl https://dashboard.dev.senjuns.com/runtime-config.json | jq -r '.userPoolId')
 
 USER_NAME=martinmueller@senjuns.com
 USER_PASSWORD=M@rtin1988
 
-aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --user-attributes Name=email,Value=$USER_NAME --region $REGION
-aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --region $REGION
+aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --user-attributes Name=email,Value=$USER_NAME --region $REGION --output text
+aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --region $REGION --output text
 ```
 
 ## AppSync

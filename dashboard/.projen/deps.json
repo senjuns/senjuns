@@ -147,6 +147,7 @@
     },
     {
       "name": "@material-ui/lab",
+      "version": "^4.0.0-alpha.61",
       "type": "runtime"
     },
     {
