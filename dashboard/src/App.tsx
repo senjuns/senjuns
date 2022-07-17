@@ -7,7 +7,7 @@
 // import { setContext } from '@apollo/client/link/context';
 import Container from '@material-ui/core/Container';
 import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
-import { Amplify } from 'aws-amplify';
+// import { Amplify } from 'aws-amplify';
 import './App.css';
 
 import { lazy, Suspense } from 'react';
@@ -19,7 +19,7 @@ import { AuthProvider } from './contexts';
 import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 
 // import { ProtectedRoute } from './ProtectedRoute';
-import config from './shared/config';
+// import config from './shared/config';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -37,7 +37,7 @@ const RouteChangeTracker = lazy(
 );
 const MainLayout = lazy(() => import('./components/layout/MainLayout'));
 
-Amplify.configure(config);
+// Amplify.configure(config);
 
 const queryClient = new QueryClient();
 
