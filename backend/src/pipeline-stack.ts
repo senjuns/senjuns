@@ -5,7 +5,7 @@ import * as subscriptions from 'aws-cdk-lib/aws-sns-subscriptions';
 import * as pipelines from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { BotStack } from './bot-stack';
-import { CostAndUsageReportStack } from './cost-and-usage-report-stack';
+// import { CostAndUsageReportStack } from './cost-and-usage-report-stack';
 // import { DashboardAppStack } from './dashboard-app-stack';
 import { DashboardStack } from './dashboard-stack';
 import { LandingPageStack } from './landingpage-stack';
@@ -36,15 +36,15 @@ export class PipelineStack extends cdk.Stack {
       }),
     });
 
-    pipeline.addStage(
-      new UtilStage(this, 'util', {
-        env: {
-          account: '240818873559',
-          region: 'us-east-1',
-        },
-        stage: 'dev',
-      }),
-    );
+    // pipeline.addStage(
+    //   new UtilStage(this, 'util', {
+    //     env: {
+    //       account: '240818873559',
+    //       region: 'us-east-1',
+    //     },
+    //     stage: 'dev',
+    //   }),
+    // );
 
     pipeline.addStage(
       new BackendStage(this, 'dev', {
@@ -140,13 +140,13 @@ class BackendStage extends cdk.Stage {
   }
 }
 
-class UtilStage extends cdk.Stage {
-  constructor(scope: Construct, id: string, props: BackendStageProps) {
-    super(scope, id, props);
+// class UtilStage extends cdk.Stage {
+//   constructor(scope: Construct, id: string, props: BackendStageProps) {
+//     super(scope, id, props);
 
-    new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
-  }
-}
+//     new CostAndUsageReportStack(this, 'CostAndUsageReportStack');
+//   }
+// }
 
 // class FrontendStage extends cdk.Stage {
 //   constructor(scope: Construct, id: string, props?: cdk.StageProps) {
