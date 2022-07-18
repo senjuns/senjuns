@@ -2,6 +2,8 @@
 
 This is a monorepo. The idea of a monorepo is to have all code-related modules, documentation and so on next to each other. That allows reducing the overhead when managing multiple repos.
 
+Senjuns is (will be) a freelancer platform for connecting seniors and juniors with clients.
+
 Want to know more about Senjuns? Checkout the Pitch slide:
 
 [Senjuns Pitch](misc/SenjunsPitch.pdf)
