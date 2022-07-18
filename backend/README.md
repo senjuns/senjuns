@@ -109,8 +109,10 @@ Create User
 ```bash
 REGION=eu-central-1
 # dev
-# USER_POOL_ID=eu-central-1_voL4v2egL
-USER_POOL_ID=$(curl https://dashboard.dev.senjuns.com/runtime-config.json | jq -r '.userPoolId')
+STAGE=dev.
+# prod
+STAGE=''
+USER_POOL_ID=$(curl https://dashboard.${STAGE}senjuns.com/runtime-config.json | jq -r '.userPoolId')
 
 USER_NAME=martinmueller@senjuns.com
 USER_PASSWORD=M@rtin1988
