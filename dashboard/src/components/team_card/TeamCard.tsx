@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { InterBoldMirage16px, Poppins22, Poppins26 } from '../../shared/fonts';
 // import { useGetLatestPhotoFeedDataBySystemId } from './useListTeamCardData';
 import { useScreenSize } from '../../hooks/useScreenSize';
-import { ResponsiveLayoutProps } from '../../shared/types';
+// import { ResponsiveLayoutProps } from '../../shared/types';
 import { useListTeamCardsQuery } from '../../lib/api';
 
 const TeamCard = () => {
@@ -21,34 +21,41 @@ const TeamCard = () => {
       {data?.listTeamCards?.items?.map((teamCard, index) => (
         <div key={index} className="container-center-horizontal">
           <div className="teamcard screen">
-            <Details>
-              <DetailsDescription>
+            <div className="w-full p-20 ml-40">
+              <div className="">
                 <DetailsDescriptionTitle>
                   {teamCard?.teamName}
                 </DetailsDescriptionTitle>
-                <Tags>
+                <div className="flex">
                   {teamCard?.tags?.map((tag, index) => (
-                    <Tag key={index}>
+                    <div
+                      className="h-11 flex px-4 items-center bg-gallery rounded-full justify-center mr-10"
+                      key={index}
+                    >
                       <Text>{tag}</Text>
-                    </Tag>
+                    </div>
                   ))}
-                </Tags>
+                </div>
                 <DetailsDescriptionBody>
                   {teamCard?.teamDescription}
                 </DetailsDescriptionBody>
-              </DetailsDescription>
-            </Details>
-            <Members isMobile={isMobile}>
+              </div>
+            </div>
+            <div
+              className={`flex flex-wrap items-center justify-between gap-30 ${
+                isMobile ? 'pt-90 pr-20 pb-60' : ''
+              }`}
+            >
               {teamCard?.members?.map((member, index) => (
-                <Member key={index}>
+                <div className="flex flex-col items-center w-300" key={index}>
                   <Image src={member?.image} />
                   <MemberDescription>
                     <FirstName>{member?.firstName}</FirstName>
                     <Role>{member?.role}</Role>
                   </MemberDescription>
-                </Member>
+                </div>
               ))}
-            </Members>
+            </div>
           </div>
           <hr></hr>
         </div>
@@ -58,18 +65,6 @@ const TeamCard = () => {
 };
 
 export default TeamCard;
-
-const Details = styled.div`
-  display: flex;
-  width: 100%;
-  padding: 20px;
-  margin-left: 40px;
-`;
-
-const DetailsDescription = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
 
 const DetailsDescriptionTitle = styled.h1`
   ${Poppins26}
@@ -88,11 +83,6 @@ const DetailsDescriptionBody = styled.div`
   line-height: 30px;
 `;
 
-const Tags = styled.div`
-  display: flex;
-  align-items: flex-start;
-`;
-
 const Text = styled.div`
   ${InterBoldMirage16px}
   min-height: 20px;
@@ -100,34 +90,6 @@ const Text = styled.div`
   letter-spacing: 0.64px;
   line-height: 20px;
   white-space: nowrap;
-`;
-
-const Tag = styled.div`
-  height: 44px;
-  display: flex;
-  padding: 0 16px;
-  align-items: center;
-  background-color: var(--gallery);
-  border-radius: 99px;
-  justify-content: center;
-  margin-right: 38px;
-`;
-
-const Members = styled.div<ResponsiveLayoutProps>`
-  display: flex;
-  align-items: center;
-  padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '')};
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
-`;
-
-const Member = styled.div`
-  width: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 const Image = styled.img`

@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.root,
+#root,
+#docs-root {
+    --black-2: rgba(0, 0, 0, 0.8);
+    --black: rgba(0, 0, 0, 1);
+    --mirage: rgba(13, 26, 38, 1);
+    --chicago: rgba(88, 88, 88, 1);
+    --primary100: rgba(96, 195, 227, 1);
+    --primary80: rgba(127, 206, 232, 1);
+    --half-baked: rgba(134, 197, 216, 1);
+    --mountain-mist: rgba(152, 152, 152, 1);
+    --primary60: rgba(159, 218, 238, 1);
+    --pink-swan: rgba(184, 184, 184, 1);
+    --orchid: rgba(205, 114, 202, 1);
+    --secondary100: rgba(229, 229, 229, 1);
+    --secondary80: rgba(234, 234, 234, 1);
+    --secondary60: rgba(239, 239, 239, 1);
+    --gallery: rgba(239, 240, 240, 1);
+    --black-squeeze: rgba(240, 248, 250, 1);
+    --jaffa: rgba(244, 142, 66, 1);
+    --desert-storm: rgba(248, 248, 248, 1);
+    --tutu: rgba(250, 238, 249, 1);
+    --white: rgba(255, 255, 255, 1);
+  
+    --font-size-m: 14px;
+    --font-size-l: 12px;
+    --font-size-l: 18px;
+    --font-size-xl: 20px;
+    --font-size-m2: 11px;
+    --font-size-22px: 22px;
+    --font-size-xxl3: 24px;
+    --font-size-xxl2: 26px;
+    --font-size-xxxl2: 40px;
+    --font-size-xxxxl2: 60px;
+  
+    --font-family-inter: 'Inter';
+    --font-family-inter-bold: 'Inter-Bold';
+    --font-family-inter-regular: 'Inter-Regular';
+    --font-family-inter-semibold: 'Inter-SemiBold';
+    --font-family-poppins: 'Poppins';
+    --font-family-poppins-regular: 'Poppins-Regular';
+    --font-family-roboto: 'Roboto';
+    --font-family-roboto-bold: 'Roboto-Bold';
+    --font-family-whyte-bold: 'Whyte-Bold';
+}

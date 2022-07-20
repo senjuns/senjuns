@@ -160,6 +160,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@material-ui/pickers',
     // 'react-ga@^3.3.0',
     'styled-components',
+    // https://dev.to/sureshramani/how-to-use-tailwind-css-with-a-react-app-1j6h
     'use-debounce',
     '@date-io/date-fns',
     '@date-io/moment',
@@ -188,6 +189,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@types/styled-components',
     '@types/react-test-renderer',
     '@types/react-responsive',
+    ...['tailwindcss', 'postcss-cli', 'autoprefixer'],
     'react-test-renderer',
     '@types/react-color',
     '@types/react-plotly.js',
@@ -230,7 +232,11 @@ dashboard.setScript(
   'dev',
   'curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && react-scripts start',
 );
-// only have prod atm
-// dashboard.setScript('start:prod', 'build:config && react-scripts start');
+
+dashboard.setScript('start', 'yarn run build:css && react-scripts start');
+dashboard.setScript(
+  'build:css',
+  'postcss src/styles/tailwind.css -o src/styles/main.css',
+);
 
 dashboard.synth();
