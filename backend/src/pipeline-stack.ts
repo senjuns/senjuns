@@ -12,7 +12,6 @@ import { LandingPageStack } from './landingpage-stack';
 // import { DashboardAppStack } from './dashboard-app-stack';
 // import { DashboardBackendStack } from './dashboard-backend-stack';
 // import { LandingPageStack } from './landingpage-stack';
-
 export class PipelineStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);

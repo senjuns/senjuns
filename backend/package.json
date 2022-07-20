@@ -57,11 +57,15 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
+    "@aws-cdk/aws-apigatewayv2-alpha": "2.31.1-alpha.0",
     "@aws-cdk/aws-appsync-alpha": "2.31.1-alpha.0",
+    "@aws-cdk/aws-redshift-alpha": "2.31.1-alpha.0",
+    "@aws-cdk/aws-synthetics-alpha": "2.31.1-alpha.0",
     "@cremich/cdk-bill-bot": "^0.0.1-alpha.2",
     "@slack/bolt": "^3.11.3",
     "aws-cdk-lib": "^2.31.1",
     "cdk-appsync-transformer": "2.0.0-alpha.0",
+    "cdk-monitoring-constructs": "^1.17.2",
     "constructs": "^10.0.5",
     "dotenv": "^16.0.1",
     "got": "*"

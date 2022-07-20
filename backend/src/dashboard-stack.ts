@@ -10,6 +10,7 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as ssm from 'aws-cdk-lib/aws-ssm';
 import * as cr from 'aws-cdk-lib/custom-resources';
 import { AppSyncTransformer } from 'cdk-appsync-transformer';
+import { MonitoringFacade } from 'cdk-monitoring-constructs';
 import * as constructs from 'constructs';
 import { StaticWebsite } from './construcs/static-website';
 
@@ -295,8 +296,30 @@ export class DashboardStack extends core.Stack {
       },
     });
     appSyncTransformer;
+
+    const monitoring = new MonitoringFacade(this, 'Monitoring', {});
+    monitoring;
+
+    monitoring.monitorAppSyncApi({
+      api: appSyncTransformer.appsyncAPI,
+      alarmFriendlyName: 'appsyncAlarm',
+      add4XXErrorCountAlarm: { add4XXErrorCountAlarm: { maxErrorCount: 1 } },
+      add4XXErrorRateAlarm: { add4XXErrorRateAlarm: { maxErrorRate: 1 } },
+      add5XXFaultCountAlarm: { add5XXFaultCountAlarm: { maxErrorCount: 1 } },
+      add5XXFaultRateAlarm: { add5XXFaultRateAlarm: { maxErrorRate: 1 } },
+      addLatencyP50Alarm: {
+        addLatencyP50Alarm: { maxLatency: core.Duration.seconds(1) },
+      },
+      // addLowTpsAlarm: { addLowTpsAlarm: { minTps: 1 } },
+      addHighTpsAlarm: { addHighTpsAlarm: { maxTps: 1 } },
+    });
+
     Object.entries(appSyncTransformer.tableMap).forEach((table) => {
       table[1].applyRemovalPolicy(core.RemovalPolicy.DESTROY);
+      monitoring.monitorDynamoTable({
+        table: table[1],
+        alarmFriendlyName: `${table[1].tableName}Alarm`,
+      });
     });
     const graphqlUrl = new ssm.StringParameter(this, 'GraphqlUrl', {
       parameterName: 'GraphqlUrl',

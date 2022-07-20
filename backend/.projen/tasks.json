@@ -267,19 +267,19 @@
           "exec": "yarn upgrade npm-check-updates"
         },
         {
-          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@aws-cdk/aws-appsync-alpha,cdk-appsync-transformer'"
+          "exec": "npm-check-updates --dep dev --upgrade --target=minor --reject='@aws-cdk/aws-apigatewayv2-alpha,@aws-cdk/aws-appsync-alpha,@aws-cdk/aws-redshift-alpha,@aws-cdk/aws-synthetics-alpha,cdk-appsync-transformer'"
         },
         {
-          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@aws-cdk/aws-appsync-alpha,cdk-appsync-transformer'"
+          "exec": "npm-check-updates --dep optional --upgrade --target=minor --reject='@aws-cdk/aws-apigatewayv2-alpha,@aws-cdk/aws-appsync-alpha,@aws-cdk/aws-redshift-alpha,@aws-cdk/aws-synthetics-alpha,cdk-appsync-transformer'"
         },
         {
-          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@aws-cdk/aws-appsync-alpha,cdk-appsync-transformer'"
+          "exec": "npm-check-updates --dep peer --upgrade --target=minor --reject='@aws-cdk/aws-apigatewayv2-alpha,@aws-cdk/aws-appsync-alpha,@aws-cdk/aws-redshift-alpha,@aws-cdk/aws-synthetics-alpha,cdk-appsync-transformer'"
         },
         {
-          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@aws-cdk/aws-appsync-alpha,cdk-appsync-transformer'"
+          "exec": "npm-check-updates --dep prod --upgrade --target=minor --reject='@aws-cdk/aws-apigatewayv2-alpha,@aws-cdk/aws-appsync-alpha,@aws-cdk/aws-redshift-alpha,@aws-cdk/aws-synthetics-alpha,cdk-appsync-transformer'"
         },
         {
-          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@aws-cdk/aws-appsync-alpha,cdk-appsync-transformer'"
+          "exec": "npm-check-updates --dep bundle --upgrade --target=minor --reject='@aws-cdk/aws-apigatewayv2-alpha,@aws-cdk/aws-appsync-alpha,@aws-cdk/aws-redshift-alpha,@aws-cdk/aws-synthetics-alpha,cdk-appsync-transformer'"
         },
         {
           "exec": "yarn install --check-files"

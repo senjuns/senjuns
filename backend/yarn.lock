@@ -9,10 +9,25 @@
   dependencies:
     "@jridgewell/trace-mapping" "^0.3.0"
 
+"@aws-cdk/aws-apigatewayv2-alpha@2.31.1-alpha.0":
+  version "2.31.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-apigatewayv2-alpha/-/aws-apigatewayv2-alpha-2.31.1-alpha.0.tgz#122a41abdea0458aa022deb5c0cabfbc09187488"
+  integrity sha512-Mybkj/nrTImf7em66geZo16dDzsRc2QOAi86YzzfX9oTPcm8t9L/3OhsEGvGvnEKg4RlD57gfltW8mIuOH7dkg==
+
 "@aws-cdk/aws-appsync-alpha@2.31.1-alpha.0":
   version "2.31.1-alpha.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-appsync-alpha/-/aws-appsync-alpha-2.31.1-alpha.0.tgz#a044b0bbe0be2db0e0dadc7678e44a4193ff9dba"
   integrity sha512-NTe4vobwYV6r/hgDQxPhLwjIVNX6cH0YSpG2efb6RT6/ORWM2Gz+Gq3Nw6+JC8XSefWn6CsTdrB595dIMu9gYw==
+
+"@aws-cdk/aws-redshift-alpha@2.31.1-alpha.0":
+  version "2.31.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-redshift-alpha/-/aws-redshift-alpha-2.31.1-alpha.0.tgz#3e33ed6fd41c6204a4fbd224ea563a3dcde51c18"
+  integrity sha512-lIN0N44C4ndKzZdYLB2LvNxtJgq1VtAU6N4w946PCDODgBfVf7T/QIIXJ7lKBxHwcK4Z8+X5+eCpZul0oESusA==
+
+"@aws-cdk/aws-synthetics-alpha@2.31.1-alpha.0":
+  version "2.31.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-synthetics-alpha/-/aws-synthetics-alpha-2.31.1-alpha.0.tgz#19ef995148828fd1651f77b7789bf43fdcd959c5"
+  integrity sha512-Y+/2+KoWhqobKdeQBJCckwwX3PA0zs3TgzzkhXiP9RlZKoJm27VGPYK5mTVRcsaVwHtQelIM5oRMJimgUO2Hzg==
 
 "@aws-cdk/cloud-assembly-schema@1.152.0":
   version "1.152.0"
@@ -1872,6 +1887,11 @@ cdk-dia@^0.7.0:
     values.js "^2.0.0"
     word-wrap "^1.2.3"
     yargs "^16.2.0"
+
+cdk-monitoring-constructs@^1.17.2:
+  version "1.17.2"
+  resolved "https://registry.yarnpkg.com/cdk-monitoring-constructs/-/cdk-monitoring-constructs-1.17.2.tgz#2638c3da0a98361beda59e680b3e6f6e384f6fe4"
+  integrity sha512-+5xbu4uQgFiYm+4ZHH3yQ+qaSID9P+L249llF1zChblWtvrq+XlfsHh2j7yfWLhKmlDnoRxJcICz2gdG8FgXSw==
 
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
