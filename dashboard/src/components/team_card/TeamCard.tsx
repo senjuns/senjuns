@@ -1,5 +1,6 @@
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { useListTeamCardsQuery } from '../../lib/api';
+import { MultilineEdit } from '../common/MultilineEdit';
 
 const TeamCard = () => {
   const { isMobile } = useScreenSize();
@@ -29,6 +30,12 @@ const TeamCard = () => {
                     </div>
                   ))}
                 </div>
+                <MultilineEdit
+                  label="Team Description"
+                  fullWidth
+                  multiline
+                  defaultValue={teamCard?.teamDescription}
+                />
                 <div className="text-2xl">{teamCard?.teamDescription}</div>
               </div>
             </div>

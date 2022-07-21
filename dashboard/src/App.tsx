@@ -99,6 +99,11 @@ function App() {
                         {/* <Home /> */}
                         <TeamCard />
                       </MainLayout>
+                      {/* <ProtectedRoute exact path="/edit">
+                        <MainLayout>
+                          <RoomDetailsPage />
+                        </MainLayout>
+                      </ProtectedRoute> */}
                       {/* </ProtectedRoute> */}
                       {/* <ProtectedRoute exact path="/room-details/:id">
                           <MainLayout>
