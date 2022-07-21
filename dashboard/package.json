@@ -7,7 +7,7 @@
     "compile": "npx projen compile",
     "copy-schema": "npx projen copy-schema",
     "default": "npx projen default",
-    "dev": "curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && react-scripts start",
+    "dev": "curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && yarn run build:css && react-scripts start",
     "eject": "npx projen eject",
     "generate-statements": "npx projen generate-statements",
     "package": "npx projen package",
@@ -18,7 +18,6 @@
     "upgrade": "npx projen upgrade",
     "watch": "npx projen watch",
     "projen": "npx projen",
-    "start": "yarn run build:css && react-scripts start",
     "build:css": "postcss src/styles/tailwind.css -o src/styles/main.css"
   },
   "devDependencies": {

@@ -21,7 +21,12 @@ const project = new pj.typescript.TypeScriptProject({
       trailingComma: TrailingComma.ALL,
     },
   },
-  devDeps: ['commithelper', 'husky', 'lint-staged'],
+  devDeps: [
+    'commithelper',
+    'husky',
+    'lint-staged',
+    'prettier-plugin-tailwindcss',
+  ],
   release: true,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
@@ -223,20 +228,14 @@ dashboard.addTask('codegen', {
   exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
 });
 
-// dashboard.setScript(
-//   'dev',
-//   'export STAGE=prod && yarn build:config && REACT_APP_STAGE=prod react-scripts start',
-// );
-
-dashboard.setScript(
-  'dev',
-  'curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && react-scripts start',
-);
-
-dashboard.setScript('start', 'yarn run build:css && react-scripts start');
 dashboard.setScript(
   'build:css',
   'postcss src/styles/tailwind.css -o src/styles/main.css',
+);
+
+dashboard.setScript(
+  'dev',
+  'curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && yarn run build:css && react-scripts start',
 );
 
 dashboard.synth();

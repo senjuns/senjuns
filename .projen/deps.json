@@ -80,6 +80,10 @@
       "type": "build"
     },
     {
+      "name": "prettier-plugin-tailwindcss",
+      "type": "build"
+    },
+    {
       "name": "projen",
       "type": "build"
     },

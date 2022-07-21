@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TeamCard /> deep renders correctly. 1`] = `
+<div>
+  <div
+    className="container-center-horizontal"
+  >
+    <div
+      className="teamcard screen"
+    >
+      <div
+        className="ml-40 w-full p-20"
+      >
+        <div
+          className=""
+        >
+          <div
+            className="text-3xl"
+          >
+            AWS CDK Team
+          </div>
+          <div
+            className="flex"
+          >
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                AWS
+              </div>
+            </div>
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                IaC
+              </div>
+            </div>
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                DevOps
+              </div>
+            </div>
+          </div>
+          <div
+            className="text-2xl"
+          >
+            we are obsessed with AWS and building cool solutions for our customers ...
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex flex-wrap "
+      >
+        <div
+          className="w-300 flex flex-col items-center"
+        >
+          <img
+            className="h-52 w-52"
+            src="https://i.pravatar.cc/300"
+          />
+          <div
+            className="mt-10 flex px-20 text-2xl"
+          >
+            <div
+              className="pr-1"
+            >
+              Martin
+            </div>
+            <div
+              className=""
+            >
+              - Senior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+        <div
+          className="w-300 flex flex-col items-center"
+        >
+          <img
+            className="h-52 w-52"
+            src="https://i.pravatar.cc/301"
+          />
+          <div
+            className="mt-10 flex px-20 text-2xl"
+          >
+            <div
+              className="pr-1"
+            >
+              Ben-Hur
+            </div>
+            <div
+              className=""
+            >
+              - Junior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div
+    className="container-center-horizontal"
+  >
+    <div
+      className="teamcard screen"
+    >
+      <div
+        className="ml-40 w-full p-20"
+      >
+        <div
+          className=""
+        >
+          <div
+            className="text-3xl"
+          >
+            Data Engineering Team
+          </div>
+          <div
+            className="flex"
+          >
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                ML
+              </div>
+            </div>
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                Python
+              </div>
+            </div>
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                Panda
+              </div>
+            </div>
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                PySpark
+              </div>
+            </div>
+          </div>
+          <div
+            className="text-2xl"
+          >
+            we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex flex-wrap "
+      >
+        <div
+          className="w-300 flex flex-col items-center"
+        >
+          <img
+            className="h-52 w-52"
+            src="https://i.pravatar.cc/302"
+          />
+          <div
+            className="mt-10 flex px-20 text-2xl"
+          >
+            <div
+              className="pr-1"
+            >
+              Peter
+            </div>
+            <div
+              className=""
+            >
+              - Senior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+        <div
+          className="w-300 flex flex-col items-center"
+        >
+          <img
+            className="h-52 w-52"
+            src="https://i.pravatar.cc/303"
+          />
+          <div
+            className="mt-10 flex px-20 text-2xl"
+          >
+            <div
+              className="pr-1"
+            >
+              Naga
+            </div>
+            <div
+              className=""
+            >
+              - Junior AWS Cloud Engineer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+  <div
+    className="container-center-horizontal"
+  >
+    <div
+      className="teamcard screen"
+    >
+      <div
+        className="ml-40 w-full p-20"
+      >
+        <div
+          className=""
+        >
+          <div
+            className="text-3xl"
+          >
+            React Team
+          </div>
+          <div
+            className="flex"
+          >
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                AWS
+              </div>
+            </div>
+            <div
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
+            >
+              <div
+                className="font-bold"
+              >
+                IaC
+              </div>
+            </div>
+          </div>
+          <div
+            className="text-2xl"
+          >
+            we are nice ...
+          </div>
+        </div>
+      </div>
+      <div
+        className="flex flex-wrap "
+      >
+        <div
+          className="w-300 flex flex-col items-center"
+        >
+          <img
+            className="h-52 w-52"
+            src="https://i.pravatar.cc/304"
+          />
+          <div
+            className="mt-10 flex px-20 text-2xl"
+          >
+            <div
+              className="pr-1"
+            >
+              Ben-Hur
+            </div>
+            <div
+              className=""
+            >
+              - Senior React Engineer
+            </div>
+          </div>
+        </div>
+        <div
+          className="w-300 flex flex-col items-center"
+        >
+          <img
+            className="h-52 w-52"
+            src="https://i.pravatar.cc/305"
+          />
+          <div
+            className="mt-10 flex px-20 text-2xl"
+          >
+            <div
+              className="pr-1"
+            >
+              Martin
+            </div>
+            <div
+              className=""
+            >
+              - Junior React Engineer
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+  </div>
+</div>
+`;
