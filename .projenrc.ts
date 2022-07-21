@@ -21,7 +21,12 @@ const project = new pj.typescript.TypeScriptProject({
       trailingComma: TrailingComma.ALL,
     },
   },
-  devDeps: ['commithelper', 'husky', 'lint-staged'],
+  devDeps: [
+    'commithelper',
+    'husky',
+    'lint-staged',
+    'prettier-plugin-tailwindcss',
+  ],
   release: true,
 });
 project.prettier?.addIgnorePattern('.eslintrc.json');
@@ -160,6 +165,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@material-ui/pickers',
     // 'react-ga@^3.3.0',
     'styled-components',
+    // https://dev.to/sureshramani/how-to-use-tailwind-css-with-a-react-app-1j6h
     'use-debounce',
     '@date-io/date-fns',
     '@date-io/moment',
@@ -188,6 +194,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@types/styled-components',
     '@types/react-test-renderer',
     '@types/react-responsive',
+    ...['tailwindcss', 'postcss-cli', 'autoprefixer'],
     'react-test-renderer',
     '@types/react-color',
     '@types/react-plotly.js',
@@ -221,16 +228,14 @@ dashboard.addTask('codegen', {
   exec: 'yarn run copy-schema && yarn run generate-statements && graphql-codegen --config codegen.yml && rm schema.graphql',
 });
 
-// dashboard.setScript(
-//   'dev',
-//   'export STAGE=prod && yarn build:config && REACT_APP_STAGE=prod react-scripts start',
-// );
+dashboard.setScript(
+  'build:css',
+  'postcss src/styles/tailwind.css -o src/styles/main.css',
+);
 
 dashboard.setScript(
   'dev',
-  'curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && react-scripts start',
+  'curl https://dashboard.dev.senjuns.com/runtime-config.json > public/runtime-config.json && yarn run build:css && react-scripts start',
 );
-// only have prod atm
-// dashboard.setScript('start:prod', 'build:config && react-scripts start');
 
 dashboard.synth();

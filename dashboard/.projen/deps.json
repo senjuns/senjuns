@@ -96,8 +96,16 @@
       "type": "build"
     },
     {
+      "name": "autoprefixer",
+      "type": "build"
+    },
+    {
       "name": "npm-check-updates",
       "version": "^12",
+      "type": "build"
+    },
+    {
+      "name": "postcss-cli",
       "type": "build"
     },
     {
@@ -106,6 +114,10 @@
     },
     {
       "name": "react-test-renderer",
+      "type": "build"
+    },
+    {
+      "name": "tailwindcss",
       "type": "build"
     },
     {

@@ -9,96 +9,96 @@ exports[`<TeamCard /> deep renders correctly. 1`] = `
       className="teamcard screen"
     >
       <div
-        className="sc-bczRLJ iahzGo"
+        className="ml-40 w-full p-20"
       >
         <div
-          className="sc-gsnTZi crCdMa"
+          className=""
         >
-          <h1
-            className="sc-dkzDqf jjMDAG"
+          <div
+            className="text-3xl"
           >
             AWS CDK Team
-          </h1>
+          </div>
           <div
-            className="sc-eCYdqJ cOVyoi"
+            className="flex"
           >
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 AWS
               </div>
             </div>
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 IaC
               </div>
             </div>
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 DevOps
               </div>
             </div>
           </div>
           <div
-            className="sc-hKMtZM eGuSOs"
+            className="text-2xl"
           >
             we are obsessed with AWS and building cool solutions for our customers ...
           </div>
         </div>
       </div>
       <div
-        className="sc-iBkjds hVTIFc"
+        className="flex flex-wrap "
       >
         <div
-          className="sc-ftvSup kehjnd"
+          className="w-300 flex flex-col items-center"
         >
           <img
-            className="sc-papXJ fzcPpE"
+            className="h-52 w-52"
             src="https://i.pravatar.cc/300"
           />
           <div
-            className="sc-jqUVSM iaQgZy"
+            className="mt-10 flex px-20 text-2xl"
           >
             <div
-              className="sc-kDDrLX gddrLK"
+              className="pr-1"
             >
               Martin
             </div>
             <div
-              className="sc-iqcoie dsTMCd"
+              className=""
             >
               - Senior AWS Cloud Engineer
             </div>
           </div>
         </div>
         <div
-          className="sc-ftvSup kehjnd"
+          className="w-300 flex flex-col items-center"
         >
           <img
-            className="sc-papXJ fzcPpE"
+            className="h-52 w-52"
             src="https://i.pravatar.cc/301"
           />
           <div
-            className="sc-jqUVSM iaQgZy"
+            className="mt-10 flex px-20 text-2xl"
           >
             <div
-              className="sc-kDDrLX gddrLK"
+              className="pr-1"
             >
               Ben-Hur
             </div>
             <div
-              className="sc-iqcoie dsTMCd"
+              className=""
             >
               - Junior AWS Cloud Engineer
             </div>
@@ -115,105 +115,105 @@ exports[`<TeamCard /> deep renders correctly. 1`] = `
       className="teamcard screen"
     >
       <div
-        className="sc-bczRLJ iahzGo"
+        className="ml-40 w-full p-20"
       >
         <div
-          className="sc-gsnTZi crCdMa"
+          className=""
         >
-          <h1
-            className="sc-dkzDqf jjMDAG"
+          <div
+            className="text-3xl"
           >
             Data Engineering Team
-          </h1>
+          </div>
           <div
-            className="sc-eCYdqJ cOVyoi"
+            className="flex"
           >
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 ML
               </div>
             </div>
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 Python
               </div>
             </div>
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 Panda
               </div>
             </div>
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 PySpark
               </div>
             </div>
           </div>
           <div
-            className="sc-hKMtZM eGuSOs"
+            className="text-2xl"
           >
             we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail...
           </div>
         </div>
       </div>
       <div
-        className="sc-iBkjds hVTIFc"
+        className="flex flex-wrap "
       >
         <div
-          className="sc-ftvSup kehjnd"
+          className="w-300 flex flex-col items-center"
         >
           <img
-            className="sc-papXJ fzcPpE"
+            className="h-52 w-52"
             src="https://i.pravatar.cc/302"
           />
           <div
-            className="sc-jqUVSM iaQgZy"
+            className="mt-10 flex px-20 text-2xl"
           >
             <div
-              className="sc-kDDrLX gddrLK"
+              className="pr-1"
             >
               Peter
             </div>
             <div
-              className="sc-iqcoie dsTMCd"
+              className=""
             >
               - Senior AWS Cloud Engineer
             </div>
           </div>
         </div>
         <div
-          className="sc-ftvSup kehjnd"
+          className="w-300 flex flex-col items-center"
         >
           <img
-            className="sc-papXJ fzcPpE"
+            className="h-52 w-52"
             src="https://i.pravatar.cc/303"
           />
           <div
-            className="sc-jqUVSM iaQgZy"
+            className="mt-10 flex px-20 text-2xl"
           >
             <div
-              className="sc-kDDrLX gddrLK"
+              className="pr-1"
             >
               Naga
             </div>
             <div
-              className="sc-iqcoie dsTMCd"
+              className=""
             >
               - Junior AWS Cloud Engineer
             </div>
@@ -230,87 +230,87 @@ exports[`<TeamCard /> deep renders correctly. 1`] = `
       className="teamcard screen"
     >
       <div
-        className="sc-bczRLJ iahzGo"
+        className="ml-40 w-full p-20"
       >
         <div
-          className="sc-gsnTZi crCdMa"
+          className=""
         >
-          <h1
-            className="sc-dkzDqf jjMDAG"
+          <div
+            className="text-3xl"
           >
             React Team
-          </h1>
+          </div>
           <div
-            className="sc-eCYdqJ cOVyoi"
+            className="flex"
           >
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 AWS
               </div>
             </div>
             <div
-              className="sc-gKXOVf fEjCKH"
+              className="bg-gallery mr-10 flex h-11 items-center rounded-full px-4"
             >
               <div
-                className="sc-jSMfEi HLfgd"
+                className="font-bold"
               >
                 IaC
               </div>
             </div>
           </div>
           <div
-            className="sc-hKMtZM eGuSOs"
+            className="text-2xl"
           >
             we are nice ...
           </div>
         </div>
       </div>
       <div
-        className="sc-iBkjds hVTIFc"
+        className="flex flex-wrap "
       >
         <div
-          className="sc-ftvSup kehjnd"
+          className="w-300 flex flex-col items-center"
         >
           <img
-            className="sc-papXJ fzcPpE"
+            className="h-52 w-52"
             src="https://i.pravatar.cc/304"
           />
           <div
-            className="sc-jqUVSM iaQgZy"
+            className="mt-10 flex px-20 text-2xl"
           >
             <div
-              className="sc-kDDrLX gddrLK"
+              className="pr-1"
             >
               Ben-Hur
             </div>
             <div
-              className="sc-iqcoie dsTMCd"
+              className=""
             >
               - Senior React Engineer
             </div>
           </div>
         </div>
         <div
-          className="sc-ftvSup kehjnd"
+          className="w-300 flex flex-col items-center"
         >
           <img
-            className="sc-papXJ fzcPpE"
+            className="h-52 w-52"
             src="https://i.pravatar.cc/305"
           />
           <div
-            className="sc-jqUVSM iaQgZy"
+            className="mt-10 flex px-20 text-2xl"
           >
             <div
-              className="sc-kDDrLX gddrLK"
+              className="pr-1"
             >
               Martin
             </div>
             <div
-              className="sc-iqcoie dsTMCd"
+              className=""
             >
               - Junior React Engineer
             </div>
