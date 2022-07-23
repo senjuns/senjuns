@@ -18,6 +18,7 @@ const TeamCard = () => {
   const [editTeamCard, setEditTeamCard] = useState<{
     teamName?: string;
     teamDescription?: string;
+    members?: { firstName?: string; image?: string; role?: string }[];
   }>({});
 
   const { isMobile } = useScreenSize();
@@ -33,6 +34,13 @@ const TeamCard = () => {
 
   const handleClickEdit = async (index: number) => {
     setIsEditingIndex(index);
+    setEditTeamCard({
+      members: data?.listTeamCards?.items?.[index]?.members?.map((member) => ({
+        firstName: member?.firstName ?? undefined,
+        image: member?.image ?? undefined,
+        role: member?.role ?? undefined,
+      })),
+    });
   };
 
   const handleClickSave = async (index: number) => {
@@ -42,6 +50,7 @@ const TeamCard = () => {
         id: data?.listTeamCards?.items?.[index]?.id || '-1',
         teamName: editTeamCard.teamName,
         teamDescription: editTeamCard.teamDescription,
+        members: editTeamCard.members,
       },
     });
     setIsEditingIndex(-1);
@@ -50,13 +59,13 @@ const TeamCard = () => {
 
   return (
     <Container>
-      {data?.listTeamCards?.items?.map((teamCard, index) => (
-        <div key={index} className="container-center-horizontal">
+      {data?.listTeamCards?.items?.map((teamCard, teamCardIndex) => (
+        <div key={teamCardIndex} className="container-center-horizontal">
           <div className="teamcard screen">
             <Details>
               <DetailsDescription>
                 <DetailsDescriptionTeamNameWrapper>
-                  {index === isEditingIndex ? (
+                  {teamCardIndex === isEditingIndex ? (
                     <div
                       style={{
                         display: 'flex',
@@ -114,9 +123,9 @@ const TeamCard = () => {
                     </div>
                   )}
                   <TeamNameEditWrapper>
-                    {index === isEditingIndex ? (
+                    {teamCardIndex === isEditingIndex ? (
                       <EditSaveCancelWrapper>
-                        <Button onClick={() => handleClickSave(index)}>
+                        <Button onClick={() => handleClickSave(teamCardIndex)}>
                           Save
                         </Button>
                         <Button onClick={() => handleClickEdit(-1)}>
@@ -124,7 +133,7 @@ const TeamCard = () => {
                         </Button>
                       </EditSaveCancelWrapper>
                     ) : (
-                      <Button onClick={() => handleClickEdit(index)}>
+                      <Button onClick={() => handleClickEdit(teamCardIndex)}>
                         Edit
                       </Button>
                     )}
@@ -132,12 +141,28 @@ const TeamCard = () => {
                 </DetailsDescriptionTeamNameWrapper>
               </DetailsDescription>
             </Details>
+
             <Members isMobile={isMobile}>
               {teamCard?.members?.map((member, index) => (
                 <Member key={index}>
-                  <Image src={member?.image} />
+                  {/* <Image src={member?.image} /> */}
                   <MemberDescription>
-                    <FirstName>{member?.firstName}</FirstName>
+                    {teamCardIndex === isEditingIndex ? (
+                      <TextField
+                        fullWidth
+                        defaultValue={member?.firstName}
+                        onChange={(e) => {
+                          editTeamCard.members![index].firstName =
+                            e.target.value;
+                          setEditTeamCard({
+                            ...editTeamCard,
+                          });
+                        }}
+                      />
+                    ) : (
+                      <FirstName>{member?.firstName}</FirstName>
+                    )}
+
                     <Role>{member?.role}</Role>
                   </MemberDescription>
                 </Member>
@@ -246,7 +271,7 @@ const Text = styled.div`
   text-align: center;
   letter-spacing: 0.64px;
   line-height: 20px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 `;
 
 const Tag = styled.div`
@@ -277,10 +302,10 @@ const Member = styled.div`
   align-items: center;
 `;
 
-const Image = styled.img`
-  width: 200px;
-  height: 201px;
-`;
+// const Image = styled.img`
+//   width: 200px;
+//   height: 201px;
+// `;
 
 const MemberDescription = styled.div`
   ${Poppins22}
@@ -299,7 +324,7 @@ const FirstName = styled.div`
   color: var(--black);
   text-align: center;
   line-height: 30px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 `;
 
 const Role = styled.div`
@@ -310,5 +335,5 @@ const Role = styled.div`
   color: var(--black);
   text-align: center;
   line-height: 30px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 `;

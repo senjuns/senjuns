@@ -1,7 +1,7 @@
 import {
   useMutation,
-  UseMutationOptions,
   useQuery,
+  UseMutationOptions,
   UseQueryOptions,
 } from 'react-query';
 import { amplifyFetcher } from '../lib/fetcher';
@@ -50,15 +50,15 @@ export type DeleteTeamCardInput = {
 
 export type Member = {
   __typename?: 'Member';
-  firstName: Scalars['String'];
-  image: Scalars['String'];
-  role: Scalars['String'];
+  firstName?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  role?: Maybe<Scalars['String']>;
 };
 
 export type MemberInput = {
-  firstName: Scalars['String'];
-  image: Scalars['String'];
-  role: Scalars['String'];
+  firstName?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  role?: InputMaybe<Scalars['String']>;
 };
 
 export type ModelBooleanFilterInput = {
@@ -213,9 +213,9 @@ export type CreateTeamCardMutation = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -246,9 +246,9 @@ export type UpdateTeamCardMutation = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -279,9 +279,9 @@ export type DeleteTeamCardMutation = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -312,9 +312,9 @@ export type GetTeamCardQuery = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -352,9 +352,9 @@ export type ListTeamCardsQuery = {
                     | Array<
                         | {
                             __typename?: 'Member';
-                            image: string;
-                            firstName: string;
-                            role: string;
+                            image?: string | null | undefined;
+                            firstName?: string | null | undefined;
+                            role?: string | null | undefined;
                           }
                         | null
                         | undefined
@@ -391,9 +391,9 @@ export type OnCreateTeamCardSubscription = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -424,9 +424,9 @@ export type OnUpdateTeamCardSubscription = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -457,9 +457,9 @@ export type OnDeleteTeamCardSubscription = {
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
