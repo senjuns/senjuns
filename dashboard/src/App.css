@@ -18,15 +18,6 @@
   pointer-events: auto;
 }
 
-.teamcard {
-  align-items: center;
-  background-color: var(--white);
-  display: flex;
-  flex-direction: column;
-  height: 551px;
-  width: 100%;
-}
-
 :root {
   --black-2: rgba(0, 0, 0, 0.8);
   --black: rgba(0, 0, 0, 1);

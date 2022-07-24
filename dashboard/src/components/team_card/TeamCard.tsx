@@ -1,6 +1,6 @@
 // import { FC } from 'react';
 import styled from 'styled-components';
-import { InterBoldMirage16px, Poppins22, Poppins26 } from '../../shared/fonts';
+import { Poppins22, Poppins26 } from '../../shared/fonts';
 // import { useGetLatestPhotoFeedDataBySystemId } from './useListTeamCardData';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import { ResponsiveLayoutProps } from '../../shared/types';
@@ -11,7 +11,9 @@ import {
 import { Button } from '../common';
 import { ScreenSize } from '../../shared/constants';
 import { useState } from 'react';
-import { TextField } from '@material-ui/core';
+import { TextField, Chip } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+import IconButton from '@material-ui/core/IconButton';
 
 const TeamCard = () => {
   const [isEditingIndex, setIsEditingIndex] = useState(-1);
@@ -60,122 +62,141 @@ const TeamCard = () => {
   return (
     <Container>
       {data?.listTeamCards?.items?.map((teamCard, teamCardIndex) => (
-        <div key={teamCardIndex} className="container-center-horizontal">
-          <div className="teamcard screen">
-            <Details>
-              <DetailsDescription>
-                <DetailsDescriptionTeamNameWrapper>
-                  {teamCardIndex === isEditingIndex ? (
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        width: '100%',
+        // <div key={teamCardIndex} className="container-center-horizontal">
+        <TeamCardStyle>
+          <Details>
+            <DetailsDescription>
+              <DetailsDescriptionTeamNameWrapper>
+                {teamCardIndex === isEditingIndex ? (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      width: '100%',
+                    }}
+                  >
+                    <EditDetailsDescriptionTeamName
+                      fullWidth
+                      defaultValue={teamCard?.teamName}
+                      onChange={(e) => {
+                        setEditTeamCard({
+                          ...editTeamCard,
+                          teamName: e.target.value,
+                        });
                       }}
-                    >
-                      <EditDetailsDescriptionTeamName
-                        fullWidth
-                        defaultValue={teamCard?.teamName}
-                        onChange={(e) => {
-                          setEditTeamCard({
-                            ...editTeamCard,
-                            teamName: e.target.value,
-                          });
-                        }}
-                      />
-                      <Tags>
-                        {teamCard?.tags?.map((tag, index) => (
-                          <Tag key={index}>
-                            <Text>{tag}</Text>
-                          </Tag>
-                        ))}
-                      </Tags>
-                      <EditDetailsDescriptionBody
-                        fullWidth
-                        multiline
-                        defaultValue={teamCard?.teamDescription}
-                        onChange={(e) => {
-                          setEditTeamCard({
-                            ...editTeamCard,
-                            teamDescription: e.target.value,
-                          });
-                        }}
-                      />
-                      {/* <DetailsDescriptionBody>
+                    />
+
+                    <Tags>
+                      {teamCard?.tags?.map((tag) => (
+                        <Chip label={tag} onDelete={() => {}} />
+                      ))}
+                      <IconButton>
+                        <AddIcon />
+                      </IconButton>
+                    </Tags>
+                    <EditDetailsDescriptionBody
+                      fullWidth
+                      multiline
+                      defaultValue={teamCard?.teamDescription}
+                      onChange={(e) => {
+                        setEditTeamCard({
+                          ...editTeamCard,
+                          teamDescription: e.target.value,
+                        });
+                      }}
+                    />
+                    {/* <DetailsDescriptionBody>
                         {teamCard?.teamDescription}
                       </DetailsDescriptionBody> */}
-                    </div>
-                  ) : (
-                    <div>
-                      <DetailsDescriptionTeamName>
-                        {teamCard?.teamName}
-                      </DetailsDescriptionTeamName>
-                      <Tags>
-                        {teamCard?.tags?.map((tag, index) => (
-                          <Tag key={index}>
-                            <Text>{tag}</Text>
-                          </Tag>
-                        ))}
-                      </Tags>
-                      <DetailsDescriptionBody>
-                        {teamCard?.teamDescription}
-                      </DetailsDescriptionBody>
-                    </div>
-                  )}
-                  <TeamNameEditWrapper>
-                    {teamCardIndex === isEditingIndex ? (
-                      <EditSaveCancelWrapper>
-                        <Button onClick={() => handleClickSave(teamCardIndex)}>
-                          Save
-                        </Button>
-                        <Button onClick={() => handleClickEdit(-1)}>
-                          Cancel
-                        </Button>
-                      </EditSaveCancelWrapper>
-                    ) : (
-                      <Button onClick={() => handleClickEdit(teamCardIndex)}>
-                        Edit
+                  </div>
+                ) : (
+                  <div>
+                    <DetailsDescriptionTeamName>
+                      {teamCard?.teamName}
+                    </DetailsDescriptionTeamName>
+                    <Tags>
+                      {teamCard?.tags?.map((tag) => (
+                        <Chip label={tag} />
+                      ))}
+                    </Tags>
+                    <DetailsDescriptionBody>
+                      {teamCard?.teamDescription}
+                    </DetailsDescriptionBody>
+                  </div>
+                )}
+                <TeamNameEditWrapper>
+                  {teamCardIndex === isEditingIndex ? (
+                    <EditSaveCancelWrapper>
+                      <Button onClick={() => handleClickSave(teamCardIndex)}>
+                        Save
                       </Button>
-                    )}
-                  </TeamNameEditWrapper>
-                </DetailsDescriptionTeamNameWrapper>
-              </DetailsDescription>
-            </Details>
+                      <Button onClick={() => handleClickEdit(-1)}>
+                        Cancel
+                      </Button>
+                    </EditSaveCancelWrapper>
+                  ) : (
+                    <Button onClick={() => handleClickEdit(teamCardIndex)}>
+                      Edit
+                    </Button>
+                  )}
+                </TeamNameEditWrapper>
+              </DetailsDescriptionTeamNameWrapper>
+            </DetailsDescription>
+          </Details>
 
-            <Members isMobile={isMobile}>
-              {teamCard?.members?.map((member, index) => (
-                <Member key={index}>
-                  {/* <Image src={member?.image} /> */}
+          <Members isMobile={isMobile}>
+            {teamCard?.members?.map((member, index) => (
+              <Member key={index}>
+                <Image src={member?.image ?? '/ms-icon-70x70.png'} />
+                {teamCardIndex === isEditingIndex ? (
                   <MemberDescription>
-                    {teamCardIndex === isEditingIndex ? (
-                      <TextField
-                        fullWidth
-                        defaultValue={member?.firstName}
-                        onChange={(e) => {
-                          editTeamCard.members![index].firstName =
-                            e.target.value;
-                          setEditTeamCard({
-                            ...editTeamCard,
-                          });
-                        }}
-                      />
-                    ) : (
-                      <FirstName>{member?.firstName}</FirstName>
-                    )}
-
+                    <TextField
+                      // fullWidth
+                      defaultValue={member?.firstName}
+                      onChange={(e) => {
+                        editTeamCard.members![index].firstName = e.target.value;
+                        setEditTeamCard({
+                          ...editTeamCard,
+                        });
+                      }}
+                    />
+                    <TextField
+                      fullWidth
+                      defaultValue={member?.role}
+                      onChange={(e) => {
+                        editTeamCard.members![index].role = e.target.value;
+                        setEditTeamCard({
+                          ...editTeamCard,
+                        });
+                      }}
+                    />
+                  </MemberDescription>
+                ) : (
+                  <MemberDescription>
+                    <FirstName>{member?.firstName}</FirstName>
                     <Role>{member?.role}</Role>
                   </MemberDescription>
-                </Member>
-              ))}
-            </Members>
-          </div>
-        </div>
+                )}
+              </Member>
+            ))}
+          </Members>
+        </TeamCardStyle>
+        // </div>
       ))}
     </Container>
   );
 };
 
 export default TeamCard;
+
+const TeamCardStyle = styled.div`
+  align-items: center;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  height: 551px;
+  width: 100%;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -265,47 +286,49 @@ const EditDetailsDescriptionBody = styled(TextField)`
   }
 `;
 
-const Text = styled.div`
-  ${InterBoldMirage16px}
-  min-height: 20px;
-  text-align: center;
-  letter-spacing: 0.64px;
-  line-height: 20px;
-  /* white-space: nowrap; */
-`;
+// const Text = styled.div`
+//   ${InterBoldMirage16px}
+//   min-height: 20px;
+//   text-align: center;
+//   letter-spacing: 0.64px;
+//   line-height: 20px;
+//   /* white-space: nowrap; */
+// `;
 
-const Tag = styled.div`
-  height: 44px;
-  display: flex;
-  padding: 0 16px;
-  align-items: center;
-  background-color: var(--gallery);
-  border-radius: 99px;
-  justify-content: center;
-  margin-right: 38px;
-`;
+// const Tag = styled.div`
+//   height: 44px;
+//   display: flex;
+//   padding: 0 16px;
+//   align-items: center;
+//   background-color: var(--gallery);
+//   border-radius: 99px;
+//   justify-content: center;
+//   margin-right: 38px;
+// `;
 
 const Members = styled.div<ResponsiveLayoutProps>`
   display: flex;
+  flex-direction: row;
   align-items: center;
-  padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '')};
+  /* padding: ${({ isMobile }) => (isMobile ? '90px 20px 60px' : '')};
   gap: 30px;
-  flex-wrap: wrap;
+  flex-wrap: wrap;*/
   justify-content: space-evenly;
   width: 100%;
 `;
 
 const Member = styled.div`
-  width: 300px;
+  /* width: 300px; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* width: 100%; */
 `;
 
-// const Image = styled.img`
-//   width: 200px;
-//   height: 201px;
-// `;
+const Image = styled.img`
+  width: 200px;
+  height: 201px;
+`;
 
 const MemberDescription = styled.div`
   ${Poppins22}
@@ -319,21 +342,23 @@ const MemberDescription = styled.div`
 
 const FirstName = styled.div`
   min-height: 30px;
-  margin-bottom: -29px;
+  /* margin-bottom: -29px; */
   font-weight: 400;
-  color: var(--black);
+  /* color: var(--black); */
   text-align: center;
-  line-height: 30px;
+  /* line-height: 30px; */
   /* white-space: nowrap; */
+  background-color: white;
 `;
 
 const Role = styled.div`
   min-height: 30px;
   margin-left: 5px;
-  margin-bottom: -29px;
+  /* margin-bottom: -29px; */
   font-weight: 400;
-  color: var(--black);
+  /* color: var(--black); */
   text-align: center;
-  line-height: 30px;
+  /* line-height: 30px; */
   /* white-space: nowrap; */
+  background-color: white;
 `;
