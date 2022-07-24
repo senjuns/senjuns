@@ -7,7 +7,6 @@ export * from './IconButton';
 export * from './ImageButton';
 export * from './Link';
 export * from './RouteChangeTracker';
-export * from './Slider';
 export * from './Tab';
 export * from './TextInput';
 export * from './Typography';

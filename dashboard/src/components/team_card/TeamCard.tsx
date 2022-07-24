@@ -11,9 +11,8 @@ import {
 import { Button } from '../common';
 import { ScreenSize } from '../../shared/constants';
 import { useState } from 'react';
-import { TextField, Chip } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import IconButton from '@material-ui/core/IconButton';
+import { TextField, Chip } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const TeamCard = () => {
   const [isEditingIndex, setIsEditingIndex] = useState(-1);
@@ -85,15 +84,21 @@ const TeamCard = () => {
                         });
                       }}
                     />
-
-                    <Tags>
-                      {teamCard?.tags?.map((tag) => (
-                        <Chip label={tag} onDelete={() => {}} />
-                      ))}
-                      <IconButton>
-                        <AddIcon />
-                      </IconButton>
-                    </Tags>
+                    <Autocomplete
+                      multiple
+                      id="tags-standard"
+                      options={teamCard?.tags?.map((tag) => tag ?? '') ?? []}
+                      // options={["a", "b", "c"]}
+                      getOptionLabel={(option) => option}
+                      defaultValue={[teamCard?.tags?.[0] ?? '']}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          variant="standard"
+                          placeholder="Category"
+                        />
+                      )}
+                    />
                     <EditDetailsDescriptionBody
                       fullWidth
                       multiline

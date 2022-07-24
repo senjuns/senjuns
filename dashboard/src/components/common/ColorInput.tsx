@@ -1,4 +1,4 @@
-import Popover from '@material-ui/core/Popover';
+import Popover from '@mui/material/Popover';
 import { forwardRef, useState, MouseEvent } from 'react';
 import { ColorResult, SketchPicker } from 'react-color';
 import styled from 'styled-components';
@@ -48,7 +48,7 @@ export const ColorInput = forwardRef<HTMLDivElement, ColorInputProps>(
         </Popover>
       </>
     );
-  }
+  },
 );
 
 ColorInput.displayName = 'ColorInput';

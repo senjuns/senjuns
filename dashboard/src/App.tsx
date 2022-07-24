@@ -5,8 +5,8 @@
 //   InMemoryCache,
 // } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context';
-import Container from '@material-ui/core/Container';
-import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
+import Container from '@mui/material/Container';
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 // import { Amplify } from 'aws-amplify';
 import './App.css';
 
@@ -78,7 +78,7 @@ function App() {
   return (
     // <ApolloProvider client={client}>
     <QueryClientProvider client={queryClient}>
-      <StylesProvider injectFirst>
+      <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <ErrorBoundary>
             <Suspense fallback={<Container>Loading Suspense...</Container>}>
@@ -122,7 +122,7 @@ function App() {
             </Suspense>
           </ErrorBoundary>
         </ThemeProvider>
-      </StylesProvider>
+      </StyledEngineProvider>
     </QueryClientProvider>
   );
 }
