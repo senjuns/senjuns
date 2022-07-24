@@ -162,6 +162,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
       // '@material-ui/lab@^4.0.0-alpha.61',
       // '@material-ui/pickers',
     ],
+    '@fontsource/roboto',
     // 'react-ga@^3.3.0',
     'styled-components',
     'use-debounce',

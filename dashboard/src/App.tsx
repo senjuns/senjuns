@@ -23,6 +23,10 @@ import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 const Login = lazy(() => import('./pages/auth/LoginPage'));

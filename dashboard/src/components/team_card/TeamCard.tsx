@@ -13,6 +13,7 @@ import { ScreenSize } from '../../shared/constants';
 import { useState } from 'react';
 import { TextField, Chip } from '@mui/material';
 import Autocomplete from '@mui/material/Autocomplete';
+import Typography from '@mui/material/Typography';
 
 const TeamCard = () => {
   const [isEditingIndex, setIsEditingIndex] = useState(-1);
@@ -116,17 +117,17 @@ const TeamCard = () => {
                   </div>
                 ) : (
                   <div>
-                    <DetailsDescriptionTeamName>
+                    <Typography variant="h3" gutterBottom component="div">
                       {teamCard?.teamName}
-                    </DetailsDescriptionTeamName>
+                    </Typography>
                     <Tags>
                       {teamCard?.tags?.map((tag) => (
                         <Chip label={tag} />
                       ))}
                     </Tags>
-                    <DetailsDescriptionBody>
+                    <Typography pt={'16px'} variant="body1">
                       {teamCard?.teamDescription}
-                    </DetailsDescriptionBody>
+                    </Typography>
                   </div>
                 )}
                 <TeamNameEditWrapper>
@@ -178,8 +179,8 @@ const TeamCard = () => {
                   </MemberDescription>
                 ) : (
                   <MemberDescription>
-                    <FirstName>{member?.firstName}</FirstName>
-                    <Role>{member?.role}</Role>
+                    <Typography variant="body1">{member?.firstName}</Typography>
+                    <Typography variant="body1">{member?.role}</Typography>
                   </MemberDescription>
                 )}
               </Member>
@@ -252,14 +253,6 @@ const EditSaveCancelWrapper = styled.div`
   justify-content: flex-end;
 `;
 
-const DetailsDescriptionTeamName = styled.h1`
-  ${Poppins26}
-  min-height: 30px;
-  font-weight: 400;
-  line-height: 30px;
-  /* white-space: nowrap; */
-`;
-
 const EditDetailsDescriptionTeamName = styled(TextField)`
   input {
     ${Poppins26}
@@ -275,13 +268,6 @@ const Tags = styled.div`
   align-items: flex-start;
 `;
 
-const DetailsDescriptionBody = styled.div`
-  ${Poppins22}
-  margin-top: 40px;
-  font-weight: 400;
-  line-height: 30px;
-`;
-
 const EditDetailsDescriptionBody = styled(TextField)`
   input {
     ${Poppins22}
@@ -290,26 +276,6 @@ const EditDetailsDescriptionBody = styled(TextField)`
     line-height: 30px;
   }
 `;
-
-// const Text = styled.div`
-//   ${InterBoldMirage16px}
-//   min-height: 20px;
-//   text-align: center;
-//   letter-spacing: 0.64px;
-//   line-height: 20px;
-//   /* white-space: nowrap; */
-// `;
-
-// const Tag = styled.div`
-//   height: 44px;
-//   display: flex;
-//   padding: 0 16px;
-//   align-items: center;
-//   background-color: var(--gallery);
-//   border-radius: 99px;
-//   justify-content: center;
-//   margin-right: 38px;
-// `;
 
 const Members = styled.div<ResponsiveLayoutProps>`
   display: flex;
@@ -343,27 +309,4 @@ const MemberDescription = styled.div`
   padding: 0 72.5px;
   align-items: flex-end;
   justify-content: center;
-`;
-
-const FirstName = styled.div`
-  min-height: 30px;
-  /* margin-bottom: -29px; */
-  font-weight: 400;
-  /* color: var(--black); */
-  text-align: center;
-  /* line-height: 30px; */
-  /* white-space: nowrap; */
-  background-color: white;
-`;
-
-const Role = styled.div`
-  min-height: 30px;
-  margin-left: 5px;
-  /* margin-bottom: -29px; */
-  font-weight: 400;
-  /* color: var(--black); */
-  text-align: center;
-  /* line-height: 30px; */
-  /* white-space: nowrap; */
-  background-color: white;
 `;

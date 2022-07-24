@@ -146,6 +146,10 @@
       "type": "runtime"
     },
     {
+      "name": "@fontsource/roboto",
+      "type": "runtime"
+    },
+    {
       "name": "@mui/icons-material",
       "type": "runtime"
     },
