@@ -2,21 +2,26 @@
 import styled from 'styled-components';
 import { Poppins22, Poppins26 } from '../../shared/fonts';
 // import { useGetLatestPhotoFeedDataBySystemId } from './useListTeamCardData';
+import AddIcon from '@mui/icons-material/Add';
+import { Chip, TextField } from '@mui/material';
+import Autocomplete from '@mui/material/Autocomplete';
+import Button from '@mui/material/Button';
+import Fab from '@mui/material/Fab';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
 import { useScreenSize } from '../../hooks/useScreenSize';
-import { ResponsiveLayoutProps } from '../../shared/types';
 import {
+  useCreateTeamCardMutation,
+  // useDeleteTeamCardMutation,
   useListTeamCardsQuery,
   useUpdateTeamCardMutation,
 } from '../../lib/api';
-import { Button } from '../common';
 import { ScreenSize } from '../../shared/constants';
-import { useState } from 'react';
-import { TextField, Chip } from '@mui/material';
-import Autocomplete from '@mui/material/Autocomplete';
-import Typography from '@mui/material/Typography';
+import { ResponsiveLayoutProps } from '../../shared/types';
 
 const TeamCard = () => {
   const [isEditingIndex, setIsEditingIndex] = useState(-1);
+  const [isAddingTeamCard, setIsAddingTeamCard] = useState(false);
   const [editTeamCard, setEditTeamCard] = useState<{
     teamName?: string;
     teamDescription?: string;
@@ -30,7 +35,9 @@ const TeamCard = () => {
     refetchOnWindowFocus: false,
   });
 
-  const mutation = useUpdateTeamCardMutation();
+  const updateMutation = useUpdateTeamCardMutation();
+  const createMutation = useCreateTeamCardMutation();
+  // const deleteMutation = useDeleteTeamCardMutation();
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -43,26 +50,57 @@ const TeamCard = () => {
         role: member?.role ?? undefined,
       })),
     });
+    setIsAddingTeamCard(false);
   };
 
   const handleClickSave = async (index: number) => {
-    console.log('save ' + JSON.stringify(editTeamCard));
-    await mutation.mutateAsync({
-      input: {
-        id: data?.listTeamCards?.items?.[index]?.id || '-1',
-        teamName: editTeamCard.teamName,
-        teamDescription: editTeamCard.teamDescription,
-        members: editTeamCard.members,
-      },
-    });
+    // console.log('save ' + JSON.stringify(editTeamCard));
+
+    isAddingTeamCard
+      ? await createMutation.mutateAsync({
+          input: {
+            id: data?.listTeamCards?.items?.[index]?.id || '-1',
+            teamName: editTeamCard.teamName ?? '',
+            teamDescription: editTeamCard.teamDescription ?? '',
+            members: editTeamCard.members,
+          },
+        })
+      : await updateMutation.mutateAsync({
+          input: {
+            id: data?.listTeamCards?.items?.[index]?.id || '-1',
+            teamName: editTeamCard.teamName,
+            teamDescription: editTeamCard.teamDescription,
+            members: editTeamCard.members,
+          },
+        });
     setIsEditingIndex(-1);
+    setIsAddingTeamCard(false);
+    refetch();
+  };
+
+  const handleClickDelete = async (_index: number) => {
+    // console.log('save ' + JSON.stringify(editTeamCard));
+
+    // await deleteMutation.mutateAsync({
+    //   input: {
+    //     id: data?.listTeamCards?.items?.[index]?.id || '-1',
+    //   },
+    // });
+
+    setIsEditingIndex(-1);
+    setIsAddingTeamCard(false);
     refetch();
   };
 
   return (
     <Container>
-      {data?.listTeamCards?.items?.map((teamCard, teamCardIndex) => (
-        // <div key={teamCardIndex} className="container-center-horizontal">
+      {(isAddingTeamCard
+        ? [
+            ...(data?.listTeamCards?.items ?? []),
+            { id: 0, teamName: '', teamDescription: '', tags: [], members: [] },
+          ]
+        : data?.listTeamCards?.items
+      )?.map((teamCard, teamCardIndex) => (
         <TeamCardStyle>
           <Details>
             <DetailsDescription>
@@ -133,17 +171,39 @@ const TeamCard = () => {
                 <TeamNameEditWrapper>
                   {teamCardIndex === isEditingIndex ? (
                     <EditSaveCancelWrapper>
-                      <Button onClick={() => handleClickSave(teamCardIndex)}>
+                      <Button
+                        variant="contained"
+                        onClick={() => handleClickSave(teamCardIndex)}
+                      >
                         Save
                       </Button>
-                      <Button onClick={() => handleClickEdit(-1)}>
+                      <Button
+                        variant="contained"
+                        onClick={() => {
+                          handleClickEdit(-1);
+                          setIsAddingTeamCard(false);
+                        }}
+                      >
                         Cancel
                       </Button>
                     </EditSaveCancelWrapper>
                   ) : (
-                    <Button onClick={() => handleClickEdit(teamCardIndex)}>
-                      Edit
-                    </Button>
+                    <div>
+                      <Button
+                        variant="contained"
+                        onClick={() => handleClickEdit(teamCardIndex)}
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        variant="contained"
+                        onClick={() => {
+                          handleClickDelete(teamCardIndex);
+                        }}
+                      >
+                        Delete
+                      </Button>
+                    </div>
                   )}
                 </TeamNameEditWrapper>
               </DetailsDescriptionTeamNameWrapper>
@@ -151,8 +211,11 @@ const TeamCard = () => {
           </Details>
 
           <Members isMobile={isMobile}>
-            {teamCard?.members?.map((member, index) => (
-              <Member key={index}>
+            {(teamCardIndex === isEditingIndex
+              ? editTeamCard.members
+              : teamCard?.members
+            )?.map((member, index) => (
+              <Member key={member?.firstName}>
                 <Image src={member?.image ?? '/ms-icon-70x70.png'} />
                 {teamCardIndex === isEditingIndex ? (
                   <MemberDescription>
@@ -176,6 +239,21 @@ const TeamCard = () => {
                         });
                       }}
                     />
+                    <Button
+                      variant="contained"
+                      onClick={() => {
+                        const newMembers = (editTeamCard.members ?? []).filter(
+                          (item) => item.firstName !== member?.firstName,
+                        );
+                        console.log(`newMembers=${JSON.stringify(newMembers)}`);
+                        setEditTeamCard({
+                          ...editTeamCard,
+                          members: newMembers,
+                        });
+                      }}
+                    >
+                      Remove
+                    </Button>
                   </MemberDescription>
                 ) : (
                   <MemberDescription>
@@ -185,10 +263,45 @@ const TeamCard = () => {
                 )}
               </Member>
             ))}
+            {teamCardIndex === isEditingIndex ? (
+              <Fab
+                color="primary"
+                aria-label="add"
+                onClick={() => {
+                  setEditTeamCard({
+                    ...editTeamCard,
+                    members: [
+                      ...(editTeamCard.members ?? []),
+                      {
+                        firstName: '',
+                        role: '',
+                        image:
+                          'https://i.pravatar.cc/30' +
+                            editTeamCard.members?.length ?? '0',
+                      },
+                    ],
+                  });
+                }}
+              >
+                <AddIcon />
+              </Fab>
+            ) : (
+              ''
+            )}
           </Members>
         </TeamCardStyle>
-        // </div>
       ))}
+      <Fab
+        color="primary"
+        aria-label="add"
+        onClick={() => {
+          setIsAddingTeamCard(true);
+          setEditTeamCard({});
+          setIsEditingIndex(data?.listTeamCards?.items?.length ?? -1);
+        }}
+      >
+        <AddIcon />
+      </Fab>
     </Container>
   );
 };
@@ -205,8 +318,12 @@ const TeamCardStyle = styled.div`
 `;
 
 const Container = styled.div`
+  align-items: center;
+  background-color: var(--white);
   display: flex;
   flex-direction: column;
+  height: 551px;
+  width: 100%;
 
   @media only screen and (min-width: ${ScreenSize.xl}px) {
     padding-right: 32px;
