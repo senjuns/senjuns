@@ -81,7 +81,9 @@ const TeamCard = () => {
   //   `;
 
   const createSampleDataMutation = useMutation(async () => {
-    const result = await fetch('./create-team-card-data.txt');
+    const result = await fetch(
+      'https://github.com/senjuns/senjuns/blob/feat/50_edit_teamcard/dashboard/public/create-team-card-data.graphql',
+    );
     const body = await result.text();
     const mutations = body.split('---');
     // console.log(`result=${body}`);
