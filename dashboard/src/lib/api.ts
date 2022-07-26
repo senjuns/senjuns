@@ -1,7 +1,7 @@
 import {
   useMutation,
-  UseMutationOptions,
   useQuery,
+  UseMutationOptions,
   UseQueryOptions,
 } from '@tanstack/react-query';
 import { amplifyFetcher } from '../lib/fetcher';
@@ -180,6 +180,7 @@ export type TeamCard = {
   createdAt: Scalars['AWSDateTime'];
   id: Scalars['ID'];
   members?: Maybe<Array<Maybe<Member>>>;
+  owner?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   teamDescription: Scalars['String'];
   teamName: Scalars['String'];
@@ -209,6 +210,7 @@ export type CreateTeamCardMutation = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -242,6 +244,7 @@ export type UpdateTeamCardMutation = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -275,6 +278,7 @@ export type DeleteTeamCardMutation = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -308,6 +312,7 @@ export type GetTeamCardQuery = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -348,6 +353,7 @@ export type ListTeamCardsQuery = {
                   tags?: Array<string | null | undefined> | null | undefined;
                   createdAt: any;
                   updatedAt: any;
+                  owner?: string | null | undefined;
                   members?:
                     | Array<
                         | {
@@ -387,6 +393,7 @@ export type OnCreateTeamCardSubscription = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -420,6 +427,7 @@ export type OnUpdateTeamCardSubscription = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -453,6 +461,7 @@ export type OnDeleteTeamCardSubscription = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
@@ -485,6 +494,7 @@ export const CreateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -524,6 +534,7 @@ export const UpdateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -563,6 +574,7 @@ export const DeleteTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -602,6 +614,7 @@ export const GetTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -632,6 +645,7 @@ export const ListTeamCardsDocument = `
       }
       createdAt
       updatedAt
+      owner
     }
     nextToken
   }
@@ -666,6 +680,7 @@ export const OnCreateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -683,6 +698,7 @@ export const OnUpdateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -700,6 +716,7 @@ export const OnDeleteTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;

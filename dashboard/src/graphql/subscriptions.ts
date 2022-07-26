@@ -16,6 +16,7 @@ export const onCreateTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -33,6 +34,7 @@ export const onUpdateTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -50,6 +52,7 @@ export const onDeleteTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;

@@ -16,6 +16,7 @@ export const getTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;
@@ -38,6 +39,7 @@ export const listTeamCards = /* GraphQL */ `
         }
         createdAt
         updatedAt
+        owner
       }
       nextToken
     }

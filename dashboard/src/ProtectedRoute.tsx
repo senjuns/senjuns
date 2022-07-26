@@ -1,19 +1,19 @@
 import { FC } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-import { useAuth } from './contexts';
+import { EAuthStatus, useAuth } from './contexts';
 import { APP_URL } from './shared/constants';
 
 // interface ProtectedRouteProps extends RouteProps {}
 
 export const ProtectedRoute: FC<any> = ({ children, ...rest }) => {
-  const { isLoggedIn } = useAuth();
+  const { authStatus } = useAuth();
 
   return (
     <Route
       {...rest}
       render={(props: any) =>
-        isLoggedIn ? (
+        authStatus !== EAuthStatus.LOGGED_OUT ? (
           children
         ) : (
           <Redirect
