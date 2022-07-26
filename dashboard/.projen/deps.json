@@ -146,15 +146,15 @@
       "type": "runtime"
     },
     {
-      "name": "@fontsource/roboto",
-      "type": "runtime"
-    },
-    {
       "name": "@mui/icons-material",
       "type": "runtime"
     },
     {
       "name": "@mui/material",
+      "type": "runtime"
+    },
+    {
+      "name": "@tanstack/react-query",
       "type": "runtime"
     },
     {
@@ -194,6 +194,10 @@
       "type": "runtime"
     },
     {
+      "name": "material-ui-confirm",
+      "type": "runtime"
+    },
+    {
       "name": "moment",
       "type": "runtime"
     },
@@ -227,10 +231,6 @@
     },
     {
       "name": "react-plotly.js",
-      "type": "runtime"
-    },
-    {
-      "name": "react-query",
       "type": "runtime"
     },
     {

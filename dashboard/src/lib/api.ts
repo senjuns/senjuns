@@ -1,9 +1,9 @@
 import {
   useMutation,
-  useQuery,
   UseMutationOptions,
+  useQuery,
   UseQueryOptions,
-} from 'react-query';
+} from '@tanstack/react-query';
 import { amplifyFetcher } from '../lib/fetcher';
 export type Maybe<T> = T | null | undefined;
 export type InputMaybe<T> = T | null | undefined;

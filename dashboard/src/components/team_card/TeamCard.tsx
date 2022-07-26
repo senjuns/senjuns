@@ -8,14 +8,17 @@ import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import Fab from '@mui/material/Fab';
 import Typography from '@mui/material/Typography';
+import { useMutation } from '@tanstack/react-query';
+import { useConfirm } from 'material-ui-confirm';
 import { useState } from 'react';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import {
   useCreateTeamCardMutation,
-  // useDeleteTeamCardMutation,
+  useDeleteTeamCardMutation,
   useListTeamCardsQuery,
   useUpdateTeamCardMutation,
 } from '../../lib/api';
+import { API } from '../../lib/fetcher';
 import { ScreenSize } from '../../shared/constants';
 import { ResponsiveLayoutProps } from '../../shared/types';
 
@@ -31,13 +34,62 @@ const TeamCard = () => {
   const { isMobile } = useScreenSize();
   // const s = useGetLatestPhotoFeedDataBySystemId({});
 
+  const confirm = useConfirm();
+
   const { data, isLoading, refetch } = useListTeamCardsQuery(undefined, {
     refetchOnWindowFocus: false,
   });
 
   const updateMutation = useUpdateTeamCardMutation();
   const createMutation = useCreateTeamCardMutation();
-  // const deleteMutation = useDeleteTeamCardMutation();
+
+  // const example = `
+  // mutation CreateTeamCardMutation1 {
+  //   createTeamCard(
+  //     input: {
+  //       teamName: "AWS CDK Team"
+  //       teamDescription: "we are a team of ex-FAAN and current FAANg employees with an average of 11 years experience building and scaling products like Instagram an Gmail..."
+  //       tags: ["AWS", "IaC", "DevOps"]
+  //       members: [
+  //         {
+  //           image: "https://i.pravatar.cc/300"
+  //           firstName: "Chris"
+  //           role: "- Senior AWS Cloud Engineer"
+  //         }
+  //         {
+  //           image: "https://i.pravatar.cc/301"
+  //           firstName: "Kache"
+  //           role: "- Junior AWS Cloud Engineer"
+  //         }
+  //       ]
+  //     }
+  //   ) {
+  //     createdAt
+  //     id
+  //     members {
+  //       firstName
+  //       image
+  //       role
+  //     }
+  //     tags
+  //     teamDescription
+  //     teamName
+  //     updatedAt
+  //   }
+
+  // }
+  //   `;
+
+  const createSampleDataMutation = useMutation(async () => {
+    const result = await fetch('./create-team-card-data.txt');
+    const body = await result.text();
+    const mutations = body.split('---');
+    // console.log(`result=${body}`);
+    mutations.map((mutation) => API.getInstance().query(mutation));
+    // return API.getInstance().query(example);
+  });
+
+  const deleteMutation = useDeleteTeamCardMutation();
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -78,7 +130,7 @@ const TeamCard = () => {
     refetch();
   };
 
-  const handleClickDelete = async (_index: number) => {
+  const handleClickDelete = async (index: number) => {
     // console.log('save ' + JSON.stringify(editTeamCard));
 
     // await deleteMutation.mutateAsync({
@@ -87,13 +139,41 @@ const TeamCard = () => {
     //   },
     // });
 
-    setIsEditingIndex(-1);
+    try {
+      await confirm({
+        // confirmationButtonProps: { autoFocus: true },
+        description: `delete ${data?.listTeamCards?.items?.[index]?.teamName}`,
+      });
+    } catch (error) {
+      console.log('cancel');
+      return;
+    }
+
+    await deleteMutation.mutateAsync({
+      input: { id: data?.listTeamCards?.items?.[index]?.id || '-1' },
+    });
+
+    console.log('delete');
     setIsAddingTeamCard(false);
     refetch();
   };
 
   return (
     <Container>
+      <Button
+        variant="contained"
+        onClick={async () => {
+          data?.listTeamCards?.items?.map(async (item) => {
+            await deleteMutation.mutateAsync({
+              input: { id: item?.id ?? '-1' },
+            });
+          });
+          await createSampleDataMutation.mutateAsync();
+          await refetch();
+        }}
+      >
+        Reset
+      </Button>
       {(isAddingTeamCard
         ? [
             ...(data?.listTeamCards?.items ?? []),
@@ -101,7 +181,7 @@ const TeamCard = () => {
           ]
         : data?.listTeamCards?.items
       )?.map((teamCard, teamCardIndex) => (
-        <TeamCardStyle>
+        <TeamCardStyle key={teamCard?.id}>
           <Details>
             <DetailsDescription>
               <DetailsDescriptionTeamNameWrapper>
@@ -160,7 +240,7 @@ const TeamCard = () => {
                     </Typography>
                     <Tags>
                       {teamCard?.tags?.map((tag) => (
-                        <Chip label={tag} />
+                        <Chip key={tag} label={tag} />
                       ))}
                     </Tags>
                     <Typography pt={'16px'} variant="body1">

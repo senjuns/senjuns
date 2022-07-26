@@ -20,13 +20,10 @@ import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 
 // import { ProtectedRoute } from './ProtectedRoute';
 // import config from './shared/config';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ConfirmProvider } from 'material-ui-confirm';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
-import { QueryClient, QueryClientProvider } from 'react-query';
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 const Login = lazy(() => import('./pages/auth/LoginPage'));
@@ -101,7 +98,9 @@ function App() {
                       {/* <ProtectedRoute exact path="/"> */}
                       <MainLayout>
                         {/* <Home /> */}
-                        <TeamCard />
+                        <ConfirmProvider>
+                          <TeamCard />
+                        </ConfirmProvider>
                       </MainLayout>
                       {/* </ProtectedRoute> */}
                       {/* <ProtectedRoute exact path="/room-details/:id">

@@ -147,7 +147,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     'react-hook-form',
     'react-konva',
     'react-plotly.js',
-    'react-query',
+    '@tanstack/react-query',
     'react-responsive',
     'react-router-dom@^5.2.0',
     'react-swipeable',
@@ -162,7 +162,8 @@ const dashboard = new pj.web.ReactTypeScriptProject({
       // '@material-ui/lab@^4.0.0-alpha.61',
       // '@material-ui/pickers',
     ],
-    '@fontsource/roboto',
+    // https://www.npmjs.com/package/material-ui-confirm
+    'material-ui-confirm',
     // 'react-ga@^3.3.0',
     'styled-components',
     'use-debounce',
@@ -193,6 +194,7 @@ const dashboard = new pj.web.ReactTypeScriptProject({
     '@types/styled-components',
     '@types/react-test-renderer',
     '@types/react-responsive',
+    // '@types/react-query',
     'react-test-renderer',
     '@types/react-color',
     '@types/react-plotly.js',
@@ -211,6 +213,11 @@ const dashboard = new pj.web.ReactTypeScriptProject({
       },
     },
   },
+  // tsconfig: {
+  //   compilerOptions: {
+  //     noImplicitAny: true,
+  //   },
+  // },
 });
 
 dashboard.addTask('copy-schema', {
