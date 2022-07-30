@@ -350,6 +350,7 @@ export class DashboardStack extends core.Stack {
       domainName: props.domainName,
       runtimeOptions: {
         jsonPayload: {
+          stage: props.stage,
           region: core.Stack.of(this).region,
           identityPoolId: identityPool.ref,
           userPoolId: userPool.userPoolId,

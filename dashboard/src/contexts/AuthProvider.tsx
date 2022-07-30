@@ -1,8 +1,8 @@
 import { Amplify, Auth } from 'aws-amplify';
 
 import {
-  FC,
   createContext,
+  FC,
   useCallback,
   useContext,
   useEffect,
@@ -10,17 +10,30 @@ import {
   useState,
 } from 'react';
 import { useHistory } from 'react-router-dom';
+import { API } from '../lib/fetcher';
 
 import { APP_URL } from '../shared/constants';
+
+export enum EAuthStatus {
+  LOGGED_IN = 'LOGGED_IN',
+  LOGGED_OUT = 'LOGGED_OUT',
+  UNDETERMINED = 'UNDETERMINED',
+}
 
 /**
  * AuthContext definition
  */
 export interface AuthContextType {
-  /**
-   * Shows whether the user is logged in or not.
-   */
-  isLoggedIn: boolean;
+  /** Shows whether the user is logged in or not. */
+  authStatus: EAuthStatus;
+
+  /** User's first name. */
+  firstName?: string;
+
+  userName?: string;
+
+  stage?: string;
+
   /**
    * Callback to login with email and password.
    */
@@ -40,20 +53,56 @@ export const AuthContext = createContext<AuthContextType>(undefined!);
 export const AuthProvider: FC<any> = ({ children }) => {
   const history = useHistory();
   const [userInfo, setUserInfo] = useState<any>();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [stage, setStage] = useState('non');
+  const [authStatus, setLoggedInStatus] = useState(EAuthStatus.UNDETERMINED);
+
+  const firstName = useMemo(() => {
+    return (
+      userInfo?.attributes?.['given_name'] ||
+      userInfo?.attributes?.['name'] ||
+      userInfo?.firstName
+    );
+  }, [userInfo]);
+
+  const userName = useMemo(() => {
+    return userInfo?.username;
+  }, [userInfo]);
+
+  const authenticateCurrentUser = useCallback(async () => {
+    try {
+      const userInfo = await Auth.currentAuthenticatedUser();
+      setUserInfo(userInfo);
+      setLoggedInStatus(EAuthStatus.LOGGED_IN);
+      API.updateIsSignedIn(true);
+    } catch (error) {
+      setLoggedInStatus(EAuthStatus.LOGGED_OUT);
+      API.updateIsSignedIn(false);
+    }
+  }, []);
 
   const signOut = useCallback(async () => {
     await Auth.signOut();
-    setIsLoggedIn(false);
-    history.push(APP_URL.login);
+    setLoggedInStatus(EAuthStatus.LOGGED_OUT);
+    history.replace(APP_URL.login);
   }, [history]);
 
   const logIn = useCallback(async (email: string, password: string) => {
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    const userInfo = await Auth.signIn(email, password);
-    setUserInfo(userInfo);
-    setIsLoggedIn(true);
+    try {
+      const userInfo = await Auth.signIn(email, password);
+      console.log('userInfo', userInfo);
+      setUserInfo(userInfo);
+      setLoggedInStatus(EAuthStatus.LOGGED_IN);
+      API.updateIsSignedIn(true);
+    } catch (error) {
+      setLoggedInStatus(EAuthStatus.LOGGED_OUT);
+      API.updateIsSignedIn(false);
+      throw error;
+    }
   }, []);
+
+  useEffect(() => {
+    authenticateCurrentUser();
+  }, [authenticateCurrentUser]);
 
   useEffect(() => {
     fetch('/runtime-config.json')
@@ -63,6 +112,7 @@ export const AuthProvider: FC<any> = ({ children }) => {
           runtimeContext.userPoolId &&
           runtimeContext.userPoolWebClientId &&
           runtimeContext.identityPoolId &&
+          runtimeContext.stage &&
           Amplify.configure({
             aws_project_region: runtimeContext.region,
             aws_cognito_identity_pool_id: runtimeContext.identityPoolId,
@@ -71,7 +121,7 @@ export const AuthProvider: FC<any> = ({ children }) => {
             aws_user_pools_web_client_id: runtimeContext.userPoolWebClientId,
             aws_appsync_graphqlEndpoint: runtimeContext.appSyncGraphqlEndpoint,
             aws_appsync_region: runtimeContext.region,
-            aws_appsync_authenticationType: 'AWS_IAM',
+            aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
             Auth: {
               region: runtimeContext.region,
               userPoolId: runtimeContext.userPoolId,
@@ -79,22 +129,27 @@ export const AuthProvider: FC<any> = ({ children }) => {
               identityPoolId: runtimeContext.identityPoolId,
             },
           });
+        setStage(runtimeContext.stage);
         console.log(Amplify);
       })
       .catch((e) => console.log(e));
   }, []);
 
-  const values = useMemo<AuthContextType>(
-    () => ({
-      isLoggedIn,
-      logIn,
-      signOut,
-      userInfo,
-    }),
-    [isLoggedIn, logIn, signOut, userInfo],
+  return (
+    <AuthContext.Provider
+      value={{
+        authStatus,
+        userInfo,
+        userName,
+        firstName,
+        logIn,
+        signOut,
+        stage,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
-
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {

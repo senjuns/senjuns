@@ -1,9 +1,9 @@
 import {
   useMutation,
-  UseMutationOptions,
   useQuery,
+  UseMutationOptions,
   UseQueryOptions,
-} from 'react-query';
+} from '@tanstack/react-query';
 import { amplifyFetcher } from '../lib/fetcher';
 export type Maybe<T> = T | null | undefined;
 export type InputMaybe<T> = T | null | undefined;
@@ -50,15 +50,15 @@ export type DeleteTeamCardInput = {
 
 export type Member = {
   __typename?: 'Member';
-  firstName: Scalars['String'];
-  image: Scalars['String'];
-  role: Scalars['String'];
+  firstName?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  role?: Maybe<Scalars['String']>;
 };
 
 export type MemberInput = {
-  firstName: Scalars['String'];
-  image: Scalars['String'];
-  role: Scalars['String'];
+  firstName?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  role?: InputMaybe<Scalars['String']>;
 };
 
 export type ModelBooleanFilterInput = {
@@ -175,11 +175,24 @@ export type Subscription = {
   onUpdateTeamCard?: Maybe<TeamCard>;
 };
 
+export type SubscriptionOnCreateTeamCardArgs = {
+  owner?: InputMaybe<Scalars['String']>;
+};
+
+export type SubscriptionOnDeleteTeamCardArgs = {
+  owner?: InputMaybe<Scalars['String']>;
+};
+
+export type SubscriptionOnUpdateTeamCardArgs = {
+  owner?: InputMaybe<Scalars['String']>;
+};
+
 export type TeamCard = {
   __typename?: 'TeamCard';
   createdAt: Scalars['AWSDateTime'];
   id: Scalars['ID'];
   members?: Maybe<Array<Maybe<Member>>>;
+  owner?: Maybe<Scalars['String']>;
   tags?: Maybe<Array<Maybe<Scalars['String']>>>;
   teamDescription: Scalars['String'];
   teamName: Scalars['String'];
@@ -209,13 +222,14 @@ export type CreateTeamCardMutation = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -242,13 +256,14 @@ export type UpdateTeamCardMutation = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -275,13 +290,14 @@ export type DeleteTeamCardMutation = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -308,13 +324,14 @@ export type GetTeamCardQuery = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -348,13 +365,14 @@ export type ListTeamCardsQuery = {
                   tags?: Array<string | null | undefined> | null | undefined;
                   createdAt: any;
                   updatedAt: any;
+                  owner?: string | null | undefined;
                   members?:
                     | Array<
                         | {
                             __typename?: 'Member';
-                            image: string;
-                            firstName: string;
-                            role: string;
+                            image?: string | null | undefined;
+                            firstName?: string | null | undefined;
+                            role?: string | null | undefined;
                           }
                         | null
                         | undefined
@@ -373,7 +391,7 @@ export type ListTeamCardsQuery = {
 };
 
 export type OnCreateTeamCardSubscriptionVariables = Exact<{
-  [key: string]: never;
+  owner?: InputMaybe<Scalars['String']>;
 }>;
 
 export type OnCreateTeamCardSubscription = {
@@ -387,13 +405,14 @@ export type OnCreateTeamCardSubscription = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -406,7 +425,7 @@ export type OnCreateTeamCardSubscription = {
 };
 
 export type OnUpdateTeamCardSubscriptionVariables = Exact<{
-  [key: string]: never;
+  owner?: InputMaybe<Scalars['String']>;
 }>;
 
 export type OnUpdateTeamCardSubscription = {
@@ -420,13 +439,14 @@ export type OnUpdateTeamCardSubscription = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -439,7 +459,7 @@ export type OnUpdateTeamCardSubscription = {
 };
 
 export type OnDeleteTeamCardSubscriptionVariables = Exact<{
-  [key: string]: never;
+  owner?: InputMaybe<Scalars['String']>;
 }>;
 
 export type OnDeleteTeamCardSubscription = {
@@ -453,13 +473,14 @@ export type OnDeleteTeamCardSubscription = {
         tags?: Array<string | null | undefined> | null | undefined;
         createdAt: any;
         updatedAt: any;
+        owner?: string | null | undefined;
         members?:
           | Array<
               | {
                   __typename?: 'Member';
-                  image: string;
-                  firstName: string;
-                  role: string;
+                  image?: string | null | undefined;
+                  firstName?: string | null | undefined;
+                  role?: string | null | undefined;
                 }
               | null
               | undefined
@@ -485,6 +506,7 @@ export const CreateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -524,6 +546,7 @@ export const UpdateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -563,6 +586,7 @@ export const DeleteTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -602,6 +626,7 @@ export const GetTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
@@ -632,6 +657,7 @@ export const ListTeamCardsDocument = `
       }
       createdAt
       updatedAt
+      owner
     }
     nextToken
   }
@@ -653,8 +679,8 @@ export const useListTeamCardsQuery = <
     options,
   );
 export const OnCreateTeamCardDocument = `
-    subscription OnCreateTeamCard {
-  onCreateTeamCard {
+    subscription OnCreateTeamCard($owner: String) {
+  onCreateTeamCard(owner: $owner) {
     id
     teamName
     teamDescription
@@ -666,12 +692,13 @@ export const OnCreateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
 export const OnUpdateTeamCardDocument = `
-    subscription OnUpdateTeamCard {
-  onUpdateTeamCard {
+    subscription OnUpdateTeamCard($owner: String) {
+  onUpdateTeamCard(owner: $owner) {
     id
     teamName
     teamDescription
@@ -683,12 +710,13 @@ export const OnUpdateTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;
 export const OnDeleteTeamCardDocument = `
-    subscription OnDeleteTeamCard {
-  onDeleteTeamCard {
+    subscription OnDeleteTeamCard($owner: String) {
+  onDeleteTeamCard(owner: $owner) {
     id
     teamName
     teamDescription
@@ -700,6 +728,7 @@ export const OnDeleteTeamCardDocument = `
     }
     createdAt
     updatedAt
+    owner
   }
 }
     `;

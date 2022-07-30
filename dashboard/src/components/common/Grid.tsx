@@ -1,1 +1,1 @@
-export { Grid } from '@material-ui/core';
+export { Grid } from '@mui/material';

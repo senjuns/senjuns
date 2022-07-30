@@ -138,20 +138,23 @@
       "type": "runtime"
     },
     {
-      "name": "@material-ui/core",
+      "name": "@emotion/react",
       "type": "runtime"
     },
     {
-      "name": "@material-ui/icons",
+      "name": "@emotion/styled",
       "type": "runtime"
     },
     {
-      "name": "@material-ui/lab",
-      "version": "^4.0.0-alpha.61",
+      "name": "@mui/icons-material",
       "type": "runtime"
     },
     {
-      "name": "@material-ui/pickers",
+      "name": "@mui/material",
+      "type": "runtime"
+    },
+    {
+      "name": "@tanstack/react-query",
       "type": "runtime"
     },
     {
@@ -191,6 +194,10 @@
       "type": "runtime"
     },
     {
+      "name": "material-ui-confirm",
+      "type": "runtime"
+    },
+    {
       "name": "moment",
       "type": "runtime"
     },
@@ -224,10 +231,6 @@
     },
     {
       "name": "react-plotly.js",
-      "type": "runtime"
-    },
-    {
-      "name": "react-query",
       "type": "runtime"
     },
     {

@@ -1,5 +1,5 @@
-import Alert from '@material-ui/lab/Alert';
-import AlertTitle from '@material-ui/lab/AlertTitle';
+import Alert from '@mui/material/Alert';
+import AlertTitle from '@mui/material/AlertTitle';
 import { Component, ErrorInfo, ReactNode } from 'react';
 import styled from 'styled-components';
 

@@ -104,10 +104,12 @@ yes | yarn cdk destroy 'senjuns-pipeline'
 
 ## Cognito
 
+Get temporary CLI credentials via AWS SSO.
+
 Create User
 
 ```bash
-REGION=eu-central-1
+# REGION=eu-central-1
 # dev
 STAGE=dev.
 # prod
@@ -115,10 +117,10 @@ STAGE=''
 USER_POOL_ID=$(curl https://dashboard.${STAGE}senjuns.com/runtime-config.json | jq -r '.userPoolId')
 
 USER_NAME=martinmueller@senjuns.com
-USER_PASSWORD=M@rtin1988
+USER_PASSWORD=$(aws secretsmanager get-secret-value --secret-id "cognito/userpassword/$USER_NAME" | jq -r '.SecretString')
 
-aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --user-attributes Name=email,Value=$USER_NAME --region $REGION --output text
-aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --region $REGION --output text
+aws cognito-idp admin-create-user --user-pool-id $USER_POOL_ID --username $USER_NAME --user-attributes Name=email,Value=$USER_NAME --output text
+aws cognito-idp admin-set-user-password --user-pool-id $USER_POOL_ID --username $USER_NAME --password $USER_PASSWORD  --permanent --output text
 ```
 
 ## AppSync

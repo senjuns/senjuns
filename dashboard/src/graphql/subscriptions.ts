@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreateTeamCard = /* GraphQL */ `
-  subscription OnCreateTeamCard {
-    onCreateTeamCard {
+  subscription OnCreateTeamCard($owner: String) {
+    onCreateTeamCard(owner: $owner) {
       id
       teamName
       teamDescription
@@ -16,12 +16,13 @@ export const onCreateTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onUpdateTeamCard = /* GraphQL */ `
-  subscription OnUpdateTeamCard {
-    onUpdateTeamCard {
+  subscription OnUpdateTeamCard($owner: String) {
+    onUpdateTeamCard(owner: $owner) {
       id
       teamName
       teamDescription
@@ -33,12 +34,13 @@ export const onUpdateTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;
 export const onDeleteTeamCard = /* GraphQL */ `
-  subscription OnDeleteTeamCard {
-    onDeleteTeamCard {
+  subscription OnDeleteTeamCard($owner: String) {
+    onDeleteTeamCard(owner: $owner) {
       id
       teamName
       teamDescription
@@ -50,6 +52,7 @@ export const onDeleteTeamCard = /* GraphQL */ `
       }
       createdAt
       updatedAt
+      owner
     }
   }
 `;

@@ -11,7 +11,7 @@ import {
   TextInput,
   Typography,
 } from '../../components/common';
-import { useAuth } from '../../contexts';
+import { EAuthStatus, useAuth } from '../../contexts';
 import { APP_URL, ScreenSize } from '../../shared/constants';
 
 /**
@@ -21,7 +21,7 @@ import { APP_URL, ScreenSize } from '../../shared/constants';
  */
 const LoginPage: React.FC = () => {
   const [error, setError] = useState('');
-  const { isLoggedIn, logIn } = useAuth();
+  const { authStatus, logIn } = useAuth();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const history = useHistory();
@@ -46,10 +46,10 @@ const LoginPage: React.FC = () => {
   });
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (authStatus !== EAuthStatus.LOGGED_OUT) {
       history.push(APP_URL.home);
     }
-  }, [isLoggedIn]);
+  }, [authStatus]);
 
   return (
     <NonAuthLayout>

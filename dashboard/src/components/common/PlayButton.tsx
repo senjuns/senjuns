@@ -1,6 +1,6 @@
-import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
-import PauseIcon from '@material-ui/icons/PauseCircleOutlineOutlined';
-import PlayIcon from '@material-ui/icons/PlayCircleFilledWhiteOutlined';
+import IconButton, { IconButtonProps } from '@mui/material/IconButton';
+import PauseIcon from '@mui/icons-material/PauseCircleOutlineOutlined';
+import PlayIcon from '@mui/icons-material/PlayCircleFilledWhiteOutlined';
 import { FC } from 'react';
 import styled from 'styled-components';
 

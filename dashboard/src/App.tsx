@@ -5,8 +5,8 @@
 //   InMemoryCache,
 // } from '@apollo/client';
 // import { setContext } from '@apollo/client/link/context';
-import Container from '@material-ui/core/Container';
-import { StylesProvider, ThemeProvider } from '@material-ui/core/styles';
+import Container from '@mui/material/Container';
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles';
 // import { Amplify } from 'aws-amplify';
 import './App.css';
 
@@ -20,9 +20,10 @@ import { FeatureFlagsProvider } from './contexts/FeatureFlagsProvider';
 
 // import { ProtectedRoute } from './ProtectedRoute';
 // import config from './shared/config';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ConfirmProvider } from 'material-ui-confirm';
 import { APP_URL } from './shared/constants';
 import theme from './theme';
-import { QueryClient, QueryClientProvider } from 'react-query';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 const Login = lazy(() => import('./pages/auth/LoginPage'));
@@ -78,7 +79,7 @@ function App() {
   return (
     // <ApolloProvider client={client}>
     <QueryClientProvider client={queryClient}>
-      <StylesProvider injectFirst>
+      <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <ErrorBoundary>
             <Suspense fallback={<Container>Loading Suspense...</Container>}>
@@ -97,7 +98,9 @@ function App() {
                       {/* <ProtectedRoute exact path="/"> */}
                       <MainLayout>
                         {/* <Home /> */}
-                        <TeamCard />
+                        <ConfirmProvider>
+                          <TeamCard />
+                        </ConfirmProvider>
                       </MainLayout>
                       {/* </ProtectedRoute> */}
                       {/* <ProtectedRoute exact path="/room-details/:id">
@@ -122,7 +125,7 @@ function App() {
             </Suspense>
           </ErrorBoundary>
         </ThemeProvider>
-      </StylesProvider>
+      </StyledEngineProvider>
     </QueryClientProvider>
   );
 }
