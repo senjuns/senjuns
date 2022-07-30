@@ -175,6 +175,18 @@ export type Subscription = {
   onUpdateTeamCard?: Maybe<TeamCard>;
 };
 
+export type SubscriptionOnCreateTeamCardArgs = {
+  owner?: InputMaybe<Scalars['String']>;
+};
+
+export type SubscriptionOnDeleteTeamCardArgs = {
+  owner?: InputMaybe<Scalars['String']>;
+};
+
+export type SubscriptionOnUpdateTeamCardArgs = {
+  owner?: InputMaybe<Scalars['String']>;
+};
+
 export type TeamCard = {
   __typename?: 'TeamCard';
   createdAt: Scalars['AWSDateTime'];
@@ -379,7 +391,7 @@ export type ListTeamCardsQuery = {
 };
 
 export type OnCreateTeamCardSubscriptionVariables = Exact<{
-  [key: string]: never;
+  owner?: InputMaybe<Scalars['String']>;
 }>;
 
 export type OnCreateTeamCardSubscription = {
@@ -413,7 +425,7 @@ export type OnCreateTeamCardSubscription = {
 };
 
 export type OnUpdateTeamCardSubscriptionVariables = Exact<{
-  [key: string]: never;
+  owner?: InputMaybe<Scalars['String']>;
 }>;
 
 export type OnUpdateTeamCardSubscription = {
@@ -447,7 +459,7 @@ export type OnUpdateTeamCardSubscription = {
 };
 
 export type OnDeleteTeamCardSubscriptionVariables = Exact<{
-  [key: string]: never;
+  owner?: InputMaybe<Scalars['String']>;
 }>;
 
 export type OnDeleteTeamCardSubscription = {
@@ -667,8 +679,8 @@ export const useListTeamCardsQuery = <
     options,
   );
 export const OnCreateTeamCardDocument = `
-    subscription OnCreateTeamCard {
-  onCreateTeamCard {
+    subscription OnCreateTeamCard($owner: String) {
+  onCreateTeamCard(owner: $owner) {
     id
     teamName
     teamDescription
@@ -685,8 +697,8 @@ export const OnCreateTeamCardDocument = `
 }
     `;
 export const OnUpdateTeamCardDocument = `
-    subscription OnUpdateTeamCard {
-  onUpdateTeamCard {
+    subscription OnUpdateTeamCard($owner: String) {
+  onUpdateTeamCard(owner: $owner) {
     id
     teamName
     teamDescription
@@ -703,8 +715,8 @@ export const OnUpdateTeamCardDocument = `
 }
     `;
 export const OnDeleteTeamCardDocument = `
-    subscription OnDeleteTeamCard {
-  onDeleteTeamCard {
+    subscription OnDeleteTeamCard($owner: String) {
+  onDeleteTeamCard(owner: $owner) {
     id
     teamName
     teamDescription

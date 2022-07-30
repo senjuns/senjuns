@@ -10,6 +10,7 @@ import {
   useState,
 } from 'react';
 import { useHistory } from 'react-router-dom';
+import { API } from '../lib/fetcher';
 
 import { APP_URL } from '../shared/constants';
 
@@ -31,6 +32,8 @@ export interface AuthContextType {
 
   userName?: string;
 
+  stage?: string;
+
   /**
    * Callback to login with email and password.
    */
@@ -50,6 +53,7 @@ export const AuthContext = createContext<AuthContextType>(undefined!);
 export const AuthProvider: FC<any> = ({ children }) => {
   const history = useHistory();
   const [userInfo, setUserInfo] = useState<any>();
+  const [stage, setStage] = useState('non');
   const [authStatus, setLoggedInStatus] = useState(EAuthStatus.UNDETERMINED);
 
   const firstName = useMemo(() => {
@@ -69,8 +73,10 @@ export const AuthProvider: FC<any> = ({ children }) => {
       const userInfo = await Auth.currentAuthenticatedUser();
       setUserInfo(userInfo);
       setLoggedInStatus(EAuthStatus.LOGGED_IN);
+      API.updateIsSignedIn(true);
     } catch (error) {
       setLoggedInStatus(EAuthStatus.LOGGED_OUT);
+      API.updateIsSignedIn(false);
     }
   }, []);
 
@@ -86,13 +92,10 @@ export const AuthProvider: FC<any> = ({ children }) => {
       console.log('userInfo', userInfo);
       setUserInfo(userInfo);
       setLoggedInStatus(EAuthStatus.LOGGED_IN);
-      // const token = (await Auth.currentSession()).getIdToken().getJwtToken();
-      // Cookies.set('token', token, {
-      //   domain: 'senjuns.com',
-      //   path: '/',
-      // });
+      API.updateIsSignedIn(true);
     } catch (error) {
       setLoggedInStatus(EAuthStatus.LOGGED_OUT);
+      API.updateIsSignedIn(false);
       throw error;
     }
   }, []);
@@ -109,6 +112,7 @@ export const AuthProvider: FC<any> = ({ children }) => {
           runtimeContext.userPoolId &&
           runtimeContext.userPoolWebClientId &&
           runtimeContext.identityPoolId &&
+          runtimeContext.stage &&
           Amplify.configure({
             aws_project_region: runtimeContext.region,
             aws_cognito_identity_pool_id: runtimeContext.identityPoolId,
@@ -117,7 +121,7 @@ export const AuthProvider: FC<any> = ({ children }) => {
             aws_user_pools_web_client_id: runtimeContext.userPoolWebClientId,
             aws_appsync_graphqlEndpoint: runtimeContext.appSyncGraphqlEndpoint,
             aws_appsync_region: runtimeContext.region,
-            aws_appsync_authenticationType: 'AWS_IAM',
+            aws_appsync_authenticationType: 'AMAZON_COGNITO_USER_POOLS',
             Auth: {
               region: runtimeContext.region,
               userPoolId: runtimeContext.userPoolId,
@@ -125,6 +129,7 @@ export const AuthProvider: FC<any> = ({ children }) => {
               identityPoolId: runtimeContext.identityPoolId,
             },
           });
+        setStage(runtimeContext.stage);
         console.log(Amplify);
       })
       .catch((e) => console.log(e));
@@ -139,6 +144,7 @@ export const AuthProvider: FC<any> = ({ children }) => {
         firstName,
         logIn,
         signOut,
+        stage,
       }}
     >
       {children}

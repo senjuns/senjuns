@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import { useMutation } from '@tanstack/react-query';
 import { useConfirm } from 'material-ui-confirm';
 import { useState } from 'react';
-import { useAuth } from '../../contexts';
+import { EAuthStatus, useAuth } from '../../contexts';
 import { useScreenSize } from '../../hooks/useScreenSize';
 import {
   useCreateTeamCardMutation,
@@ -44,13 +44,17 @@ const TeamCard = () => {
   const updateMutation = useUpdateTeamCardMutation();
   const createMutation = useCreateTeamCardMutation();
 
-  const { userName } = useAuth();
+  const { userName, authStatus, stage } = useAuth();
 
   const createSampleDataMutation = useMutation(async () => {
     const result = await fetch('./create-team-card-data.graphql');
     const body = await result.text();
     const mutations = body.split('---');
     // console.log(`result=${body}`);
+    // teamCardsMock.map(async (teamCard) => {
+    //   await createMutation.mutateAsync({ input: teamCard });
+    // });
+
     mutations.map((mutation) => API.getInstance().query(mutation));
     // return API.getInstance().query(example);
   });
@@ -69,8 +73,12 @@ const TeamCard = () => {
         teamDescription: teamCard?.teamDescription,
         members: teamCard?.members,
         tags: teamCard?.tags,
-        // editAble: index % 2 === 0,
-        editAble: teamCard?.owner === userName,
+        editAble:
+          (stage === 'dev' &&
+            teamCard?.owner === userName &&
+            _index % 2 === 0) ||
+          (stage === 'prod' && teamCard?.owner === userName),
+        // editAble: teamCard?.owner === userName,
       };
     }) ?? [];
 
@@ -131,20 +139,22 @@ const TeamCard = () => {
 
   return (
     <Container>
-      <Button
-        variant="contained"
-        onClick={async () => {
-          teamCards.map(async (item) => {
-            await deleteMutation.mutateAsync({
-              input: { id: item?.id ?? '-1' },
+      {stage === 'dev' && authStatus === EAuthStatus.LOGGED_IN && (
+        <Button
+          variant="contained"
+          onClick={async () => {
+            teamCards.map(async (item) => {
+              await deleteMutation.mutateAsync({
+                input: { id: item?.id ?? '-1' },
+              });
             });
-          });
-          await createSampleDataMutation.mutateAsync();
-          await refetch();
-        }}
-      >
-        Reset
-      </Button>
+            await createSampleDataMutation.mutateAsync();
+            await refetch();
+          }}
+        >
+          Reset
+        </Button>
+      )}
       {(isAddingTeamCard
         ? [
             ...teamCards,
@@ -226,7 +236,7 @@ const TeamCard = () => {
                     </Typography>
                   </div>
                 )}
-                {teamCard.editAble ? (
+                {teamCard.editAble && (
                   <TeamNameEditWrapper>
                     {teamCardIndex === isEditingIndex ? (
                       <EditSaveCancelWrapper>
@@ -265,7 +275,7 @@ const TeamCard = () => {
                       </div>
                     )}
                   </TeamNameEditWrapper>
-                ) : null}
+                )}
               </DetailsDescriptionTeamNameWrapper>
             </DetailsDescription>
           </Details>
@@ -323,7 +333,7 @@ const TeamCard = () => {
                 )}
               </Member>
             ))}
-            {teamCardIndex === isEditingIndex ? (
+            {teamCardIndex === isEditingIndex && (
               <Fab
                 color="primary"
                 aria-label="add"
@@ -345,23 +355,23 @@ const TeamCard = () => {
               >
                 <AddIcon />
               </Fab>
-            ) : (
-              ''
             )}
           </Members>
         </TeamCardStyle>
       ))}
-      <Fab
-        color="primary"
-        aria-label="add"
-        onClick={() => {
-          setIsAddingTeamCard(true);
-          setEditTeamCard({});
-          setIsEditingIndex(teamCards.length ?? -1);
-        }}
-      >
-        <AddIcon />
-      </Fab>
+      {authStatus === EAuthStatus.LOGGED_IN && (
+        <Fab
+          color="primary"
+          aria-label="add"
+          onClick={() => {
+            setIsAddingTeamCard(true);
+            setEditTeamCard({});
+            setIsEditingIndex(teamCards.length ?? -1);
+          }}
+        >
+          <AddIcon />
+        </Fab>
+      )}
     </Container>
   );
 };

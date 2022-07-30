@@ -1,5 +1,5 @@
-import { API as AmplifyAPI, graphqlOperation } from 'aws-amplify';
 import { GraphQLResult, GRAPHQL_AUTH_MODE } from '@aws-amplify/api/lib/types';
+import { API as AmplifyAPI, graphqlOperation } from 'aws-amplify';
 
 let instance: API | undefined = undefined;
 
@@ -51,6 +51,8 @@ export class API {
         : GRAPHQL_AUTH_MODE.AWS_IAM,
       ...graphqlOperation(query, variables),
     };
+
+    // console.log(`operation=${JSON.stringify(operation)}`);
 
     return (await AmplifyAPI.graphql(operation)) as GraphQLResult<any>;
   }

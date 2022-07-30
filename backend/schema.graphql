@@ -6,8 +6,8 @@ type TeamCard
     rules: [
       # { allow: private, provider: iam }
       { allow: owner, provider: userPools }
-      { allow: private, provider: userPools }
-      { allow: public, provider: iam }
+      # { allow: private, provider: userPools }
+      { allow: public, provider: iam, operations: [read] }
     ]
   ) {
   id: ID!
